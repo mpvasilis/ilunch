@@ -1,9 +1,6 @@
 <h2 class="intro-text text-center"><strong>Κατασκευή Ολοκληρωμένου Συστήματος ilunch για τη
                                 Φοιτητική Λέσχη</strong></h2>
                         <hr>
-                        <img class="img-responsive img-left" width="500px" height="500px"
-                             src="http://images.clipartpanda.com/lunch-clipart-lunch-clip-art-clipart-free-clipart.jpg"
-                             alt="">
                         <p>Δημιουργία website για την καλύτερη διαχείριση και παρακολούθηση της φοιτητικής λέσχης. <br>
                             Βασική λειτουργία: Γενική Καταγραφή των ατόμων που έρχονται στη φοιτητική Λέσχη σίτισης του
                             Πανεπιστημίου σε κάποιο γεύμα. Διατήρηση ιστορικού . Δημιουργία γραφημάτων (μήνα,
