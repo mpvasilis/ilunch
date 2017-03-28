@@ -14,6 +14,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function student(){
+       return $this->hasOne('App/Student','id','student_id');
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
