@@ -1,51 +1,46 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
-
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- **[Codecourse](https://www.codecourse.com)**
-- [Fragrantica](https://www.fragrantica.com)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+<h2 class="intro-text text-center"><strong>Κατασκευή Ολοκληρωμένου Συστήματος ilunch για τη
+                                Φοιτητική Λέσχη</strong></h2>
+                        <hr>
+                        <img class="img-responsive img-left" width="500px" height="500px"
+                             src="http://images.clipartpanda.com/lunch-clipart-lunch-clip-art-clipart-free-clipart.jpg"
+                             alt="">
+                        <p>Δημιουργία website για την καλύτερη διαχείριση και παρακολούθηση της φοιτητικής λέσχης. <br>
+                            Βασική λειτουργία: Γενική Καταγραφή των ατόμων που έρχονται στη φοιτητική Λέσχη σίτισης του
+                            Πανεπιστημίου σε κάποιο γεύμα. Διατήρηση ιστορικού . Δημιουργία γραφημάτων (μήνα,
+                            ημέρα,εβδομάδα,γεύμα,πρωινό,απογευματινό,βραδυνό). Εμφάνιση συγκρίσεων περιόδων
+                            (μήνα/εβδομάδα/έτος/παραμετροποιήσιμο). <br>Δυνατότητα για λεπτομερή κατάγραφή των ατόμων με
+                            σάρωση ταυτότητας από Android 4.4 και άνω και εμφάνιση αν δικαιούται δωρεάν σίτιση ή όχι.
+                            <br>Δυνατότητα για δημιουργία καρτών σίτισης ειδικών λειτουργιών (π.χ κάρτα για ΧΧ γεύματα
+                            με ημερομηνία λήξης ΧΧΧΧΧΧ ή κάρτα για περίοδο από ΥΥΥΥΥ έως ΧΧΧΧΧ για 1 πρωινό/1
+                            μεσημεριανό/1 βραδυνό). Οι κάρτες θα μπορούν να εκτυπωθούν από το website (PDF) και θα
+                            φέρουν φωτογραφία κατόχου, πληροφοριακά στοιχεία κάρτας. Θα πρέπει να έχουν διαστάσεις είτε
+                            επαγγελματικής κάρτας ή σαν τις φοιτητικές ταυτότητες. Καταγραφή σε βάση δεδομένων για την
+                            καλύτερη επόπτευση της λειτουργίας από τη διοίκηση.<br> Δυνατότητα για προσθήκη μενού (με
+                            περιοδικότητα, π.χ. κάθε 2η εβδομάδα Δευτέρα....και επίσης διατροφικές πληροφορίες για τα
+                            φαγητά) και αυτόματη εμφάνιση στην πρώτη σελίδα για τη συγκεκριμένη ημέρα. <br>Δυνατότητα
+                            τοποθετήσεων ανώνυμων ή επώνυμων κριτικών για συγκεκριμένα φαγητά. Επίσης δυνατότητα για
+                            προσωρινές ανακοινώσεις στο site, π.χ. "Για τα επόμενα 30 λεπτά δωρεάν η σίτιση στη Λέσχη".
+                            (a) δημιουργία εφαρμογής android, (b) δημιουργία πρωτότυπης κατασκευής με arduino που θα
+                            τοποθετηθεί στη λέσχη και θα έχει 3 ή παραπάνω κουμπιά (χαρούμενο πρόσωπο, στεναχωρημένο
+                            πρόσωπο, ενδιάμεση-κατάσταση) στο ύψος περίπου 1 μέτρου. <br>Όποιος θέλει κατά την έξοδο θα
+                            πατάει το κουμπί που πιστεύει αφορά την ποιότητα του συγκεκριμένου γεύματος, και αυτά θα
+                            αποστέλλονται στο site διαχείρισης είτε θα υπάρχει δυνατότητα ένας διαχειριστής με κινητό
+                            bluetooth να πλησιάσει τη συσκευή και να τα μεταφορτώσει όλα (δηλάδή offline αποθήκευση σε
+                            SD κάρτα στο arduino και μεταφορά σε εφαρμογή android ή οποία θα μπορεί να τα στείλει στο
+                            website. <br>Η κατασκευή θα έχει και μια οθόνη στην οποία θα εμφανίζονται είτε μηνύματα
+                            (π.χ. Η γνώμη σας μετράει , Ευχαριστούμε για τη γνώμη σας...), στατιστικά (π.χ. Σήμερα
+                            καταγράφηκαν 40 γνώμες φοιτητών), ή μηνύματα που θα έχει γράψει ο διαχειριστής είτε στο
+                            website είτε μέσω της εφαρμογής του κινητού τηλεφώνου (αν δεν υπάρχει internet και τ arduino
+                            είναι offline) και όταν πλησιάζει με το κινητό του θα πατάει "Ενημέρωση ανακοινώσεων και θα
+                            στέλνονται τα νέα μηνύματα" μέσω bluetooth. Τα υλικά θα αγοραστούν από το διδάσκοντα, αλλά
+                            θα πρέπει να έχει γίνει έρευνα χαμηλού κόστους. <br>Για την επικοινωνία
+                            android-website-arduino θα απαιτηθεί η λειτουργία ενός webservice API. H κατασκευή θα πρέπει
+                            να είναι σταθερή και επαγγελματική χωρίς να φαίνονται καλώδια breadboard κτλ. Επίσης το
+                            website και η android εφαρμογή θα πρέπει να είναι φιλικές προς τους χρήστες (ιδιαίτερα τους
+                            άσχετους με θέματα πληροφορικής) και σχεδιαστικά ελκυστικές. <br>Το website θα έχει τους
+                            ρόλους: διαχειριστής (όλα ότι κάνουν οι άλλοι, προσθήκη διαγαφή χρηστών και κατηγοριών),
+                            φοιτητική μέριμνα (επεξεργασία λίστας δωρεάν φοίτησης,ανακοινώσεων, προβολή feedback),
+                            προσωπικό λέσχης (έκδοση καρτών, επεξεργασία λίστας δωρεάν φοίτησης, ανακοινώσεων, μενου,
+                            android σάρωση, προβολή feedback), φοιτητής (σύνδεση με SSO, προβολή στοιχείων που τον αφορά
+                            αν έχει κάρτα π.χ. ή πόσες φορές πήγε στη λέσχη), ανώνυμος (προβολή μενού και ανακοινώσεων).
+                        </p>

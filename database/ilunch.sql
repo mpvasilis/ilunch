@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2017 at 11:29 PM
+-- Generation Time: Mar 28, 2017 at 09:53 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -226,10 +226,18 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` enum('ADMINISTRATOR','STAFF','STUDENT_CARE') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role` enum('ADMINISTRATOR','STAFF','STUDENT_CARE','STUDENT') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `role`, `student_id`, `created_at`, `updated_at`) VALUES
+(1, 'Sarantis', 'i@sarantis.pw', '$2y$10$AF1p0HaulDq.nFLJ0Q2Oc.P5oJfEvz2VqOEu4I69DUl2/ms1wp8/G', 'dfYytInmpY67ZryjLR3ehEeRgC2Jkx7CBlHXrFmKPcBNCRGjhLSYzxv2vuwv', 'ADMINISTRATOR', 1069, '2017-03-28 01:49:24', '2017-03-28 01:49:24');
 
 --
 -- Indexes for dumped tables
@@ -330,7 +338,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
