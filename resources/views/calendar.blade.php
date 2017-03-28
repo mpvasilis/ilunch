@@ -2,6 +2,7 @@
 @section('title')
     Menu Schedule
 @endsection
+
 @section('head')
     <!-- CSS -->
     <link href="//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.css" rel="stylesheet"/>
