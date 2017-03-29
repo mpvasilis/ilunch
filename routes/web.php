@@ -38,4 +38,10 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 });
 
 //admin
-Route::get('/admin', 'DashboardController@index')->middleware('is_admin')->name('admin');
+//Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin');
+Route::get('/admin/meals', function () {
+    return view('admin.meals');
+})->name('admin_meals');
