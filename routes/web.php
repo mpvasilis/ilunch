@@ -45,3 +45,12 @@ Route::get('/admin', function () {
 Route::get('/admin/meals', function () {
     return view('admin.meals');
 })->name('admin_meals');
+Route::get('/admin/anmouncments', function () {
+    return view('admin.announcments');
+})->name('admin_announcments');
+Route::get('/admin/statistics', function () {
+    return view('admin.statistics');
+})->name('admin_statistics');
+Route::get('/admin/feedback', function () {
+    return view('admin.feedback');
+})->name('admin_feedback');
