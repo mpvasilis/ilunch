@@ -47,6 +47,6 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 Route::get('/admin', 'DashboardController@home')->name('admin');
 Route::get('/admin/meals', 'DashboardController@meals')->name('admin_meals');
 Route::get('/admin/announcments', 'DashboardController@announcments')->name('admin_announcments');
-Route::get('/admin/statistics', 'DashboardController@statistics')->name('admin_statistics');
+Route::get('/admin/statistics', 'StatsController@statistics')->name('admin_statistics');
 Route::get('/admin/feedback', 'DashboardController@feedback')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')
