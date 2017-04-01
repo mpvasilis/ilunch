@@ -5,9 +5,9 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-lg-12 ">
-
-                    <h2 class="intro-text text-center title-front">Επικοινωνία</h2>
-
+                    <hr>
+                    <h2 class="intro-text text-center ">Επικοινωνία</h2>
+                    <hr>
                     <form class="form-horizontal">
                         <fieldset>
                             <!-- Text input-->
