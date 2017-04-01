@@ -22,9 +22,7 @@ Route::get('/about', function () {
 Route::get('/schedule', function () {
     return view('calendar');
 });
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactControler@create')->name('contact');
 Route::get('/news', function () {
     return view('news');
 });
