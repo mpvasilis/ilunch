@@ -28,6 +28,12 @@ Route::get('/contact', function () {
 Route::get('/news', function () {
     return view('news');
 });
+Route::get('/news', function () {
+    return view('news');
+});
+Route::get('/feedback', function () {
+    return view('feedback');
+});
 Route::get('/home', 'HomeController@index');
 
 //students profile
