@@ -38,19 +38,9 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 });
 
 //admin
+Route::get('/admin', 'DashboardController@home')->name('admin');
+Route::get('/admin/meals', 'DashboardController@meals')->name('admin_meals');
+Route::get('/admin/announcments', 'DashboardController@announcments')->name('admin_announcments');
+Route::get('/admin/statistics', 'DashboardController@statistics')->name('admin_statistics');
+Route::get('/admin/feedback', 'DashboardController@feedback')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('admin');
-Route::get('/admin/meals', function () {
-    return view('admin.meals');
-})->name('admin_meals');
-Route::get('/admin/anmouncments', function () {
-    return view('admin.announcments');
-})->name('admin_announcments');
-Route::get('/admin/statistics', function () {
-    return view('admin.statistics');
-})->name('admin_statistics');
-Route::get('/admin/feedback', function () {
-    return view('admin.feedback');
-})->name('admin_feedback');
