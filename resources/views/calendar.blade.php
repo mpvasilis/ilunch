@@ -104,7 +104,9 @@
             ],
                 eventClick: function (event) {
                     if (event.id) {
-                        var time= event.start.getHours() + event.start.getMinutes() + " - " + event.end.getHours() + event.end.getMinutes();
+                        var startmin =  event.start.getMinutes() < 10 ? '0' + event.start.getMinutes() : event.start.getMinutes();
+                        var endmin =  event.end.getMinutes() < 10 ? '0' + event.end.getMinutes() : event.end.getMinutes();
+                        var time= event.start.getHours() + ":" + startmin + " - " + event.end.getHours() + ":" + endmin;
                         $('#title').text(event.title);
                         $('#duration').text(time);
 

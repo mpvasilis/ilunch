@@ -42,6 +42,9 @@
                     <li {{ (Request::is('schedule')) ? 'class=active':''}}>
                         <a href="/schedule">SCHEDULE</a>
                     </li>
+                    <li {{ (Request::is('feedback')) ? 'class=active':''}}>
+                        <a href="/feedback">FEEDBACK</a>
+                    </li>
                     <li {{ (Request::is('contact')) ? 'class=active':''}}>
                         <a href="/contact">CONTACT</a>
                     </li>
