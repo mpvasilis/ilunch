@@ -4,10 +4,10 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <hr>
-                    <h2 class="intro-text text-center">Contact Us</h2>
-                    <hr>
+                <div class="col-lg-12 ">
+
+                    <h2 class="intro-text text-center title-front">Επικοινωνία</h2>
+
                     <form class="form-horizontal">
                         <fieldset>
                             <!-- Text input-->
