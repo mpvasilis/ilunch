@@ -13,9 +13,7 @@
 Auth::routes();
 
 //home
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index')->name('home');
 Route::get('/about', function () {
     return view('about');
 });
@@ -27,9 +25,7 @@ Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/news', function () {
     return view('news');
 });
-Route::get('/news', function () {
-    return view('news');
-});
+Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/feedback', 'feedbackController@create')->name('feedback');
 Route::post('/feedback', 'feedbackController@store')->name('feedback_store ');
 Route::get('/home', 'HomeController@index');

@@ -10,9 +10,9 @@
               <div class="row">
                 <div class="col-lg-12">
 
-                  <div class="alert alert-success alert-dismissible" role="alert">
+                  <div class="alert alert-{{$announcement->type}} alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h3 style="text-align:center">Μέχρι τις 18.00 το φαγητό θα είναι δωρεάν</h3>
+                    <h3 style="text-align:center">{{$announcement->title}}</h3>
                   </div>
                     <hr>
                     <h2 class="intro-text text-center"><strong> homepage </strong></h2>
@@ -25,11 +25,10 @@
                       <div class="panel-heading">Πρωινό</div>
                         <div class="panel-body">
                             <ul class="list-group">
-                                <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">Cras justo odio</li></a>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Morbi leo risus</li>
-                                <li class="list-group-item">Porta ac consectetur ac</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+
+                                @foreach($menuprwino as $prwino)
+                                    <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">{{$prwino->title}}</li></a>
+                                @endforeach
                             </ul>
 
 
@@ -41,11 +40,9 @@
                       <div class="panel-heading">Μεσημεριανό</div>
                         <div class="panel-body">
                             <ul class="list-group">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Morbi leo risus</li>
-                                <li class="list-group-item">Porta ac consectetur ac</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                @foreach($menumeshmeriano as $meshmeriano)
+                                    <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">{{$meshmeriano->title}}</li></a>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -55,11 +52,9 @@
                       <div class="panel-heading">Βραδινό</div>
                         <div class="panel-body">
                             <ul class="list-group">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Morbi leo risus</li>
-                                <li class="list-group-item">Porta ac consectetur ac</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                @foreach($menuvradino as $vradino)
+                                    <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">{{$vradino->title}}</li></a>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
