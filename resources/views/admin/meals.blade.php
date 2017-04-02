@@ -1,10 +1,10 @@
 @extends('admin.layouts.template')
 @section('title')
-    Αρχική
+    Γεύματα
 @endsection
 
 @section('main')
-    <h3 class="heading_b uk-margin-bottom">Blank Page</h3>
+    <h3 class="heading_b uk-margin-bottom">Γεύματα</h3>
 
     <div class="md-card">
         <div class="md-card-content">

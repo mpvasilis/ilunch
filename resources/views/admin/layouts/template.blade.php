@@ -280,13 +280,31 @@
             <li {{ (Request::is('admin')) ? 'class=current_section':''}} title="Dashboard">
                 <a href="{{route('admin')}}">
                     <span class="menu_icon"><i class="material-icons">&#xE871;</i></span>
-                    <span class="menu_title">Dashboard</span>
+                    <span class="menu_title">Αρχική</span>
                 </a>
             </li>
             <li {{ (Request::is('admin/meals')) ? 'class=current_section':''}} title="Meals">
                 <a href="{{route('admin_meals')}}">
                     <span class="menu_icon"><i class="material-icons">restaurant_menu</i></span>
-                    <span class="menu_title">Meals</span>
+                    <span class="menu_title">Γεύματα</span>
+                </a>
+            </li>
+            <li {{ (Request::is('admin/announcments')) ? 'class=current_section':''}} title="Announcments">
+                <a href="{{route('admin_announcments')}}">
+                    <span class="menu_icon"><i class="material-icons">chrome_reader_mode</i></span>
+                    <span class="menu_title">Ανακοινώσεις</span>
+                </a>
+            </li>
+            <li {{ (Request::is('admin/statistics')) ? 'class=current_section':''}} title="Statistics">
+                <a href="{{route('admin_statistics')}}">
+                    <span class="menu_icon"><i class="material-icons">insert_chart</i></span>
+                    <span class="menu_title">Στατιστικά</span>
+                </a>
+            </li>
+            <li {{ (Request::is('admin/feedback')) ? 'class=current_section':''}} title="Feedback">
+                <a href="{{route('admin_feedback')}}">
+                    <span class="menu_icon"><i class="material-icons">feedback</i></span>
+                    <span class="menu_title">Κριτικές</span>
                 </a>
             </li>
         </ul>

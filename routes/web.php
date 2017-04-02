@@ -13,21 +13,21 @@
 Auth::routes();
 
 //home
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index')->name('home');
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/schedule', function () {
     return view('calendar');
 });
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactController@create')->name('contact');
+Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/news', function () {
     return view('news');
 });
+Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/feedback', 'feedbackController@create')->name('feedback');
+Route::post('/feedback', 'feedbackController@store')->name('feedback_store ');
 Route::get('/home', 'HomeController@index');
 
 //students profile
@@ -38,10 +38,9 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 });
 
 //admin
+Route::get('/admin', 'DashboardController@home')->name('admin');
+Route::get('/admin/meals', 'DashboardController@meals')->name('admin_meals');
+Route::get('/admin/announcments', 'DashboardController@announcments')->name('admin_announcments');
+Route::get('/admin/statistics', 'DashboardController@statistics')->name('admin_statistics');
+Route::get('/admin/feedback', 'DashboardController@feedback')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('admin');
-Route::get('/admin/meals', function () {
-    return view('admin.meals');
-})->name('admin_meals');
