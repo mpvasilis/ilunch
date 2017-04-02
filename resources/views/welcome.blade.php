@@ -26,7 +26,7 @@
                             <ul class="list-group">
 
                                 @foreach($menuprwino as $prwino)
-                                    <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">{{$prwino->title}}</li></a>
+                                    <a data-toggle="modal" data-target="#myModal" class="openmodal" data-title="{{$prwino->title}}"  data-details="{{$prwino->info}}"><li class="list-group-item">{{$prwino->title}}</li></a>
                                 @endforeach
                             </ul>
 
@@ -40,7 +40,8 @@
                         <div class="panel-body">
                             <ul class="list-group">
                                 @foreach($menumeshmeriano as $meshmeriano)
-                                    <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">{{$meshmeriano->title}}</li></a>
+
+                                    <a data-toggle="modal" data-target="#myModal"  class="openmodal" data-title="{{$meshmeriano->title}}"  data-details="{{$meshmeriano->info}}"><li class="list-group-item">{{$meshmeriano->title}}</li></a>
                                 @endforeach
                             </ul>
                         </div>
@@ -52,7 +53,7 @@
                         <div class="panel-body">
                             <ul class="list-group">
                                 @foreach($menuvradino as $vradino)
-                                    <a data-toggle="modal" data-target="#myModal" ><li class="list-group-item">{{$vradino->title}}</li></a>
+                                    <a data-toggle="modal" data-target="#myModal" class="openmodal" data-title="{{$vradino->title}}"  data-details="{{$vradino->info}}"><li class="list-group-item">{{$vradino->title}}</li></a>
                                 @endforeach
                             </ul>
                         </div>
@@ -63,7 +64,7 @@
         </div>
     </div>
 
-    <div id="myModal" class="modal " tabindex="-1" role="dialog">
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,7 +74,7 @@
                 <div class="modal-body">
                     <p  id="duration"></p>
 
-                    <p  id="details">One fine body&hellip;</p>
+                    <p  id="details"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -83,4 +84,16 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
+@endsection
+@section('scripts')
+    <script >
+    $(document).on("click", ".openmodal", function () {
+
+    var title= $(this).data('title');
+    var details= $(this).data('details');
+    $('.modal-header #title').text(title);
+    $('.modal-body #details').text(details);
+
+    });
+    </script>
 @endsection
