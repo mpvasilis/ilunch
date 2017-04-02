@@ -14,12 +14,11 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h3 style="text-align:center">{{$announcement->title}}</h3>
                   </div>
-                    <hr>
-                    <h2 class="intro-text text-center"><strong> homepage </strong></h2>
-                    <hr>
+
                 </div>
               </div>
               <div class="row">
+                  <h1 style="text-align: center;">{{ date('l Y-m-d') }}</h1>
                   <div class="col-lg-4">
                     <div class="panel panel-primary">
                       <div class="panel-heading">Πρωινό</div>

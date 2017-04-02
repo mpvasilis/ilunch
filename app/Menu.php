@@ -17,7 +17,11 @@ class Menu extends Model
     public function scopeDinner($query){
         return $query->where('menu_assigns.id','=',3);
     }
-    public function scopesFood($query){
+    public function scopeFood($query){
         return $query->join('menu_assigns','menu_assigns.menu_id','=','menus.id')->join('menu_meals','menu_meals.id','=','menu_assigns.meal_id');
+    }
+    public function scopeDay($query,$day){
+
+        return $query->where('menus.day','=',$day);
     }
 }
