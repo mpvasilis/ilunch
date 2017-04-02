@@ -22,16 +22,16 @@ Route::get('/about', function () {
 Route::get('/schedule', function () {
     return view('calendar');
 });
-Route::get('/contact', 'ContactControler@create')->name('contact');
+Route::get('/contact', 'ContactController@create')->name('contact');
+Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/news', function () {
     return view('news');
 });
 Route::get('/news', function () {
     return view('news');
 });
-Route::get('/feedback', function () {
-    return view('feedback');
-});
+Route::get('/feedback', 'feedbackController@create')->name('feedback');
+Route::post('/feedback', 'feedbackController@store')->name('feedback_store ');
 Route::get('/home', 'HomeController@index');
 
 //students profile
