@@ -13,27 +13,21 @@
 Auth::routes();
 
 //home
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index')->name('home');
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/schedule', function () {
     return view('calendar');
 });
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactController@create')->name('contact');
+Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/news', function () {
     return view('news');
 });
-Route::get('/news', function () {
-    return view('news');
-});
-Route::get('/feedback', function () {
-    return view('feedback');
-});
+Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/feedback', 'feedbackController@create')->name('feedback');
+Route::post('/feedback', 'feedbackController@store')->name('feedback_store ');
 Route::get('/home', 'HomeController@index');
 
 //students profile

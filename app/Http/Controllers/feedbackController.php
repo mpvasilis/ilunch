@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Kris\LaravelFormBuilder\FormBuilder;
+use App\feedback;
+
+class feedbackController extends Controller
+{
+    public function create(FormBuilder $formBuilder)
+    {
+        $form = $formBuilder->create(\App\Forms\feedback_guest_form::class, [
+            'method' => 'POST',
+            'url' => route('feedback')
+        ]);
+
+        return view('feedback', compact('form'));
+    }
+
+    public function store(Request $request,FormBuilder $formBuilder,feedback $feedback)
+    {
+        $name = $request->get('name');
+        $comment = $request->get('comment');
+        $form = $formBuilder->create(\App\Forms\feedback_guest_form::class);
+
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        }
+
+        $newFeedback= new feedback;
+        $newFeedback->comment=$comment;
+        $newFeedback->student_id=$name;
+        $newFeedback->save();
+
+        return view('feedback',compact('form'));
+
+
+
+    }
+}
