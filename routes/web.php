@@ -13,10 +13,15 @@
 Auth::routes();
 
 //home
-Route::get('/', 'WelcomeController@index')->name('home');
+//Route::get('/', 'WelcomeController@index')->name('home');
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/', function () {
+    return view('front.index');
+});
+
 Route::get('/schedule', function () {
     return view('calendar');
 });
