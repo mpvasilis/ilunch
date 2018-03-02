@@ -31,7 +31,7 @@ Route::get('/news', function () {
 });
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/feedback', 'feedbackController@create')->name('feedback');
-Route::post('/feedback', 'feedbackController@store')->name('feedback_store ');
+Route::post('/feedback', 'feedbackController@store')->name('feedback_store');
 Route::get('/home', 'HomeController@index');
 
 //students profile

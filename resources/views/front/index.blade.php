@@ -728,26 +728,7 @@
                                 <div class="single">
                                     <h3 class="title">Contact</h3>
                                     <p>345 Park Ave, San Jose, CA 95110, United States</p>
-                                    <p><a class="__cf_email__" href="http://httpcoder.com/cdn-cgi/l/email-protection"
-                                          data-cfemail="6e070008012e17011b1c0a01030f0700400d0103">[email&#160;protected]</a>
-                                        <script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */
-                                            !function (t, e, r, n, c, a, p) {
-                                                try {
-                                                    t = document.currentScript || function () {
-                                                        for (t = document.getElementsByTagName('script'), e = t.length; e--;) if (t[e].getAttribute('data-cfhash')) return t[e]
-                                                    }();
-                                                    if (t && (c = t.previousSibling)) {
-                                                        p = t.parentNode;
-                                                        if (a = c.getAttribute('data-cfemail')) {
-                                                            for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2) e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
-                                                            p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
-                                                        }
-                                                        p.removeChild(t)
-                                                    }
-                                                } catch (u) {
-                                                }
-                                            }()
-                                            /* ]]> */</script>
+                                    <p><a href="mailto:">admin(at)oneup(dot)group</a>
                                     </p>
                                 </div>
                             </div> <!--//.col-->
