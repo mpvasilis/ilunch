@@ -12,12 +12,11 @@
 */
 Auth::routes();
 
-//home
 //Route::get('/', 'WelcomeController@index')->name('home');
 Route::get('/about', function () {
     return view('about');
 });
-
+Route::get('language/{lang}', 'HomeController@language')->where('lang', '[A-Za-z_-]+');
 Route::get('/', function () {
     return view('front.index');
 });

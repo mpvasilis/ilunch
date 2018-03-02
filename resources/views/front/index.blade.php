@@ -1,241 +1,136 @@
 <!doctype html>
-
 <html class="no-js" lang="en">
-
 <head>
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <!-- The above 3 meta tags *must* come first in the head -->
-
-
-
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <!-- SITE TITLE -->
-
     <title>{{ trans('front/site.title') }} | {{ trans('front/site.description') }}</title>
-
-    <meta name="description" content="{{ trans('front/site.description') }}" />
-
-
+    <meta name="description" content="{{ trans('front/site.description') }}"/>
 
     <!--  FAVICON AND TOUCH ICONS -->
-
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />  <!-- this icon shows in browser toolbar -->
-
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" /> <!-- this icon shows in browser toolbar -->
-
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/favicon/android-icon-192x192.png">
-
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <!-- this icon shows in browser toolbar -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
-
     <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
-
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
-
     <link rel="manifest" href="assets/img/favicon/manifest.json">
 
-
-
     <!-- BOOTSTRAP CSS -->
-
-    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css" media="all" />
-
-
-
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css" media="all"/>
     <!-- FONT AWESOME -->
-
-    <link rel="stylesheet" href="assets/libs/fontawesome/css/font-awesome.min.css" media="all" />
-
-
-
-
-
+    <link rel="stylesheet" href="assets/libs/fontawesome/css/font-awesome.min.css" media="all"/>
     <!-- GOOGLE FONT -->
-
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
-
-
-
-
-
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
     <!-- OWL CAROUSEL CSS -->
-
-    <link rel="stylesheet" href="assets/libs/owlcarousel/owl.carousel.min.css" media="all" />
-
-    <link rel="stylesheet" href="assets/libs/owlcarousel/owl.theme.default.min.css" media="all" />
-
-
-
+    <link rel="stylesheet" href="assets/libs/owlcarousel/owl.carousel.min.css" media="all"/>
+    <link rel="stylesheet" href="assets/libs/owlcarousel/owl.theme.default.min.css" media="all"/>
     <!-- bootstrap datepicker -->
-
     <link rel="stylesheet" href="assets/libs/datepicker/bootstrap-datetimepicker.min.css" media="all"/>
-
-
-
     <!-- MASTER  STYLESHEET  -->
-
-    <link id="csi-master-style" rel="stylesheet" href="assets/css/style-default.min.css" media="all" />
-
-
-
+    <link id="csi-master-style" rel="stylesheet" href="assets/css/style-default.min.css" media="all"/>
     <!-- MODERNIZER CSS  -->
-
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-
-
-
 </head>
 
 <body class="home">
-
-
-
 <!--[if lt IE 8]>
 
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
-
-
-
 <div class="csi-container ">
-
-    <!-- ***  ADD YOUR SITE CONTENT HERE *** -->
-
-
-
     <!--HEADER-->
-
     <header>
-
         <div id="csi-header" class="csi-header csi-banner-header">
-
             <div class="header-top">
-
                 <div class="header-top-inner">
-
                     <div class="container">
-
                         <div class="row">
-
                             <div class="col-sm-6">
-
                                 <div class="contact">
-
                                     <ul class="list-inline">
-
                                         <li><i class="fa fa-bullhorn" aria-hidden="true"></i>
-Καμία ανακοινωση!</li>
-
+                                            Καμία ανακοινωση!
+                                        </li>
                                     </ul>
-
                                 </div>
-
                             </div>
-
                             <div class="col-sm-6">
-
                                 <div class="right-menu">
-
                                     <ul class="list-inline">
-
                                     </ul>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
-            </div> <!--//.header-top-->
+            </div>
 
             <div class="csi-header-bottom">
-
                 <div class="container">
-
                     <div class="row">
-
                         <div class="col-xs-12">
-
                             <nav class="navbar navbar-default csi-navbar">
-
                                 <div class="container">
-
                                     <nav class="navbar navbar-default csi-navbar">
-
                                         <div class="csicontainer">
-
                                             <div class="navbar-header">
-
                                                 <button type="button" class="navbar-toggle" data-toggle="collapse"
-
                                                         data-target=".navbar-collapse">
-
                                                     <span class="sr-only">Μενού</span>
-
                                                     <span class="icon-bar"></span>
-
                                                     <span class="icon-bar"></span>
-
                                                     <span class="icon-bar"></span>
-
                                                 </button>
-
                                                 <div class="csi-logo">
-
                                                     <a href="index">
-
-                                                       <h3  style="font-family: Cookie,cursive; font-size: 5rem; font-weight: 400; margin: 15; color: #fff;">ilunch</h3>
-
+                                                        <h3 style="font-family: Cookie,cursive; font-size: 5rem; font-weight: 400; margin: 15; color: #fff;">
+                                                            ilunch</h3>
                                                     </a>
-
                                                 </div>
-
                                             </div>
-
                                             <div class="collapse navbar-collapse">
-
                                                 <ul class="nav navbar-nav csi-nav">
-
-                                                   <li><a href="index">Αρχικη</a></li>
-
-
-
+                                                    <li><a href="index">Αρχικη</a></li>
                                                     <li><a class="csi-scroll" href="#csi-about">Σχετικα</a></li>
-
                                                     <li><a class="csi-scroll" href="#csi-menu">Μενου</a></li>
-
-													<li><a class="csi-scroll" href="news-list.html">Ανακοινωσεις</a></li>
-
-
+                                                    <li><a class="csi-scroll" href="news-list.html">Ανακοινωσεις</a>
+                                                    </li>
                                                     <li><a class="csi-scroll" href="contact.html">Feedback</a></li>
-
                                                     <li><a class="csi-scroll" href="contact.html">Επικοιωνωνια</a></li>
 
-           	<li class="dropdown"  style="margin:-5px;">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="32" height="32" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" /> <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							@foreach ( config('app.languages') as $user)
-								@if($user !== config('app.locale'))
-									<li><a href="{!! url('language') !!}/{{ $user }}"><img width="32" height="32" alt="{{ $user }}" src="{!! asset('img/' . $user . '-flag.png') !!}"></a></li>
-								@endif
-							@endforeach
-							</ul>
-						</li>
+                                                    <li class="dropdown" style="margin:-5px;">
+                                                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img
+                                                                    width="32" height="32" alt="{{ session('locale') }}"
+                                                                    src="{!! asset('img/' . session('locale') . '-flag.png') !!}"/>
+                                                            <b class="caret"></b></a>
+                                                        <ul class="dropdown-menu">
+                                                            @foreach ( config('app.languages') as $user)
+                                                                @if($user !== config('app.locale'))
+                                                                    <li>
+                                                                        <a href="{!! url('language') !!}/{{ $user }}"><img
+                                                                                    width="32" height="32"
+                                                                                    alt="{{ $user }}"
+                                                                                    src="{!! asset('img/' . $user . '-flag.png') !!}"></a>
+                                                                    </li>
+                                                                @endif
+                                                            @endforeach
+                                                        </ul>
+                                                    </li>
 
-                        	@if(session('statut') == 'visitor')	
-                             <li><a class="csi-btn csi-scroll" href="auth/login">{{ trans('front/site.connection') }}</a></li>
-							@else
-                           <li><a class="csi-btn csi-scroll" href="dashboard">{{ trans('front/site.dashboard') }}</a></li>
-                           @endif
+                                                    @if(session('statut') == 'visitor')
+                                                        <li><a class="csi-btn csi-scroll"
+                                                               href="auth/login">{{ trans('front/site.connection') }}</a>
+                                                        </li>
+                                                    @else
+                                                        <li><a class="csi-btn csi-scroll"
+                                                               href="dashboard">{{ trans('front/site.dashboard') }}</a>
+                                                        </li>
+                                                    @endif
 
 
                                                 </ul>
@@ -273,9 +168,6 @@
     </header>
 
     <!--HEADER END-->
-
-
-
 
 
     <!--Banner-->
@@ -319,9 +211,6 @@
     </section>
 
     <!--Banner END-->
-
-
-
 
 
     <!--ABOUT TOP-->
@@ -391,7 +280,6 @@
     <!--ABOUT TOP END-->
 
 
-
     <!--ABOUT-->
 
     <section>
@@ -426,7 +314,10 @@
 
                                 <p class="text">
 
-                                    We provide you with daily self-made bread, sourdough pizza, roasted fish-meat-vegetables and many more. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    We provide you with daily self-made bread, sourdough pizza, roasted
+                                    fish-meat-vegetables and many more. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam.
 
                                 </p>
 
@@ -447,7 +338,6 @@
     </section>
 
     <!--ABOUT END-->
-
 
 
     <!--MENU ITEMS-->
@@ -481,34 +371,35 @@
                         <div class="col-xs-12">
 
 
-
                             <div class="csi-nav-pills-area">
 
                                 <ul class="nav nav-pills csi-nav-pills">
 
-                                    <li class="active"><a data-toggle="pill" href="#menu1"><img src="assets/img/tab-menu2.png" alt=""> Breakfast</a></li>
+                                    <li class="active"><a data-toggle="pill" href="#menu1"><img
+                                                    src="assets/img/tab-menu2.png" alt=""> Breakfast</a></li>
 
-                                    <li><a data-toggle="pill" href="#menu2"><img src="assets/img/tab-menu3.png" alt=""> Lunch</a></li>
+                                    <li><a data-toggle="pill" href="#menu2"><img src="assets/img/tab-menu3.png" alt="">
+                                            Lunch</a></li>
 
-                                    <li><a data-toggle="pill" href="#menu3"><img src="assets/img/tab-menu4.png" alt=""> Dinner</a></li>
+                                    <li><a data-toggle="pill" href="#menu3"><img src="assets/img/tab-menu4.png" alt="">
+                                            Dinner</a></li>
 
                                 </ul>
 
                             </div>
 
 
-
                             <div class="tab-content csi-tab-content">
 
                                 <div id="home" class="tab-pane fade in active">
 
-                            
 
                                     <div class="csi-single-tab">
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item2.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item2.jpg" alt=""></a>
 
                                         </div>
 
@@ -518,7 +409,8 @@
 
                                                 <div class="title-area">
 
-                                                    <h3 class="title"><a href="single-item.html">Chocolate Milkshake</a></h3>
+                                                    <h3 class="title"><a href="single-item.html">Chocolate Milkshake</a>
+                                                    </h3>
 
                                                     <p class="price">
 
@@ -530,7 +422,8 @@
 
                                                 <p class="text">
 
-                                                    With chopped vegetables, served with plum sauce. Tossed in peppercorns and spiced salt
+                                                    With chopped vegetables, served with plum sauce. Tossed in
+                                                    peppercorns and spiced salt
 
                                                 </p>
 
@@ -544,7 +437,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item3.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item3.jpg" alt=""></a>
 
                                         </div>
 
@@ -566,7 +460,8 @@
 
                                                 <p class="text">
 
-                                                    With chopped vegetables, served with plum sauce. Tossed in peppercorns and spiced salt
+                                                    With chopped vegetables, served with plum sauce. Tossed in
+                                                    peppercorns and spiced salt
 
                                                 </p>
 
@@ -580,7 +475,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item4.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item4.jpg" alt=""></a>
 
                                         </div>
 
@@ -590,7 +486,8 @@
 
                                                 <div class="title-area">
 
-                                                    <h3 class="title"><a href="single-item.html">Black Bean Burger</a></h3>
+                                                    <h3 class="title"><a href="single-item.html">Black Bean Burger</a>
+                                                    </h3>
 
                                                     <p class="price">
 
@@ -602,7 +499,8 @@
 
                                                 <p class="text">
 
-                                                    With chopped vegetables, served with plum sauce. Tossed in peppercorns and spiced salt
+                                                    With chopped vegetables, served with plum sauce. Tossed in
+                                                    peppercorns and spiced salt
 
                                                 </p>
 
@@ -616,7 +514,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item5.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item5.jpg" alt=""></a>
 
                                         </div>
 
@@ -626,7 +525,8 @@
 
                                                 <div class="title-area">
 
-                                                    <h3 class="title"><a href="single-item.html">American Humburger</a></h3>
+                                                    <h3 class="title"><a href="single-item.html">American Humburger</a>
+                                                    </h3>
 
                                                     <p class="price">
 
@@ -638,7 +538,8 @@
 
                                                 <p class="text">
 
-                                                    With chopped vegetables, served with plum sauce. Tossed in peppercorns and spiced salt
+                                                    With chopped vegetables, served with plum sauce. Tossed in
+                                                    peppercorns and spiced salt
 
                                                 </p>
 
@@ -652,7 +553,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item6.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item6.jpg" alt=""></a>
 
                                         </div>
 
@@ -662,7 +564,8 @@
 
                                                 <div class="title-area">
 
-                                                    <h3 class="title"><a href="single-item.html">Burger Mexicana</a></h3>
+                                                    <h3 class="title"><a href="single-item.html">Burger Mexicana</a>
+                                                    </h3>
 
                                                     <p class="price">
 
@@ -674,7 +577,8 @@
 
                                                 <p class="text">
 
-                                                    With chopped vegetables, served with plum sauce. Tossed in peppercorns and spiced salt
+                                                    With chopped vegetables, served with plum sauce. Tossed in
+                                                    peppercorns and spiced salt
 
                                                 </p>
 
@@ -688,7 +592,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item1.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item1.jpg" alt=""></a>
 
                                         </div>
 
@@ -710,7 +615,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -724,7 +630,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item2.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item2.jpg" alt=""></a>
 
                                         </div>
 
@@ -746,7 +653,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -764,7 +672,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item3.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item3.jpg" alt=""></a>
 
                                         </div>
 
@@ -786,7 +695,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -800,7 +710,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item4.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item4.jpg" alt=""></a>
 
                                         </div>
 
@@ -822,7 +733,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -836,7 +748,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item5.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item5.jpg" alt=""></a>
 
                                         </div>
 
@@ -858,7 +771,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -872,7 +786,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item6.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item6.jpg" alt=""></a>
 
                                         </div>
 
@@ -894,7 +809,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -912,7 +828,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item1.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item1.jpg" alt=""></a>
 
                                         </div>
 
@@ -934,7 +851,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -948,7 +866,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item2.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item2.jpg" alt=""></a>
 
                                         </div>
 
@@ -970,7 +889,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -988,7 +908,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item3.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item3.jpg" alt=""></a>
 
                                         </div>
 
@@ -1010,7 +931,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -1024,7 +946,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item1.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item1.jpg" alt=""></a>
 
                                         </div>
 
@@ -1046,7 +969,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -1060,7 +984,8 @@
 
                                         <div class="menu-thumb">
 
-                                            <a href="single-item.html"><img src="assets/img/speacial-item/special-item4.jpg" alt=""></a>
+                                            <a href="single-item.html"><img
+                                                        src="assets/img/speacial-item/special-item4.jpg" alt=""></a>
 
                                         </div>
 
@@ -1070,7 +995,8 @@
 
                                                 <div class="title-area">
 
-                                                    <h3 class="title"><a href="single-item.html">Black Bean Burger</a></h3>
+                                                    <h3 class="title"><a href="single-item.html">Black Bean Burger</a>
+                                                    </h3>
 
                                                     <p class="price">
 
@@ -1082,7 +1008,8 @@
 
                                                 <p class="text">
 
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam varius a felis eu dictum.
+                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                                    posuere cubilia Curae Nullam varius a felis eu dictum.
 
                                                 </p>
 
@@ -1095,7 +1022,6 @@
                                 </div>
 
                             </div>
-
 
 
                         </div>
@@ -1111,9 +1037,6 @@
     </section>
 
     <!--MENU ITEMS END-->
-
-
-
 
 
     <!--RESERVATION-->
@@ -1155,30 +1078,33 @@
                                     <figcaption>
 
 
-
                                         <form id="foodiebooking">
 
                                             <div class="form-group  csi-form-left">
 
-                                                <input class="form-control" name="fb_name" id="foodiebooking_name" placeholder="Enter Your Name" aria-required="true" type="text">
+                                                <input class="form-control" name="fb_name" id="foodiebooking_name"
+                                                       placeholder="Enter Your Name" aria-required="true" type="text">
 
                                             </div>
 
                                             <div class="form-group csi-form-right">
 
-                                                <input class="form-control" name="fb_email" id="foodiebooking_email" placeholder="Email Address" aria-required="true" type="email">
+                                                <input class="form-control" name="fb_email" id="foodiebooking_email"
+                                                       placeholder="Email Address" aria-required="true" type="email">
 
                                             </div>
 
                                             <div class="form-group csi-form-left">
 
-                                                <input class="form-control" name="fb_phone" id="foodiebooking_phone" placeholder="Telephone Number" type="text">
+                                                <input class="form-control" name="fb_phone" id="foodiebooking_phone"
+                                                       placeholder="Telephone Number" type="text">
 
                                             </div>
 
                                             <div class="form-group csi-form-right">
 
-                                                <select class="form-control" name="fb_person" id="foodiebooking_person" aria-required="true">
+                                                <select class="form-control" name="fb_person" id="foodiebooking_person"
+                                                        aria-required="true">
 
                                                     <option value="">Number of Guests</option>
 
@@ -1212,7 +1138,9 @@
 
                                                 <div class="input-group date" id="datetimepicker2">
 
-                                                    <input name="fb_date" id="foodiebooking_date" class="form-control" placeholder="Date format ( mm-dd-yyyy )." aria-required="true" type="text">
+                                                    <input name="fb_date" id="foodiebooking_date" class="form-control"
+                                                           placeholder="Date format ( mm-dd-yyyy )."
+                                                           aria-required="true" type="text">
 
                                                     <span class="input-group-addon">
 
@@ -1226,7 +1154,8 @@
 
                                             <div class="form-group csi-form-right">
 
-                                                <select class="form-control" name="fb_time" id="foodiebooking_time" aria-required="true">
+                                                <select class="form-control" name="fb_time" id="foodiebooking_time"
+                                                        aria-required="true">
 
                                                     <option value="">Time</option>
 
@@ -1242,7 +1171,8 @@
 
                                             <div class="csi-form-group">
 
-                                                <input id="fb_submit" class="csi-btn csi-submit" value="Booking Submit" type="submit">
+                                                <input id="fb_submit" class="csi-btn csi-submit" value="Booking Submit"
+                                                       type="submit">
 
                                             </div>
 
@@ -1275,7 +1205,6 @@
                     </div>
 
 
-
                 </div><!-- //.CONTAINER -->
 
             </div><!-- //.INNER -->
@@ -1285,10 +1214,6 @@
     </section>
 
     <!--RESERVATION END-->
-
-
-
-
 
 
     <footer>
@@ -1307,7 +1232,9 @@
 
                                 <div class="footer-top">
 
-                                    <a class="footer-logo" href="index"> <h3  style="font-family: Cookie,cursive; font-size: 11rem; font-weight: 400; margin: 15; color: #fff;">ilunch</h3></a>
+                                    <a class="footer-logo" href="index"><h3
+                                                style="font-family: Cookie,cursive; font-size: 11rem; font-weight: 400; margin: 15; color: #fff;">
+                                            ilunch</h3></a>
 
                                 </div>
 
@@ -1325,7 +1252,27 @@
 
                                     <p>345 Park Ave, San Jose, CA 95110, United States</p>
 
-                                    <p><a class="__cf_email__" href="http://httpcoder.com/cdn-cgi/l/email-protection" data-cfemail="6e070008012e17011b1c0a01030f0700400d0103">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></p>
+                                    <p><a class="__cf_email__" href="http://httpcoder.com/cdn-cgi/l/email-protection"
+                                          data-cfemail="6e070008012e17011b1c0a01030f0700400d0103">[email&#160;protected]</a>
+                                        <script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */
+                                            !function (t, e, r, n, c, a, p) {
+                                                try {
+                                                    t = document.currentScript || function () {
+                                                        for (t = document.getElementsByTagName('script'), e = t.length; e--;) if (t[e].getAttribute('data-cfhash')) return t[e]
+                                                    }();
+                                                    if (t && (c = t.previousSibling)) {
+                                                        p = t.parentNode;
+                                                        if (a = c.getAttribute('data-cfemail')) {
+                                                            for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2) e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
+                                                            p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
+                                                        }
+                                                        p.removeChild(t)
+                                                    }
+                                                } catch (u) {
+                                                }
+                                            }()
+                                            /* ]]> */</script>
+                                    </p>
 
                                 </div>
 
@@ -1397,7 +1344,9 @@
 
                             <div class="col-xs-12">
 
-                                <p>iLunch is proudly powered by <a href="https://www.oneup.host/">Students</a> | Supervised by <a href="http://arch.icte.uowm.gr/mdasyg/index.php">Dr. Minas Dasygenis</a></p>
+                                <p>iLunch is proudly powered by <a href="https://www.oneup.host/">Students</a> |
+                                    Supervised by <a href="http://arch.icte.uowm.gr/mdasyg/index.php">Dr. Minas
+                                        Dasygenis</a></p>
 
                             </div>
 
@@ -1414,9 +1363,6 @@
     </footer>
 
 
-
-
-
 </div> <!--//.csi SITE CONTAINER-->
 
 <!-- JQUERY  -->
@@ -1424,11 +1370,9 @@
 <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
 
-
 <!-- BOOTSTRAP JS  -->
 
 <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
-
 
 
 <!-- bootstrap date picker js with moment js -->
@@ -1438,19 +1382,15 @@
 <script src="assets/libs/datepicker/bootstrap-datetimepicker.min.js"></script>
 
 
-
-
-
 <!-- SKILLS SCRIPT  -->
 
 <script src="assets/libs/jquery.validate.js"></script>
 
 
-
 <!-- if load google maps then load this api, change api key as it may expire for limit cross as this is provided with any theme -->
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzfNvH2kifJQ0PhBIyuuG-swdkW1NPQVE"></script>
-
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzfNvH2kifJQ0PhBIyuuG-swdkW1NPQVE"></script>
 
 
 <!-- CUSTOM GOOGLE MAP -->
@@ -1458,13 +1398,9 @@
 <script type="text/javascript" src="assets/libs/gmap/jquery.googlemap.js"></script>
 
 
-
 <!-- Owl Carousel  -->
 
 <script src="assets/libs/owlcarousel/owl.carousel.min.js"></script>
-
-
-
 
 
 <!-- tweetie feed js  -->
@@ -1472,17 +1408,14 @@
 <script src="tweetie/tweetie.js"></script>
 
 
-
 <!-- adding magnific popup js library -->
 
 <script type="text/javascript" src="assets/libs/maginificpopup/jquery.magnific-popup.min.js"></script>
 
 
-
 <!-- type js -->
 
 <script src="assets/libs/typed/typed.min.js"></script>
-
 
 
 <!-- SMOTH SCROLL -->
@@ -1492,7 +1425,6 @@
 <script src="assets/libs/jquery.easing.min.js"></script>
 
 
-
 <!-- Counter JS -->
 
 <script src="assets/libs/waypoints.min.js"></script>
@@ -1500,15 +1432,9 @@
 <script src="assets/libs/counterup/jquery.counterup.min.js"></script>
 
 
-
 <!-- CUSTOM SCRIPT  -->
 
 <script src="assets/js/custom.script.js"></script>
-
-
-
-
-
 
 
 </body>
