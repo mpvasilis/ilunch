@@ -15,4 +15,9 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return json_encode(['status' => 'online', 'error' => 'null']);
 });
-Route::get('getMealsByDate/{date}', 'ApiController@getMealsByDate');
+Route::get('getMealsByDate/{date}', 'ApiController@getMealsByDate');//todo response with json array for meals. (available ->'today')
+Route::get('validateCustomer/{id}', 'ApiController@validateCustomer'); //todo response with current subscription data
+Route::get('validateAnonymousCustomer', 'ApiController@validateAnonymousCustomer');//todo response with status code
+Route::get('getLatestAnnouncement', 'ApiController@getLatestAnnouncement');//todo response with lastAnnounce
+Route::post('submitFeedback', 'ApiController@submitFeedback');//todo response status code can get array as input ( mass input)
+Route::get('getMealStatistics', 'ApiController@getMealStatistics');//todo find all endpoints for statistic creation (group + middleware)
