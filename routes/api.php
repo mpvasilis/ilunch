@@ -15,3 +15,4 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return json_encode(['status' => 'online', 'error' => 'null']);
 });
+Route::get('getMealsByDate/{date}', 'ApiController@getMealsByDate');
