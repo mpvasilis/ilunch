@@ -27,6 +27,8 @@
     <link id="csi-master-style" rel="stylesheet" href="{!! asset('assets/css/style-default.min.css') !!}" media="all"/>
     <!-- MODERNIZER CSS  -->
     <script src="{!! asset('assets/js/vendor/modernizr-2.8.3.min.js') !!}"></script>
+    @section('header')
+    @show
 </head>
 
 <body class="home">
@@ -89,24 +91,31 @@
                                             <div class="collapse navbar-collapse">
                                                 <ul class="nav navbar-nav csi-nav">
                                                     {{--todo active page class--}}
-                                                    <li><a href="{{route('index')}}" >{{trans('front/site.home')}}</a></li>
-                                                    @if (Request::is('/'))
-                                                    <li><a class="csi-scroll" href="#csi-about">{{trans('front/site.about')}}</a>
+                                                    <li><a href="{{route('index')}}">{{trans('front/site.home')}}</a>
                                                     </li>
+                                                    @if (Request::is('/'))
+                                                        <li><a class="csi-scroll"
+                                                               href="#csi-about">{{trans('front/site.about')}}</a>
+                                                        </li>
                                                     @else
-                                                        <li><a class="csi-scroll" href="{{route('index','#csi-about')}}">{{trans('front/site.about')}}</a>
+                                                        <li><a class="csi-scroll"
+                                                               href="{{route('index','#csi-about')}}">{{trans('front/site.about')}}</a>
                                                         </li>
                                                     @endif
-                                                    <li><a class="csi-scroll" href="{{route('menu')}}">{{ trans('front/site.menu') }}</a></li>
+                                                    <li><a class="csi-scroll"
+                                                           href="{{route('menu')}}">{{ trans('front/site.menu') }}</a>
+                                                    </li>
                                                     <li><a class="csi-scroll"
                                                            href="{{route('news')}}">{{ trans('front/site.news') }}</a>
                                                     </li>
                                                     @if (Request::is('/'))
-                                                    <li><a class="csi-scroll"
-                                                           href="#csi-feedback">{{ trans('front/site.feedback') }}</a></li>
+                                                        <li><a class="csi-scroll"
+                                                               href="#csi-feedback">{{ trans('front/site.feedback') }}</a>
+                                                        </li>
                                                     @else
                                                         <li><a class="csi-scroll"
-                                                               href="{{route('index','#csi-feedback')}}">{{ trans('front/site.feedback') }}</a></li>
+                                                               href="{{route('index','#csi-feedback')}}">{{ trans('front/site.feedback') }}</a>
+                                                        </li>
                                                     @endif
                                                     <li><a class="csi-scroll"
                                                            href="{{ route('contact') }}">{{ trans('front/site.contact') }}</a>
@@ -230,7 +239,8 @@
     </footer>
 </div> <!--//.csi SITE CONTAINER-->
 <!-- JQUERY  -->
-<script src="{!! asset('assets/js/vendor/jquery-1.12.4.min.js') !!}"></script>
+{{--<script src="{!! asset('assets/js/vendor/jquery-1.12.4.min.js') !!}"></script>--}}
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <!-- BOOTSTRAP JS  -->
 <script src="{!! asset('assets/libs/bootstrap/js/bootstrap.min.js') !!}"></script>
 <!-- bootstrap date picker js with moment js -->
@@ -238,15 +248,8 @@
 <script src="{!! asset('') !!}assets/libs/datepicker/bootstrap-datetimepicker.min.js"></script>
 <!-- SKILLS SCRIPT  -->
 <script src="{!! asset('') !!}assets/libs/jquery.validate.js"></script>
-<!-- if load google maps then load this api, change api key as it may expire for limit cross as this is provided with any theme -->
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzfNvH2kifJQ0PhBIyuuG-swdkW1NPQVE"></script>
-<!-- CUSTOM GOOGLE MAP -->
-<script type="text/javascript" src="{!! asset('assets/libs/gmap/jquery.googlemap.js') !!}"></script>
 <!-- Owl Carousel  -->
 <script src="{!! asset('assets/libs/owlcarousel/owl.carousel.min.js') !!}"></script>
-<!-- tweetie feed js  -->
-<script src="{!! asset('tweetie/tweetie.js') !!}"></script>
 <!-- adding magnific popup js library -->
 <script type="text/javascript" src="{!! asset('assets/libs/maginificpopup/jquery.magnific-popup.min.js') !!}"></script>
 <!-- type js -->
@@ -259,6 +262,8 @@
 <script src="{!! asset('assets/libs/counterup/jquery.counterup.min.js') !!}"></script>
 <!-- CUSTOM SCRIPT  -->
 <script src="{!! asset('assets/js/custom.script.js') !!}"></script>
+@section('scripts')
+@show
 </body>
 </html>
 
