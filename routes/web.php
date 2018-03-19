@@ -33,8 +33,8 @@ Route::get('/news', function () {
     return view('news');
 });
 Route::get('/news', 'NewsController@index')->name('news');
-Route::get('/feedback', 'feedbackController@create')->name('feedback');
-Route::post('/feedback', 'feedbackController@store')->name('feedback_store');
+Route::get('/feedback', 'FeedbackController@create')->name('feedback');
+Route::post('/feedback', 'FeedbackController@store')->name('feedback_store');
 Route::get('/home', 'HomeController@index');
 
 //students profile

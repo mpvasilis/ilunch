@@ -534,6 +534,10 @@
                                                     <option value="3">Dinner</option>
                                                 </select>
                                             </div>
+                                            <div class="csi-form-group" style="padding-bottom: 10px">
+                                                <input class="form-control" name="comment" id="foodiebooking_phone"
+                                                       placeholder="Brief Comment" type="text">
+                                            </div>
                                             <div class="csi-form-group">
                                                 <input id="fb_submit" class="csi-btn csi-submit" value="Booking Submit"
                                                        type="submit">
@@ -541,14 +545,6 @@
                                         </form>
                                     </figcaption>
                                 </figure>
-                                <div class="call-phone">
-                                    <h4 class="title">Or Call Now</h4>
-                                    <ul class="list-inline">
-                                        <li>+12345 678 555</li>
-                                        <li>+12345 678 556</li>
-                                        <li>+12345 678 557</li>
-                                    </ul>
-                                </div>
                             </div> <!--//.reservaton-area-->
                         </div>
                     </div>

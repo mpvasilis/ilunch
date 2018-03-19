@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\feedback;
 
-class feedbackController extends Controller
+class FeedbackController extends Controller
 {
     public function create(FormBuilder $formBuilder)
     {
@@ -34,8 +34,5 @@ class feedbackController extends Controller
         $newFeedback->save();
 
         return view('feedback',compact('form'));
-
-
-
     }
 }

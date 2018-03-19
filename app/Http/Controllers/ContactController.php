@@ -24,6 +24,5 @@ class ContactController extends Controller
             });
 
         return \Redirect::route('front.contact')->with('message', 'Thanks for contacting us!');
-
     }
 }
