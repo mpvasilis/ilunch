@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     public function create(){
-        return view('contact');
+        return view('front.contact');
     }
     public function store(Request $request)
     {
@@ -23,7 +23,7 @@ class ContactController extends Controller
                 $message->to('me@vasilis.pw', 'Admin')->subject('Website Feedback');
             });
 
-        return \Redirect::route('contact')->with('message', 'Thanks for contacting us!');
+        return \Redirect::route('front.contact')->with('message', 'Thanks for contacting us!');
 
     }
 }
