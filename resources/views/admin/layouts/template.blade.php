@@ -289,8 +289,8 @@
                     <span class="menu_title">Γεύματα</span>
                 </a>
             </li>
-            <li {{ (Request::is('admin/announcments')) ? 'class=current_section':''}} title="Announcments">
-                <a href="{{route('admin_announcments')}}">
+            <li {{ (Request::is('admin/announcements')) ? 'class=current_section':''}} title="Announcments">
+                <a href="{{route('admin_announcements')}}">
                     <span class="menu_icon"><i class="material-icons">chrome_reader_mode</i></span>
                     <span class="menu_title">Ανακοινώσεις</span>
                 </a>
@@ -342,6 +342,7 @@
 <script src="{{url("assets/js/uikit_custom.min.js")}}"></script>
 <!-- altair common functions/helpers -->
 <script src="{{url("assets/js/altair_admin_common.min.js")}}"></script>
+
 @yield('scripts')
 </body>
 </html>
