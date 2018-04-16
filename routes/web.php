@@ -46,9 +46,10 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 //admin
 Route::get('/admin', 'DashboardController@home')->name('admin');
 Route::get('/admin/meals', 'MealsController@index')->name('admin_meals');
-Route::post('/admin/meals', 'MealsController@store')->name('admin_meals_store');
+Route::post('/admin/meals', 'MealsController@post')->name('admin_meals');
 
 Route::get('/admin/announcements', 'AnnouncementsController@index')->name('admin_announcements');
+Route::post('/admin/announcements', 'AnnouncementsController@post')->name('admin_announcements');
 Route::get('/admin/statistics', 'StatsController@statistics')->name('admin_statistics');
 Route::get('/admin/feedback', 'DashboardController@feedback')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')

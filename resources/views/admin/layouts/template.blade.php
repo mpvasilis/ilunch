@@ -31,6 +31,8 @@
 
     <!-- themes -->
     <link rel="stylesheet" href="{{url("assets/css/themes/themes_combined.min.css")}}" media="all">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" media="all">
+    
     @yield('head')
 </head>
 <body class="sidebar_main_open sidebar_main_swipe">
@@ -342,6 +344,12 @@
 <script src="{{url("assets/js/uikit_custom.min.js")}}"></script>
 <!-- altair common functions/helpers -->
 <script src="{{url("assets/js/altair_admin_common.min.js")}}"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
 
 @yield('scripts')
 </body>

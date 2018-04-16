@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use app\Menu_meal;
+use App\Menu_meal;
 use App\Http\Requests\StoreMealsRequest;
 class MealsController extends Controller
 {
@@ -15,18 +15,18 @@ class MealsController extends Controller
         return view('admin.meals', compact('meals'));
     }
 
-   
 
-    public function store(StoreMealsRequest $request)
-    {
-       
-        DB::table('menu_meals')->insert([
-            ['title' =>  $request->get('title'), 
-            'info' => $request->get('info'),
-            'is_active' => $request->get('is_active'), 
-            'type_id'=> $request->get('type_id')]      
-        ]);
+    public function post(Request $request)
+    {   
+      
+        $meal= new Menu_meal();
+        $meal->title= $request['title'];
+        $meal-> info= $request['info'];
+        $meal->is_active= $request['is_active'];
+        $meal->type_id= $request['type_id'];
+        $meal->save();
+        $meals = DB::table('Menu_meals')->get();
 
-        return redirect()->route('admin.meals');
+        return view('admin.meals', compact('meals'));
     }
 }
