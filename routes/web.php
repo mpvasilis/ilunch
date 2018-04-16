@@ -47,6 +47,7 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 Route::get('/admin', 'DashboardController@home')->name('admin');
 Route::get('/admin/meals', 'MealsController@index')->name('admin_meals');
 Route::post('/admin/meals', 'MealsController@post')->name('admin_meals');
+Route::post('/admin/meals/update', 'MealsController@update')->name('admin_meals_update');
 
 Route::get('/admin/announcements', 'AnnouncementsController@index')->name('admin_announcements');
 Route::post('/admin/announcements', 'AnnouncementsController@post')->name('admin_announcements');

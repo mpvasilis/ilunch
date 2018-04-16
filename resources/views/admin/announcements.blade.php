@@ -3,11 +3,14 @@
     Ανακοινώσεις
 @endsection
 
+@section('head')
+<link rel="stylesheet" href="{{url("assets/datatables.net-bs/css/dataTables.bootstrap.min.css")}}">
+@endsection
 @section('main')
     <h3 class="heading_b uk-margin-bottom">Ανακοινώσεις</h3>
-    <div class="md-card">
-        <div class="md-card-content"> 
-            <table id="table" class="uk-table dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="dt_default_info" style="width: 100%;" >
+    
+             
+            <table class="table table-bordered table-hover dataTable" id="table">
                         <thead>
                         <tr role="row">
                             <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >ID</th>
@@ -27,52 +30,78 @@
                         <tfoot>
                         </tfoot>
             </table>         
-        </div>
-    </div>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                Launch Default Modal
+              </button>
+ 
 
     <div class="md-fab-wrapper">
-                    <a class="md-fab md-fab-danger" href="#" id="note_add">
-                        <i class="material-icons" data-uk-modal="{target:'#modal_header_footer'}"></i>
-                    </a>
-                
-                            <div class="uk-modal" id="modal_header_footer">
-                                <div class="uk-modal-dialog">
-                                    <div class="uk-modal-header">
-                                        <h3 class="uk-modal-title">Προσθήκη νέας Ανακοινώσης </h3>
-                                    </div>
-    
-                                    {!! Form::open(array('action' => array('AnnouncementsController@post'))) !!}
+                    
+    <div class="modal fade" id="modal-default" style="display: none;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Προσθήκη νέας Ανακοινώσης </h4>
+              </div>
+              <div class="modal-body">
+              {!! Form::open(array('action' => array('AnnouncementsController@post'))) !!}
 
-                                    <div class="md-input-wrapper">
-                                        {!! Form::label('title', 'Τίτλος') !!}
-                                        {!! Form::text('title', null, ['class' => 'md-input']) !!}
-                                    </div>
+                <div class="md-input-wrapper">
+                    {!! Form::label('title', 'Τίτλος') !!}
+                    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                </div>
 
-                                    <div class="md-input">
-                                        {!! Form::label('type', 'Τύπος') !!}
-                                        {{ Form::select('type', ['Σημαντικό', 'Ενημέρωση', 'Δωρεάν Γεύματα'], null, ['class' => 'md-input']) }}
-                                    </div>
-                                    <div class="md-input-wrapper">
-                                        {!! Form::label('show_until', 'Ορατό Μέχρι') !!}
-                                        {!! Form::text('show_until', null,['class' => 'md-input', 'data-uk-datepicker' => "{format:'DD.MM.YYYY'}"]) !!}
-                                    </div>
-                                    
-                                    <div class="md-input-wrapper">
-                                        {!! Form::label('content', 'Πληροφορίες Γεύματος') !!}
-                                        {!! Form::textarea('content', null, ['class' => 'md-input']) !!}
-                                    </div>
-                                    
+                <div class="md-input">
+                    {!! Form::label('type', 'Τύπος') !!}
+                    {{ Form::select('type', ['Σημαντικό', 'Ενημέρωση', 'Δωρεάν Γεύματα'], null, ['class' => 'form-control']) }}
+                </div>
+                <div class="md-input-wrapper">
+                    {!! Form::label('show_until', 'Ορατό Μέχρι') !!}
+                    {!! Form::text('show_until', null,['class' => 'form-control', 'id'=>'datepicker']) !!}
+                </div>
 
-                                
-                                    <div class="uk-modal-footer uk-text-right">
-                                         {!! Form::submit('Submit', ['class' => 'md-btn md-btn-primary ']) !!}
-                                    </div>
-                                    {!! Form::close() !!}
-                                </div>
-                            </div>
+                <div class="md-input-wrapper">
+                    {!! Form::label('content', 'Πληροφορίες Γεύματος') !!}
+                    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+                </div>
+
+
+
+                <div class="uk-modal-footer uk-text-right">
+                    {!! Form::submit('Submit', ['class' => 'btn btn-primary ']) !!}
+                </div>
+                {!! Form::close() !!}
+              </div>
+              
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+                            
     </div>
     
     
 
    
+@endsection
+@section('scripts')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="{{url("assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>
+
+<script>
+    
+  $(function () {
+    $('#table').DataTable()
+    
+  })
+
+</script>
+<script>
+    $("#datepicker").datepicker({
+        autoclose: true })
+</script>
+
 @endsection

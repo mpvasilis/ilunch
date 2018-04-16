@@ -29,4 +29,14 @@ class MealsController extends Controller
 
         return view('admin.meals', compact('meals'));
     }
+
+    public function update(Request $request)
+    {   
+       
+        Menu_meal::where('id',$request['id'])->update(['title'=> $request['title'] ,'info' => $request['info'],'is_active' => $request['is_active'],'type_id' => $request['type_id']]);
+        
+        $meals = DB::table('Menu_meals')->get();
+
+        return view('admin.meals', compact('meals'));
+    }
 }
