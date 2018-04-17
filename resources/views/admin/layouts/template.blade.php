@@ -199,7 +199,19 @@
         <li><a href="{{route('admin_announcements')}}"><i class="fa fa-book"></i> <span>Ανακοινώσεις</span></a></li>
         <li><a href="{{route('admin_statistics')}}"><i class="fa fa-book"></i> <span>Στατιστικά</span></a></li>
         <li><a href="{{route('admin_feedback')}}"><i class="fa fa-book"></i> <span>Feedback</span></a></li>
-       
+        
+        <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Συνδρομές</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('admin_memberships_show')}}"><i class="fa fa-circle-o"></i> Λίστα Συνδρομών</a></li>
+            <li><a href="{{route('admin_memberships_create')}}"><i class="fa fa-circle-o"></i> Προσθήκη Νέας Συνδρομής</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

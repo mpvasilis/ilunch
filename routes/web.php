@@ -50,6 +50,10 @@ Route::post('/admin/meals', 'MealsController@post')->name('admin_meals');
 Route::post('/admin/meals/update', 'MealsController@update')->name('admin_meals_update');
 Route::post('/admin/meals/delete', 'MealsController@delete')->name('admin_meals_delete');
 
+
+Route::get('/admin/memberships/show', 'MembershipsController@index')->name('admin_memberships_show');
+Route::get('/admin/memberships/create', 'MembershipsController@create')->name('admin_memberships_create');
+
 Route::get('/admin/announcements', 'AnnouncementsController@index')->name('admin_announcements');
 Route::post('/admin/announcements', 'AnnouncementsController@post')->name('admin_announcements');
 Route::post('/admin/announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
