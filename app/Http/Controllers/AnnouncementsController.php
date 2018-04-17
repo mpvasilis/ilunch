@@ -24,11 +24,31 @@ class AnnouncementsController extends Controller
         $announcement->type= $request['type'];
         
         
-        $announcement->show_until = Carbon::parse($request['show_until'])->format('Y-d-m');
+        $announcement->show_until = Carbon::parse($request['show_until'])->format('Y-m-d');
         $announcement->save();
         $announcements = DB::table('announcements')->get();
 
         
+        return view('admin.announcements', compact('announcements'));
+    }
+
+    public function update(Request $request)
+    {   
+      
+        Announcement::where('id',$request['id'])->update(['title'=> $request['title'] ,'content' => $request['content'],'show_until' => $request['show_until'],'type' => $request['type']]);
+        
+        $announcements = DB::table('announcements')->get();
+
+        return view('admin.announcements', compact('announcements'));
+    }
+
+    public function delete(Request $request)
+    {   
+       
+        Announcement::where('id',$request['id'])->delete();
+        
+        $announcements = DB::table('announcements')->get();
+
         return view('admin.announcements', compact('announcements'));
     }
 }

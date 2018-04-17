@@ -52,6 +52,9 @@ Route::post('/admin/meals/delete', 'MealsController@delete')->name('admin_meals_
 
 Route::get('/admin/announcements', 'AnnouncementsController@index')->name('admin_announcements');
 Route::post('/admin/announcements', 'AnnouncementsController@post')->name('admin_announcements');
+Route::post('/admin/announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
+Route::post('/admin/announcements/delete', 'AnnouncementsController@delete')->name('admin_announcements_delete');
+
 Route::get('/admin/statistics', 'StatsController@statistics')->name('admin_statistics');
 Route::get('/admin/feedback', 'DashboardController@feedback')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')

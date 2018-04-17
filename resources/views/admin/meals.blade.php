@@ -13,7 +13,7 @@
     </div>
     <div class="box-body">
         
- 
+    
     <table class="table table-bordered table-hover dataTable" id="table">
                         <thead>
                         <tr role="row">
@@ -144,6 +144,7 @@
 @endsection
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="{{url("assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>
 
 <script>
