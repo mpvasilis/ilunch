@@ -39,4 +39,14 @@ class MealsController extends Controller
 
         return view('admin.meals', compact('meals'));
     }
+
+    public function delete(Request $request)
+    {   
+       
+        Menu_meal::where('id',$request['id'])->delete();
+        
+        $meals = DB::table('Menu_meals')->get();
+
+        return view('admin.meals', compact('meals'));
+    }
 }
