@@ -45,8 +45,20 @@ Route::group(['prefix' => 'student','middleware' => 'can_view_student'], functio
 
 //admin
 Route::get('/admin', 'DashboardController@home')->name('admin');
-Route::get('/admin/meals', 'DashboardController@meals')->name('admin_meals');
-Route::get('/admin/announcments', 'DashboardController@announcments')->name('admin_announcments');
+Route::get('/admin/meals', 'MealsController@index')->name('admin_meals');
+Route::post('/admin/meals', 'MealsController@post')->name('admin_meals');
+Route::post('/admin/meals/update', 'MealsController@update')->name('admin_meals_update');
+Route::post('/admin/meals/delete', 'MealsController@delete')->name('admin_meals_delete');
+
+
+Route::get('/admin/memberships/show', 'MembershipsController@index')->name('admin_memberships_show');
+Route::get('/admin/memberships/create', 'MembershipsController@create')->name('admin_memberships_create');
+
+Route::get('/admin/announcements', 'AnnouncementsController@index')->name('admin_announcements');
+Route::post('/admin/announcements', 'AnnouncementsController@post')->name('admin_announcements');
+Route::post('/admin/announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
+Route::post('/admin/announcements/delete', 'AnnouncementsController@delete')->name('admin_announcements_delete');
+
 Route::get('/admin/statistics', 'StatsController@statistics')->name('admin_statistics');
 Route::get('/admin/feedback', 'DashboardController@feedback')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')

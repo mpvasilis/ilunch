@@ -10,6 +10,13 @@ class Student extends Model
         return $this->hasOne('App/User','student_id');
     }
 
+
     public $timestamps = false;
+
+    protected $fillable = [
+        'id',
+        'fistname'
+        // add all other fields
+    ];
 
 }
