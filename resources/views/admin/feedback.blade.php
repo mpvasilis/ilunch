@@ -1,29 +1,93 @@
 @extends('admin.layouts.template')
 @section('title')
-    Κριτικές
+    Feedback
 @endsection
 
 @section('main')
-    <h3 class="heading_b uk-margin-bottom">Κριτικές</h3>
-
-    <div class="md-card">
-        <div class="md-card-content">
-            <div class="uk-grid" data-uk-grid-margin>
-                <div class="uk-width-1-1">
-                    Minima repudiandae ratione qui ut autem quaerat est eum quia id autem non laboriosam dignissimos
-                    occaecati iste in consequatur atque possimus animi non ut ipsum alias nobis voluptas asperiores
-                    qui autem nemo voluptatem voluptas voluptas qui minus sed provident dolore cupiditate quas quia
-                    id quo ad et hic soluta voluptatem sunt porro ullam animi voluptas quibusdam velit ea maiores
-                    non et culpa voluptatem nihil quam et consequatur excepturi pariatur harum nihil dolore maiores
-                    et odit atque perferendis pariatur eum molestias error et laudantium saepe repudiandae
-                    temporibus facilis a eum excepturi voluptatum aspernatur officia sint eum consequatur iste non
-                    earum omnis est quos deleniti saepe nisi accusamus ut veritatis aut eos eveniet non quia ipsum
-                    et quasi voluptas dicta ut ut eos quo officiis earum suscipit nisi quo cupiditate inventore sunt
-                    iusto minima deleniti et perferendis perspiciatis hic non optio quia praesentium sit qui et
-                    mollitia et perspiciatis facere ratione nisi omnis suscipit optio non corrupti ad sapiente dolor
-                    repudiandae exercitationem sunt recusandae reprehenderit.
-                </div>
-            </div>
-        </div>
+<div class="box-header with-border">
+    <h3 class="box-title">Λίστα με Κριτικές</h3>
+   
+    <div class="box-body">
+<table class="table table-bordered table-hover dataTable" id="table">
+                        <thead>
+                        <tr role="row">
+                            <th>ID</th>
+                            <th>Τίτλος</th>
+                            <th>Πληροφορίες</th>
+                            <th>Ημερομηνία - Ώρα</th>
+                        </tr>
+                            
+                        </thead>
+                        
+                        <tbody>
+                        
+                        @foreach ($feeds as $feedback)
+                        <tr role="row" class="odd">
+                            <td>{{ $feedback['id'] }}</td>
+                            <td>{{ $feedback['name']}}
+                            <td>{{ substr($feedback['comment'],0,150) }}</td>
+                            <td>{{ $feedback['created_at'] }}</td>
+                            <td class="text-center">
+                                <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show" data-id="{{ $feedback['id'] }}" data-name="{{ $feedback['name'] }}" data-comment="{{ $feedback['comment'] }}" data-created_at="{{ $feedback['created_at'] }}" >Προβολή</a>
+                            </td>    
+                            
+                        </tr>
+                        @endforeach
+                        </tbody>
+                        <tfoot>
+                    
+                        </tfoot>
+    </table>
     </div>
+    </div>
+
+      <div class="modal fade" id="modal-show" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="modal-title"  >Πληροφορίες Κριτικής</h4>
+                            </div>
+                            <div class="modal-body">
+                                {!! Form::label('id', 'Feedback ID') !!}
+                                {!! Form::text('id', null, ['class' => 'form-control', 'id'=>'id','disabled']) !!}
+                                {!! Form::label('name', 'Όνομα') !!}
+                                {!! Form::text('name', null, ['class' => 'form-control', 'id'=>'name','disabled']) !!}
+                                {!! Form::label('comment', 'Σχόλιο') !!}
+                                {!! Form::textarea('comment', null, ['class' => 'form-control', 'id'=>'comment','disabled']) !!}
+                                
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+@endsection
+
+
+@section('scripts')
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script>
+    
+    $(function () {
+      $('#table').DataTable({
+      "searching": false})
+    })
+
+    $('#modal-show').on('show.bs.modal', function(e) {
+
+    var name = $(e.relatedTarget).data('name');
+    var comment= $(e.relatedTarget).data('comment');
+    var created_at = $(e.relatedTarget).data('created_at');
+  
+    var id = $(e.relatedTarget).data('id');
+
+    $(e.currentTarget).find('#name').val(name);
+    $(e.currentTarget).find('#comment').val(comment);
+    $(e.currentTarget).find('#created_at').val(created_at);
+    $(e.currentTarget).find('#id').val(id);
+    });
+  
+  </script>
 @endsection
