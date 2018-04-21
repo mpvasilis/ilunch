@@ -4,33 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts;
-
+use DB;
 
 class StatsController extends Controller
 {
 
-public function statistics(){
+public function index(){
 
-		$finances = \Lava::DataTable();
-
+	  $history= DB::table('history')->get();
+	  $historys= collect([]);
+        foreach($history as $h){
+            
+            $user = DB::table('students')->where('id',$h ->student_id)->first();
+			$name = $user->fistname . " " . $user->lastname;
+			if ($h->type== 1){
+				$meal_type = "Πρωινό";
+			}elseif($h->type == 1){
+				$meal_type = "Μεσημεριανό";
+			}else{
+				$meal_type = "Βραδυνό";
+			}
+			
+            
+            $his = collect(['id' => $h->id, 'name' => $name, 'date'=> $h->date, 'meal_type' => $meal_type]);
+            $historys -> push($his);
+        }
+        
 		
-	    $finances->addDateColumn('Year')
-				 ->addNumberColumn('Sales')
-				 ->addNumberColumn('Expenses')
-				 ->setDateTimeFormat('Y')
-				 ->addRow(['2004', 1000, 400])
-				 ->addRow(['2005', 1170, 460])
-				 ->addRow(['2006', 660, 1120])
-				 ->addRow(['2007', 1030, 54]);
-
-			\Lava::ColumnChart('Finances', $finances, [
-		'title' => 'Company Performance',
-		'titleTextStyle' => [
-			'color'    => '#eb6b2c',
-			'fontSize' => 14
-		]
-	]);
-      return view('admin.statistics');
+      return view('admin.statistics',compact('historys'));
     }
     
 }
