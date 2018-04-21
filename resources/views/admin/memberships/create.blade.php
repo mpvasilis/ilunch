@@ -4,6 +4,7 @@
 @endsection
 
 @section('main')
+<div class="box">
 <div class="box-header with-border">
     <h3 class="box-title">Δημιουργία Νέας Συνδρομής</h3>
     
@@ -22,5 +23,6 @@
                                 {!! Form::submit('Submit', ['class' => 'btn btn-primary ']) !!}
                                 {!! Form::close() !!}
     </div>
+</div>
 </div>
 @endsection

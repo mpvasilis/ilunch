@@ -5,7 +5,7 @@
 
 @section('main')
     
-   
+<div class="box">  
 <div class="box-header with-border">
     <h3 class="box-title">Λίστα με Γεύματα</h3>
     <div class="box-tools">
@@ -141,6 +141,8 @@
                      </div>
                  </div>
 </div>
+</div>
+
 @endsection
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

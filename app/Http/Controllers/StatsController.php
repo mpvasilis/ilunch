@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts;
 use DB;
-
+use Carbon\Carbon;
 class StatsController extends Controller
 {
 
@@ -13,6 +13,7 @@ public function index(){
 
 	  $history= DB::table('history')->get();
 	  $historys= collect([]);
+	  $types = collect([]);
         foreach($history as $h){
             
             $user = DB::table('students')->where('id',$h ->student_id)->first();
@@ -28,10 +29,38 @@ public function index(){
             
             $his = collect(['id' => $h->id, 'name' => $name, 'date'=> $h->date, 'meal_type' => $meal_type]);
             $historys -> push($his);
-        }
-        
+		}
+		for ($i = 7; $i >=0; $i--) {
+			$breakfast=$lunch=$dinner=0;
+			$range[] = Carbon::now()->subDays($i)->format('d/m/Y D');
+			$day = DB::table('history')->whereDate('date', '=', Carbon::today()->subDays($i)->toDateString())->get();
+			$PerDay[] =  $day;
+			$CountsPerDay[] =count($day);
+			foreach ($day as $d){
+				
+				switch ($d->type){
+					case 1:
+						$breakfast++;
+						break;
+					case 2:
+						$lunch++;
+						break;
+					case 3:
+						$dinner++;
+						break;
+				}
+			}
+			$Type[]= collect(['breakfast' => $breakfast, 'lunch' => $lunch, 'dinner'=> $dinner]);
+			 
+		}
+
 		
-      return view('admin.statistics',compact('historys'));
+		
+		
+		
+		
+		
+      return view('admin.statistics',compact('historys','range','CountsPerDay','Type'));
     }
     
 }

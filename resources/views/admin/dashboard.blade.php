@@ -4,6 +4,7 @@
 @endsection
 
 @section('main')
+<div class="box">
     <h3 class="heading_b uk-margin-bottom">Blank Page</h3>
 
     <div class="md-card">
@@ -25,5 +26,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

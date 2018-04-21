@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{url("assets/datatables.net-bs/css/dataTables.bootstrap.min.css")}}">
 @endsection
 @section('main')
+<div class="box">
 <div class="box-header with-border">
     <h3 class="box-title">Λίστα με Ανακοινώσεις</h3>
     <div class="box-tools">
@@ -155,6 +156,7 @@
     
 
 </div>   
+</div>
 @endsection
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
