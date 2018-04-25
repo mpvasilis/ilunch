@@ -60,5 +60,6 @@ Route::post('/admin/announcements/update', 'AnnouncementsController@update')->na
 Route::post('/admin/announcements/delete', 'AnnouncementsController@delete')->name('admin_announcements_delete');
 
 Route::get('/admin/statistics', 'StatsController@index')->name('admin_statistics');
+Route::post('/admin/statistics', 'StatsController@search')->name('admin_statistics');
 Route::get('/admin/feedback', 'feedbackController@index')->name('admin_feedback');
 //Route::get('/admin', 'DashboardController@index')->name('admin');//->middleware('is_admin')

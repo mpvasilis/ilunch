@@ -2,56 +2,81 @@
 @section('title')
     Statistics
 @endsection
-
+@section('head')
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+@endsection
 @section('main')
 <div class="box">
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="box-header with-border">
-            <h3 class="box-title">Ιστορικό Γευμάτων</h3>
-            <div class="box-body">
-                <table class="table table-bordered table-hover dataTable" id="table">
-                                    <thead>
-                                    <tr role="row">
-                                        <th>ID</th>
-                                        <th>Όνομα</th>
-                                        <th>Ημερομηνία - Ώρα</th>
-                                        <th>Τύπος Γεύματος</th>
+    <div class="row" >
+        <div class="col-md-12">
+            <div class="box-header with-border">
+                <h3 class="box-title">Επιλογή Ημερομηνιών για προβολή στατιστικών</h3>
+                <div class="box-body">
+                    {!! Form::open(array('route' => 'admin_statistics')) !!}
+                    {{ Form::hidden('start', 'null', ['id' => 'start']) }}
+                    {{ Form::hidden('stop', 'null', ['id' => 'stop']) }}
+                    {{ Form::hidden('custom', 'null', ['id' => 'custom']) }}
+                        <div class="input-group input-group-sm">
+                            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                                <span></span> <b class="caret"></b>
+                            </div>
+                                <span class="input-group-btn">
+                                <button type="Submit" class="btn btn-info btn-flat">Submit</button>
+                                </span>
+                        </div>
+                    {!! Form::close() !!}
+                    <h2 class="text-center">{{$title}}</h2>
+                </div>
+            </div> 
+        </div>
+    </div> 
+</div>
+<div class="box">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box-header with-border">
+                <h3 class="box-title">Ιστορικό Γευμάτων | {{$title}}</h3>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover dataTable" id="table">
+                                        <thead>
+                                        <tr role="row">
+                                            <th>ID</th>
+                                            <th>Όνομα</th>
+                                            <th>Ημερομηνία - Ώρα</th>
+                                            <th>Τύπος Γεύματος</th>
+                                            
+                                        </tr>
+                                            
+                                        </thead>
                                         
-                                    </tr>
+                                        <tbody>
                                         
-                                    </thead>
+                                        @foreach ($historys as $history)
+                                        <tr role="row" class="odd">
+                                            <td>{{ $history['id'] }}</td>
+                                            <td>{{ $history['name']}}</td>
+                                            <td>{{ $history['date']}}</td>
+                                            <td>{{ $history['meal_type']}}</td>
+                                        
+                                        </tr>
+                                        @endforeach
+                                        </tbody>
+                                        <tfoot>
                                     
-                                    <tbody>
-                                    
-                                    @foreach ($historys as $history)
-                                    <tr role="row" class="odd">
-                                        <td>{{ $history['id'] }}</td>
-                                        <td>{{ $history['name']}}</td>
-                                        <td>{{ $history['date']}}</td>
-                                        <td>{{ $history['meal_type']}}</td>
-                                    
-                                    </tr>
-                                    @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                
-                                    </tfoot>
-                </table>
-
-                        
-            </div>
-        </div> 
-    </div>
-</div> 
+                                        </tfoot>
+                    </table>          
+                </div>
+            </div> 
+        </div>
+    </div> 
 </div>
 
 <div class="row" style="margin-top:2%;">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Συνολικά Γεύματα Τελευταίας Εβδομάδας</h3>
+                <h3 class="box-title">Συνολικά Γεύματα | {{$title}}</h3>
                 <div class="box-body">
                 <div class="chart">
                     <canvas id="lineChart" style="height: 250px; width: 610px;" width="794" height="325"></canvas>
@@ -60,10 +85,10 @@
             </div>
         </div> 
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Γεύματα/Τύπο Τελευταίας Εβδομάδας</h3>
+                <h3 class="box-title">Γεύματα/Τύπο | {{$title}}</h3>
                 <div class="box-body">
                 <canvas id="barChart" style="height: 251px; width: 611px;" width="795" height="326"></canvas>
                 </div>
@@ -75,6 +100,9 @@
 </div>  
 @endsection
 @section('scripts')
+<script src="{{url("assets/moment/min/moment.min.js")}}"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script>
@@ -252,5 +280,42 @@
   })
   
  
+</script>
+
+<script type="text/javascript">
+$(function() {
+
+    var start = moment().subtract(7, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#start').html(start.format('MMMM D, YYYY'));
+        $('#stop').html(end.format('MMMM D, YYYY'));
+        document.getElementById('start').value=start.format('MMMM D, YYYY');
+        document.getElementById('stop').value=end.format('MMMM D, YYYY');
+        
+
+        console.log(start.format('MMMM D, YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        "opens": "center",
+        "alwaysShowCalendars": true,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
+    
+});
 </script>
 @endsection
