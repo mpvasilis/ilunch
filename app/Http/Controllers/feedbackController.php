@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\feedback;
+use App\Student;
+use DB;
 
 class feedbackController extends Controller
 {
@@ -37,5 +39,24 @@ class feedbackController extends Controller
 
 
 
+    }
+    public function index(){
+        $feedbacks = DB::table('feedbacks')->get();
+        $feeds= collect([]);
+        foreach($feedbacks as $feedback){
+            
+            $user = DB::table('students')->where('id',$feedback->student_id)->first();
+            if ($user == NULL){
+                $name = "Anonymous";
+            }else{
+                $name = $user->fistname . " " . $user->lastname;
+            }
+            $feed = collect(['id' => $feedback->id, 'name' => $name, 'comment'=> $feedback->comment, 'created_at'=> $feedback->created_at]);
+            $feeds -> push($feed);
+        }
+        
+
+        
+        return view('admin.feedback',compact('feeds'));
     }
 }
