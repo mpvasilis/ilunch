@@ -4,6 +4,7 @@
 @endsection
 
 @section('main')
+<div class="box">
 <div class="box-header with-border">
     <h3 class="box-title">Λίστα με Κριτικές</h3>
    
@@ -63,7 +64,7 @@
                      </div>
                  </div>
 @endsection
-
+</div>
 
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

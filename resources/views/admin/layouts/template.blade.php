@@ -238,13 +238,13 @@
     <section class="content">
 
       <!-- Default box -->
-      <div class="box">
+     
         
           @yield('main')
         
        
         <!-- /.box-footer-->
-      </div>
+      
       <!-- /.box -->
     </div>
     </section>
@@ -268,6 +268,7 @@
 <script src="{{asset("assets/bootstrap/dist/js/bootstrap.min.js")}}"></script>
 <!-- SlimScroll -->
 <script src="{{asset("assets/jquery-slimscroll/jquery.slimscroll.min.js")}}"></script>
+<script src="{{asset("assets/chart.js/Chart.js")}}"></script>
 <!-- FastClick -->
 
 <!-- AdminLTE App -->

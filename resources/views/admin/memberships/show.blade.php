@@ -4,6 +4,7 @@
 @endsection
 
 @section('main')
+<div class="box">
 <div class="box-header with-border">
     <h3 class="box-title">Λίστα με Γεύματα</h3>
     <div class="box-tools">
@@ -37,4 +38,5 @@
     </table>
     </div>
     </div>
+</div>    
 @endsection
