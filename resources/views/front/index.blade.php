@@ -147,10 +147,20 @@
                                                 <span style="color:white"> {{ $feedbackStatus }}</span>
                                             @endif
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <div class="csi-form-group" style="padding-bottom: 10px">
-                                                <input class="form-control" name="name" id="feedback_name"
-                                                       placeholder="Name" type="text">
-                                            </div>
+                                            @if(!Auth::check())
+                                                <div class="csi-form-group" style="padding-bottom: 10px">
+                                                    <input class="form-control" name="name" id="feedback_name"
+                                                           placeholder="Login to create eponymous feedback"
+                                                           type="hidden"
+                                                           disabled>
+                                                </div>
+                                            @else
+                                                <div class="csi-form-group" style="padding-bottom: 10px">
+                                                    <input class="form-control" name="name" id="feedback_name"
+                                                           value="{{Auth::user()->student_id}}" type="text" disabled>
+                                                </div>
+                                            @endif
+
                                             <div class="csi-form-group" style="padding-bottom: 10px">
                                                 <input class="form-control" name="comment" id="feedback_comment"
                                                        placeholder="Brief Comment" type="text" required>
