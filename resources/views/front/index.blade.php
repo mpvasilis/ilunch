@@ -230,27 +230,19 @@
                         start: '2018-03-28T10:00:00',
                         end: '2018-03-28T12:00:00',
                         backgroundColor: 'red',
-                        allDay: false,
-                        food: 'I have a string',
-                        borderColor: 'red'
+                        food: 'I have a string'
                     },
                     {
                         title: 'Μακαρόνια με Κιμά',
                         start: '2018-03-28T13:00:00',
                         end: '2018-03-28T15:30:00',
-                        backgroundColor: 'green',
-                        allDay: false,
-                        food: 'I have a string',
-                        borderColor: 'green'
+                        food: 'I have a string'
                     },
                     {
                         title: 'Σνίτσελ με Πουρέ',
                         start: '2018-03-28T18:00:00',
                         end: '2018-03-28T20:00:00',
-                        backgroundColor: 'blue',
-                        allDay: false,
-                        food: 'I have a string',
-                        borderColor: 'blue'
+                        food: 'I have a string'
                     }
                 ],
                 eventClick: function (event) {

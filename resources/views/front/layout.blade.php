@@ -90,7 +90,6 @@
                                             </div>
                                             <div class="collapse navbar-collapse">
                                                 <ul class="nav navbar-nav csi-nav">
-                                                    {{--todo active page class--}}
                                                     <li><a href="{{route('index')}}">{{trans('front/site.home')}}</a>
                                                     </li>
                                                     @if (Request::is('/'))
