@@ -119,6 +119,7 @@
                     </div><!-- //.CONTAINER -->
                 </div><!-- //.INNER -->
             </div>
+        </div>
     </section>
     <!--MENU ITEMS END-->
 
@@ -230,7 +231,6 @@
                         end: '2018-03-28T12:00:00',
                         backgroundColor: 'red',
                         allDay: false,
-                        id: 128,
                         food: 'I have a string',
                         borderColor: 'red'
                     },
@@ -240,7 +240,6 @@
                         end: '2018-03-28T15:30:00',
                         backgroundColor: 'green',
                         allDay: false,
-                        id: 128,
                         food: 'I have a string',
                         borderColor: 'green'
                     },
@@ -250,13 +249,12 @@
                         end: '2018-03-28T20:00:00',
                         backgroundColor: 'blue',
                         allDay: false,
-                        id: 128,
                         food: 'I have a string',
                         borderColor: 'blue'
                     }
                 ],
                 eventClick: function (event) {
-                    if (event.id) {
+                    if (event.title) {
                         // var startmin = event.start.getMinutes() < 10 ? '0' + event.start.getMinutes() : event.start.getMinutes();
                         // var endmin = event.end.getMinutes() < 10 ? '0' + event.end.getMinutes() : event.end.getMinutes();
                         // var time = event.start.getHours() + ":" + startmin + " - " + event.end.getHours() + ":" + endmin;
