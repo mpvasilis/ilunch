@@ -36,14 +36,8 @@
                     <li {{ (Request::is('/')) ? 'class=active':''}}>
                         <a href="{{url('/')}}">HOME</a>
                     </li>
-                    <li {{ (Request::is('news')) ? 'class=active':''}}>
-                        <a href="/news">NEWS</a>
-                    </li>
-                    <li {{ (Request::is('schedule')) ? 'class=active':''}}>
-                        <a href="/schedule">SCHEDULE</a>
-                    </li>
-                    <li {{ (Request::is('feedback')) ? 'class=active':''}}>
-                        <a href="/feedback">FEEDBACK</a>
+                    <li {{ (Request::is('dashboard')) ? 'class=active':''}}>
+                        <a href="{{url('dashboard')}}">DASHBOARD</a>
                     </li>
                     <li {{ (Request::is('contact')) ? 'class=active':''}}>
                         <a href="/contact">CONTACT</a>
@@ -61,7 +55,8 @@
                                     <li><a href="{{route('admin')}}">Dashboard</a></li>
                                 @endif
                                 @if(Auth::user()->student_id != NULL)
-                                <li><a href="{{route('profile',["student_id" => Auth::user()->student_id])}}">Student Profile</a></li>
+                                    <li><a href="{{route('profile',["student_id" => Auth::user()->student_id])}}">Student
+                                            Profile</a></li>
                                 @endif
                                 <li>
                                     <a href="{{ route('logout') }}"
@@ -92,8 +87,10 @@
 <footer>
     @yield('footer')
     <p class="text-center">
-        <small>Copyright &copy; 2017 ilunch</small><br>
-        <small><a href="#">Terms of Use</a> - <a href="#">Privacy Policy</a> - <a href="{{url('/about')}}">About</a> - <a href="{{url('/api')}}">API</a></small>
+        <small>Copyright &copy; 2017 ilunch</small>
+        <br>
+        <small><a href="#">Terms of Use</a> - <a href="#">Privacy Policy</a> - <a href="{{url('/about')}}">About</a> -
+            <a href="{{url('/api')}}">API</a></small>
     </p>
 </footer>
 @yield('scripts')

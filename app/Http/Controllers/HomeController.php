@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Announcement;
+use Illuminate\Support\Facades\DB;
+use Kris\LaravelFormBuilder\FormBuilder;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,11 +16,20 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('front.index');
     }
 
-    public function menu(){
+    public function menu()
+    {
         return view('front.menu');
+    }
+
+    public function news()
+    {
+        //todo maybe hide hidden announcements
+        $announcements = Announcement::orderBy('created_at','DESC')->paginate(5);
+        return view('front.news')->with('announcements', $announcements);
     }
 
     public function language($lang)

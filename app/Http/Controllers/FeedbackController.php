@@ -35,7 +35,7 @@ class FeedbackController extends Controller
         $newFeedback->student_id=$name;
         $newFeedback->save();
 
-        return view('feedback',compact('form'));
+        return view('front.index')->with('feedbackStatus', 'Success!');
     }
     public function index(){
         $feedbacks = DB::table('feedbacks')->get();

@@ -49,7 +49,7 @@
                                 <div class="contact">
                                     <ul class="list-inline">
                                         <li><i class="fa fa-bullhorn" aria-hidden="true"></i>
-                                            Καμία ανακοινωση!
+                                            Καμία ανακοινωση! {{-- todo κωδικας για να ανακοινώσεις--}}
                                         </li>
                                     </ul>
                                 </div>
@@ -103,7 +103,7 @@
                                                         </li>
                                                     @endif
                                                     <li><a class="csi-scroll"
-                                                           href="{{route('menu')}}">{{ trans('front/site.menu') }}</a>
+                                                           href="#csi-menu">{{ trans('front/site.menu') }}</a>
                                                     </li>
                                                     <li><a class="csi-scroll"
                                                            href="{{route('news')}}">{{ trans('front/site.news') }}</a>
@@ -140,13 +140,17 @@
                                                         </ul>
                                                     </li>
 
-                                                    @if(session('statut') == 'visitor')
+                                                    @if(!Auth::check())
                                                         <li><a class="csi-btn csi-scroll"
-                                                               href="auth/login">{{ trans('front/site.connection') }}</a>
+                                                               href="{{ route('login') }}">{{ trans('front/site.connection') }}</a>
+                                                        </li>
+                                                    @elseif(Auth::user()->role != "STUDENT")
+                                                        <li><a class="csi-btn csi-scroll"
+                                                               href="{{ route('admin') }}">{{ trans('front/site.admin') }}</a>
                                                         </li>
                                                     @else
                                                         <li><a class="csi-btn csi-scroll"
-                                                               href="dashboard">{{ trans('front/site.dashboard') }}</a>
+                                                               href="{{ route('dashboard') }}">{{ trans('front/site.dashboard') }}</a>
                                                         </li>
                                                     @endif
                                                 </ul>

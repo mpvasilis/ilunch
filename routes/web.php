@@ -26,12 +26,7 @@ Route::get('/schedule', function () {
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/menu', 'HomeController@menu')->name('menu');
-
-Route::get('/news', function () {
-    return view('news');
-});
-Route::get('/news', 'NewsController@index')->name('news');
-Route::get('/feedback', 'FeedbackController@create')->name('feedback');
+Route::get('/news', 'HomeController@news')->name('news');
 Route::post('/feedback', 'FeedbackController@store')->name('feedback_store');
 
 

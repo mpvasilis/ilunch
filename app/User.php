@@ -14,12 +14,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    public function student(){
-       return $this->hasOne('App/Student','id','student_id');
+    public function student()
+    {
+        return $this->hasOne('App/Student', 'id', 'student_id');
     }
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'student_id', 'role'
     ];
 
     /**

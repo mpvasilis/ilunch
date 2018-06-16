@@ -25,7 +25,7 @@
 <body class="hold-transition login-page" data-gr-c-s-loaded="true">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="../../index2.html"><b>iLunch</b>Manager</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
