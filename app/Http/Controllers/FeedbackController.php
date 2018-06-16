@@ -8,7 +8,7 @@ use App\feedback;
 use App\Student;
 use DB;
 
-class feedbackController extends Controller
+class FeedbackController extends Controller
 {
     public function create(FormBuilder $formBuilder)
     {
@@ -36,9 +36,6 @@ class feedbackController extends Controller
         $newFeedback->save();
 
         return view('feedback',compact('form'));
-
-
-
     }
     public function index(){
         $feedbacks = DB::table('feedbacks')->get();

@@ -13,7 +13,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('front');
+        return view('front.index');
+    }
+
+    public function menu(){
+        return view('front.menu');
     }
 
     public function language($lang)

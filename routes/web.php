@@ -17,9 +17,7 @@ Route::get('/about', function () {
     return view('about');
 });
 Route::get('language/{lang}', 'HomeController@language')->where('lang', '[A-Za-z_-]+');
-Route::get('/', function () {
-    return view('front.index');
-})->name('index');
+Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/schedule', function () {
     return view('calendar');
@@ -27,21 +25,25 @@ Route::get('/schedule', function () {
 
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::post('/contact', 'ContactController@store')->name('contact_store');
-Route::post('/menu', 'MenuController@viewWeeklyMenu')->name('menu');
+Route::get('/menu', 'HomeController@menu')->name('menu');
 
 Route::get('/news', function () {
     return view('news');
 });
 Route::get('/news', 'NewsController@index')->name('news');
-Route::get('/feedback', 'feedbackController@create')->name('feedback');
-Route::post('/feedback', 'feedbackController@store')->name('feedback_store');
-Route::get('/home', 'HomeController@index');
+Route::get('/feedback', 'FeedbackController@create')->name('feedback');
+Route::post('/feedback', 'FeedbackController@store')->name('feedback_store');
+
 
 //students profile
-Route::group(['prefix' => 'student','middleware' => 'can_view_student'], function () {
+Route::group(['prefix' => 'student', 'middleware' => 'can_view_student'], function () {
     Route::get('{studentId}/profile', 'StudentsController@profile')->name('profile')->middleware('student_exists');
     Route::get('{studentId}/reviews', 'StudentsController@reviews')->name('reviews')->middleware('student_exists');
 });
+
+Route::get('/dashboard', function () {
+    return view('about');
+})->name('dashboard');
 
 //admin
 Route::get('/admin', 'DashboardController@home')->name('admin');
