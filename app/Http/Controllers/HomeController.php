@@ -27,8 +27,7 @@ class HomeController extends Controller
 
     public function news()
     {
-        //todo maybe hide hidden announcements
-        $announcements = Announcement::orderBy('created_at','DESC')->paginate(5);
+        $announcements = Announcement::active()->orderBy('created_at', 'DESC')->paginate(5);
         return view('front.news')->with('announcements', $announcements);
     }
 

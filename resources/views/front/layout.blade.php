@@ -41,30 +41,34 @@
     <!--HEADER-->
     <header>
         <div id="csi-header" class="csi-header csi-banner-header">
-            <div class="header-top">
-                <div class="header-top-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="contact">
-                                    <ul class="list-inline">
-                                        <li><i class="fa fa-bullhorn" aria-hidden="true"></i>
-                                            Καμία ανακοινωση! {{-- todo κωδικας για να ανακοινώσεις--}}
-                                        </li>
-                                    </ul>
+            <?php
+            $criticalAnnounce = App\Announcement::active()->where('type', 0)->first();
+            ?>
+            @if($criticalAnnounce)
+                <div class="header-top">
+                    <div class="header-top-inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="contact">
+                                        <ul class="list-inline">
+                                            <li style="font-weight: bold"><i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                                {{ $criticalAnnounce->title }}
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="right-menu">
-                                    <ul class="list-inline">
-                                    </ul>
+                                <div class="col-sm-6">
+                                    <div class="right-menu">
+                                        <ul class="list-inline">
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            @endif
             <div class="csi-header-bottom">
                 <div class="container">
                     <div class="row">

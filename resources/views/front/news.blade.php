@@ -47,7 +47,7 @@
                             </div>
                         @endforeach
                     @else
-                        <p>No News</p>
+                        <h1 style="text-align: center">No News</h1>
 
                     @endif
                 </div>
