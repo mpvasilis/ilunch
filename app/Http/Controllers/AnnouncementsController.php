@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 use App\Announcement;
 use Carbon\Carbon;
 use Auth;
@@ -12,7 +11,7 @@ class AnnouncementsController extends Controller
 {
     public function index()
     {
-        $announcements = DB::table('announcements')->get();
+        $announcements = Announcement::get();
 
         return view('admin.announcements', compact('announcements'));
     }
@@ -29,7 +28,7 @@ class AnnouncementsController extends Controller
 
         $announcement->show_until = Carbon::parse($request['show_until'])->format('Y-m-d');
         $announcement->save();
-        $announcements = DB::table('announcements')->get();
+        $announcements = Announcement::get();
 
 
         return view('admin.announcements', compact('announcements'));
