@@ -1,5 +1,5 @@
 <?php
-
+//todo middlewares for logged in users
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +37,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 });
 
 //admin
+
 Route::get('admin', 'DashboardController@admin')->name('admin');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('meals', 'MealsController@index')->name('admin_meals');
