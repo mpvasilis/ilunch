@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Announcement extends Model
 {
+
+
+    public function scopeActive()
+    {
+        $date = date('Y-m-d');
+        return $this->where('show_until', '>', $date);
+    }
+
     protected $fillable = [
         'title',
         'content',
