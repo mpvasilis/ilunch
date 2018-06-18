@@ -131,13 +131,13 @@
                                                                     src="{!! asset('img/' . session('locale') . '-flag.png') !!}"/>
                                                             <b class="caret"></b></a>
                                                         <ul class="dropdown-menu">
-                                                            @foreach ( config('app.languages') as $user)
-                                                                @if($user !== config('app.locale'))
+                                                            @foreach ( config('app.languages') as $lang)
+                                                                @if($lang !== config('app.locale'))
                                                                     <li>
-                                                                        <a href="{!! url('language') !!}/{{ $user }}"><img
+                                                                        <a href="{!! url('language') !!}/{{ $lang }}"><img
                                                                                     width="32" height="32"
-                                                                                    alt="{{ $user }}"
-                                                                                    src="{!! asset('img/' . $user . '-flag.png') !!}"></a>
+                                                                                    alt="{{ $lang }}"
+                                                                                    src="{!! asset('img/' . $lang . '-flag.png') !!}"></a>
                                                                     </li>
                                                                 @endif
                                                             @endforeach
@@ -148,7 +148,7 @@
                                                         <li><a class="csi-btn csi-scroll"
                                                                href="{{ route('login') }}">{{ trans('front/site.connection') }}</a>
                                                         </li>
-                                                    @elseif(Auth::user()->role != "STUDENT")
+                                                    @elseif($user->role != "STUDENT")
                                                         <li><a class="csi-btn csi-scroll"
                                                                href="{{ route('admin') }}">{{ trans('front/site.admin') }}</a>
                                                         </li>

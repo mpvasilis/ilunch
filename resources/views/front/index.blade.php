@@ -158,7 +158,7 @@
                                             @else
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                     <input class="form-control" name="name" id="feedback_name"
-                                                           value="{{Auth::user()->student_id}}" type="text" disabled>
+                                                           value="{{$user->student_id}}" type="text" disabled>
                                                 </div>
                                             @endif
 

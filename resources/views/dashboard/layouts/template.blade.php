@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>iLunch - @yield('title')</title>
+    <title>iLunch Dashboard - @yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -54,14 +54,14 @@
                         </li>
                     @else
                         <li class="dropdown" style="position: absolute;right: 5%;padding: 0.5% 0;">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ Auth::user()->name }} <b
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ $user->name }} <b
                                         class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                @if(Auth::user()->role != NULL && Auth::user()->role != 'STUDENT')
+                                @if($user->role != NULL && $user->role != 'STUDENT')
                                     <li><a href="{{route('admin')}}">Admin Panel</a></li>
                                 @endif
-                                @if(Auth::user()->student_id != NULL)
-                                    <li><a href="{{route('profile',["student_id" => Auth::user()->student_id])}}">Student
+                                @if($user->student_id != NULL)
+                                    <li><a href="{{route('profile',["student_id" => $user->student_id])}}">Student
                                             Profile</a></li>
                                 @endif
                                 <li>

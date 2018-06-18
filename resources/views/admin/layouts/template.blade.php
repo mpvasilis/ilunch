@@ -51,16 +51,16 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-arrow-circle-down"></i>
-                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            <span class="hidden-xs">{{ $user->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <p>
-                                    {{ Auth::user()->name }}
-                                    <small>({{Auth::user()->email}})</small>
-                                    {{ Auth::user()->role }}
-                                    <small>Registered {{humanTiming(Auth::user()->created_at)}} ago</small>
+                                    {{ $user->name }}
+                                    <small>({{$user->email}})</small>
+                                    {{ $user->role }}
+                                    <small>Registered {{humanTiming($user->created_at)}} ago</small>
                                 </p>
                             {{--</li>--}}
                             {{--<!-- uncomment for menu under user info -->--}}
@@ -172,7 +172,7 @@
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             iLunch<span style="font-size: 50%;">v{{config('app.version')}}
-                ({{ Config::get('app.env') }})</span>
+                ({{ Config::get('app.env') }})fro</span>
         </div>
         <strong>Copyright &copy; 2017-2018 <a href="https://oneup.host">ONEUP GROUP</a>.</strong> All rights
         reserved.

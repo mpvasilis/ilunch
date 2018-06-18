@@ -8,6 +8,7 @@ use App\feedback;
 use App\Student;
 use DB;
 
+//todo refactor to RatingController and datasource should be ratings table
 class FeedbackController extends Controller
 {
     public function create(FormBuilder $formBuilder)
@@ -20,7 +21,7 @@ class FeedbackController extends Controller
         return view('feedback', compact('form'));
     }
 
-    public function store(Request $request,FormBuilder $formBuilder,feedback $feedback)
+    public function store(Request $request, FormBuilder $formBuilder, feedback $feedback)
     {
         $name = $request->get('name');
         $comment = $request->get('comment');
@@ -30,30 +31,31 @@ class FeedbackController extends Controller
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
 
-        $newFeedback= new feedback;
-        $newFeedback->comment=$comment;
-        $newFeedback->student_id=$name;
+        $newFeedback = new feedback;
+        $newFeedback->comment = $comment;
+        $newFeedback->student_id = $name;
         $newFeedback->save();
 
         return view('front.index')->with('feedbackStatus', 'Success!');
     }
-    public function index(){
+
+    public function index()
+    {
         $feedbacks = DB::table('feedbacks')->get();
-        $feeds= collect([]);
-        foreach($feedbacks as $feedback){
-            
-            $user = DB::table('students')->where('id',$feedback->student_id)->first();
-            if ($user == NULL){
+        $feeds = collect([]);
+        foreach ($feedbacks as $feedback) {
+
+            $user = DB::table('students')->where('id', $feedback->student_id)->first();
+            if ($user == NULL) {
                 $name = "Anonymous";
-            }else{
+            } else {
                 $name = $user->fistname . " " . $user->lastname;
             }
-            $feed = collect(['id' => $feedback->id, 'name' => $name, 'comment'=> $feedback->comment, 'created_at'=> $feedback->created_at]);
-            $feeds -> push($feed);
+            $feed = collect(['id' => $feedback->id, 'name' => $name, 'comment' => $feedback->comment, 'created_at' => $feedback->created_at]);
+            $feeds->push($feed);
         }
-        
 
-        
-        return view('admin.feedback',compact('feeds'));
+
+        return view('admin.feedback', compact('feeds'));
     }
 }

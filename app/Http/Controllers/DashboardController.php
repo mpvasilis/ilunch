@@ -33,6 +33,10 @@ class DashboardController extends Controller
     {
         //TODO get gevmata imeras
         $announcement = Announcement::active()->first();
+//        $menuprwino = $menus->join('menu_assigns','menu_assigns.menu_id','=','menus.id')->join('menu_meals','menu_meals.id','=','menu_assigns.meal_id')->Breakfast()->get();
+//        $menumeshmeriano = $menus->join('menu_assigns','menu_assigns.menu_id','=','menus.id')->join('menu_meals','menu_meals.id','=','menu_assigns.meal_id')->Lunch()->get();
+//        $menuvradino = $menus->join('menu_assigns','menu_assigns.menu_id','=','menus.id')->join('menu_meals','menu_meals.id','=','menu_assigns.meal_id')->Dinner()->get();
+//        return view('dashboard.welcome')->with('announcement', $announcement)->with('menuprwino',$menuprwino)->with('menumeshmeriano',$menumeshmeriano)->with('menuvradino',$menuvradino);
         return view('dashboard.welcome')->with(['announcement' => $announcement, 'menuprwino' => [], 'menumeshmeriano' => [], 'menuvradino' => []]);
     }
 

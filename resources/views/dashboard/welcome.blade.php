@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('dashboard.layouts.template')
 @section('title')
     Home
 @endsection
@@ -14,7 +14,7 @@
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
                             <h3 style="text-align:center">{{$announcement->title}}
-                                by {{ $announcement->author->name }}</h3>
+                                <small>by {{ $announcement->author->name }}</small></h3>
                         </div>
                         <hr>
                         <h2 class="intro-text text-center"><strong> homepage </strong></h2>

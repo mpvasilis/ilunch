@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('dashboard.layouts.template')
 @section('title')
     Menu Schedule
 @endsection
