@@ -52,8 +52,9 @@
                                 <div class="col-sm-6">
                                     <div class="contact">
                                         <ul class="list-inline">
-                                            <li style="font-weight: bold"><i class="fa fa-bullhorn" aria-hidden="true"></i>
-                                                {{ $criticalAnnounce->title }}
+                                            <li><i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                                <strong>{{ $criticalAnnounce->title }}
+                                                    :</strong>{{ $criticalAnnounce->content }}
                                             </li>
                                         </ul>
                                     </div>
