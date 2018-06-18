@@ -39,7 +39,7 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <p>{{$announcement->content}}</p>
-                                                <small class="pull-right"> {{$announcement->created_at}}</small>
+                                                <small class="pull-right"> {{$announcement->created_at}} by {{ $announcement->author->name }}</small>
                                             </div>
                                         </div>
                                     </div>

@@ -14,6 +14,11 @@ class Announcement extends Model
         return $this->where('show_until', '>', $date);
     }
 
+    public function author()
+    {
+        return $this->hasOne('App\User', 'id', 'created_by');
+    }
+
     protected $fillable = [
         'title',
         'content',
