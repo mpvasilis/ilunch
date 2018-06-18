@@ -37,21 +37,25 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 });
 
 //admin
-Route::get('/admin', 'DashboardController@admin')->name('admin');
-Route::get('/admin/meals', 'MealsController@index')->name('admin_meals');
-Route::post('/admin/meals', 'MealsController@post')->name('admin_meals');
-Route::post('/admin/meals/update', 'MealsController@update')->name('admin_meals_update');
-Route::post('/admin/meals/delete', 'MealsController@delete')->name('admin_meals_delete');
+Route::get('admin', 'DashboardController@admin')->name('admin');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('meals', 'MealsController@index')->name('admin_meals');
+    Route::post('meals', 'MealsController@post')->name('admin_meals');
+    Route::post('meals/update', 'MealsController@update')->name('admin_meals_update');
+    Route::post('meals/delete', 'MealsController@delete')->name('admin_meals_delete');
 
 
-Route::get('/admin/memberships/show', 'MembershipsController@index')->name('admin_memberships_show');
-Route::get('/admin/memberships/create', 'MembershipsController@create')->name('admin_memberships_create');
+    Route::get('memberships/show', 'MembershipsController@index')->name('admin_memberships_show');
+    Route::get('memberships/create', 'MembershipsController@create')->name('admin_memberships_create');
 
-Route::get('/admin/announcements', 'AnnouncementsController@index')->name('admin_announcements');
-Route::post('/admin/announcements', 'AnnouncementsController@post')->name('admin_announcements');
-Route::post('/admin/announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
-Route::post('/admin/announcements/delete', 'AnnouncementsController@delete')->name('admin_announcements_delete');
+    Route::get('announcements', 'AnnouncementsController@index')->name('admin_announcements');
+    Route::post('announcements', 'AnnouncementsController@post')->name('admin_announcements');
+    Route::post('announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
+    Route::post('announcements/delete', 'AnnouncementsController@delete')->name('admin_announcements_delete');
 
-Route::get('/admin/statistics', 'StatsController@index')->name('admin_statistics');
-Route::post('/admin/statistics', 'StatsController@search')->name('admin_statistics');
-Route::get('/admin/feedback', 'feedbackController@index')->name('admin_feedback');
+    Route::get('statistics', 'StatsController@index')->name('admin_statistics');
+    Route::post('statistics', 'StatsController@search')->name('admin_statistics');
+    Route::get('feedback', 'feedbackController@index')->name('admin_feedback');
+
+    Route::get('students', 'StudentsController@index')->name('admin_students');
+});

@@ -7,7 +7,6 @@
     <!-- CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet"/>
 @endsection
-{{--todo insert to new template--}}
 @section('main')
     <section>
         <div class="container">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Announcement as Announcement;
 
 class DashboardController extends Controller
 {
@@ -16,19 +17,29 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
-    public function home(){
-      return view('admin.dashboard');
+    //admin routes
+    public function admin()
+    {
+        return view('admin.dashboard');
     }
-    public function meals(){
-      return view('admin.meals');
+
+    //dashboard routes
+    public function about()
+    {
+        return view('dashboard.about');
     }
-    public function announcments(){
-      return view('admin.announcments');
+
+    public function dashboard()
+    {
+        //TODO get gevmata imeras
+        $announcement = Announcement::active()->first();
+        return view('dashboard.welcome')->with(['announcement' => $announcement, 'menuprwino' => [], 'menumeshmeriano' => [], 'menuvradino' => []]);
     }
-    public function statistics(){
-      return view('admin.statistics');
+
+    public function calendar()
+    {
+        //todo get array for calendar
+        return view('dashboard.calendar');
     }
-    public function feedback(){
-      return view('admin.feedback');
-    }
+
 }

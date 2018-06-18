@@ -235,7 +235,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
-                                <p>iLunch is proudly powered by <a href="https://www.oneup.host/">Students</a> |
+                                <p>iLunch<span style="font-size: 50%;">v{{config('app.version')}}</span> is proudly
+                                    powered by <a href="https://www.oneup.host/">Students</a> |
                                     Supervised by <a href="http://arch.icte.uowm.gr/mdasyg/index.php">Dr. Minas
                                         Dasygenis</a></p>
                             </div>

@@ -34,10 +34,16 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li {{ (Request::is('/')) ? 'class=active':''}}>
-                        <a href="{{url('/')}}">HOME</a>
+                        <a href="{{route('index')}}">HOME</a>
                     </li>
                     <li {{ (Request::is('dashboard')) ? 'class=active':''}}>
-                        <a href="{{url('dashboard')}}">DASHBOARD</a>
+                        <a href="{{route('dashboard')}}">DASHBOARD</a>
+                    </li>
+                    <li {{ (Request::is('dashboard/about')) ? 'class=active':''}}>
+                        <a href="{{route('about')}}">ABOUT</a>
+                    </li>
+                    <li {{ (Request::is('dashboard/calendar')) ? 'class=active':''}}>
+                        <a href="{{route('calendar')}}">CALENDAR</a>
                     </li>
                     <li {{ (Request::is('contact')) ? 'class=active':''}}>
                         <a href="/contact">CONTACT</a>
@@ -52,7 +58,7 @@
                                         class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 @if(Auth::user()->role != NULL && Auth::user()->role != 'STUDENT')
-                                    <li><a href="{{route('admin')}}">Dashboard</a></li>
+                                    <li><a href="{{route('admin')}}">Admin Panel</a></li>
                                 @endif
                                 @if(Auth::user()->student_id != NULL)
                                     <li><a href="{{route('profile',["student_id" => Auth::user()->student_id])}}">Student
@@ -87,7 +93,7 @@
 <footer>
     @yield('footer')
     <p class="text-center">
-        <small>Copyright &copy; 2017 ilunch</small>
+        <small>Copyright &copy; 2017 iLunch<span style="font-size: 50%;">v{{config('app.version')}}</span></small>
         <br>
         <small><a href="#">Terms of Use</a> - <a href="#">Privacy Policy</a> - <a href="{{url('/about')}}">About</a> -
             <a href="{{url('/api')}}">API</a></small>
