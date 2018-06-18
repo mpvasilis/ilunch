@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu_meal extends Model
 {
+
+    public function mealType()
+    {
+        return $this->hasOne('App\Menu_type', 'id', 'type_id');
+    }
+
     protected $fillable = [
         'title',
         'info',

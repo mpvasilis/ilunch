@@ -8,10 +8,10 @@ class Announcement extends Model
 {
 
 
-    public function scopeActive()
+    public function scopeActive($query)
     {
         $date = date('Y-m-d');
-        return $this->where('show_until', '>', $date);
+        return $query->where('show_until', '>', $date);
     }
 
     public function author()
