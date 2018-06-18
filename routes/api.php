@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return json_encode(['status' => 'online', 'error' => 'null']);
 });
+Route::get('getMealCalendar', 'ApiController@getMealCalendar')->name('menuApi');//todo response with json array for meals.
 Route::get('getMealsByDate/{date}', 'ApiController@getMealsByDate');//todo response with json array for meals. (available ->'today')
 Route::get('validateCustomer/{id}', 'ApiController@validateCustomer'); //todo response with current subscription data
 Route::get('validateAnonymousCustomer', 'ApiController@validateAnonymousCustomer');//todo response with status code
