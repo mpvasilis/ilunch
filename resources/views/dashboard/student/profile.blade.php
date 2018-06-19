@@ -81,8 +81,11 @@
                                         <small>Semester:</small> {{ addOrdinalNumberSuffix($student->semester) }}
                                     </li>
                                     <li>
-                                        <small>Department:</small> {{ $student->department->department_name }}
-                                        at {{ $student->department->university }}
+                                        <small>Department:</small>
+                                        @if($student->department !=null)
+                                            {{ $student->department->department_name }}
+                                            at {{ $student->department->university }}
+                                        @endif
                                     </li>
                                 </ul>
                                 <h6>User Information:</h6>

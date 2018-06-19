@@ -21,10 +21,10 @@ class StudentController extends Controller
         $student = Student::aem($studentAem)->first();
         if ($student == null) {
             if ($studentAem == Auth::user()->student_id) {
-                $student = (new \App\Student)->create([
-                    'aem' => $studentAem,
-                ]);
-                return view('dashboard.student.editProfile', compact('student'));
+                $student = new Student();
+                $student->aem = $studentAem;
+                $student->save();
+                return $this->profile($studentAem);
             } else {
                 abort(404, 'studentProfileNotFoundException');
             }
@@ -35,6 +35,9 @@ class StudentController extends Controller
     public function profileEdit($studentAem)
     {
         $student = Student::aem($studentAem)->first();
+        if ($student == null) {
+            return Redirect::route('profile', ['studentId' => $studentAem]);
+        }
         return view('dashboard.student.editProfile', compact('student'));
     }
 
