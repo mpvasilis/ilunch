@@ -39,7 +39,7 @@
                     <li {{ (Request::is('dashboard')) ? 'class=active':''}}>
                         <a href="{{route('dashboard')}}">DASHBOARD</a>
                     </li>
-                    @if($user->student_id != NULL)
+                    @if($user != NULL && $user->student_id != NULL)
                         <li {{ (Request::is('student/'.$user->student_id.'/profile')) ? 'class=active':''}}>
                             <a href="{{route('profile',["student_id" => $user->student_id])}}">PROFILE</a>
                         </li>
@@ -50,7 +50,7 @@
                     <li {{ (Request::is('contact')) ? 'class=active':''}}>
                         <a href="{{ route('contact') }}">*CONTACT*</a>
                     </li>
-                    @if(!Auth::check())
+                    @if($user == NULL)
                         <li {{ (Request::is('login')) ? 'class=active':''}} style="position: absolute;right: 5%">
                             <a href="{{url('/login')}}">login</a>
                         </li>
@@ -69,7 +69,7 @@
                                 <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                 document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
 

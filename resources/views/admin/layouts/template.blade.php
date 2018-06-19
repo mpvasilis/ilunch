@@ -142,6 +142,8 @@
                                 Αναθέσεις Συνδρομών</a></li>
                     </ul>
                 </li>
+                <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users')}}"><i
+                                class="fa fa-users"></i> <span>Users</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->

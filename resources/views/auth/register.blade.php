@@ -48,7 +48,7 @@
 
                                 <div class="col-md-6">
                                     <input id="student_id" type="text" class="form-control" name="student_id"
-                                           value="{{ old('student_id') }}" required>
+                                           value="{{ old('student_id') }}">
 
                                     @if ($errors->has('student_id'))
                                         <span class="help-block">
