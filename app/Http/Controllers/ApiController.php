@@ -13,4 +13,5 @@ class ApiController extends Controller
         //todo find whole callendar for next 2 weeks and create json for the front page
         return json_encode(array("test" => "true"));
     }
+
 }

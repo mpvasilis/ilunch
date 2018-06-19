@@ -1,4 +1,4 @@
-@extends('front.layouts')
+@extends('front.layout')
 @section('content')
     <!--Banner-->
     <section>

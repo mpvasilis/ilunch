@@ -26,6 +26,11 @@ class Membership extends Model
         return $this->hasMany('App\Statistic', 'membership_id', 'id');
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
+
     protected $fillable = [
         'title',
         'type_id',
@@ -36,10 +41,8 @@ class Membership extends Model
         // add all other fields
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    public $timestamps = false;
+
     protected $table = 'memberships';
+    protected $primaryKey = 'id';
 }

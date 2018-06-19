@@ -137,9 +137,9 @@
                                     href="{{route('admin_memberships_show')}}"><i class="fa fa-th-list"></i> Λίστα
                                 Συνδρομών</a>
                         </li>
-                        <li {{ (Request::is('admin/memberships/create')) ? 'class=active':''}}><a
-                                    href="{{route('admin_memberships_create')}}"><i class="fa fa-plus-square-o"></i>
-                                Προσθήκη Νέας Συνδρομής</a></li>
+                        <li {{ (Request::is('admin/memberships/assign/show')) ? 'class=active':''}}><a
+                                    href="{{route('admin_memberships_showAssign')}}"><i class="fa fa-plus-square-o"></i>
+                                Αναθέσεις Συνδρομών</a></li>
                     </ul>
                 </li>
             </ul>
@@ -172,7 +172,7 @@
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             iLunch<span style="font-size: 50%;">v{{config('app.version')}}
-                ({{ Config::get('app.env') }})fro</span>
+                ({{ Config::get('app.env') }})</span>
         </div>
         <strong>Copyright &copy; 2017-2018 <a href="https://oneup.host">ONEUP GROUP</a>.</strong> All rights
         reserved.

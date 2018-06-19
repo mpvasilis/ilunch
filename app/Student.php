@@ -13,7 +13,7 @@ class Student extends Model
 
     public function memberships()
     {
-        return $this->hasMany('App\Membership_assign', 'students_id', 'id');
+        return $this->hasMany('App\Membership_assign', 'student_id', 'id');
     }
 
     public function statistics()
@@ -31,6 +31,15 @@ class Student extends Model
         return $this->hasOne('App\Department', 'id', 'department_id');
     }
 
+    public function scopeByDepartment($query, $departmentId)
+    {
+        return $query->where('department_id', $departmentId);
+    }
+
+    public function scopeAem($query, $aem)
+    {
+        return $query->where('aem', $aem);
+    }
 
     public $timestamps = false;
 

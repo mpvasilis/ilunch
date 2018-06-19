@@ -61,5 +61,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'accessApi' => \App\Http\Middleware\AccessApi::class,
+        'can_view_student' => \App\Http\Middleware\AccessStudentProfile::class,
     ];
 }

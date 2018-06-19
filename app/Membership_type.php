@@ -10,4 +10,6 @@ class Membership_type extends Model
     {
         return $this->hasOne('App\Membership', 'id', 'membership_id');
     }
+
+    public $timestamps = false;
 }

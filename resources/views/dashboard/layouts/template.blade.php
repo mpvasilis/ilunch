@@ -34,19 +34,21 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li {{ (Request::is('/')) ? 'class=active':''}}>
-                        <a href="{{route('index')}}">HOME</a>
+                        <a href="{{route('index')}}">*HOMEPAGE*</a>
                     </li>
                     <li {{ (Request::is('dashboard')) ? 'class=active':''}}>
                         <a href="{{route('dashboard')}}">DASHBOARD</a>
                     </li>
+                    @if($user->student_id != NULL)
+                        <li {{ (Request::is('student/'.$user->student_id.'/profile')) ? 'class=active':''}}>
+                            <a href="{{route('profile',["student_id" => $user->student_id])}}">PROFILE</a>
+                        </li>
+                    @endif
                     <li {{ (Request::is('dashboard/about')) ? 'class=active':''}}>
                         <a href="{{route('about')}}">ABOUT</a>
                     </li>
-                    <li {{ (Request::is('dashboard/calendar')) ? 'class=active':''}}>
-                        <a href="{{route('calendar')}}">CALENDAR</a>
-                    </li>
                     <li {{ (Request::is('contact')) ? 'class=active':''}}>
-                        <a href="/contact">CONTACT</a>
+                        <a href="{{ route('contact') }}">*CONTACT*</a>
                     </li>
                     @if(!Auth::check())
                         <li {{ (Request::is('login')) ? 'class=active':''}} style="position: absolute;right: 5%">
@@ -61,7 +63,7 @@
                                     <li><a href="{{route('admin')}}">Admin Panel</a></li>
                                 @endif
                                 @if($user->student_id != NULL)
-                                    <li><a href="{{route('profile',["student_id" => $user->student_id])}}">Student
+                                    <li><a href="{{route('edit_profile',["student_id" => $user->student_id])}}">Edit
                                             Profile</a></li>
                                 @endif
                                 <li>

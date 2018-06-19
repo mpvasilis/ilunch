@@ -13,6 +13,14 @@ class Membership_assign extends Model
 
     public function student()
     {
-        return $this->hasOne('App\Student', 'id', 'students_id');
+        return $this->hasOne('App\Student', 'id', 'student_id');
     }
+
+    public function creator()
+    {
+        return $this->hasOne('App\User', 'id', 'created_by');
+    }
+
+    public $timestamps = false;
+
 }

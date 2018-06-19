@@ -18,4 +18,47 @@ function humanTiming($time)
         $numberOfUnits = floor($time / $unit);
         return $numberOfUnits . ' ' . $text . (($numberOfUnits > 1) ? 's' : '');
     }
+    return 'unknown';
+}
+
+function addOrdinalNumberSuffix($num)
+{
+    if (!in_array(($num % 100), array(11, 12, 13))) {
+        switch ($num % 10) {
+            // Handle 1st, 2nd, 3rd etc
+            case 1:
+                return $num . 'st';
+            case 2:
+                return $num . 'nd';
+            case 3:
+                return $num . 'rd';
+        }
+    }
+    return $num . 'th';
+}
+
+function printMeals($breakfast, $lunch, $dinner)
+{
+    $result = array();
+    if ($breakfast == 1)
+        array_push($result, 'Πρωινό');
+    if ($lunch == 1)
+        array_push($result, 'Μεσημεριανό');
+    if ($dinner == 1)
+        array_push($result, 'Βραδινό');
+    return implode(',', $result);
+}
+
+function getIntBoolString($int)
+{
+    if ($int == 1) {
+        return 'Yes';
+    }
+    return 'No';
+}
+
+function getTimestampPart($timestamp, $part)
+{
+    $sub = explode(' ', $timestamp);
+    return $sub[$part];
 }

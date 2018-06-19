@@ -1,4 +1,28 @@
 @extends('dashboard.layouts.template')
+@section('head')
+    <style>
+        table {
+            font-family: "Helvetica Neue", serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            font-family: "Josefin Slab", serif;
+            font-weight: bold;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ccc;
+        }
+    </style>
+@endsection
 @section('title')
     {{ $student->lastname }} {{ $student->firstname }} Profile
 @endsection
@@ -10,52 +34,121 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <hr>
-                        <h2 class="intro-text text-center"><strong>Κατασκευή Ολοκληρωμένου Συστήματος ilunch για τη
-                                Φοιτητική Λέσχη</strong></h2>
+                        <h2 class="intro-text text-center">
+                            <strong>{{ $student->lastname }} {{ $student->firstname }}</strong>
+                            <small> Student Profile</small>
+                        </h2>
                         <hr>
-                        <img class="img-responsive img-left" width="500px" height="500px"
-                             src="http://images.clipartpanda.com/lunch-clipart-lunch-clip-art-clipart-free-clipart.jpg"
-                             alt="">
-                        <p>Δημιουργία website για την καλύτερη διαχείριση και παρακολούθηση της φοιτητικής λέσχης. <br>
-                            Βασική λειτουργία: Γενική Καταγραφή των ατόμων που έρχονται στη φοιτητική Λέσχη σίτισης του
-                            Πανεπιστημίου σε κάποιο γεύμα. Διατήρηση ιστορικού . Δημιουργία γραφημάτων (μήνα,
-                            ημέρα,εβδομάδα,γεύμα,πρωινό,απογευματινό,βραδυνό). Εμφάνιση συγκρίσεων περιόδων
-                            (μήνα/εβδομάδα/έτος/παραμετροποιήσιμο). <br>Δυνατότητα για λεπτομερή κατάγραφή των ατόμων με
-                            σάρωση ταυτότητας από Android 4.4 και άνω και εμφάνιση αν δικαιούται δωρεάν σίτιση ή όχι.
-                            <br>Δυνατότητα για δημιουργία καρτών σίτισης ειδικών λειτουργιών (π.χ κάρτα για ΧΧ γεύματα
-                            με ημερομηνία λήξης ΧΧΧΧΧΧ ή κάρτα για περίοδο από ΥΥΥΥΥ έως ΧΧΧΧΧ για 1 πρωινό/1
-                            μεσημεριανό/1 βραδυνό). Οι κάρτες θα μπορούν να εκτυπωθούν από το website (PDF) και θα
-                            φέρουν φωτογραφία κατόχου, πληροφοριακά στοιχεία κάρτας. Θα πρέπει να έχουν διαστάσεις είτε
-                            επαγγελματικής κάρτας ή σαν τις φοιτητικές ταυτότητες. Καταγραφή σε βάση δεδομένων για την
-                            καλύτερη επόπτευση της λειτουργίας από τη διοίκηση.<br> Δυνατότητα για προσθήκη μενού (με
-                            περιοδικότητα, π.χ. κάθε 2η εβδομάδα Δευτέρα....και επίσης διατροφικές πληροφορίες για τα
-                            φαγητά) και αυτόματη εμφάνιση στην πρώτη σελίδα για τη συγκεκριμένη ημέρα. <br>Δυνατότητα
-                            τοποθετήσεων ανώνυμων ή επώνυμων κριτικών για συγκεκριμένα φαγητά. Επίσης δυνατότητα για
-                            προσωρινές ανακοινώσεις στο site, π.χ. "Για τα επόμενα 30 λεπτά δωρεάν η σίτιση στη Λέσχη".
-                            (a) δημιουργία εφαρμογής android, (b) δημιουργία πρωτότυπης κατασκευής με arduino που θα
-                            τοποθετηθεί στη λέσχη και θα έχει 3 ή παραπάνω κουμπιά (χαρούμενο πρόσωπο, στεναχωρημένο
-                            πρόσωπο, ενδιάμεση-κατάσταση) στο ύψος περίπου 1 μέτρου. <br>Όποιος θέλει κατά την έξοδο θα
-                            πατάει το κουμπί που πιστεύει αφορά την ποιότητα του συγκεκριμένου γεύματος, και αυτά θα
-                            αποστέλλονται στο site διαχείρισης είτε θα υπάρχει δυνατότητα ένας διαχειριστής με κινητό
-                            bluetooth να πλησιάσει τη συσκευή και να τα μεταφορτώσει όλα (δηλάδή offline αποθήκευση σε
-                            SD κάρτα στο arduino και μεταφορά σε εφαρμογή android ή οποία θα μπορεί να τα στείλει στο
-                            website. <br>Η κατασκευή θα έχει και μια οθόνη στην οποία θα εμφανίζονται είτε μηνύματα
-                            (π.χ. Η γνώμη σας μετράει , Ευχαριστούμε για τη γνώμη σας...), στατιστικά (π.χ. Σήμερα
-                            καταγράφηκαν 40 γνώμες φοιτητών), ή μηνύματα που θα έχει γράψει ο διαχειριστής είτε στο
-                            website είτε μέσω της εφαρμογής του κινητού τηλεφώνου (αν δεν υπάρχει internet και τ arduino
-                            είναι offline) και όταν πλησιάζει με το κινητό του θα πατάει "Ενημέρωση ανακοινώσεων και θα
-                            στέλνονται τα νέα μηνύματα" μέσω bluetooth. Τα υλικά θα αγοραστούν από το διδάσκοντα, αλλά
-                            θα πρέπει να έχει γίνει έρευνα χαμηλού κόστους. <br>Για την επικοινωνία
-                            android-website-arduino θα απαιτηθεί η λειτουργία ενός webservice API. H κατασκευή θα πρέπει
-                            να είναι σταθερή και επαγγελματική χωρίς να φαίνονται καλώδια breadboard κτλ. Επίσης το
-                            website και η android εφαρμογή θα πρέπει να είναι φιλικές προς τους χρήστες (ιδιαίτερα τους
-                            άσχετους με θέματα πληροφορικής) και σχεδιαστικά ελκυστικές. <br>Το website θα έχει τους
-                            ρόλους: διαχειριστής (όλα ότι κάνουν οι άλλοι, προσθήκη διαγαφή χρηστών και κατηγοριών),
-                            φοιτητική μέριμνα (επεξεργασία λίστας δωρεάν φοίτησης,ανακοινώσεων, προβολή feedback),
-                            προσωπικό λέσχης (έκδοση καρτών, επεξεργασία λίστας δωρεάν φοίτησης, ανακοινώσεων, μενου,
-                            android σάρωση, προβολή feedback), φοιτητής (σύνδεση με SSO, προβολή στοιχείων που τον αφορά
-                            αν έχει κάρτα π.χ. ή πόσες φορές πήγε στη λέσχη), ανώνυμος (προβολή μενού και ανακοινώσεων).
-                        </p>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="img-responsive img-left" width="250px" height="250px"
+                                     src="{{ asset($student->photo)}}"
+                                     alt="{{ $student->lastname }} {{ $student->firstname }} Profile Picture">
+                            </div>
+                            <div class="col-md-10">
+                                <h6>Student Information:</h6>
+                                <ul class="nav-justified navbar">
+                                    <li>
+                                        <small>First Name:</small> {{ $student->firstname }}</li>
+                                    <li>
+                                        <small>Last Name:</small> {{ $student->lastname }}
+                                    </li>
+                                    <li>
+                                        <small>Fathers Name:</small> {{ $student->father_name }}
+                                    </li>
+                                    <li>
+                                        <small>Semester:</small> {{ addOrdinalNumberSuffix($student->semester) }}
+                                    </li>
+                                    <li>
+                                        <small>Department:</small> {{ $student->department->department_name }}
+                                        at {{ $student->department->university }}
+                                    </li>
+                                </ul>
+                                <h6>User Information:</h6>
+                                @if($student->user !=null)
+                                    <ul class="nav-justified navbar">
+                                        <li>
+                                            <small>E-Mail:</small> {{ $student->user->email }}
+                                        </li>
+                                        <li>
+                                            <small>Student Id:</small> {{ $student->aem }}
+                                        </li>
+                                        <li>
+                                            <small>Role:</small> {{ $student->user->role }}
+                                        </li>
+                                        <li>
+                                            <small>Registered:</small> {{ $student->user->created_at }}
+                                        </li>
+                                    </ul>
+                                @else
+                                    <p class="text-center">No user associated with this student!</p>
+                                @endif
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-center">Statistics:</h5>
+                                <h6> Total Visits: {{ count($student->statistics) }}</h6>
+                                <table>
+                                    <tr>
+                                        <th>Meal Type</th>
+                                        <th>Date</th>
+                                        <th>Membership</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Mesimeriano</td>
+                                        <td>2 days ago</td>
+                                        <td>CASH</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-center">Ratings:</h5>
+                                <h6> Total Ratings: {{ count($student->ratings) }}</h6>
+                                <table>
+                                    <tr>
+                                        <th>Meal</th>
+                                        <th>Rating</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Feta</td>
+                                        <td>4/5</td>
+                                        <td>2 days ago</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h5 class="text-center">Memberhip History:</h5>
+                                <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Meals</th>
+                                        <th>Type</th>
+                                        <th>Start Date</th>
+                                        <th>Created By</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Monthly Pack</td>
+                                        <td>Μεσημερνιανό,Βραδινό</td>
+                                        <td>DURATION <small>[ 30 DAYS ]</small></td>
+                                        <td>17 days ago</td>
+                                        <td>Sarantis</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80 Meal Pack</td>
+                                        <td>Μεσημερνιανό,Βραδινό</td>
+                                        <td>VISITS <small>[ 30 / 80 ]</small></td>
+                                        <td>112 days ago</td>
+                                        <td>Sarantis</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
