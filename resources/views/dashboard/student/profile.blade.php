@@ -1,6 +1,7 @@
 @extends('dashboard.layouts.template')
 @section('head')
     <style>
+
         table {
             font-family: "Helvetica Neue", serif;
             border-collapse: collapse;
@@ -20,6 +21,26 @@
 
         tr:nth-child(even) {
             background-color: #ccc;
+        }
+
+        div::-webkit-scrollbar {
+            width: 1em;
+        }
+
+        div::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        div::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+        }
+
+        .scrollable {
+            display: block;
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
     </style>
 @endsection
@@ -90,18 +111,22 @@
                             <div class="col-md-6">
                                 <h5 class="text-center">Statistics:</h5>
                                 <h6> Total Visits: {{ count($student->statistics) }}</h6>
-                                <table>
-                                    <tr>
-                                        <th>Meal Type</th>
-                                        <th>Date</th>
-                                        <th>Membership</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Mesimeriano</td>
-                                        <td>2 days ago</td>
-                                        <td>CASH</td>
-                                    </tr>
-                                </table>
+                                <div class="scrollable">
+                                    <table>
+                                        <tr style="font-weight: bolder">
+                                            <th>Meal Type</th>
+                                            <th>Date</th>
+                                            <th>Membership</th>
+                                        </tr>
+                                        @foreach($student->statistics as $statistic)
+                                            <tr>
+                                                <th>{{$statistic->menu->type->title}}</th>
+                                                <th>{{ humanTiming($statistic->created_at) }} ago</th>
+                                                <th>{{$statistic->membership->title}}</th>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <h5 class="text-center">Ratings:</h5>
@@ -112,11 +137,13 @@
                                         <th>Rating</th>
                                         <th>Date</th>
                                     </tr>
-                                    <tr>
-                                        <td>Feta</td>
-                                        <td>4/5</td>
-                                        <td>2 days ago</td>
-                                    </tr>
+                                    @foreach($student->ratings as $rating)
+                                        <tr>
+                                            <th>{{printMealsFromMenuAssigns($rating->menu->mealAssigns)}}</th>
+                                            <th>{{ $rating->rating }}/5</th>
+                                            <th>{{ humanTiming($rating->created_at) }} ago</th>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -130,22 +157,24 @@
                                         <th>Meals</th>
                                         <th>Type</th>
                                         <th>Start Date</th>
+                                        <th>Remaining</th>
                                         <th>Created By</th>
                                     </tr>
-                                    <tr>
-                                        <td>Monthly Pack</td>
-                                        <td>Μεσημερνιανό,Βραδινό</td>
-                                        <td>DURATION <small>[ 30 DAYS ]</small></td>
-                                        <td>17 days ago</td>
-                                        <td>Sarantis</td>
-                                    </tr>
-                                    <tr>
-                                        <td>80 Meal Pack</td>
-                                        <td>Μεσημερνιανό,Βραδινό</td>
-                                        <td>VISITS <small>[ 30 / 80 ]</small></td>
-                                        <td>112 days ago</td>
-                                        <td>Sarantis</td>
-                                    </tr>
+                                    @foreach($student->memberships as $assign)
+                                        <tr>
+                                            <td>{{ $assign->membership->title }}</td>
+                                            <td>{{ printMeals($assign->membership->breakfast,$assign->membership->lunch,$assign->membership->dinner) }}</td>
+                                            <td>
+                                                <small>
+                                                    [ {{ $assign->membership->type->type }} {{ $assign->membership->type->value }}
+                                                    ]
+                                                </small>
+                                            </td>
+                                            <td>{{ humanTiming($assign->created_at) }} ago</td>
+                                            <td> {{ $assign->remaining }}</td>
+                                            <td>{{ $assign->creator->name }}</td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>

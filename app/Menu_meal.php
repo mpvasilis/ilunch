@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Menu_meal extends Model
 {
 
-    public function mealType()
+    public function menuAssigns()
     {
-        return $this->hasOne('App\Menu_type', 'id', 'type_id');
+        return $this->hasMany('App\Menu_assign', 'meal_id', 'id');
     }
 
     protected $fillable = [

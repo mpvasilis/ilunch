@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Student;
 use Illuminate\Http\Request;
 use Auth;
+use Redirect;
 
 class StudentController extends Controller
 {
@@ -41,8 +43,24 @@ class StudentController extends Controller
         //todo store new data to profile info and upload photo with student_id in storage
     }
 
-    public function create(Request $request)
+    public function create()
     {
+        $departments = Department::get();
+        return view('admin.students.create', compact('departments'));
+    }
+
+    public function createStore(Request $request)
+    {
+        $student = new Student();
+        $student->firstname = $request["firstName"];
+        $student->lastname = $request["lastName"];
+        $student->father_name = $request["fatherName"];
+        $student->semester = $request["semester"];
+        $student->department_id = $request["department"];
+        $student->aem = $request["aem"];
+        $student->save();
+
+        return Redirect::route('admin_students');
 
     }
 }

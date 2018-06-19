@@ -1,29 +1,30 @@
 @extends('admin.layouts.template')
 @section('title')
-    Δημιουργία Νέας Συνδρομής
+    Προσθήκη Φοιτητή
 @endsection
 
 @section('main')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Δημιουργία Νέας Συνδρομής</h3>
+            <h3 class="box-title">Προσθήκη Φοιτητή</h3>
 
             <div class="box-body">
-                {!! Form::open(array('action' => array('MembershipsController@create'))) !!}
-                {!! Form::label('title', 'Ονομασία Συνδρομής') !!}
-                {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                {!! Form::open(array('action' => array('StudentController@createStore'))) !!}
+                {!! Form::label('aem', 'Αριθμός Φοιτητικού Μητρώου') !!}
+                {!! Form::number('aem', null, ['class' => 'form-control']) !!}
+                {!! Form::label('firstName', 'Όνομα') !!}
+                {!! Form::text('firstName', null, ['class' => 'form-control']) !!}
+                {!! Form::label('lastName', 'Επίθετο') !!}
+                {!! Form::text('lastName', null, ['class' => 'form-control']) !!}
+                {!! Form::label('fatherName', 'Όνομα Πατρός') !!}
+                {!! Form::text('fatherName', null, ['class' => 'form-control']) !!}
+                {!! Form::label('semester', 'Εξάμηνο') !!}
+                {!! Form::number('semester', null, ['class' => 'form-control']) !!}
 
-                {!! Form::label('breakfast', 'Πρωινό') !!}
-                {{ Form::checkbox('breakfast', 1, true) }}
-                {!! Form::label('lunch', 'Μεσημεριανό') !!}
-                {{ Form::checkbox('lunch', 1, true) }}
-                {!! Form::label('dinner', 'Βραδινό') !!}
-                {{ Form::checkbox('dinner', 1, true) }}
-
-                {!! Form::label('membershipType', 'Πρωινό') !!}
-                <select name="membershipType">
+                {!! Form::label('department', 'Πανεπιστιμιακό Τμήμα') !!}
+                <select name="department">
                     @foreach($departments as $department)
-                        <option value='{{$department->id}}'>{{$department->name}} at {{ $department->univesity }}</option>
+                        <option value='{{$department->id}}'>{{$department->department_name}} at {{ $department->university }}</option>
                     @endforeach
                 </select>
 

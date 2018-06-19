@@ -8,14 +8,19 @@ class Menu extends Model
 {
     protected $table = "menus";
 
-    public function meal()
+    public function type()
     {
-        return $this->hasOne('App\Menu_meal', 'id', 'meal_id');
+        return $this->hasOne('App\Menu_type', 'id', 'type_id');
+    }
+
+    public function mealAssigns()
+    {
+        return $this->hasMany('App\Menu_assign', 'menu_id', 'id');
     }
 
     public function ratings()
     {
-        return $this->hasMany('App\Rating', 'id', 'menu_id');
+        return $this->hasMany('App\Rating', 'menu_id', 'id');
     }
 
     public function scopeBreakfast($query)

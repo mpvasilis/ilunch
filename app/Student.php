@@ -18,12 +18,12 @@ class Student extends Model
 
     public function statistics()
     {
-        return $this->hasMany('App\Statistic', 'student_id', 'id');
+        return $this->hasMany('App\Statistic', 'student_id', 'id')->orderBy('created_at', 'DESC');
     }
 
     public function ratings()
     {
-        return $this->hasMany('App\Rating', 'student_id', 'id');
+        return $this->hasMany('App\Rating', 'student_id', 'id')->orderBy('created_at', 'DESC');
     }
 
     public function department()

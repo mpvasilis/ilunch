@@ -20,7 +20,7 @@ class StatsController extends Controller
         foreach ($history as $h) {
 
             $user = DB::table('students')->where('id', $h->student_id)->first();
-            $name = $user->fistname . " " . $user->lastname;
+            $name = $user->firstname . " " . $user->lastname;
             if ($h->type == 1) {
                 $meal_type = "Πρωινό";
             } elseif ($h->type == 1) {
@@ -74,7 +74,7 @@ class StatsController extends Controller
         $types = collect([]);
         foreach ($history as $h) {
             $user = DB::table('students')->where('id', $h->student_id)->first();
-            $name = $user->fistname . " " . $user->lastname;
+            $name = $user->firstname . " " . $user->lastname;
             if ($h->type == 1) {
                 $meal_type = "Πρωινό";
             } elseif ($h->type == 1) {

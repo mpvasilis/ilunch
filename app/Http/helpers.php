@@ -21,6 +21,23 @@ function humanTiming($time)
     return 'unknown';
 }
 
+function getDays($time)
+{
+    $time = strtotime($time);
+    $time = time() - $time; // to get the time since that moment
+    $time = ($time < 1) ? 1 : $time;
+    return floor($time / 86400);
+}
+
+function printMealsFromMenuAssigns($assigns)
+{
+    $meals = array();
+    foreach ($assigns as $assign) {
+        array_push($meals, $assign->meal->title);
+    }
+    return implode(',', $meals);
+}
+
 function addOrdinalNumberSuffix($num)
 {
     if (!in_array(($num % 100), array(11, 12, 13))) {

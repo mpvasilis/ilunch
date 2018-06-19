@@ -13,6 +13,6 @@ class Rating extends Model
 
     public function menu()
     {
-        return $this->hasOne('App\Student', 'id', 'menu_id');
+        return $this->hasOne('App\Menu', 'id', 'menu_id');
     }
 }
