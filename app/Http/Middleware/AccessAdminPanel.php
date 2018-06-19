@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
-class RedirectIfAuthenticated
+class AccessAdminPanel
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        return $next($request);
-//        if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR", "STAFF", "STUDENT_CARE"])) {
-//            return $next($request);
-//        }
-//        return redirect('/unauthorised');
+        if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR", "STAFF", "STUDENT_CARE"])) {
+            return $next($request);
+        }
+        return abort(403, 'adminPanelMiddleware');
     }
 }

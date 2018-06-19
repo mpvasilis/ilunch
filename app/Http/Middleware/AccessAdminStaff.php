@@ -20,6 +20,6 @@ class AccessAdminStaff
         if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR", "STAFF"])) {
             return $next($request);
         }
-        return redirect('/unauthorised');
+        return abort(403, 'accessStaffMiddleware');
     }
 }

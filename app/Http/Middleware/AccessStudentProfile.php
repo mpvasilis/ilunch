@@ -17,9 +17,9 @@ class AccessStudentProfile
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::check() && (in_array(Auth::user()->role, ["ADMINISTRATOR", "STUDENT_CARE", "STAFF"]) || Auth::user()->student_id == $request->id)) {
+        if (Auth::check() && (in_array(Auth::user()->role, ["ADMINISTRATOR", "STUDENT_CARE", "STAFF"]) || Auth::user()->student_id == $request->studentId)) {
             return $next($request);
         }
-        return redirect('/unauthorised');
+        return abort(403, 'accessProfileMiddleware');
     }
 }

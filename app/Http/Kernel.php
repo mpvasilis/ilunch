@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'accessApi' => \App\Http\Middleware\AccessApi::class,
         'can_view_student' => \App\Http\Middleware\AccessStudentProfile::class,
+        'admin_panel' => \App\Http\Middleware\AccessAdminPanel::class,
     ];
 }

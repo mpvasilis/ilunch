@@ -38,8 +38,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 });
 
 //admin
-Route::get('admin', 'DashboardController@admin')->name('admin');
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::get('admin', 'DashboardController@admin')->name('admin')->middleware('admin_panel');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], function () {
 
     Route::get('meals', 'MealsController@index')->name('admin_meals');
     Route::post('meals', 'MealsController@post')->name('admin_meals');
@@ -75,4 +75,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('students/show', 'StudentController@adminIndex')->name('admin_students');
     Route::get('students/create', 'StudentController@create')->name('admin_students_create');
     Route::post('students/create', 'StudentController@createStore')->name('admin_students_create');
+
+    Route::get('users/show', 'UserController@adminIndex')->name('admin_users');
+
 });
