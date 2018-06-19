@@ -8,14 +8,10 @@ use Auth;
 
 class StudentController extends Controller
 {
-    public function adminIndex($departmentId)
+    public function adminIndex()
     {
-        //todo add index filters with department id (department->students())
-        if ($departmentId != null)
-            $students = Student::byDepartment($departmentId)->get();
-        else
-            $students = Student::get();
-        return view('admin.students', compact('students'));
+        $students = Student::get();
+        return view('admin.students.show', compact('students'));
     }
 
     public function profile($studentAem)
@@ -23,7 +19,7 @@ class StudentController extends Controller
         $student = Student::aem($studentAem)->first();
         if ($student == null) {
             if ($studentAem == Auth::user()->student_id) {
-                $student = Student::create([
+                $student = (new \App\Student)->create([
                     'aem' => $studentAem,
                 ]);
                 return view('dashboard.student.editProfile', compact('student'));

@@ -63,7 +63,7 @@
                                     <li><a href="{{route('admin')}}">Admin Panel</a></li>
                                 @endif
                                 @if($user->student_id != NULL)
-                                    <li><a href="{{route('edit_profile',["student_id" => $user->student_id])}}">Edit
+                                    <li><a href="{{route('edit_profile',["studentId" => $user->student_id])}}">Edit
                                             Profile</a></li>
                                 @endif
                                 <li>

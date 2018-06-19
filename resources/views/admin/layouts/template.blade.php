@@ -122,7 +122,7 @@
                         <span>Στατιστικά</span></a></li>
                 <li {{ (Request::is('admin/feedback')) ? 'class=active':''}}><a href="{{route('admin_feedback')}}"><i
                                 class="fa fa-circle-o"></i> <span>Feedback</span></a></li>
-                <li {{ (Request::is('admin/students')) ? 'class=active':''}}><a href="{{route('admin_students')}}"><i
+                <li {{ (Request::is('admin/students/*')) ? 'class=active':''}}><a href="{{route('admin_students')}}"><i
                                 class="fa fa-book"></i> <span>Students</span></a></li>
 
                 <li class="treeview {{ (Request::is('admin/memberships/*')) ? 'active menu-open':''}}">

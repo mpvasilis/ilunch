@@ -49,7 +49,7 @@ class FeedbackController extends Controller
             if ($user == NULL) {
                 $name = "Anonymous";
             } else {
-                $name = $user->fistname . " " . $user->lastname;
+                $name = $user->firstname . " " . $user->lastname;
             }
             $feed = collect(['id' => $feedback->id, 'name' => $name, 'comment' => $feedback->comment, 'created_at' => $feedback->created_at]);
             $feeds->push($feed);
