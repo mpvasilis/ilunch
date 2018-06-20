@@ -32,8 +32,14 @@
                             <td><img height="32" src="{{ asset($student->photo) }}"> {{ $student->aem }}</td>
                             <td>{{ $student->firstname }}</td>
                             <td>{{ $student->lastname }}</td>
-                            <td>{{ $student->department->department_name }}
-                                at {{ $student->department->university }}</td>
+                            <td>
+                                @if($student->department !=null)
+                                    {{ $student->department->department_name }}
+                                    at {{ $student->department->university }}
+                                @else
+                                    none
+                                @endif
+                            </td>
                             <td>{{ $student->semester }}</td>
                             <td>{{ $student->created_at }}</td>
 
