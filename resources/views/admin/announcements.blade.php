@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('title')
-    Ανακοινώσεις
+{{ trans('admin/announcements.page-title') }}
 @endsection
 
 @section('head')
@@ -9,9 +9,9 @@
 @section('main')
 <div class="box">
 <div class="box-header with-border">
-    <h3 class="box-title">Λίστα με Ανακοινώσεις</h3>
+    <h3 class="box-title">{{ trans('admin/announcements.list') }}</h3>
     <div class="box-tools">
-            <button type="button" class="btn btn-success btn-small" data-toggle="modal" data-target="#modal-add">Προσθήκη Ανακοινώσης
+            <button type="button" class="btn btn-success btn-small" data-toggle="modal" data-target="#modal-add">{{ trans('admin/announcements.add-title') }}
             </button>
     </div>
     <div class="box-body">
@@ -20,9 +20,9 @@
             <table class="table table-bordered table-hover dataTable" id="table">
                         <thead>
                         <tr role="row">
-                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >ID</th>
-                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" >Title</th>
-                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Show Until</th>
+                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.id') }}</th>
+                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.title') }}</th>
+                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.show-until') }}</th>
                             <th></th>
                         </tr>  
                         </thead>
@@ -33,9 +33,9 @@
                             <td>{{ $announcement -> title }}</td>
                             <td>{{ $announcement -> show_until}}</td>
                             <td class="text-center">
-                                <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show" data-id="{{ $announcement -> id }}" data-title="{{ $announcement -> title }}" data-content="{{ $announcement -> content }}" data-show="{{ $announcement -> show_until}}" data-type="{{ $announcement -> type }}">Προβολή</a>
-                                <a class="btn btn-warning "id="edit-btn" data-toggle="modal" data-target="#modal-edit" data-id="{{ $announcement -> id }}" data-title="{{ $announcement -> title }}" data-content="{{ $announcement -> content }}" data-show="{{ $announcement-> show_until }}" data-type="{{ $announcement-> type }}">Επεξεργασία</a>
-                                <a class="btn btn-danger " id="delete-btn" data-toggle="modal" data-target="#modal-delete" data-id="{{ $announcement -> id }}">Διαγραφή</a>
+                                <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show" data-id="{{ $announcement -> id }}" data-title="{{ $announcement -> title }}" data-content="{{ $announcement -> content }}" data-show="{{ $announcement -> show_until}}" data-type="{{ $announcement -> type }}">{{ trans('admin/announcements.show') }}</a>
+                                <a class="btn btn-warning "id="edit-btn" data-toggle="modal" data-target="#modal-edit" data-id="{{ $announcement -> id }}" data-title="{{ $announcement -> title }}" data-content="{{ $announcement -> content }}" data-show="{{ $announcement-> show_until }}" data-type="{{ $announcement-> type }}">{{ trans('admin/announcements.edit') }}</a>
+                                <a class="btn btn-danger " id="delete-btn" data-toggle="modal" data-target="#modal-delete" data-id="{{ $announcement -> id }}">{{ trans('admin/announcements.delete') }}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -51,7 +51,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Προσθήκη νέας Ανακοινώσης </h4>
+                <h4 class="modal-title">{{ trans('admin/announcements.add-title') }} </h4>
               </div>
               <div class="modal-body">
               {!! Form::open(array('action' => array('AnnouncementsController@post'))) !!}
@@ -80,7 +80,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Προβολή Ανακοίνωσης </h4>
+                <h4 class="modal-title">{{ trans('admin/announcements.edit-title') }} </h4>
               </div>
               <div class="modal-body">
               {!! Form::open(array('action' => array('AnnouncementsController@update'))) !!}
@@ -110,7 +110,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Προβολή Ανακοίνωσης </h4>
+                <h4 class="modal-title">{{ trans('admin/announcements.show-title') }}</h4>
               </div>
               <div class="modal-body">
               
@@ -142,7 +142,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="text-center">
-                                    <h3> Είσαι σίγουρος ότι θέλεις να διαγράψεις την ανακοίνωση </h3>
+                                    <h3>{{ trans('admin/announcements.delete-title') }}</h3>
                                     {!! Form::open(array('route' => 'admin_announcements_delete')) !!}
                                     {{ Form::hidden('id', 'null', ['id' => 'ids']) }} 
                                     {!! Form::submit('Επιβεβαίωση', ['class' => 'btn btn-danger btn-lg center']) !!}

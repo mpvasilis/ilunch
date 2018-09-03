@@ -26,7 +26,8 @@ return [
     'memb-until-date' => 'Until Dat',
     'memb-free-until' => 'Δωρεάν Σίτιση Μέχρι Ημερομηνία',
     'memb-create-new' => 'Δημιουργία Νέας Συνδρομής',
-    'memb-memb-name' => 'Ονομασία Συνδρομής'
+    'memb-memb-name' => 'Ονομασία Συνδρομής',
+    'memb-memb-assign-stud' => 'Εισαγωγή Συνδρομής σε Φοιτιτή'
     
 ];
    

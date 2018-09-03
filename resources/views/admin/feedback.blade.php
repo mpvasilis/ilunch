@@ -1,21 +1,21 @@
 @extends('admin.layouts.template')
 @section('title')
-    Feedback
+{{ trans('admin/feedback.page-title') }}
 @endsection
 
 @section('main')
 <div class="box">
 <div class="box-header with-border">
-    <h3 class="box-title">Λίστα με Κριτικές</h3>
+    <h3 class="box-title">{{ trans('admin/feedback.list') }}</h3>
    
     <div class="box-body">
 <table class="table table-bordered table-hover dataTable" id="table">
                         <thead>
                         <tr role="row">
-                            <th>ID</th>
-                            <th>Τίτλος</th>
-                            <th>Πληροφορίες</th>
-                            <th>Ημερομηνία - Ώρα</th>
+                            <th>{{ trans('admin/feedback.id') }}</th>
+                            <th>{{ trans('admin/feedback.title') }}</th>
+                            <th>{{ trans('admin/feedback.info') }}</th>
+                            <th>{{ trans('admin/feedback.date') }}</th>
                         </tr>
                             
                         </thead>
@@ -48,7 +48,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                                <h4 class="modal-title" id="modal-title"  >Πληροφορίες Κριτικής</h4>
+                                <h4 class="modal-title" id="modal-title"  >{{ trans('admin/feedback.feedback-info') }}</h4>
                             </div>
                             <div class="modal-body">
                                 {!! Form::label('id', 'Feedback ID') !!}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>iLunch Admin - @yield('title')</title>
+<title>{{ trans('admin/site.main-title') }} {{  trans('admin/site.sec-title') }} - @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -25,12 +25,12 @@
 <body class="hold-transition login-page" data-gr-c-s-loaded="true">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>iLunch</b>Manager</a>
+    <a href="../../index2.html"><b>{{ trans('admin/site.main-title') }}</b>{{ trans('admin/site.sec-title') }}</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
   
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">{{ trans('admin/site.sign-in-text') }}</p>
     @yield('main')
   </div>
   <!-- /.login-box-body -->
