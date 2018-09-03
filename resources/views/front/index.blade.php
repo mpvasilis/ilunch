@@ -14,7 +14,7 @@
                             <h3 class="csi-subtitle">{{ trans('front/site.title') }}</h3>
                             <h2 class="csi-title">{{ trans('front/site.sub-title') }}</h2>
                             <div class="btn-area">
-                                <a class="csi-btn csi-scroll csi-btn-white" href="#csi-menu">Μενού Ημέρας</a>
+                                <a class="csi-btn csi-scroll csi-btn-white" href="#csi-menu">{{ trans('front/site.daymenu') }}</a>
                             </div>
                         </div>
                     </div>
@@ -35,22 +35,22 @@
                         <div class="col-sm-4">
                             <div class="about-top-single">
                                 <a href="#"><img src=assets/img/about-icon.png alt="about-icon"></a>
-                                <h3 class="title"><a href="#">Πρωινό</a></h3>
-                                <p>Ωρες σερβιρίσματος: 7:30-9:00 πμ</p>
+                                <h3 class="title"><a href="#">{{ trans('front/site.breakfast') }}</a></h3>
+                                <p>{{ trans('front/site.breakfast-time') }}</p>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="about-top-single">
                                 <a href="#"><img src=assets/img/about-icon2.png alt="about-icon"></a>
-                                <h3 class="title"><a href="#">Μεσημεριανό</a></h3>
-                                <p>Ωρες σερβιρίσματος: 7:30-9:00 πμ</p>
+                                <h3 class="title"><a href="#">{{ trans('front/site.lunch') }}</a></h3>
+                                <p>{{ trans('front/site.lunch-time') }}</p>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="about-top-single">
                                 <a href="#"><img src=assets/img/about-icon3.png alt="about-icon"></a>
-                                <h3 class="title"><a href="#">Απογευματινό</a></h3>
-                                <p>Ωρες σερβιρίσματος: 7:30-9:00 πμ</p>
+                                <h3 class="title"><a href="#">{{ trans('front/site.dinner') }}</a></h3>
+                                <p>{{ trans('front/site.dinner-time') }}</p>
                             </div>
                         </div>
                     </div>
@@ -68,8 +68,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="csi-heading">
-                                <h3 class="subtitle">Φοιτητικη Λεσχη ΠΔΜ</h3>
-                                <h2 class="title">Σχετικά με την λέσχη μας</h2>
+                                <h3 class="subtitle">{{ trans('front/site.sub-title') }}</h3>
+                                <h2 class="title">{{ trans('front/site.aboutus-title') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -77,10 +77,7 @@
                         <div class="col-xs-12">
                             <div class="csi-about-content">
                                 <p class="text">
-                                    We provide you with daily self-made bread, sourdough pizza, roasted
-                                    fish-meat-vegetables and many more. Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam.
+                                {{ trans('front/site.aboutus-text') }}
                                 </p>
                                 <img src="assets/img/about-bottom.jpg" alt="about team">
                             </div>
@@ -100,8 +97,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="csi-heading">
-                                <h3 class="subtitle">Μενου Λεχης</h3>
-                                <h2 class="title">Μενού Ημέρας</h2>
+                                <h3 class="subtitle">{{ trans('front/site.daymenu-title-big') }}</h3>
+                                <h2 class="title">{{ trans('front/site.daymenu-title-small') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -112,7 +109,8 @@
                                 <div id="calendar" style="width: 100%;margin: 0 auto;"></div>
                             </div>
                             <div class="panel-footer text-center">
-                                *Click on event to display more info and review options.
+                            {{ trans('front/site.calendar-help') }}
+                                
                             </div>
                             {{--</div>--}}
                         </div>
@@ -131,8 +129,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="csi-heading">
-                                <h3 class="subtitle">We respect your opinion</h3>
-                                <h2 class="title">Leave Feedback</h2>
+                                <h3 class="subtitle">{{ trans('front/site.feedback-subtitle') }}</h3>
+                                <h2 class="title">{{ trans('front/site.feedback-title') }}</h2>
                             </div>
                         </div>
                     </div>

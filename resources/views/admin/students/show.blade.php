@@ -1,15 +1,15 @@
 @extends('admin.layouts.template')
 @section('title')
-    Λίστα Φοιτητών
+{{ trans('admin/students.student-list') }}
 @endsection
 
 @section('main')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Λίστα Φοιτητών</h3>
+            <h3 class="box-title">{{ trans('admin/students.student-list') }}</h3>
             <div class="box-tools">
                 <a href="{{route('admin_students_create')}}">
-                    <button type="button" class="btn btn-success btn-small">Προσθήκη Φοιτητή</button>
+                    <button type="button" class="btn btn-success btn-small">{{ trans('admin/students.student-add') }}</button>
                 </a>
 
             </div>
@@ -18,12 +18,12 @@
                     <thead>
                     <tr role="row">
                         <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1">AEM</th>
-                        <th>Όνομα</th>
-                        <th>Επίθετο</th>
-                        <th>Τμήμα και Σχολή</th>
-                        <th>Ημερομηνία Δημιουργίας</th>
-                        <th>Εξάμηνο</th>
-                        <th>Ενέργειες</th>
+                        <th>{{ trans('admin/students.student-name') }}</th>
+                        <th>{{ trans('admin/students.student-surname') }}</th>
+                        <th>{{ trans('admin/students.student-school') }}</th>
+                        <th>{{ trans('admin/students.student-create-date') }}</th>
+                        <th>{{ trans('admin/students.student-semester') }}</th>
+                        <th>{{ trans('admin/students.student-actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,7 +44,7 @@
                             <td>{{ $student->created_at }}</td>
 
                             <td>
-                                <a href="{{route('profile',['studentId'=>$student->aem])}}">View Profile</a>
+                                <a href="{{route('profile',['studentId'=>$student->aem])}}">{{ trans('admin/students.student-view-prof') }}</a>
                             </td>
                         </tr>
                     @endforeach

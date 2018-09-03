@@ -47,7 +47,7 @@
                             </div>
                         @endforeach
                     @else
-                        <h1 style="text-align: center">No News</h1>
+                        <h1 style="text-align: center">{{ trans('front/site.nonews') }}</h1>
 
                     @endif
                 </div>

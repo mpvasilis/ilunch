@@ -40,7 +40,7 @@
     <img height="150px"
          src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{$id}}&choe=UTF-8"/>
     <p style="font-size: 50%;margin: 0;">
-        iLunch System by ONEUP GROUP
+        {{ trans('front/site.oneup') }}
     </p>
 </div>
 
