@@ -29,7 +29,9 @@
                     <tbody>
                     @foreach ($students as $student)
                         <tr role="row" class="odd">
-                            <td><img height="32" src="{{ asset($student->photo) }}"> {{ $student->aem }}</td>
+                            <td><img height="32"
+                                     src="{{ asset('storage/studentProfiles/'.$student->photo)}}"> {{ $student->aem }}
+                            </td>
                             <td>{{ $student->firstname }}</td>
                             <td>{{ $student->lastname }}</td>
                             <td>

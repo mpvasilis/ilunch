@@ -7,6 +7,8 @@ use App\Student;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
+use Illuminate\Support\Facades\Storage;
+
 
 class StudentController extends Controller
 {
@@ -43,7 +45,26 @@ class StudentController extends Controller
 
     public function profileUpdate(Request $request)
     {
-        //todo store new data to profile info and upload photo with student_id in storage
+        $student = Student::aem(Auth::user()->student_id)->first();
+        if ($student == null)
+            abort('403', 'studentProfileUpdateNotFoundException');
+        $student->firstname = $request["firstname"];
+        $student->lastname = $request["lastname"];
+        $student->father_name = $request["father_name"];
+        $student->semester = $request["semester"];
+        if ($request->file('photo') != null && $request->file('photo')->isValid()) {
+            $extension = $request->photo->extension();
+            if (in_array($extension, array('jpg', 'jpeg', 'png'))) {
+                $student->photo = md5($student->id) . '.' . $extension;
+                $request->photo->storeAs('public/studentProfiles', md5($student->id) . '.' . $extension);
+                $student->save();
+                return view('dashboard.student.profile', compact('student'));
+            } else {
+                return abort('403', 'studentProfileUpdateIllegalFileExtension');
+            }
+        } else {
+            return abort('403', 'studentProfileUpdateIllegalFile');
+        }
     }
 
     public function create()
