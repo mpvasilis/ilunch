@@ -38,5 +38,16 @@ return [
     'nonews' => 'Δεν υπάρχουν νέα',
     'news_title' => 'Όλα τα νέα για την Φοιτητική Λέσχη του ΠΔΜ',
     'news_subTitle' => 'Ειδήσεις',
+    'admin' => 'Διαχείριση',
+    'footer-title-1'=> 'Contact',
+    'footer-1-text' => '345 Park Ave, San Jose, CA 95110, United States',
+    'footer-1-email' => 'admin(at)oneup(dot)group',
+    'footer-title-2'=> 'Book A Table',
+    'footer-2-text' => 'pellentesque vehicula. Aliquam turpis justo, mattis id neque',
+    'footer-2-phone' => 'Mobile: +778529600',
+    'footer-title-3'=> 'Opening Time',
+    'footer-3-times' => '  <p>Mon - Thu 11:30 - 22:00 clock </p>
+    <p>Fri - Sat 11:30 - 24:00 clock </p><p>Mon - Thu 11:30 - 22:00 clock </p>',
+    'footer-title-4'=> 'Social Links',
     'oneup' => 'iLunch System by ONEUP GROUP'
 ];

@@ -20,6 +20,7 @@ return [
     'main-title' => 'iLunch',
     'sec-title' => 'Manager',
     'sign-in-text' => 'Sign in to start your session',
+    
 
 ];
    

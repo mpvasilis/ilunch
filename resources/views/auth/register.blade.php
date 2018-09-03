@@ -1,20 +1,20 @@
-@extends('dashboard.layouts.template')
+@extends('auth.layouts.template')
 @section('title')
-    Register
+{{ trans('auth/site.regi-title') }}
 @endsection
 
 @section('main')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
+                    <div class="panel-heading">{{ trans('auth/site.regi-title') }}</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Account Name</label>
+                                <label for="name" class="col-md-4 control-label">{{ trans('auth/site.acc-name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name"
@@ -29,11 +29,10 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <label for="email" class="col-md-4 control-label">{{ trans('auth/site.email') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="text" class="form-control" name="email"
-                                           value="{{ old('email') }}" required>
+                                    <input id="email" type="text" class="form-control" name="email" required>
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -44,7 +43,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('student_id') ? ' has-error' : '' }}">
-                                <label for="student_id" class="col-md-4 control-label">Academic Id</label>
+                                <label for="student_id" class="col-md-4 control-label">{{ trans('auth/site.acc-id') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="student_id" type="text" class="form-control" name="student_id"
@@ -59,7 +58,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
+                                <label for="password" class="col-md-4 control-label">{{ trans('auth/site.pass') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" required>
@@ -73,7 +72,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                                <label for="password-confirm" class="col-md-4 control-label">{{ trans('auth/site.pass-2') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -84,7 +83,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                    {{ trans('auth/site.regi-title') }}
                                     </button>
                                 </div>
                             </div>

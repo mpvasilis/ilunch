@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.template')
+@extends('admin.layouts.template')
 @section('head')
     <style>
 
