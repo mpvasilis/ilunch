@@ -7,21 +7,22 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
+                @if($announcement != null)
                 <div class="row">
                     <div class="col-lg-12">
-
                         <div class="alert alert-warning alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
                             <h3 style="text-align:center">{{$announcement->title}}
                                 <small>by {{ $announcement->author->name }}</small></h3>
                         </div>
-                        <hr>
-                        <h2 class="intro-text text-center"><strong> homepage </strong></h2>
-                        <hr>
                     </div>
                 </div>
+                @endif
                 <div class="row">
+                    <hr>
+                    <h2 class="intro-text text-center"><strong> homepage </strong></h2>
+                    <hr>
                     <div class="col-lg-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">Πρωινό</div>

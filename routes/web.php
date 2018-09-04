@@ -63,6 +63,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
         Route::post('type/create', 'MembershipsController@createTypeStore')->name('admin_memberships_createType');
     });
 
+    Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+        Route::get('show', 'UserController@show')->name('admin_users_show');
+        Route::get('{userId}/edit', 'UserController@showEdit')->name('admin_user_edit');
+        Route::post('{userId}/edit', 'UserController@edit')->name('admin_user_edit_store');
+
+    });
+
     Route::get('announcements', 'AnnouncementsController@index')->name('admin_announcements');
     Route::post('announcements', 'AnnouncementsController@post')->name('admin_announcements');
     Route::post('announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
@@ -75,7 +82,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
     Route::get('students/show', 'StudentController@adminIndex')->name('admin_students');
     Route::get('students/create', 'StudentController@create')->name('admin_students_create');
     Route::post('students/create', 'StudentController@createStore')->name('admin_students_create');
-
-    Route::get('users/show', 'UserController@adminIndex')->name('admin_users');
 
 });

@@ -141,6 +141,7 @@
                                     {{ trans('admin/site.member-assign-nav') }}</a></li>
                     </ul>
                 </li>
+
                 <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users')}}"><i
                                 class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
             </ul>

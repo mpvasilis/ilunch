@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <img class="img-responsive img-left" width="250px" height="250px"
-                                     src="{{ asset($student->photo)}}"
+                                     src="{{ asset('storage/studentProfiles/'.$student->photo)}}"
                                      alt="{{ $student->lastname }} {{ $student->firstname }} Profile Picture">
                             </div>
                             <div class="col-md-10">
@@ -124,7 +124,7 @@
                                         @foreach($student->statistics as $statistic)
                                             <tr>
                                                 <th>{{$statistic->menu->type->title}}</th>
-                                                <th>{{ humanTiming($statistic->created_at) }} ago</th>
+                                                <th>{{ humanTiming($statistic->created_at) }}</th>
                                                 <th>{{$statistic->membership->title}}</th>
                                             </tr>
                                         @endforeach
@@ -144,7 +144,7 @@
                                         <tr>
                                             <th>{{printMealsFromMenuAssigns($rating->menu->mealAssigns)}}</th>
                                             <th>{{ $rating->rating }}/5</th>
-                                            <th>{{ humanTiming($rating->created_at) }} ago</th>
+                                            <th>{{ humanTiming($rating->created_at) }}</th>
                                         </tr>
                                     @endforeach
                                 </table>
@@ -173,7 +173,7 @@
                                                     ]
                                                 </small>
                                             </td>
-                                            <td>{{ humanTiming($assign->created_at) }} ago</td>
+                                            <td>{{ humanTiming($assign->created_at) }}</td>
                                             <td> {{ $assign->remaining }}</td>
                                             <td>{{ $assign->creator->name }}</td>
                                         </tr>
@@ -181,6 +181,12 @@
                                 </table>
                             </div>
                         </div>
+                        @if($user->student_id == $student->aem)
+                            <div class="row">
+                                <div class="col-md-2"><a href="{{ route('edit_profile',$student->aem) }}"> Edit
+                                        Profile</a></div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

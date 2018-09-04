@@ -26,14 +26,18 @@ class Membership_assign extends Model
     public function getRemainingAttribute()
     {
         if ($this->membership->type->type == 'DAYS') {
-            return $this->membership->type->value - getDays($this->created_at);
+            $result = $this->membership->type->value - getDays($this->created_at);
         } else if ($this->membership->type->type == 'VISITS') {
-            return $this->membership->type->value - Statistic::where('student_id', $this->student->id)->where('membership_id', $this->membership->id)->count();
+            $result = $this->membership->type->value - Statistic::where('student_id', $this->student->id)->where('membership_id', $this->membership->id)->count();
         } else if ($this->membership->type->type == 'UNTIL') {
-            return $this->membership->type->value;
-        } else {
+            $result = $this->membership->type->value;
+        } else if ($this->membership->type->type == 'FREE') {
             return 'No Limit';
         }
+        if ($result < 0) {
+            $result = 'EXPIRED';
+        }
+        return $result;
     }
 
     public $timestamps = false;
