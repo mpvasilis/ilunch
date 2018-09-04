@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.template')
+@extends('auth.layouts.template')
 @section('title')
 {{ trans('auth/site.reset-title') }}
 @endsection

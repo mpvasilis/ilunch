@@ -1,16 +1,16 @@
 @extends('admin.layouts.template')
 @section('title')
-    Γεύματα
+    {{ trans('admin/meals.page-title') }}
 @endsection
 {{--todo tranform static arrays to dynamicly created collections from database or config data--}}
 @section('main')
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Λίστα με Γεύματα</h3>
+            <h3 class="box-title"> {{ trans('admin/meals.list') }}</h3>
             <div class="box-tools">
                 <button type="button" class="btn btn-success btn-small" data-toggle="modal" data-target="#modal-add">
-                    Προσθήκη Γεύματος
+                {{ trans('admin/meals.add') }}
                 </button>
             </div>
             <div class="box-body">
@@ -19,9 +19,9 @@
                 <table class="table table-bordered table-hover dataTable" id="table">
                     <thead>
                     <tr role="row">
-                        <th>ID</th>
-                        <th>Τίτλος</th>
-                        <th>Πληροφορίες</th>
+                        <th>{{ trans('admin/meals.id') }}</th>
+                        <th>{{ trans('admin/meals.title') }}</th>
+                        <th>{{ trans('admin/meals.info') }}</th>
                         <th></th>
                     </tr>
 
@@ -37,13 +37,13 @@
                                 <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show1"
                                    data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
                                    data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"
-                                   data-type_id="{{ $meal -> type_id }}">Προβολή</a>
+                                   data-type_id="{{ $meal -> type_id }}">{{ trans('admin/meals.show') }}</a>
                                 <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-edit"
                                    data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
                                    data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"
-                                   data-type_id="{{ $meal ->mealType }}">Επεξεργασία</a>
+                                   data-type_id="{{ $meal ->mealType }}">{{ trans('admin/meals.edit') }}</a>
                                 <a class="btn btn-danger " id="delete-btn" data-toggle="modal"
-                                   data-target="#modal-delete" data-id="{{ $meal -> id }}">Διαγραφή</a>
+                                   data-target="#modal-delete" data-id="{{ $meal -> id }}">{{ trans('admin/meals.delete') }}ή</a>
                             </td>
                         </tr>
                     @endforeach
@@ -60,7 +60,7 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">Προσθήκη νέου Γεύματος</h4>
+                            <h4 class="modal-title">{{ trans('admin/meals.add-meal-header') }}</h4>
                         </div>
                         <div class="modal-body">
                             {!! Form::open(array('action' => array('MealsController@post'))) !!}
@@ -85,7 +85,7 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">Επεξεργασία Γεύματος</h4>
+                            <h4 class="modal-title">{{ trans('admin/meals.edit-meal-header') }}</h4>
                         </div>
                         <div class="modal-body">
                             {!! Form::open(array('route' => 'admin_meals_update')) !!}
@@ -115,7 +115,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="text-center">
-                                <h3> Είσαι σίγουρος ότι θέλεις να διαγράψεις το γεύμα </h3>
+                                <h3>{{ trans('admin/meals.delete-meal-header') }} </h3>
                                 {!! Form::open(array('route' => 'admin_meals_delete')) !!}
                                 {{ Form::hidden('id', 'null', ['id' => 'ids']) }}
                                 {!! Form::submit('Επιβεβαίωση', ['class' => 'btn btn-danger btn-lg center']) !!}
@@ -132,7 +132,7 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title" id="modal-title">Πληροφορίες Φαγητού</h4>
+                            <h4 class="modal-title" id="modal-title">{{ trans('admin/meals.show-meal-header') }}</h4>
                         </div>
                         <div class="modal-body">
                             {!! Form::label('title', 'Όνομα') !!}

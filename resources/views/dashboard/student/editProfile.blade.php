@@ -1,6 +1,6 @@
-@extends('admin.layouts.template')
+@extends('dashboard.layouts.template')
 @section('title')
-    {{ $student->lastname }} {{ $student->firstname }} Profile
+    {{ $student->lastname }} {{ $student->firstname }} {{ trans('front/profile.page-title') }}
 @endsection
 
 @section('main')
@@ -12,7 +12,7 @@
                         <hr>
                         <h2 class="intro-text text-center">
                             <strong>{{ $student->lastname }} {{ $student->firstname }}</strong>
-                            <small> Edit Student Profile</small>
+                            <small>{{ trans('front/profile.edit-prof-header') }}</small>
                         </h2>
                         <hr>
 

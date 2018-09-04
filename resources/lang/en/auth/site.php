@@ -14,7 +14,7 @@ return [
     'pass-2' => 'Confirm Password',
     'reset-title' => 'Reset Password',
     'reset-button' => ' Send Password Reset Link',
-    '' => '',
+    'profile' => 'Student Profile',
     '' => '',
     '' => '',
     '' => '',
