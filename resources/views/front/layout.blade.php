@@ -8,30 +8,23 @@
     <title>{{ trans('front/site.title') }} | {{ trans('front/site.description') }}</title>
     <meta name="description" content="{{ trans('front/site.description') }}"/>
 
-    <!--  FAVICON AND TOUCH ICONS -->
-    <link rel="icon" type="image/png" sizes="192x192"
-          href="{!! asset('assets/img/favicon/android-icon-192x192.png') !!}">
-    <!-- BOOTSTRAP CSS -->
+
+    <link rel="icon" type="image/png" sizes="192x192" href="{!! asset('assets/icons/icon.png') !!}">
+
     <link rel="stylesheet" href="{!! asset('assets/libs/bootstrap/css/bootstrap.min.css') !!}" media="all"/>
-    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="{!! asset('assets/libs/fontawesome/css/font-awesome.min.css') !!}" media="all"/>
-    <!-- GOOGLE FONT -->
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
-    <!-- OWL CAROUSEL CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
     <link rel="stylesheet" href="{!! asset('assets/libs/owlcarousel/owl.carousel.min.css') !!}" media="all"/>
     <link rel="stylesheet" href="{!! asset('assets/libs/owlcarousel/owl.theme.default.min.css') !!}" media="all"/>
-    <!-- bootstrap datepicker -->
     <link rel="stylesheet" href="{!! asset('assets/libs/datepicker/bootstrap-datetimepicker.min.css') !!}" media="all"/>
-    <!-- MASTER  STYLESHEET  -->
+    <link rel="stylesheet" href="{!! asset('assets/css/custom.css') !!}" media="all"/>
     <link id="csi-master-style" rel="stylesheet" href="{!! asset('assets/css/style-default.min.css') !!}" media="all"/>
-    <!-- MODERNIZER CSS  -->
     <script src="{!! asset('assets/js/vendor/modernizr-2.8.3.min.js') !!}"></script>
     @section('header')
     @show
 </head>
 
-<body class="home">
+<body class="home @section('pageclass')@show" >
 <!--[if lt IE 8]>
 
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade

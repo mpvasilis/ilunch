@@ -1,0 +1,22 @@
+.inside-page {
+    padding-top: 7%;
+    min-height: 55vh;
+}
+body.home.contact .csi-container .csi-header-bottom, body.home.news .csi-container .csi-header-bottom{
+    margin-top: 0;
+    background: rgba(33,39,57,.95);
+}
+
+body.home.contact .csi-header .csi-navbar .csi-nav, body.home.news .csi-header .csi-navbar .csi-nav {
+    margin-top: 0.6rem;
+}
+
+body.home.contact .csi-header .menu-onscroll, body.home.news .csi-header .csi-navbar .csi-nav {
+    -webkit-animation-name: unset;
+     animation-name: unset; 
+    -webkit-transform-origin: unset;
+    transform-origin:  unset; 
+    animation-duration: unset;
+}
+
+body{overflow-x: hidden}

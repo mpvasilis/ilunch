@@ -13,7 +13,7 @@ return [
     'students-nav' => 'Φοιτητές',
     'members-nav' => 'Συνδρομές',
     'members-list-nav' => 'Λίστα Συνδρομών',
-    'members-assign-nav' => ' Αναθέσεις Συνδρομών',
+    'members-assign-nav' => 'Αναθέσεις Συνδρομών',
     'users-nav' => 'χρήστες',
     'home-nav' => 'Αρχική',
     'logout-nav' => 'Αποσύνδεση',

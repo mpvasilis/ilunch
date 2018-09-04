@@ -17,6 +17,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{url("assets/css/skins/_all-skins.min.css")}}" media="all">
+    <link rel="icon" type="image/png" sizes="192x192" href="{!! asset('assets/icons/icon.png') !!}">
 
 
     @yield('head')
@@ -138,7 +139,7 @@
                         </li>
                         <li {{ (Request::is('admin/memberships/assign/show')) ? 'class=active':''}}><a
                                     href="{{route('admin_memberships_showAssign')}}"><i class="fa fa-plus-square-o"></i>
-                                    {{ trans('admin/site.member-assign-nav') }}</a></li>
+                                    {{ trans('admin/site.members-assign-nav') }}</a></li>
                     </ul>
                 </li>
 

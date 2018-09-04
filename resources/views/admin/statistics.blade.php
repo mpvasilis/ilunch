@@ -41,7 +41,7 @@
                     <table class="table table-bordered table-hover dataTable" id="table">
                                         <thead>
                                         <tr role="row">
-                                            <th>{{ trans('admin/statistics.id) }}</th>
+                                            <th>{{ trans('admin/statistics.id') }}</th>
                                             <th>{{ trans('admin/statistics.name') }}</th>
                                             <th>{{ trans('admin/statistics.date') }}</th>
                                             <th>{{ trans('admin/statistics.type') }}</th>
