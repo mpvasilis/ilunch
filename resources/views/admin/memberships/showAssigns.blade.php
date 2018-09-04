@@ -1,26 +1,26 @@
 @extends('admin.layouts.template')
 @section('title')
-    Λίστα με Συνδρομές Φοιτητών
+{{ trans('admin/members.memb-memb-list') }}
 @endsection
 
 @section('main')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Λίστα με Συνδρομές Φοιτητών</h3>
+            <h3 class="box-title">{{ trans('admin/members.memb-memb-list') }}</h3>
             <div class="box-tools">
                 <a href="{{route('admin_memberships_assign')}}">
-                    <button type="button" class="btn btn-success btn-small">Ανάθεση Συνδρομής</button>
+                    <button type="button" class="btn btn-success btn-small">{{ trans('admin/members.memb-memb-assign') }}</button>
                 </a>
             </div>
             <div class="box-body">
                 <table class="table table-bordered table-hover dataTable" id="table">
                     <thead>
                     <tr role="row">
-                        <th>Τίτλος Συνδρομής</th>
-                        <th>Φοιτιτής</th>
-                        <th>Ημερομηνία Δημιουργίας</th>
-                        <th>Δημιουργήθηκε Από</th>
-                        <th>Ενέργειες</th>
+                        <th>{{ trans('admin/members.memb-memb-title') }}</th>
+                        <th>{{ trans('admin/members.memb-stud') }}</th>
+                        <th>{{ trans('admin/members.memb-create') }}</th>
+                        <th>{{ trans('admin/members.memb-by') }}</th>
+                        <th>{{ trans('admin/members.actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,9 +32,9 @@
                             <td>{{ $assign->creator->name }}</td>
                             <td>
                                 <a href="{{route('admin_membership_assign_delete',["assignId" => $assign->id])}}"><i
-                                            class="fa fa-times"></i> Delete</a> | <a href="{{route('admin_membership_assign_view',["assignId" => $assign->id])}}"><i
-                                            class="fa fa-print"></i> ExportPDF</a> | <a href="{{route('admin_membership_assign_view',["assignId" => $assign->id])}}"><i
-                                            class="fa fa-bullseye"></i> View</a>
+                                            class="fa fa-times"></i> {{ trans('admin/members.memb-del') }}</a> | <a href="{{route('admin_membership_assign_view',["assignId" => $assign->id])}}"><i
+                                            class="fa fa-print"></i> {{ trans('admin/members.memb-pdf') }}</a> | <a href="{{route('admin_membership_assign_view',["assignId" => $assign->id])}}"><i
+                                            class="fa fa-bullseye"></i> {{ trans('admin/members.memb-view') }}</a>
                             </td>
                         </tr>
                     @endforeach

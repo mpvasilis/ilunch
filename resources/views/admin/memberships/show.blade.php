@@ -1,31 +1,31 @@
 @extends('admin.layouts.template')
 @section('title')
-    Λίστα με Διαθέσημες Συνδρομές
+{{ trans('admin/members.memb-list') }}
 @endsection
 
 @section('main')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Λίστα με Διαθέσημες Συνδρομές</h3>
+            <h3 class="box-title">{{ trans('admin/members.memb-list') }}</h3>
             <div class="box-tools">
                 <a href="{{route('admin_memberships_create')}}">
-                    <button type="button" class="btn btn-success btn-small">Προσθήκη Νέας Συνδρομής</button>
+                    <button type="button" class="btn btn-success btn-small">{{ trans('admin/members.memb-add') }}</button>
                 </a>
                 <a href="{{route('admin_memberships_createType')}}">
-                    <button type="button" class="btn btn-success btn-small">Προσθήκη Νέου Τύπου Συνδρομής</button>
+                    <button type="button" class="btn btn-success btn-small">{{ trans('admin/members.memb-add-type') }}</button>
                 </a>
             </div>
             <div class="box-body">
                 <table class="table table-bordered table-hover dataTable" id="table">
                     <thead>
                     <tr role="row">
-                        <th>Τίτλος</th>
-                        <th>Γέυματα</th>
-                        <th>Τύπος</th>
-                        <th>Ημερομηνία Δημιουργίας</th>
-                        <th>Δημιουργήθηκε Από</th>
-                        <th>Κατάσταση</th>
-                        <th>Ενέργειες</th>
+                        <th>{{ trans('admin/members.memb-title') }}</th>
+                        <th>{{ trans('admin/members.memb-meals') }}</th>
+                        <th>{{ trans('admin/members.memb-type') }}</th>
+                        <th>{{ trans('admin/members.memb-create') }}</th>
+                        <th>{{ trans('admin/members.memb-by') }}</th>
+                        <th>{{ trans('admin/members.memb-condition') }}</th>
+                        <th>{{ trans('admin/members.memb-actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,7 @@
                             <td>{{ $membership->creator->name }}</td>
                             <td>{{ getIntBoolString($membership->is_active)}}</td>
                             <td>
-                                <a href="{{route('admin_membership_deactivate',['membershipId'=>$membership->id])}}">Απενεργοποίηση</a>
+                                <a href="{{route('admin_membership_deactivate',['membershipId'=>$membership->id])}}">{{ trans('admin/members.memb-disable') }}</a>
                             </td>
                         </tr>
                     @endforeach

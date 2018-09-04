@@ -1,22 +1,22 @@
 @extends('admin.layouts.template')
 @section('title')
-    Δημιουργία Νέας Κατηγορίας Συνδρομής
+{{ trans('admin/members.memb-crate-type-title') }}
 @endsection
 
 @section('main')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Δημιουργία Νέας Κατηγορίας Συνδρομής</h3>
+            <h3 class="box-title">{{ trans('admin/members.memb-crate-type-title') }}</h3>
 
             <div class="box-body">
                 {!! Form::open(array('action' => array('MembershipsController@createType'))) !!}
 
                 {!! Form::label('is_active', 'Τύπος ') !!}
                 <select class="form-control" name="type">
-                    <option value="DAYS">Days Duration</option>
-                    <option value="VISITS">Visits</option>
-                    <option value="UNTIL">Until Date</option>
-                    <option value="FREE">Δωρεάν Σίτιση Μέχρι Ημερομηνία</option>
+                    <option value="DAYS">{{ trans('admin/members.memb-duration') }}</option>
+                    <option value="VISITS">{{ trans('admin/members.memb-visits') }}</option>
+                    <option value="UNTIL">{{ trans('admin/members.memb-until-date') }}</option>
+                    <option value="FREE">{{ trans('admin/members.memb-free-until') }}</option>
                 </select>
 
                 {!! Form::label('value', 'Τιμή') !!}

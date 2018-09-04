@@ -4,6 +4,16 @@ return [
     'title' => 'iLunch',
     'sub-title' => 'Φοιτητική Λέσχη ΠΔΜ',
     'description' => 'Ιστοσελίδα της φοιτητικής λέσχης ΠΔΜ',
+    'aboutus-title' =>'Σχετικά με την λέσχη μας',
+    'aboutus-text' => 'We provide you with daily self-made bread, sourdough pizza, roasted
+    fish-meat-vegetables and many more. Lorem ipsum dolor sit amet, consectetur
+    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam.',
+    'daymenu-title-big' => 'Μενού Λέσχης',
+    'daymenu-title-small' => 'Μενου Ημέρας',
+    'calendar-help' => '*Click on event to display more info and review options.',
+    'feedback-title' => 'Leave Feedback',
+    'feedback-subtitle' => 'We respect yout opinion',
     'home' => 'Αρχικη',
     'contact' => 'Επικοινωνια',
     'news' => 'Ανακοινωσεις',
@@ -18,4 +28,26 @@ return [
     'menu' => 'Μενου',
     'about' => 'Σχετικα',
     'dashboard' => 'Διαχείριση',
+    'daymenu' => 'Μενού Ημέρας',
+    'breakfast' => 'Πρωινό',
+    'lunch' => 'Μεσημεριανό',
+    'dinner' => 'Απογευματινό',
+    'breakfast-time'=>'Ωρες σερβιρίσματος: 7:30-9:00 πμ',
+    'lunch-time'=>'Ωρες σερβιρίσματος: 7:30-9:00 πμ',
+    'dinner-time'=>'Ωρες σερβιρίσματος: 7:30-9:00 πμ',
+    'nonews' => 'Δεν υπάρχουν νέα',
+    'news_title' => 'Όλα τα νέα για την Φοιτητική Λέσχη του ΠΔΜ',
+    'news_subTitle' => 'Ειδήσεις',
+    'admin' => 'Διαχείριση',
+    'footer-title-1'=> 'Contact',
+    'footer-1-text' => '345 Park Ave, San Jose, CA 95110, United States',
+    'footer-1-email' => 'admin(at)oneup(dot)group',
+    'footer-title-2'=> 'Book A Table',
+    'footer-2-text' => 'pellentesque vehicula. Aliquam turpis justo, mattis id neque',
+    'footer-2-phone' => 'Mobile: +778529600',
+    'footer-title-3'=> 'Opening Time',
+    'footer-3-times' => '  <p>Mon - Thu 11:30 - 22:00 clock </p>
+    <p>Fri - Sat 11:30 - 24:00 clock </p><p>Mon - Thu 11:30 - 22:00 clock </p>',
+    'footer-title-4'=> 'Social Links',
+    'oneup' => 'iLunch System by ONEUP GROUP'
 ];

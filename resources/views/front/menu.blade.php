@@ -13,12 +13,12 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">
-                        <div class="panel-heading text-center">Menu Schedule</div>
+                        <div class="panel-heading text-center">{{ trans('front/site.daymenu-title-big') }}</div>
                         <div class="panel-body">
                             <div id="calendar" style="width: 100%;margin: 0 auto;"></div>
                         </div>
                         <div class="panel-footer text-center">
-                            *Click on event to display more info and review options.
+                        {{ trans('front/site.calendar-help) }}
                         </div>
                     </div>
                 </div>

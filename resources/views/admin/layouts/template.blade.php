@@ -31,7 +31,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>iL</b>@</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>iLunch</b>Admin</span>
+            <span class="logo-lg"><b>{{ trans('admin/site.main-title') }}</b>{{ trans('admin/site.sec-title') }}</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -45,8 +45,8 @@
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{route('index')}}"><i class="fa fa-home"></i>Site</a></li>
-                    <li><a href="{{route('dashboard')}}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                    <li><a href="{{route('index')}}"><i class="fa fa-home"></i>{{ trans('admin/site.site-top') }}</a></li>
+                    <li><a href="{{route('dashboard')}}"><i class="fa fa-tachometer"></i>{{ trans('admin/site.dashboard-top') }}</a></li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -83,7 +83,7 @@
                                 <div class="pull-right">
                                     <form action="{{ route('logout') }}" method="POST">
                                         {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-default btn-flat">Sign out</button>
+                                        <button type="submit" class="btn btn-default btn-flat">{{ trans('admin/site.logout-nav') }}</button>
                                     </form>
 
                                 </div>
@@ -107,43 +107,43 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header">{{ trans('admin/site.main-nav') }}</li>
 
                 <li {{ (Request::is('admin')) ? 'class=active':''}}><a href="{{route('admin')}}"><i
-                                class="fa fa-home"></i> <span>Σχετικά</span></a></li>
+                                class="fa fa-home"></i> <span>{{ trans('admin/site.about-nav') }}</span></a></li>
                 <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_meals')}}"><i
-                                class="fa fa-apple"></i> <span>Γεύματα</span></a></li>
+                                class="fa fa-apple"></i> <span>{{ trans('admin/site.meals-nav') }}</span></a></li>
                 <li {{ (Request::is('admin/announcements')) ? 'class=active':''}}><a
                             href="{{route('admin_announcements')}}"><i class="fa fa-bullhorn"></i>
-                        <span>Ανακοινώσεις</span></a>
+                        <span>{{ trans('admin/site.announcements-nav') }}</span></a>
                 </li>
                 <li {{ (Request::is('admin/statistics')) ? 'class=active':''}}><a
                             href="{{route('admin_statistics')}}"><i class="fa fa-area-chart"></i>
-                        <span>Στατιστικά</span></a></li>
+                        <span>{{ trans('admin/site.statistics-nav') }}</span></a></li>
                 <li {{ (Request::is('admin/feedback')) ? 'class=active':''}}><a href="{{route('admin_feedback')}}"><i
-                                class="fa fa-circle-o"></i> <span>Feedback</span></a></li>
+                                class="fa fa-circle-o"></i> <span>{{ trans('admin/site.feedback-nav') }}</span></a></li>
                 <li {{ (Request::is('admin/students/*')) ? 'class=active':''}}><a href="{{route('admin_students')}}"><i
-                                class="fa fa-book"></i> <span>Students</span></a></li>
+                                class="fa fa-book"></i> <span>{{ trans('admin/site.students-nav') }}</span></a></li>
 
                 <li class="treeview {{ (Request::is('admin/memberships/*')) ? 'active menu-open':''}}">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Συνδρομές</span>
+                        <i class="fa fa-dashboard"></i> <span>{{ trans('admin/site.members-nav') }}</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
                         <li {{ (Request::is('admin/memberships/show')) ? 'class=active':''}}><a
-                                    href="{{route('admin_memberships_show')}}"><i class="fa fa-th-list"></i> Λίστα
-                                Συνδρομών</a>
+                                    href="{{route('admin_memberships_show')}}"><i class="fa fa-th-list"></i>{{ trans('admin/site.members-list-nav') }}</a>
                         </li>
                         <li {{ (Request::is('admin/memberships/assign/show')) ? 'class=active':''}}><a
                                     href="{{route('admin_memberships_showAssign')}}"><i class="fa fa-plus-square-o"></i>
-                                Αναθέσεις Συνδρομών</a></li>
+                                    {{ trans('admin/site.member-assign-nav') }}</a></li>
                     </ul>
                 </li>
-                <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users_show')}}"><i
-                                class="fa fa-users"></i> <span>Users</span></a></li>
+
+                <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users')}}"><i
+                                class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -160,7 +160,7 @@
 
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> {{ trans('admin/site.home-nav') }}</a></li>
                 <li><a href="#">@yield('title')</a></li>
 
             </ol>
