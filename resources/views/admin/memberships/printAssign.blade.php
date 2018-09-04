@@ -29,7 +29,7 @@
 </head>
 <body>
 <div class="card">
-    <img src="{{ asset($assign->student->photo) }}" style="width:100%">
+    <img src="{{ asset('storage/studentProfiles/'.$assign->student->photo)}}" style="width:100%">
     <h1>{{ $assign->student->firstname }} {{ $assign->student->lastname }}</h1>
     <p class="title">{{ $assign->student->department->department_name }}
         at {{ $assign->student->department->university }}</p>
