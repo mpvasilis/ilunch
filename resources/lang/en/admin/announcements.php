@@ -1,18 +1,18 @@
 <?php
 
 return [
-    'page-title' => 'Ανακοινώσεις',
-    'list' => 'Λίστα με Ανακοινώσεις',
+    'page-title' => 'Announcements',
+    'list' => 'Announcements List',
     'id' => 'ID',
-    'add-title' => 'Προσθήκη Ανακοινώσης',
-    'title' => 'Τίτλος',
-    'show-until' => 'Προβολή Μέχρι',
-    'show' => 'Προβολή',
-    'edit' => 'Επεξεργασία',
-    'delete' => 'Διαγραφή',
-    'add-title' => 'Προσθήκη νέας Ανακοινώση',
-    'show-title' => 'Προβολή Ανακοίνωσης',
-    'edit-title' => 'Επεξεργασία Ανακοίνωσης',
-    'delete-title' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις την ανακοίνωση;' 
+    'add-title' => 'Add New Announcement',
+    'title' => 'Title',
+    'show-until' => 'Show Until',
+    'show' => 'Show',
+    'edit' => 'Εdit',
+    'delete' => 'Delete',
+    'add-title' => 'Add New Announcement',
+    'show-title' => 'Show Announcement',
+    'edit-title' => 'Edit Announcement',
+    'delete-title' => 'Are you sure that you want to delete this announcement?' 
 ];
    

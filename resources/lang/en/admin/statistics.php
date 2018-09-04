@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'title' => 'Στατιστικά',
-    'choice' => 'Επιλογή Ημερομηνιών για προβολή στατιστικών',
+    'title' => 'Statistics',
+    'choice' => 'Choose date to show specific statistics',
     'submit' => 'Submit',
-    'history' => 'Ιστορικό Γευμάτων',
+    'history' => 'Meals History',
     'id' => 'ID',
-    'name' => 'Όνομα',
-    'date' => 'Ημερομηνία',
-    'type' => 'Τύπος',
-    'summeals'=>'Συνολικά Γεύματα',
-    'meals-type' => 'Γεύματα/Τύπο'
+    'name' => 'Name',
+    'date' => 'Date',
+    'type' => 'Type',
+    'summeals'=>'Total Meals',
+    'meals-type' => 'meals/Type'
 ];
    

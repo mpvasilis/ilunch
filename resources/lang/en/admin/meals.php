@@ -1,19 +1,19 @@
 <?php
 
 return [
-    'list' => 'Λίστα με Γεύματα',
-    'page-title' => 'Γεύματα',
-    'add' => 'Προσθήκη Γεύματος',
+    'list' => 'Meals List',
+    'page-title' => 'Meals',
+    'add' => 'Add New Meal',
     'id' => 'ID',
-    'title' => 'Τίτλος',
-    'info' => 'Πληροφορίες',
-    'show' => 'Προβολή',
-    'edit' => 'Επεξεργασία',
-    'delete' => 'Διαγραφή',
-    'add-meal-header' => 'Προσθήκη νέου Γεύματος',
-    'edit-meal-header' => 'Επεξεργασία Γεύματος',
-    'delete-meal-header' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις το γεύμα ',
-    'show-meal-header' => 'Πληροφορίες Γεύματος',
+    'title' => 'Title',
+    'info' => 'Informations',
+    'show' => 'Show',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'add-meal-header' => 'Add New Meal',
+    'edit-meal-header' => 'Edit Meal',
+    'delete-meal-header' => 'Are you sure that you want to delete this meal?',
+    'show-meal-header' => 'Meal Information',
 
 ];
    

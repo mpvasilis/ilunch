@@ -2,12 +2,12 @@
 
 return [
     'page-title' => 'Feedback',
-    'list' => 'Λίστα με Κριτικές',
+    'list' => 'Feedback List',
     'id' => 'ID',
-    'title' => 'Τίτλος',
-    'info' => 'Πληροφορίες',
-    'date' => 'Ημερομηνία - Ώρα',
-    'feedback-info' => 'Πληροφορίες Κριτικής'
+    'title' => 'Title',
+    'info' => 'Informations',
+    'date' => 'Date - Time',
+    'feedback-info' => 'Feedback Information'
    
     
 ];
