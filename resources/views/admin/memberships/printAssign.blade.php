@@ -47,7 +47,7 @@
         ?></small>
     </p>
     <img height="150px"
-         src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{$valid}}&choe=UTF-8"/>
+         src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ $id.','.$valid  }}&choe=UTF-8"/>
     <p style="font-size: 50%;margin: 0;">
         {{ trans('front/site.oneup') }}
     </p>
