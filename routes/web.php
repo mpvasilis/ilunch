@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
     Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
         Route::get('show', 'UserController@show')->name('admin_users_show');
         Route::get('{userId}/edit', 'UserController@showEdit')->name('admin_user_edit');
+        Route::post('{userId}/edit', 'UserController@edit')->name('admin_user_edit_store');
 
     });
 

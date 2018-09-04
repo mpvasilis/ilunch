@@ -33,18 +33,18 @@
                         <tr role="row" class="odd">
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td >{{ $user->role }}</td>
+                            <td>{{ transformUserRole($user->role) }}</td>
                             <td>{{ $user->student_id }}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>{{ humanTiming($user->updated_at) }}</td>
 
                             <td>
+                                <a href="{{route('admin_user_edit',['userId' => $user->id])}}"><i
+                                            class="fa fa-bullseye"></i> Edit</a>
                                 @if($user->student_id != null)
-                                    <a href="{{route('profile',['studentId'=>$user->student_id])}}"><i
+                                    | <a href="{{route('profile',['studentId'=>$user->student_id])}}"><i
                                                 class="fa fa-share"></i> View Student
-                                        Profile</a> | <a
-                                            href="{{route('admin_user_edit',["userId" => $user->id])}}"><i
-                                                class="fa fa-bullseye"></i> View</a>
+                                        Profile</a>
                                 @endif
                             </td>
                         </tr>

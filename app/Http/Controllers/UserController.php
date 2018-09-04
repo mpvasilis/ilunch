@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Announcement;
-use Carbon\Carbon;
 use Auth;
 use App\User;
 
 class UserController extends Controller
 {
+
     public function show()
     {
         $users = User::get();
@@ -17,10 +16,20 @@ class UserController extends Controller
         return view('admin.users.show', compact('users'));
     }
 
-    public function editShow($id)
+    public function showEdit($id)
     {
-        $user = User::find($id)->get();
+        $user = User::find($id);
 
         return view('admin.users.showEdit', compact('user'));
+    }
+
+    public function edit($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->role = $request['role'];
+        $user->name = $request['name'];
+        $user->student_id = $request['student_id'];
+        $user->save();
+        return redirect(route('admin_users_show'));
     }
 }
