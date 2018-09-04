@@ -3,10 +3,11 @@
 {{ trans('admin/members.memb-memb-assign-stud') }}
 @endsection
 
+
 @section('main')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ trans('admin/members.memb-memb-assign-stud) }}</h3>
+            <h3 class="box-title">{{ trans('admin/members.memb-memb-assign-stud') }}</h3>
 
             <div class="box-body">
                 {!! Form::open(array('action' => array('MembershipsController@assign'))) !!}

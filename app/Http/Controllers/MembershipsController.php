@@ -108,10 +108,12 @@ class MembershipsController extends Controller
     }
 
     public function viewAssignCard($assignId)
-    {
+    {   
+ 
         $assign = Membership_assign::find($assignId);
+        $valid = $assign->prepareQRMessage( $assign->getRemainingAttribute());
         if ($assign != null) {
-            return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);
+            return view('admin.memberships.printAssign', ['assign' => $assign,'valid' => $valid, 'id' => Crypt::encrypt($assignId)]);
         } else {
             return abort(404, 'printAssignMembershipNotFound');
         }
