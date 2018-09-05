@@ -38,6 +38,7 @@ class Membership_assign extends Model
             $result = 'EXPIRED';
         }
         return $result;
+        //todo return EXPIRED for dates
     }
 
     public $timestamps = false;

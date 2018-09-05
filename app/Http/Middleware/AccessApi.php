@@ -21,9 +21,9 @@ class AccessApi
             if ($request->apiKey == config("app.apiKey") || $this->inExceptArray($request)) {
                 return $next($request);
             }
-            return json_encode(['error' => 'unauthorised', 'message' => 'Wrong apiKey']);
+            return response()->json(['error' => 'unauthorised', 'message' => 'Wrong apiKey']);
         }
-        return json_encode(['error' => 'unauthorised', 'message' => 'apiKey not set']);
+        return response()->json(['error' => 'unauthorised', 'message' => 'apiKey not set']);
     }
 
     protected function inExceptArray($request)
