@@ -39,16 +39,6 @@ class Membership_assign extends Model
         }
         return $result;
     }
-
-    public function prepareQRMessage($valid)
-    {
-        if ($valid == 'Expired') {
-            return "Subcription has been Expired. Contact with us in order to renew your subscription";
-        } else {
-            return 'Subscription is Valid!';
-        }
-    }
-
     public $timestamps = false;
 
 }
