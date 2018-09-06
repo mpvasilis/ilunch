@@ -22,4 +22,4 @@ Route::get('validateAnonymousCustomer', 'ApiController@validateAnonymousCustomer
 Route::get('getLatestAnnouncement', 'ApiController@getLatestAnnouncement');//todo response with lastAnnounce
 Route::post('submitFeedback', 'ApiController@submitFeedback');//todo response status code can get array as input ( mass input)
 Route::get('getMealStatistics', 'ApiController@getMealStatistics');//todo find all endpoints for statistic creation (group + middleware)
-Route::get('secured/getStudentMatches', 'ApiController@getStudentMatches')->middlware('admin_panel');
+Route::get('secured/getStudentMatches', 'ApiController@getStudentMatches')->middleware('admin_panel');
