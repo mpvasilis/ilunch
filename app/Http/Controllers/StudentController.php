@@ -37,17 +37,20 @@ class StudentController extends Controller
     public function profileEdit($studentAem)
     {
         $student = Student::aem($studentAem)->first();
+        $departments = Department::get();
         if ($student == null) {
             return Redirect::route('profile', ['studentId' => $studentAem]);
         }
-        return view('dashboard.student.editProfile', compact('student'));
+        return view('dashboard.student.editProfile', ['student'=> $student, 'departments'=> $departmentsh]);
     }
 
-    public function profileUpdate(Request $request)
+    public function profileUpdate($studentAem, Request $request)
     {
-        $student = Student::aem(Auth::user()->student_id)->first();
+        $this->middlware('can_view_profile');
+
+        $student = Student::aem($studentAem)->first();
         if ($student == null)
-            abort('403', 'studentProfileUpdateNotFoundException');
+            abort('404', 'studentProfileUpdateNotFoundException');
         $student->firstname = $request["firstname"];
         $student->lastname = $request["lastname"];
         $student->father_name = $request["father_name"];
