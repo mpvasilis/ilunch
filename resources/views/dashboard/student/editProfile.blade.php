@@ -30,6 +30,13 @@
                             {!! Form::label('photo', 'Profile Image (jpg,png,jpeg)') !!}
                             {!! Form::file('photo'); !!}
 
+                            {!! Form::label('department', 'Πανεπιστιμιακό Τμήμα') !!}
+                            <select name="department">
+                                @foreach($departments as $department)
+                                    <option value='{{$department->id}}'>{{$department->department_name}} at {{ $department->university }}</option>
+                                @endforeach
+                            </select>
+{{--todo testing--}}
                             <p class="small">If you thing any other information is wrong, please contact the administrator team.</p>
                             {!! Form::submit('Submit', ['class' => 'btn btn-primary center-block']) !!}
                             {!! Form::close() !!}

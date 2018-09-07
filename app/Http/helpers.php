@@ -105,7 +105,7 @@ function transformUserRole($role)
             }
         case 'STAFF':
             {
-                return 'Προσωπικό Σχολής';
+                return 'Προσωπικό Λέσχης';
             }
         default:
             {
