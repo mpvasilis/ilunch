@@ -63,5 +63,8 @@ class Kernel extends HttpKernel
         'accessApi' => \App\Http\Middleware\AccessApi::class,
         'can_view_student' => \App\Http\Middleware\AccessStudentProfile::class,
         'admin_panel' => \App\Http\Middleware\AccessAdminPanel::class,
+        'access_administrator' => \App\Http\Middleware\AccessAdminOnly::class,
+        'access_student_care' => \App\Http\Middleware\AccessAdminStudentCare::class,
+        'access_staff' => \App\Http\Middleware\AccessAdminStaff::class,
     ];
 }
