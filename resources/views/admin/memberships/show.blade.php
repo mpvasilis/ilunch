@@ -38,7 +38,7 @@
                             <td>{{ $membership->creator->name }}</td>
                             <td>{{ getIntBoolString($membership->is_active)}}</td>
                             <td>
-                                <a href="{{route('admin_membership_deactivate',['membershipId'=>$membership->id])}}">{{ trans('admin/members.memb-disable') }}</a>
+                                <a href="{{route('admin_membership_flipStatus',['membershipId'=>$membership->id])}}">{{ trans('admin/members.memb-disable') }}</a>
                             </td>
                         </tr>
                     @endforeach

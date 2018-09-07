@@ -77,11 +77,11 @@ class MembershipsController extends Controller
         return Redirect::route('admin_memberships_showAssign');
     }
 
-    public function deactivate($membershipId)
+    public function flipStatus($membershipId)
     {
         $membership = Membership::find($membershipId);
         if ($membership != null) {
-            $membership->is_active = 0;
+            $membership->is_active = $membership->is_active == 1 ? 0 : 1;
             $membership->save();
             return Redirect::route('admin_memberships_show');
         } else {
@@ -99,7 +99,8 @@ class MembershipsController extends Controller
         return Redirect::route('admin_memberships_showAssign');
     }
 
-    public function printAssign($assignId){
+    public function printAssign($assignId)
+    {
         $myProjectDirectory = 'C:\Users\Christos Sarantis\Desktop';
         $snappy = new Pdf($myProjectDirectory . '/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
         header('Content-Type: application/pdf');
@@ -108,8 +109,8 @@ class MembershipsController extends Controller
     }
 
     public function viewAssignCard($assignId)
-    {   
- 
+    {
+
         $assign = Membership_assign::find($assignId);
         if ($assign != null) {
             return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);
