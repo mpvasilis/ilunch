@@ -1,5 +1,4 @@
 <?php
-//todo middlewares for logged in users
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +22,6 @@ Route::post('/feedback', 'FeedbackController@store')->name('feedback_store');
 
 
 //students profile
-//todo create controller and view index
 Route::group(['prefix' => 'student', 'middleware' => 'can_view_student'], function () {
     Route::get('{studentId}/profile', 'StudentController@profile')->name('profile');
     Route::post('{studentId}/profile', 'StudentController@profileUpdate')->name('profile');

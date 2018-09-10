@@ -25,20 +25,35 @@ class MembershipsController extends Controller
 
     public function indexAssigns()
     {
-        //todo delegate for student care.
-        $memberships = Membership_assign::get();
+        $memberships = null;
+        if (Auth::user()->role == 'STUDENT_CARE') {
+            $modelMemberships = Membership::with(array('type' => function ($query) {
+                $query->free();
+
+            }))->get();
+            $memberships = $modelMemberships->instances();
+        } else {
+            $memberships = Membership_assign::get();
+        }
         return view('admin.memberships.showAssigns', compact('memberships'));
     }
 
     public function assign()
     {
-        //todo delegate for student care.
         $students = Student::get();
-        $memberships = Membership::active()->get();
+        if (Auth::user()->role == 'STUDENT_CARE') {
+            $memberships = Membership::with(array('type' => function ($query) {
+                $query->free();
+            }))->active()->get();
+        } else {
+            $memberships = Membership::active()->get();
+        }
+
         return view('admin.memberships.assign', ['students' => $students, 'memberships' => $memberships]);
     }
 
-    public function create()
+    public
+    function create()
     {
         $this->middleware('access_staff');
 
@@ -46,14 +61,16 @@ class MembershipsController extends Controller
         return view('admin.memberships.create', compact('membershipTypes'));
     }
 
-    public function createType()
+    public
+    function createType()
     {
         $this->middleware('access_staff');
 
         return view('admin.memberships.createType', compact('membershipTypes'));
     }
 
-    public function createTypeStore(Request $request)
+    public
+    function createTypeStore(Request $request)
     {
         $this->middleware('access_staff');
 
@@ -81,6 +98,12 @@ class MembershipsController extends Controller
 
     public function assignStore(Request $request)
     {
+        if(Auth::user()-role == 'STUDENT_CARE'){
+            $membership = Membership::find($request["membership"]);
+            if($membership->type()->type != 'FREE'){
+                abort(403,'canOnlyCreateFreeMemberships');
+            }
+        }
         $assignment = new Membership_assign();
         $assignment->student_id = $request["student"];
         $assignment->membership_id = $request["membership"];
@@ -117,7 +140,6 @@ class MembershipsController extends Controller
 
     public function printAssign($assignId)
     {
-        //todo delegate for student care.
         $myProjectDirectory = 'C:\Users\Christos Sarantis\Desktop';
         $snappy = new Pdf($myProjectDirectory . '/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
         header('Content-Type: application/pdf');
@@ -127,8 +149,10 @@ class MembershipsController extends Controller
 
     public function viewAssignCard($assignId)
     {
-        //todo delegate for student care
         $assign = Membership_assign::find($assignId);
+        if($assign->membersip()->type()->type != 'FREE' && Auth::user()->role == 'STUDENT_CARE'){
+            abort(403,'exceptionNoAccess');
+        }
         if ($assign != null) {
             return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);
         } else {
