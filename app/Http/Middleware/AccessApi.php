@@ -43,5 +43,6 @@ class AccessApi
 
     protected $except = [
         'api/getMealCalendar',
+        'secured/getStudentMatches'
     ];
 }

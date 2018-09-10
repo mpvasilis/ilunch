@@ -33,14 +33,23 @@
     <h1>{{ $assign->student->firstname }} {{ $assign->student->lastname }}</h1>
     <p class="title">{{ $assign->student->department->department_name }}
         at {{ $assign->student->department->university }}</p>
-    <p>{{ $assign->membership->type->type }} - {{ $assign->membership->type->value }}</p>
+    <p>{{ $assign->membership->title }}</p>
     <p>
         <small>Valid from: {{ getTimestampPart($assign->created_at,0) }}</small>
     </p>
+    <p>
+        <small>
+            <?php if  ($assign->membership->type->type == 'UNTIL'){
+                    echo "Valid Until: " . $assign->membership->type->value;  
+                  }elseif ($assign->membership->type->type == 'DAYS'){
+                    echo "Valid Until: " .date('Y-m-d', strtotime(getTimestampPart($assign->created_at,0). ' + '. $assign->membership->type->value  .'days'));
+            }
+        ?></small>
+    </p>
     <img height="150px"
-         src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{$id}}&choe=UTF-8"/>
+         src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ $id }}&choe=UTF-8"/>
     <p style="font-size: 50%;margin: 0;">
-        iLunch System by ONEUP GROUP
+        {{ trans('front/site.oneup') }}
     </p>
 </div>
 

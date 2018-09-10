@@ -8,30 +8,23 @@
     <title>{{ trans('front/site.title') }} | {{ trans('front/site.description') }}</title>
     <meta name="description" content="{{ trans('front/site.description') }}"/>
 
-    <!--  FAVICON AND TOUCH ICONS -->
-    <link rel="icon" type="image/png" sizes="192x192"
-          href="{!! asset('assets/img/favicon/android-icon-192x192.png') !!}">
-    <!-- BOOTSTRAP CSS -->
+
+    <link rel="icon" type="image/png" sizes="192x192" href="{!! asset('assets/icons/icon.png') !!}">
+
     <link rel="stylesheet" href="{!! asset('assets/libs/bootstrap/css/bootstrap.min.css') !!}" media="all"/>
-    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="{!! asset('assets/libs/fontawesome/css/font-awesome.min.css') !!}" media="all"/>
-    <!-- GOOGLE FONT -->
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
-    <!-- OWL CAROUSEL CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
     <link rel="stylesheet" href="{!! asset('assets/libs/owlcarousel/owl.carousel.min.css') !!}" media="all"/>
     <link rel="stylesheet" href="{!! asset('assets/libs/owlcarousel/owl.theme.default.min.css') !!}" media="all"/>
-    <!-- bootstrap datepicker -->
     <link rel="stylesheet" href="{!! asset('assets/libs/datepicker/bootstrap-datetimepicker.min.css') !!}" media="all"/>
-    <!-- MASTER  STYLESHEET  -->
+    <link rel="stylesheet" href="{!! asset('assets/css/custom.css') !!}" media="all"/>
     <link id="csi-master-style" rel="stylesheet" href="{!! asset('assets/css/style-default.min.css') !!}" media="all"/>
-    <!-- MODERNIZER CSS  -->
     <script src="{!! asset('assets/js/vendor/modernizr-2.8.3.min.js') !!}"></script>
     @section('header')
     @show
 </head>
 
-<body class="home">
+<body class="home @section('pageclass')@show" >
 <!--[if lt IE 8]>
 
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -81,7 +74,7 @@
                                             <div class="navbar-header">
                                                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                                                         data-target=".navbar-collapse">
-                                                    <span class="sr-only">Μενού</span>
+                                                    <span class="sr-only">{{ trans('front/site.menu') }}</span>
                                                     <span class="icon-bar"></span>
                                                     <span class="icon-bar"></span>
                                                     <span class="icon-bar"></span>
@@ -89,7 +82,7 @@
                                                 <div class="csi-logo csi-scroll">
                                                     <a href="#">
                                                         <h3 style="font-family: Cookie,cursive; font-size: 5rem; font-weight: 400; margin: 15px; color: #fff;">
-                                                            ilunch</h3>
+                                                        {{trans('front/site.title')}}</h3>
                                                     </a>
                                                 </div>
                                             </div>
@@ -189,36 +182,35 @@
                                 <div class="footer-top">
                                     <a class="footer-logo" href="index"><h3
                                                 style="font-family: Cookie,cursive; font-size: 11rem; font-weight: 400; margin: 15px; color: #fff;">
-                                            ilunch</h3></a>
+                                                {{ trans('front/site.title') }}</h3></a>
                                 </div>
                             </div>
                         </div><!--//.ROW-->
                         <div class="row">
                             <div class="col-xs-12 col-sm-3">
                                 <div class="single">
-                                    <h3 class="title">Contact</h3>
-                                    <p>345 Park Ave, San Jose, CA 95110, United States</p>
-                                    <p><a href="mailto:">admin(at)oneup(dot)group</a>
+                                    <h3 class="title">{{ trans('front/site.footer-title-1') }}</h3>
+                                    <p>{{ trans('front/site.footer-1-text') }}</p>
+                                    <p><a href="mailto:">{{ trans('front/site.footer-1-email') }}</a>
                                     </p>
                                 </div>
                             </div> <!--//.col-->
                             <div class="col-xs-12 col-sm-3">
                                 <div class="single">
-                                    <h3 class="title">Book A Table</h3>
-                                    <p>pellentesque vehicula. Aliquam turpis justo, mattis id neque</p>
-                                    <p>Mobile: +778529600</p>
+                                    <h3 class="title">{{ trans('front/site.footer-title-2') }}</h3>
+                                    <p>{{ trans('front/site.footer-2-text') }}</p>
+                                    <p>{{ trans('front/site.footer-2-phone') }}</p>
                                 </div>
                             </div> <!--//.col-->
                             <div class="col-xs-12 col-sm-3">
                                 <div class="single">
-                                    <h3 class="title">Opening Time</h3>
-                                    <p>Mon - Thu 11:30 - 22:00 clock </p>
-                                    <p>Fri - Sat 11:30 - 24:00 clock </p>
+                                    <h3 class="title">{{ trans('front/site.footer-title-3') }}</h3>
+                                    {{ trans('front/site.footer-3-times') }}
                                 </div>
                             </div> <!--//.col-->
                             <div class="col-xs-12 col-sm-3">
                                 <div class="single">
-                                    <h3 class="title">Social Links</h3>
+                                    <h3 class="title">{{ trans('front/site.footer-title-4') }}</h3>
                                     <ul class="list-inline footer-social">
                                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a></li>
@@ -235,7 +227,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
-                                <p>iLunch<span style="font-size: 50%;">v{{config('app.version')}}</span> is proudly
+                                <p>{{ trans('front/site.title') }}<span style="font-size: 50%;">v{{config('app.version')}}</span> is proudly
                                     powered by <a href="https://www.oneup.host/">Students</a> |
                                     Supervised by <a href="http://arch.icte.uowm.gr/mdasyg/index.php">Dr. Minas
                                         Dasygenis</a></p>

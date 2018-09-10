@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('title')
-    Statistics
+{{ trans('admin/statistics.title') }}
 @endsection
 @section('head')
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
@@ -10,7 +10,7 @@
     <div class="row" >
         <div class="col-md-12">
             <div class="box-header with-border">
-                <h3 class="box-title">Επιλογή Ημερομηνιών για προβολή στατιστικών</h3>
+                <h3 class="box-title">{{ trans('admin/statistics.choice') }}</h3>
                 <div class="box-body">
                     {!! Form::open(array('route' => 'admin_statistics')) !!}
                     {{ Form::hidden('start', 'null', ['id' => 'start']) }}
@@ -22,7 +22,7 @@
                                 <span></span> <b class="caret"></b>
                             </div>
                                 <span class="input-group-btn">
-                                <button type="Submit" class="btn btn-info btn-flat">Submit</button>
+                                <button type="Submit" class="btn btn-info btn-flat">{{ trans('admin/statistics.submit') }}</button>
                                 </span>
                         </div>
                     {!! Form::close() !!}
@@ -36,15 +36,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box-header with-border">
-                <h3 class="box-title">Ιστορικό Γευμάτων | {{$title}}</h3>
+                <h3 class="box-title">{{ trans('admin/statistics.history') }} | {{$title}}</h3>
                 <div class="box-body">
                     <table class="table table-bordered table-hover dataTable" id="table">
                                         <thead>
                                         <tr role="row">
-                                            <th>ID</th>
-                                            <th>Όνομα</th>
-                                            <th>Ημερομηνία - Ώρα</th>
-                                            <th>Τύπος Γεύματος</th>
+                                            <th>{{ trans('admin/statistics.id') }}</th>
+                                            <th>{{ trans('admin/statistics.name') }}</th>
+                                            <th>{{ trans('admin/statistics.date') }}</th>
+                                            <th>{{ trans('admin/statistics.type') }}</th>
                                             
                                         </tr>
                                             
@@ -76,7 +76,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Συνολικά Γεύματα | {{$title}}</h3>
+                <h3 class="box-title">{{ trans('admin/statistics.summeals') }}| {{$title}}</h3>
                 <div class="box-body">
                 <div class="chart">
                     <canvas id="lineChart" style="height: 250px; width: 610px;" width="794" height="325"></canvas>
@@ -88,7 +88,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Γεύματα/Τύπο | {{$title}}</h3>
+                <h3 class="box-title">{{ trans('admin/statistics.meals-type') }}| {{$title}}</h3>
                 <div class="box-body">
                 <canvas id="barChart" style="height: 251px; width: 611px;" width="795" height="326"></canvas>
                 </div>

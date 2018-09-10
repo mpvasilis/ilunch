@@ -108,7 +108,8 @@ class MembershipsController extends Controller
     }
 
     public function viewAssignCard($assignId)
-    {
+    {   
+ 
         $assign = Membership_assign::find($assignId);
         if ($assign != null) {
             return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);

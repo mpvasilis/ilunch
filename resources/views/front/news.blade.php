@@ -1,24 +1,9 @@
 @extends('front.layout')
+@section('pageclass')news @endsection
 @section('content')
-    <!--Banner-->
-    <section>
-        <div class="csi-banner">
-            <div class="csi-banner-style">
-                <div class="csi-inner">
-                    <div class="container">
-                        <div class="csi-banner-content">
-                            <h3 class="csi-subtitle">{{ trans('front/site.title') }}</h3>
-                            <h2 class="csi-title">{{ trans('front/site.sub-title') }}</h2>
-                        </div>
-                    </div>
-                    <!-- //.container -->
-                </div>
-                <!-- //.INNER -->
-            </div>
-        </div>
-    </section>
-    <!--Banner END-->
-
+   
+ 
+<div class="inside-page">
     <section>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2" style="padding-top:20px;">
@@ -47,7 +32,7 @@
                             </div>
                         @endforeach
                     @else
-                        <h1 style="text-align: center">No News</h1>
+                        <h1 style="text-align: center">{{ trans('front/site.nonews') }}</h1>
 
                     @endif
                 </div>
@@ -58,4 +43,5 @@
             </div>
         </div>
     </section>
+</div>    
 @endsection

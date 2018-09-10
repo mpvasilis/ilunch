@@ -45,7 +45,7 @@
     </style>
 @endsection
 @section('title')
-    {{ $student->lastname }} {{ $student->firstname }} Profile
+    {{ $student->lastname }} {{ $student->firstname }} {{ trans('front/profile.page-title') }}
 @endsection
 
 @section('main')
@@ -57,7 +57,7 @@
                         <hr>
                         <h2 class="intro-text text-center">
                             <strong>{{ $student->lastname }} {{ $student->firstname }}</strong>
-                            <small> Student Profile</small>
+                            <small>{{ trans('front/profile.page-title-full') }}</small>
                         </h2>
                         <hr>
                         <div class="row">
@@ -67,59 +67,59 @@
                                      alt="{{ $student->lastname }} {{ $student->firstname }} Profile Picture">
                             </div>
                             <div class="col-md-10">
-                                <h6>Student Information:</h6>
+                                <h6>{{ trans('front/profile.stud-inf-header') }}</h6>
                                 <ul class="nav-justified navbar">
                                     <li>
-                                        <small>First Name:</small> {{ $student->firstname }}</li>
+                                        <small>{{ trans('front/profile.name') }}</small> {{ $student->firstname }}</li>
                                     <li>
-                                        <small>Last Name:</small> {{ $student->lastname }}
+                                        <small>{{ trans('front/profile.surname') }}</small> {{ $student->lastname }}
                                     </li>
                                     <li>
-                                        <small>Fathers Name:</small> {{ $student->father_name }}
+                                        <small>{{ trans('front/profile.fathername') }}</small> {{ $student->father_name }}
                                     </li>
                                     <li>
-                                        <small>Semester:</small> {{ addOrdinalNumberSuffix($student->semester) }}
+                                        <small>{{ trans('front/profile.semester') }}</small> {{ addOrdinalNumberSuffix($student->semester) }}
                                     </li>
                                     <li>
-                                        <small>Department:</small>
+                                        <small>{{ trans('front/profile.depa') }}</small>
                                         @if($student->department !=null)
                                             {{ $student->department->department_name }}
                                             at {{ $student->department->university }}
                                         @endif
                                     </li>
                                 </ul>
-                                <h6>User Information:</h6>
+                                <h6>{{ trans('front/profile.usr-inf-header') }}</h6>
                                 @if($student->user !=null)
                                     <ul class="nav-justified navbar">
                                         <li>
-                                            <small>E-Mail:</small> {{ $student->user->email }}
+                                            <small>{{ trans('front/profile.email') }}</small> {{ $student->user->email }}
                                         </li>
                                         <li>
-                                            <small>Student Id:</small> {{ $student->aem }}
+                                            <small>{{ trans('front/profile.id') }}</small> {{ $student->aem }}
                                         </li>
                                         <li>
-                                            <small>Role:</small> {{ $student->user->role }}
+                                            <small>{{ trans('front/profile.role') }}</small> {{ $student->user->role }}
                                         </li>
                                         <li>
-                                            <small>Registered:</small> {{ $student->user->created_at }}
+                                            <small>{{ trans('front/profile.registered') }}</small> {{ $student->user->created_at }}
                                         </li>
                                     </ul>
                                 @else
-                                    <p class="text-center">No user associated with this student!</p>
+                                    <p class="text-center">{{ trans('front/profile.no-usr-msg') }}!</p>
                                 @endif
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="text-center">Statistics:</h5>
-                                <h6> Total Visits: {{ count($student->statistics) }}</h6>
+                                <h5 class="text-center">{{ trans('front/profile.statistics-header') }}</h5>
+                                <h6> {{ trans('front/profile.totalv-header') }} {{ count($student->statistics) }}</h6>
                                 <div class="scrollable">
                                     <table>
                                         <tr style="font-weight: bolder">
-                                            <th>Meal Type</th>
-                                            <th>Date</th>
-                                            <th>Membership</th>
+                                            <th>{{ trans('front/profile.mealtype') }}</th>
+                                            <th>{{ trans('front/profile.date') }}e</th>
+                                            <th>{{ trans('front/profile.membership') }}</th>
                                         </tr>
                                         @foreach($student->statistics as $statistic)
                                             <tr>
@@ -132,13 +132,13 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h5 class="text-center">Ratings:</h5>
-                                <h6> Total Ratings: {{ count($student->ratings) }}</h6>
+                                <h5 class="text-center">{{ trans('front/profile.ratings-header') }}</h5>
+                                <h6> {{ trans('front/profile.totalratings') }} {{ count($student->ratings) }}</h6>
                                 <table>
                                     <tr>
-                                        <th>Meal</th>
-                                        <th>Rating</th>
-                                        <th>Date</th>
+                                        <th>{{ trans('front/profile.meal') }}</th>
+                                        <th>{{ trans('front/profile.rating') }}</th>
+                                        <th>{{ trans('front/profile.date') }}</th>
                                     </tr>
                                     @foreach($student->ratings as $rating)
                                         <tr>
@@ -153,15 +153,15 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
-                                <h5 class="text-center">Memberhip History:</h5>
+                                <h5 class="text-center">M{{ trans('front/profile.mb-his-header') }}</h5>
                                 <table>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Meals</th>
-                                        <th>Type</th>
-                                        <th>Start Date</th>
-                                        <th>Remaining</th>
-                                        <th>Created By</th>
+                                        <th>{{ trans('front/profile.mb-name') }}</th>
+                                        <th>{{ trans('front/profile.mb-meals') }}</th>
+                                        <th>{{ trans('front/profile.mb-type') }}</th>
+                                        <th>{{ trans('front/profile.mb-st-date') }}</th>
+                                        <th>{{ trans('front/profile.mb-remaing') }}</th>
+                                        <th>{{ trans('front/profile.mb-createdby') }}</th>
                                     </tr>
                                     @foreach($student->memberships as $assign)
                                         <tr>
