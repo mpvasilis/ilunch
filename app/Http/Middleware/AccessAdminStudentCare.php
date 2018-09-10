@@ -17,7 +17,7 @@ class AccessAdminStudentCare
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR", "STUDENT_CARE"])) {
+        if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR", "STAFF","STUDENT_CARE"])) {
             return $next($request);
         }
         return abort(403, 'accessStudentCareMiddleware');

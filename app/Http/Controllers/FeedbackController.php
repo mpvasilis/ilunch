@@ -41,6 +41,8 @@ class FeedbackController extends Controller
 
     public function index()
     {
+        $this->middleware('access_staff');
+
         $feedbacks = DB::table('feedbacks')->get();
         $feeds = collect([]);
         foreach ($feedbacks as $feedback) {

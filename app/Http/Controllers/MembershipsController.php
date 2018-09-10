@@ -17,18 +17,22 @@ class MembershipsController extends Controller
 {
     public function index()
     {
+        $this->middleware('access_staff');
+
         $memberships = Membership::orderBy('is_active', 1)->get();
         return view('admin.memberships.show', compact('memberships'));
     }
 
     public function indexAssigns()
     {
+        //todo delegate for student care.
         $memberships = Membership_assign::get();
         return view('admin.memberships.showAssigns', compact('memberships'));
     }
 
     public function assign()
     {
+        //todo delegate for student care.
         $students = Student::get();
         $memberships = Membership::active()->get();
         return view('admin.memberships.assign', ['students' => $students, 'memberships' => $memberships]);
@@ -36,17 +40,23 @@ class MembershipsController extends Controller
 
     public function create()
     {
+        $this->middleware('access_staff');
+
         $membershipTypes = Membership_type::get();
         return view('admin.memberships.create', compact('membershipTypes'));
     }
 
     public function createType()
     {
+        $this->middleware('access_staff');
+
         return view('admin.memberships.createType', compact('membershipTypes'));
     }
 
     public function createTypeStore(Request $request)
     {
+        $this->middleware('access_staff');
+
         $membershipType = new Membership_type();
         $membershipType->type = $request['type'];
         $membershipType->value = $request['value'];
@@ -56,6 +66,8 @@ class MembershipsController extends Controller
 
     public function createStore(Request $request)
     {
+        $this->middleware('access_staff');
+
         $membership = new Membership();
         $membership->title = $request['title'];
         $membership->breakfast = ($request['breakfast'] == 1 ? 1 : 0);
@@ -79,6 +91,8 @@ class MembershipsController extends Controller
 
     public function flipStatus($membershipId)
     {
+        $this->middleware('access_staff');
+
         $membership = Membership::find($membershipId);
         if ($membership != null) {
             $membership->is_active = $membership->is_active == 1 ? 0 : 1;
@@ -91,6 +105,8 @@ class MembershipsController extends Controller
 
     public function deleteAssign($assignId)
     {
+        $this->middleware('access_staff');
+
         try {
             Membership_assign::find($assignId)->delete();
         } catch (\Exception $e) {
@@ -101,6 +117,7 @@ class MembershipsController extends Controller
 
     public function printAssign($assignId)
     {
+        //todo delegate for student care.
         $myProjectDirectory = 'C:\Users\Christos Sarantis\Desktop';
         $snappy = new Pdf($myProjectDirectory . '/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
         header('Content-Type: application/pdf');
@@ -110,7 +127,7 @@ class MembershipsController extends Controller
 
     public function viewAssignCard($assignId)
     {
-
+        //todo delegate for student care
         $assign = Membership_assign::find($assignId);
         if ($assign != null) {
             return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);
