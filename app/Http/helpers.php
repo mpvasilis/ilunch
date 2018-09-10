@@ -93,7 +93,7 @@ function transformUserRole($role)
     switch ($role) {
         case 'ADMINISTRATOR':
             {
-                return 'Διαχειριτστής Συστήματος';
+                return 'Διαχειριστής Συστήματος';
             }
         case 'STUDENT':
             {

@@ -39,7 +39,7 @@ class AnnouncementsController extends Controller
 
         Announcement::where('id', $request['id'])->update(['title' => $request['title'], 'content' => $request['content'], 'show_until' => $request['show_until'], 'type' => $request['type']]);
 
-        $announcements = DB::table('announcements')->get();
+        $announcements = Announcement::get();
 
         return view('admin.announcements', compact('announcements'));
     }
