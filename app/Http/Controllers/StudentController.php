@@ -41,12 +41,12 @@ class StudentController extends Controller
         if ($student == null) {
             return Redirect::route('profile', ['studentId' => $studentAem]);
         }
-        return view('dashboard.student.editProfile', ['student'=> $student, 'departments'=> $departmentsh]);
+        return view('dashboard.student.editProfile', ['student' => $student, 'departments' => $departments]);
     }
 
     public function profileUpdate($studentAem, Request $request)
     {
-        $this->middlware('can_view_profile');
+        $this->middleware('can_view_profile');
 
         $student = Student::aem($studentAem)->first();
         if ($student == null)
@@ -55,6 +55,7 @@ class StudentController extends Controller
         $student->lastname = $request["lastname"];
         $student->father_name = $request["father_name"];
         $student->semester = $request["semester"];
+        $student->department_id = $request["department"];
         if ($request->file('photo') != null && $request->file('photo')->isValid()) {
             $extension = $request->photo->extension();
             if (in_array($extension, array('jpg', 'jpeg', 'png'))) {
@@ -66,7 +67,8 @@ class StudentController extends Controller
                 return abort('403', 'studentProfileUpdateIllegalFileExtension');
             }
         } else {
-            return abort('403', 'studentProfileUpdateIllegalFile');
+            $student->save();
+            return view('dashboard.student.profile', compact('student'));
         }
     }
 

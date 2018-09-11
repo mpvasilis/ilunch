@@ -113,3 +113,10 @@ function transformUserRole($role)
             }
     }
 }
+
+function hasStaffRole($user){
+    if ($user != null && in_array($user->role, ["ADMINISTRATOR", "STAFF"])) {
+        return true;
+    }
+    return false;
+}
