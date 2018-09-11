@@ -120,3 +120,10 @@ function hasStaffRole($user){
     }
     return false;
 }
+
+function hasAdminRole($user){
+    if ($user != null && in_array($user->role, ["ADMINISTRATOR"])) {
+        return true;
+    }
+    return false;
+}

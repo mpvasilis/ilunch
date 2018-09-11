@@ -74,12 +74,14 @@ class StudentController extends Controller
 
     public function create()
     {
+        $this->middleware('access_staff');
         $departments = Department::get();
         return view('admin.students.create', compact('departments'));
     }
 
     public function createStore(Request $request)
     {
+        $this->middleware('access_staff');
         $student = new Student();
         $student->firstname = $request["firstName"];
         $student->lastname = $request["lastName"];

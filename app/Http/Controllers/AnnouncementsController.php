@@ -11,6 +11,8 @@ class AnnouncementsController extends Controller
 {
     public function index()
     {
+        $this->middleware('access_staff');
+
         $announcements = Announcement::get();
 
         return view('admin.announcements', compact('announcements'));
@@ -18,6 +20,7 @@ class AnnouncementsController extends Controller
 
     public function post(Request $request)
     {
+        $this->middleware('access_staff');
 
         $announcement = new Announcement();
         $announcement->title = $request['title'];
@@ -36,6 +39,7 @@ class AnnouncementsController extends Controller
 
     public function update(Request $request)
     {
+        $this->middleware('access_staff');
 
         Announcement::where('id', $request['id'])->update(['title' => $request['title'], 'content' => $request['content'], 'show_until' => $request['show_until'], 'type' => $request['type']]);
 
@@ -46,6 +50,8 @@ class AnnouncementsController extends Controller
 
     public function delete(Request $request)
     {
+        $this->middleware('access_staff');
+
 
         Announcement::where('id', $request['id'])->delete();
 
