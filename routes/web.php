@@ -84,3 +84,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
     Route::post('students/create', 'StudentController@createStore')->name('admin_students_create');
 
 });
+
+//securedApi
+Route::get('secured/getStudentMatches/{searchString}', 'ApiController@getStudentMatches')->middleware('admin_panel');
