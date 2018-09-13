@@ -17,7 +17,7 @@ class AccessAdminOnly
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR"])) {
+        if (Auth::check() && Auth::user()->role == "ADMINISTRATOR") {
             return $next($request);
         }
         return abort(403, 'adminOnlyMiddleware');
