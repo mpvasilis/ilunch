@@ -37,21 +37,25 @@ class StudentController extends Controller
     public function profileEdit($studentAem)
     {
         $student = Student::aem($studentAem)->first();
+        $departments = Department::get();
         if ($student == null) {
             return Redirect::route('profile', ['studentId' => $studentAem]);
         }
-        return view('dashboard.student.editProfile', compact('student'));
+        return view('dashboard.student.editProfile', ['student' => $student, 'departments' => $departments]);
     }
 
-    public function profileUpdate(Request $request)
+    public function profileUpdate($studentAem, Request $request)
     {
-        $student = Student::aem(Auth::user()->student_id)->first();
+        $this->middleware('can_view_profile');
+
+        $student = Student::aem($studentAem)->first();
         if ($student == null)
-            abort('403', 'studentProfileUpdateNotFoundException');
+            abort('404', 'studentProfileUpdateNotFoundException');
         $student->firstname = $request["firstname"];
         $student->lastname = $request["lastname"];
         $student->father_name = $request["father_name"];
         $student->semester = $request["semester"];
+        $student->department_id = $request["department"];
         if ($request->file('photo') != null && $request->file('photo')->isValid()) {
             $extension = $request->photo->extension();
             if (in_array($extension, array('jpg', 'jpeg', 'png'))) {
@@ -63,7 +67,8 @@ class StudentController extends Controller
                 return abort('403', 'studentProfileUpdateIllegalFileExtension');
             }
         } else {
-            return abort('403', 'studentProfileUpdateIllegalFile');
+            $student->save();
+            return view('dashboard.student.profile', compact('student'));
         }
     }
 

@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
         Route::get('show', 'MembershipsController@index')->name('admin_memberships_show');
         Route::get('create', 'MembershipsController@create')->name('admin_memberships_create');
         Route::post('create', 'MembershipsController@createStore')->name('admin_memberships_create');
-        Route::get('{membershipId}/deactivate', 'MembershipsController@deactivate')->name('admin_membership_deactivate');
+        Route::get('{membershipId}/flipStatus', 'MembershipsController@flipStatus')->name('admin_membership_flipStatus');
 
         Route::get('assign/show', 'MembershipsController@indexAssigns')->name('admin_memberships_showAssign');
         Route::get('assign', 'MembershipsController@assign')->name('admin_memberships_assign');
@@ -84,3 +84,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
     Route::post('students/create', 'StudentController@createStore')->name('admin_students_create');
 
 });
+
+//securedApi
+Route::get('secured/getStudentMatches/{searchString}', 'ApiController@getStudentMatches')->middleware('admin_panel');

@@ -181,7 +181,7 @@
                                 </table>
                             </div>
                         </div>
-                        @if($user->student_id == $student->aem)
+                        @if($user->student_id == $student->aem || hasStaffRole($user))
                             <div class="row">
                                 <div class="col-md-2"><a href="{{ route('edit_profile',$student->aem) }}"> Edit
                                         Profile</a></div>

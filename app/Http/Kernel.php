@@ -25,9 +25,15 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            \App\Http\Middleware\ApiShares::class,
             'accessApi',
             'throttle:60,1',
             'bindings',
+        ],
+
+        'session'=>[
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Session\Middleware\StartSession::class,
         ],
     ];
 
