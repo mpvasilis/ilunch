@@ -72,5 +72,7 @@ class Kernel extends HttpKernel
         'access_administrator' => \App\Http\Middleware\AccessAdminOnly::class,
         'access_student_care' => \App\Http\Middleware\AccessAdminStudentCare::class,
         'access_staff' => \App\Http\Middleware\AccessAdminStaff::class,
+        'cas.auth'  => Subfission\Cas\Middleware\CASAuth::class,
+        'cas.guest' => Subfission\Cas\Middleware\RedirectCASAuthenticated::class,
     ];
 }

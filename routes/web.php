@@ -9,6 +9,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/cas/login', function(){
+    Cas::authenticate();
+});
 //auth
 Auth::routes();
 //index
