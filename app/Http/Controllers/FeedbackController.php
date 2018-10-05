@@ -11,6 +11,15 @@ use DB;
 //todo refactor to RatingController and datasource should be ratings table
 class FeedbackController extends Controller
 {
+
+    /**
+     * FeedbackController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_staff', ['only' => ['index']]);
+    }
+
     public function create(FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(\App\Forms\feedback_guest_form::class, [
@@ -41,7 +50,6 @@ class FeedbackController extends Controller
 
     public function index()
     {
-        $this->middleware('access_staff');
 
         $feedbacks = DB::table('feedbacks')->get();
         $feeds = collect([]);

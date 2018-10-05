@@ -37,7 +37,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
 //admin
 Route::get('admin', 'DashboardController@admin')->name('admin')->middleware('admin_panel');
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('meals', 'MealsController@index')->name('admin_meals');
     Route::post('meals', 'MealsController@post')->name('admin_meals');
@@ -61,7 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
         Route::post('type/create', 'MembershipsController@createTypeStore')->name('admin_memberships_createType');
     });
 
-    Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'users', 'middleware' => ['auth','access_administrator']], function () {
         Route::get('show', 'UserController@show')->name('admin_users_show');
         Route::get('{userId}/edit', 'UserController@showEdit')->name('admin_user_edit');
         Route::post('{userId}/edit', 'UserController@edit')->name('admin_user_edit_store');

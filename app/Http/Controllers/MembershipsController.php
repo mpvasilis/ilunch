@@ -15,10 +15,18 @@ use Knp\Snappy\Pdf;
 
 class MembershipsController extends Controller
 {
+
+
+    /**
+     * MembershipsController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_staff', ['only' => ['deleteAssign', 'index', 'create', 'createType', 'deleteAssign', 'printStatus', 'createTypeStore', 'createStore']]);
+    }
+
     public function index()
     {
-        $this->middleware('access_staff');
-
         $memberships = Membership::orderBy('is_active', 1)->get();
         return view('admin.memberships.show', compact('memberships'));
     }
@@ -55,7 +63,6 @@ class MembershipsController extends Controller
     public
     function create()
     {
-        $this->middleware('access_staff');
 
         $membershipTypes = Membership_type::get();
         return view('admin.memberships.create', compact('membershipTypes'));
@@ -64,15 +71,12 @@ class MembershipsController extends Controller
     public
     function createType()
     {
-        $this->middleware('access_staff');
-
         return view('admin.memberships.createType', compact('membershipTypes'));
     }
 
     public
     function createTypeStore(Request $request)
     {
-        $this->middleware('access_staff');
 
         $membershipType = new Membership_type();
         $membershipType->type = $request['type'];
@@ -83,7 +87,6 @@ class MembershipsController extends Controller
 
     public function createStore(Request $request)
     {
-        $this->middleware('access_staff');
 
         $membership = new Membership();
         $membership->title = $request['title'];
@@ -98,10 +101,10 @@ class MembershipsController extends Controller
 
     public function assignStore(Request $request)
     {
-        if(Auth::user()-role == 'STUDENT_CARE'){
+        if (Auth::user() - role == 'STUDENT_CARE') {
             $membership = Membership::find($request["membership"]);
-            if($membership->type()->type != 'FREE'){
-                abort(403,'canOnlyCreateFreeMemberships');
+            if ($membership->type()->type != 'FREE') {
+                abort(403, 'canOnlyCreateFreeMemberships');
             }
         }
         $assignment = new Membership_assign();
@@ -114,7 +117,6 @@ class MembershipsController extends Controller
 
     public function flipStatus($membershipId)
     {
-        $this->middleware('access_staff');
 
         $membership = Membership::find($membershipId);
         if ($membership != null) {
@@ -128,7 +130,6 @@ class MembershipsController extends Controller
 
     public function deleteAssign($assignId)
     {
-        $this->middleware('access_staff');
 
         try {
             Membership_assign::find($assignId)->delete();
@@ -150,8 +151,8 @@ class MembershipsController extends Controller
     public function viewAssignCard($assignId)
     {
         $assign = Membership_assign::find($assignId);
-        if($assign->membersip()->type()->type != 'FREE' && Auth::user()->role == 'STUDENT_CARE'){
-            abort(403,'exceptionNoAccess');
+        if ($assign->membersip()->type()->type != 'FREE' && Auth::user()->role == 'STUDENT_CARE') {
+            abort(403, 'exceptionNoAccess');
         }
         if ($assign != null) {
             return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);

@@ -9,10 +9,18 @@ use Carbon\Carbon;
 
 class StatsController extends Controller
 {
+
 //todo refactor to get info from statistics table.
-    public function index()
+    /**
+     * StatsController constructor.
+     */
+    public function __construct()
     {
         $this->middleware('access_staff');
+    }
+
+    public function index()
+    {
         $history = DB::table('history')->get();
         $historys = collect([]);
         $types = collect([]);
@@ -63,7 +71,6 @@ class StatsController extends Controller
 
     public function search(Request $request)
     {
-        $this->middleware('access_staff');
         $start = Carbon::parse($request['start']);
         $stop = Carbon::parse($request['stop']);
         $title = $start->format('d/m/Y D') . " - " . $stop->format('d/m/Y D');

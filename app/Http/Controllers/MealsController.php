@@ -9,9 +9,18 @@ use App\Http\Requests\StoreMealsRequest;
 
 class MealsController extends Controller
 {
-    public function index()
+
+
+    /**
+     * MealsController constructor.
+     */
+    public function __construct()
     {
         $this->middleware('access_staff');
+    }
+
+    public function index()
+    {
 
         $meals = Menu_meal::get();
         return view('admin.meals', compact('meals'));
@@ -20,7 +29,6 @@ class MealsController extends Controller
 
     public function post(Request $request)
     {
-        $this->middleware('access_staff');
 
         $meal = new Menu_meal();
         $meal->title = $request['title'];
@@ -35,7 +43,6 @@ class MealsController extends Controller
 
     public function update(Request $request)
     {
-        $this->middleware('access_staff');
 
         Menu_meal::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active'], 'type_id' => $request['type_id']]);
 
@@ -46,7 +53,6 @@ class MealsController extends Controller
 
     public function delete(Request $request)
     {
-        $this->middleware('access_staff');
 
         Menu_meal::where('id', $request['id'])->delete();
 

@@ -9,9 +9,18 @@ use Auth;
 
 class AnnouncementsController extends Controller
 {
-    public function index()
+
+
+    /**
+     * AnnouncementsController constructor.
+     */
+    public function __construct()
     {
         $this->middleware('access_staff');
+    }
+
+    public function index()
+    {
 
         $announcements = Announcement::get();
 
@@ -20,7 +29,6 @@ class AnnouncementsController extends Controller
 
     public function post(Request $request)
     {
-        $this->middleware('access_staff');
 
         $announcement = new Announcement();
         $announcement->title = $request['title'];
@@ -39,7 +47,6 @@ class AnnouncementsController extends Controller
 
     public function update(Request $request)
     {
-        $this->middleware('access_staff');
 
         Announcement::where('id', $request['id'])->update(['title' => $request['title'], 'content' => $request['content'], 'show_until' => $request['show_until'], 'type' => $request['type']]);
 
@@ -50,7 +57,6 @@ class AnnouncementsController extends Controller
 
     public function delete(Request $request)
     {
-        $this->middleware('access_staff');
 
 
         Announcement::where('id', $request['id'])->delete();

@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
+
+
+    /**
+     * StudentController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_staff', ['only' => ['create', 'createStore']]);
+        $this->middleware('can_view_profile', ['only' => ['profileUpdate']]);
+    }
+
     public function adminIndex()
     {
         $students = Student::get();
@@ -46,7 +57,6 @@ class StudentController extends Controller
 
     public function profileUpdate($studentAem, Request $request)
     {
-        $this->middleware('can_view_profile');
 
         $student = Student::aem($studentAem)->first();
         if ($student == null)
@@ -74,14 +84,12 @@ class StudentController extends Controller
 
     public function create()
     {
-        $this->middleware('access_staff');
         $departments = Department::get();
         return view('admin.students.create', compact('departments'));
     }
 
     public function createStore(Request $request)
     {
-        $this->middleware('access_staff');
         $student = new Student();
         $student->firstname = $request["firstName"];
         $student->lastname = $request["lastName"];
