@@ -29,8 +29,20 @@
                             <br/>
                             {!! Form::label('photo', 'Profile Image (jpg,png,jpeg)') !!}
                             {!! Form::file('photo'); !!}
+                            <?php
+                            $departmentList = array(); ?>
+                            @foreach($departments as $department)
+                                <?php
+                                $departmentList[$department->id] = $department->department_name . ' at ' . $department->university;
+                                ?>
+                            @endforeach
 
-                            <p class="small">If you thing any other information is wrong, please contact the administrator team.</p>
+                            {!! Form::label('department', 'Πανεπιστιμιακό Τμήμα') !!}
+                            {!! Form::select('department', $departmentList, $student->department_id); !!}
+
+
+                            <p class="small">If you thing any other information is wrong, please contact the
+                                administrator team.</p>
                             {!! Form::submit('Submit', ['class' => 'btn btn-primary center-block']) !!}
                             {!! Form::close() !!}
                         </div>

@@ -16,7 +16,7 @@ class ApiController extends Controller
     }
 
     public function getStudentMatches($searchString){
-        $matches = Student::where('firstname', 'like', '%'.$searchString.'%')->orWhere('lastname', 'like', '%'.$searchString.'%')->orWhere('aem', 'like', '%'.$searchString.'%');
+        $matches = Student::where('firstname', 'LIKE', '%'.$searchString.'%')->orWhere('lastname', 'LIKE', '%'.$searchString.'%')->orWhere('aem', 'LIKE', '%'.$searchString.'%')->get();
 
         $result = array();
         foreach ($matches as $item){

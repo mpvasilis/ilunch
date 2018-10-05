@@ -22,4 +22,10 @@ Route::get('validateAnonymousCustomer', 'ApiController@validateAnonymousCustomer
 Route::get('getLatestAnnouncement', 'ApiController@getLatestAnnouncement');//todo response with lastAnnounce
 Route::post('submitFeedback', 'ApiController@submitFeedback');//todo response status code can get array as input ( mass input)
 Route::get('getMealStatistics', 'ApiController@getMealStatistics');//todo find all endpoints for statistic creation (group + middleware)
-Route::get('secured/getStudentMatches', 'ApiController@getStudentMatches')->middleware('admin_panel');
+
+
+//todo make a middleware to create the session for the secured api util then it will be transfered to web router.
+Route::group(['middleware' => 'session'], function () {
+    Route::get('secured/getStudentMatches/{searchString}', 'ApiController@getStudentMatches')->middleware('admin_panel');
+});
+

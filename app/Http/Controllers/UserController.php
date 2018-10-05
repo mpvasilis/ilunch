@@ -9,8 +9,18 @@ use App\User;
 class UserController extends Controller
 {
 
+
+    /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_administrator');
+    }
+
     public function show()
     {
+
         $users = User::get();
 
         return view('admin.users.show', compact('users'));
@@ -18,6 +28,7 @@ class UserController extends Controller
 
     public function showEdit($id)
     {
+
         $user = User::find($id);
 
         return view('admin.users.showEdit', compact('user'));
@@ -25,6 +36,7 @@ class UserController extends Controller
 
     public function edit($id, Request $request)
     {
+
         $user = User::find($id);
         $user->role = $request['role'];
         $user->name = $request['name'];

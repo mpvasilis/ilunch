@@ -13,7 +13,7 @@
                 {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
                 {!! Form::label('role', 'Ρόλος Χρήστη') !!}
                 <br>
-                {!! Form::select('role', array('ADMINISTRATOR'=> 'Διαχειρτιστής Συστήματος','STAFF' => 'Προσωπικό Σχολής', 'STUDENT_CARE' => 'Φοιτητική Μέριμνα', 'STUDENT'=> 'Φοιτητής'), $user->role); !!}
+                {!! Form::select('role', array('ADMINISTRATOR'=> 'Διαχειρτιστής Συστήματος','STAFF' => 'Προσωπικό Λέσχης', 'STUDENT_CARE' => 'Φοιτητική Μέριμνα', 'STUDENT'=> 'Φοιτητής'), $user->role); !!}
                 <br>
                 {!! Form::label('student_id', 'Φοιτικό Account (AEM)') !!}
                 {!! Form::text('student_id', $user->student_id, ['class' => 'form-control']) !!}

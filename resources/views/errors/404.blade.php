@@ -1,3 +1,9 @@
+<?php
+if(!isset($user)){
+    $user = null;
+}
+?>
+
 @extends('dashboard.layouts.template')
 @section('title')
     About

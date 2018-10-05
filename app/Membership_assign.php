@@ -39,6 +39,7 @@ class Membership_assign extends Model
         }
         return $result;
     }
+
     public $timestamps = false;
 
 }

@@ -1,5 +1,4 @@
 <?php
-//todo middlewares for logged in users
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +22,6 @@ Route::post('/feedback', 'FeedbackController@store')->name('feedback_store');
 
 
 //students profile
-//todo create controller and view index
 Route::group(['prefix' => 'student', 'middleware' => 'can_view_student'], function () {
     Route::get('{studentId}/profile', 'StudentController@profile')->name('profile');
     Route::post('{studentId}/profile', 'StudentController@profileUpdate')->name('profile');
@@ -39,7 +37,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
 //admin
 Route::get('admin', 'DashboardController@admin')->name('admin')->middleware('admin_panel');
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('meals', 'MealsController@index')->name('admin_meals');
     Route::post('meals', 'MealsController@post')->name('admin_meals');
@@ -50,7 +48,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
         Route::get('show', 'MembershipsController@index')->name('admin_memberships_show');
         Route::get('create', 'MembershipsController@create')->name('admin_memberships_create');
         Route::post('create', 'MembershipsController@createStore')->name('admin_memberships_create');
-        Route::get('{membershipId}/deactivate', 'MembershipsController@deactivate')->name('admin_membership_deactivate');
+        Route::get('{membershipId}/flipStatus', 'MembershipsController@flipStatus')->name('admin_membership_flipStatus');
 
         Route::get('assign/show', 'MembershipsController@indexAssigns')->name('admin_memberships_showAssign');
         Route::get('assign', 'MembershipsController@assign')->name('admin_memberships_assign');
@@ -63,7 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
         Route::post('type/create', 'MembershipsController@createTypeStore')->name('admin_memberships_createType');
     });
 
-    Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'users', 'middleware' => ['auth','access_administrator']], function () {
         Route::get('show', 'UserController@show')->name('admin_users_show');
         Route::get('{userId}/edit', 'UserController@showEdit')->name('admin_user_edit');
         Route::post('{userId}/edit', 'UserController@edit')->name('admin_user_edit_store');
@@ -84,3 +82,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin_panel']], fun
     Route::post('students/create', 'StudentController@createStore')->name('admin_students_create');
 
 });
+
+//securedApi
+Route::get('secured/getStudentMatches/{searchString}', 'ApiController@getStudentMatches')->middleware('admin_panel');

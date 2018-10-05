@@ -9,11 +9,18 @@ use Carbon\Carbon;
 
 class StatsController extends Controller
 {
+
 //todo refactor to get info from statistics table.
+    /**
+     * StatsController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_staff');
+    }
+
     public function index()
     {
-
-
         $history = DB::table('history')->get();
         $historys = collect([]);
         $types = collect([]);

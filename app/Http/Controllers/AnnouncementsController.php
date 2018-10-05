@@ -9,8 +9,19 @@ use Auth;
 
 class AnnouncementsController extends Controller
 {
+
+
+    /**
+     * AnnouncementsController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_staff');
+    }
+
     public function index()
     {
+
         $announcements = Announcement::get();
 
         return view('admin.announcements', compact('announcements'));
@@ -46,6 +57,7 @@ class AnnouncementsController extends Controller
 
     public function delete(Request $request)
     {
+
 
         Announcement::where('id', $request['id'])->delete();
 

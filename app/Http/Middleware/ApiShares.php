@@ -3,9 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
-class AccessAdminStudentCare
+
+class ApiShares
 {
     /**
      * Handle an incoming request.
@@ -17,9 +19,7 @@ class AccessAdminStudentCare
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::check() && in_array(Auth::user()->role, ["ADMINISTRATOR", "STAFF","STUDENT_CARE"])) {
-            return $next($request);
-        }
-        return abort(403, 'accessStudentCareMiddleware');
+        View::share('user', null);
+        return $next($request);
     }
 }

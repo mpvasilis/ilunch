@@ -105,11 +105,25 @@ function transformUserRole($role)
             }
         case 'STAFF':
             {
-                return 'Προσωπικό Σχολής';
+                return 'Προσωπικό Λέσχης';
             }
         default:
             {
                 return 'Unknown Role';
             }
     }
+}
+
+function hasStaffRole($user){
+    if ($user != null && in_array($user->role, ["ADMINISTRATOR", "STAFF"])) {
+        return true;
+    }
+    return false;
+}
+
+function hasAdminRole($user){
+    if ($user != null && in_array($user->role, ["ADMINISTRATOR"])) {
+        return true;
+    }
+    return false;
 }

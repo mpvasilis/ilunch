@@ -9,8 +9,19 @@ use App\Http\Requests\StoreMealsRequest;
 
 class MealsController extends Controller
 {
+
+
+    /**
+     * MealsController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('access_staff');
+    }
+
     public function index()
     {
+
         $meals = Menu_meal::get();
         return view('admin.meals', compact('meals'));
     }
