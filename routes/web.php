@@ -9,6 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/login/cas', 'CasAuthController@login')->name('cas_login');
+Route::get('/logout/cas', 'CasAuthController@logout');
 //auth
 Auth::routes();
 //index
@@ -61,7 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::post('type/create', 'MembershipsController@createTypeStore')->name('admin_memberships_createType');
     });
 
-    Route::group(['prefix' => 'users', 'middleware' => ['auth','access_administrator']], function () {
+    Route::group(['prefix' => 'users', 'middleware' => ['auth', 'access_administrator']], function () {
         Route::get('show', 'UserController@show')->name('admin_users_show');
         Route::get('{userId}/edit', 'UserController@showEdit')->name('admin_user_edit');
         Route::post('{userId}/edit', 'UserController@edit')->name('admin_user_edit_store');
