@@ -35,11 +35,10 @@ class MembershipsController extends Controller
     {
         $memberships = null;
         if (Auth::user()->role == 'STUDENT_CARE') {
-            $modelMemberships = Membership::with(array('type' => function ($query) {
-                $query->free();
-
-            }))->get();
-            $memberships = $modelMemberships->instances();
+            $modelMemberships = Membership::whereHas('type', function ($q) {
+                $q->free();
+            })->active()->first();
+            $memberships = $modelMemberships->instances;
         } else {
             $memberships = Membership_assign::get();
         }
@@ -50,9 +49,9 @@ class MembershipsController extends Controller
     {
         $students = Student::get();
         if (Auth::user()->role == 'STUDENT_CARE') {
-            $memberships = Membership::with(array('type' => function ($query) {
-                $query->free();
-            }))->active()->get();
+            $memberships = Membership::whereHas('type', function ($q) {
+                $q->free();
+            })->active()->get();
         } else {
             $memberships = Membership::active()->get();
         }
@@ -60,22 +59,19 @@ class MembershipsController extends Controller
         return view('admin.memberships.assign', ['students' => $students, 'memberships' => $memberships]);
     }
 
-    public
-    function create()
+    public function create()
     {
 
         $membershipTypes = Membership_type::get();
         return view('admin.memberships.create', compact('membershipTypes'));
     }
 
-    public
-    function createType()
+    public function createType()
     {
         return view('admin.memberships.createType', compact('membershipTypes'));
     }
 
-    public
-    function createTypeStore(Request $request)
+    public function createTypeStore(Request $request)
     {
 
         $membershipType = new Membership_type();
@@ -101,9 +97,9 @@ class MembershipsController extends Controller
 
     public function assignStore(Request $request)
     {
-        if (Auth::user() - role == 'STUDENT_CARE') {
+        if (Auth::user()->role == 'STUDENT_CARE') {
             $membership = Membership::find($request["membership"]);
-            if ($membership->type()->type != 'FREE') {
+            if ($membership->type->type != 'FREE') {
                 abort(403, 'canOnlyCreateFreeMemberships');
             }
         }

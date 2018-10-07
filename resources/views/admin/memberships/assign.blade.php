@@ -15,7 +15,7 @@
                 {!! Form::label('mambershipStudent', 'Επιλογή Φοιτιτή:') !!}
                 <select class="form-control" id="mambershipStudent" name="student">
                     @foreach($students as $student)
-                        <option value='{{$student->id}}'>{{$student->firstname}} {{$student->lastname}}</option>
+                        <option value='{{$student->id}}'>{{$student->firstname}} {{$student->lastname}} ({{$student->aem}})</option>
                     @endforeach
                 </select>
                 {!! Form::label('membership', 'Επιλογή συνδρομής:') !!}
