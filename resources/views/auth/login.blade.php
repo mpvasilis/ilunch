@@ -1,6 +1,6 @@
 @extends('auth.layouts.template')
 @section('title')
-{{ trans('auth/site.title') }}
+    {{ trans('auth/site.title') }}
 @endsection
 
 @section('main')
@@ -53,14 +53,20 @@
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">
-                {{ trans('auth/site.login') }}
+                    {{ trans('auth/site.login') }}
                 </button>
             </div>
+            <div class="col-md-8 col-md-offset-1">
+                <a class="btn btn-link" href="{{ route('cas_login') }}">
+                    <button type="button" class="btn btn-success">
+                        {{ trans('auth/site.cas') }}
+                    </button>
+                </a></div>
             <a class="btn btn-link" href="{{ route('password.request') }}">
-            {{ trans('auth/site.forgot') }}
+                {{ trans('auth/site.forgot') }}
             </a>
             <a class="btn btn-link" href="{{ route('register') }}">
-            {{ trans('auth/site.register') }}
+                {{ trans('auth/site.register') }}
             </a>
         </div>
     </form>

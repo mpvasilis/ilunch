@@ -57,7 +57,7 @@ return [
     |--------------------------------------------------------------------------
     | Sometimes is /cas
     */
-    'cas_uri'             => env('CAS_URI', '/cas'),
+    'cas_uri'             => env('CAS_URI', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ return [
     |
     | VALIDATING THE CAS SERVER IS CRUCIAL TO THE SECURITY OF THE CAS PROTOCOL
     */
-    'cas_validation'          => env('CAS_VALIDATION', ''),
+    'cas_validation'          => env('CAS_VALIDATION', 'ca'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     | Path to the CA certificate file.  For production use set
     | the CA certificate that is the issuer of the cert
     */
-    'cas_cert'                => env('CAS_CERT', ''),
+    'cas_cert'                => env('CAS_CERT', '/usr/local/share/certs/ca-root-nss.crt'),
 
     /*
     |--------------------------------------------------------------------------
@@ -102,7 +102,7 @@ return [
     | CAS Logout URI
     |--------------------------------------------------------------------------
     */
-    'cas_logout_url'      => env('CAS_LOGOUT_URL', 'https://cas.myuniv.edu/cas/logout'),
+    'cas_logout_url'      => env('CAS_LOGOUT_URL', 'http://zafora.icte.uowm.gr/~ictest01069/ilunch/public/logout/cas'),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
     | 3) false
     |--------------------------------------------------------------------------
     */
-    'cas_debug'           => env('CAS_DEBUG', 'log.log'),
+    'cas_debug'           => env('CAS_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
