@@ -29,20 +29,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($users as $u)
                         <tr role="row" class="odd">
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ transformUserRole($user->role) }}</td>
-                            <td>{{ $user->student_id }}</td>
-                            <td>{{ $user->created_at }}</td>
-                            <td>{{ humanTiming($user->updated_at) }}</td>
+                            <td>{{ $u->name }}</td>
+                            <td>{{ $u->email }}</td>
+                            <td>{{ transformUserRole($u->role) }}</td>
+                            <td>{{ $u->student_id }}</td>
+                            <td>{{ $u->created_at }}</td>
+                            <td>{{ humanTiming($u->updated_at) }}</td>
 
                             <td>
-                                <a href="{{route('admin_user_edit',['userId' => $user->id])}}"><i
+                                <a href="{{route('admin_user_edit',['userId' => $u->id])}}"><i
                                             class="fa fa-bullseye"></i> Edit</a>
-                                @if($user->student_id != null)
-                                    | <a href="{{route('profile',['studentId'=>$user->student_id])}}"><i
+                                @if($u->student_id != null)
+                                    | <a href="{{route('profile',['studentId'=>$u->student_id])}}"><i
                                                 class="fa fa-share"></i> View Student
                                         Profile</a>
                                 @endif
