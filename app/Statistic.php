@@ -20,4 +20,11 @@ class Statistic extends Model
     {
         return $this->hasOne('App\Menu', 'id', 'menu_id');
     }
+
+
+    protected $fillable = [
+        'student_id',
+        'menu_id',
+        'membership_id'
+    ];
 }

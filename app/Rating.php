@@ -15,4 +15,11 @@ class Rating extends Model
     {
         return $this->hasOne('App\Menu', 'id', 'menu_id');
     }
+
+    protected $fillable = [
+        'student_id',
+        'menu_id',
+        'rating',
+        'comment'
+    ];
 }
