@@ -8,7 +8,6 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class FeedbackController extends Controller
 {
-    //todo testing
     /**
      * FeedbackController constructor.
      */

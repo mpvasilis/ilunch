@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class StatsController extends Controller
 {
-    //todo testing
     /**
      * StatsController constructor.
      */
@@ -18,7 +17,7 @@ class StatsController extends Controller
     {
         $this->middleware('access_staff');
     }
-    //todo error with meal index
+
     public function index()
     {
         $statistics = Statistic::get();
