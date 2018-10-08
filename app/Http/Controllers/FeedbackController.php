@@ -56,7 +56,7 @@ class FeedbackController extends Controller
             } else {
                 $name = $rating->student->firstname . " " . $rating->student->lastname;
             }
-            $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating]);
+            $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu]);
             $feeds->push($feed);
         }
 
