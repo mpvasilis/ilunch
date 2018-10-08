@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Rating;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
-use App\feedback;
-use App\Student;
-use DB;
 
-//todo refactor to RatingController and datasource should be ratings table
 class FeedbackController extends Controller
 {
-
     /**
      * FeedbackController constructor.
      */
@@ -40,7 +36,7 @@ class FeedbackController extends Controller
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
 
-        $newFeedback = new feedback;
+        $newFeedback = new Rating();
         $newFeedback->comment = $comment;
         $newFeedback->student_id = $name;
         $newFeedback->save();
@@ -51,17 +47,15 @@ class FeedbackController extends Controller
     public function index()
     {
 
-        $feedbacks = DB::table('feedbacks')->get();
+        $ratings = Rating::get();
         $feeds = collect([]);
-        foreach ($feedbacks as $feedback) {
-
-            $user = DB::table('students')->where('id', $feedback->student_id)->first();
-            if ($user == NULL) {
+        foreach ($ratings as $rating) {
+            if ($rating->student() == NULL) {
                 $name = "Anonymous";
             } else {
-                $name = $user->firstname . " " . $user->lastname;
+                $name = $rating->student->firstname . " " . $rating->student->lastname;
             }
-            $feed = collect(['id' => $feedback->id, 'name' => $name, 'comment' => $feedback->comment, 'created_at' => $feedback->created_at]);
+            $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu]);
             $feeds->push($feed);
         }
 
