@@ -1,10 +1,10 @@
 ##############################################
 # UPDATE FOR REVISION $example               #
 ##############################################
-UPDATE `settings` SET value = 3 WHERE name = 'sarantis';
+UPDATE `settings` SET value = 3 WHERE setting = 'sarantis';
 
 #update revision number $example
-UPDATE `settings` SET value = $example WHERE name = 'DATABASE_REVISION';
+UPDATE `settings` SET value = $example WHERE setting = 'DATABASE_REVISION';
 ##############################################
 # END UPDATE FOR REVISION $example           #
 ##############################################
@@ -15,7 +15,7 @@ UPDATE `settings` SET value = $example WHERE name = 'DATABASE_REVISION';
 ALTER TABLE `students` CHANGE `photo` `photo` VARCHAR(75) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'profilePlaceholder.jpg';
 
 #update revision number $example
-UPDATE `settings` SET value = 3 WHERE name = 'DATABASE_REVISION';
+UPDATE `settings` SET value = 3 WHERE setting = 'DATABASE_REVISION';
 ##############################################
 # END UPDATE FOR REVISION 3          #
 ##############################################
@@ -29,7 +29,7 @@ DROP TABLE feedbacks;
 
 
 #update revision number $example
-UPDATE `settings` SET value = 4 WHERE name = 'DATABASE_REVISION';
+UPDATE `settings` SET value = 4 WHERE setting = 'DATABASE_REVISION';
 ##############################################
 # END UPDATE FOR REVISION 4          #
 ##############################################

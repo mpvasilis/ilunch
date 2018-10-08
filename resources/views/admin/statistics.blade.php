@@ -52,7 +52,7 @@
                                         
                                         <tbody>
                                         
-                                        @foreach ($historys as $history)
+                                        @foreach ($stats as $history)
                                         <tr role="row" class="odd">
                                             <td>{{ $history['id'] }}</td>
                                             <td>{{ $history['name']}}</td>
