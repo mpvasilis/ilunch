@@ -147,7 +147,8 @@ class MembershipsController extends Controller
     public function viewAssignCard($assignId)
     {
         $assign = Membership_assign::find($assignId);
-        if ($assign->membersip()->type()->type != 'FREE' && Auth::user()->role == 'STUDENT_CARE') {
+
+        if ($assign->membership->type->type != 'FREE' && Auth::user()->role == 'STUDENT_CARE') {
             abort(403, 'exceptionNoAccess');
         }
         if ($assign != null) {

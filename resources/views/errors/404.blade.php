@@ -4,7 +4,7 @@ if(!isset($user)){
 }
 ?>
 
-@extends('dashboard.layouts.template')
+@extends('admin.layouts.template')
 @section('title')
     About
 @endsection

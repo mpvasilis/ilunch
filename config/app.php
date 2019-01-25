@@ -191,6 +191,8 @@ return [
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         Subfission\Cas\CasServiceProvider::class,
 
+        
+
     ],
 
     /*

@@ -7,8 +7,8 @@ return [
     'title' => 'Title',
     'info' => 'Informations',
     'date' => 'Date - Time',
-    'feedback-info' => 'Feedback Information'
-   
-    
+    'feedback-info' => 'Feedback Information',
+    'rating' => 'Rating'
+
+
 ];
-   

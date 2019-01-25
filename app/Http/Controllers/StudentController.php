@@ -20,7 +20,7 @@ class StudentController extends Controller
     public function __construct()
     {
         $this->middleware('access_staff', ['only' => ['create', 'createStore']]);
-        $this->middleware('can_view_profile', ['only' => ['profileUpdate']]);
+        // $this->middleware('can_view_profile', ['only' => ['profileUpdate']]);
     }
 
     public function adminIndex()

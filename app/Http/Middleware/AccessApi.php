@@ -16,7 +16,7 @@ class AccessApi
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
+    {  
         if (isset($request->apiKey) || $this->inExceptArray($request)) {
             if ($request->apiKey == config("app.apiKey") || $this->inExceptArray($request)) {
                 return $next($request);
@@ -43,6 +43,6 @@ class AccessApi
 
     protected $except = [
         'api/getMealCalendar',
-        'api/secured/getStudentMatches/*'
+        'api/secured/getStudentMatches/*',
     ];
 }

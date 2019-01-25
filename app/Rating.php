@@ -20,6 +20,7 @@ class Rating extends Model
         'student_id',
         'menu_id',
         'rating',
-        'comment'
+        'comment',
+        'date'
     ];
 }

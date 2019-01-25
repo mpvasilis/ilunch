@@ -37,13 +37,13 @@
                                 <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show1"
                                    data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
                                    data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"
-                                   data-type_id="{{ $meal -> type_id }}">{{ trans('admin/meals.show') }}</a>
+                                   data-type_id="{{ $meal -> menu_types }}">{{ trans('admin/meals.show') }}</a>
                                 <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-edit"
                                    data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
                                    data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"
-                                   data-type_id="{{ $meal ->mealType }}">{{ trans('admin/meals.edit') }}</a>
+                                   data-type_id="{{ $meal -> menu_types }}">{{ trans('admin/meals.edit') }}</a>
                                 <a class="btn btn-danger " id="delete-btn" data-toggle="modal"
-                                   data-target="#modal-delete" data-id="{{ $meal -> id }}">{{ trans('admin/meals.delete') }}ή</a>
+                                   data-target="#modal-delete" data-id="{{ $meal -> id }}">{{ trans('admin/meals.delete') }}</a>
                             </td>
                         </tr>
                     @endforeach
@@ -67,7 +67,11 @@
                             {!! Form::label('title', 'Όνομα') !!}
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
                             {!! Form::label('type_id', 'Τύπος Γεύματος') !!}
-                            {{ Form::select('type_id',array('1'=> 'Πρωινό','2'=> 'Μεσημεριανό','3'=> 'Βραδυνό'), null, ['class' => 'form-control']) }}
+                            <div class="mealtype">
+                            {!! Form::checkbox('prwino', '1', ['class' => 'form-control']) !!}Πρωινό
+                            {!! Form::checkbox('meshmeriano', '2', ['class' => 'form-control']) !!}Μεσημεριανό
+                            {!! Form::checkbox('vradyno', '3', ['class' => 'form-control']) !!}Βραδυνό
+                            </div>
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
                             {{ Form::select('is_active', array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control']) }}
                             {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
@@ -92,7 +96,11 @@
                             {!! Form::label('title', 'Όνομα') !!}
                             {!! Form::text('title', null, ['class' => 'form-control', 'id'=>'title']) !!}
                             {!! Form::label('type_id', 'Τύπος Γεύματος') !!}
-                            {{ Form::select('type_id', array('1'=> 'Πρωινό','2'=> 'Μεσημεριανό','3'=> 'Βραδυνό'), null, ['class' => 'form-control', 'id'=>'type_id']) }}
+                            <div class="mealtype">
+                            {!! Form::checkbox('prwino', '1', ['class' => 'form-control']) !!}Πρωινό
+                            {!! Form::checkbox('meshmeriano', '2', ['class' => 'form-control']) !!}Μεσημεριανό
+                            {!! Form::checkbox('vradyno', '3', ['class' => 'form-control']) !!}Βραδυνό
+                            </div>
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
                             {{ Form::select('is_active', array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control', 'id'=>'is_active']) }}
                             {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
@@ -138,7 +146,11 @@
                             {!! Form::label('title', 'Όνομα') !!}
                             {!! Form::text('title', null, ['class' => 'form-control', 'id'=>'title','disabled']) !!}
                             {!! Form::label('type_id', 'Τύπος Γεύματος') !!}
-                            {{ Form::select('type_id', array('1'=> 'Πρωινό','2'=> 'Μεσημεριανό','3'=> 'Βραδυνό'), null, ['class' => 'form-control', 'id'=>'type_id','disabled']) }}
+                            <div class="mealtype">
+                            {!! Form::checkbox('prwino', '1','checked',   array('disabled')) !!}Πρωινό
+                            {!! Form::checkbox('meshmeriano', '2','checked',    array('disabled')) !!}Μεσημεριανό
+                            {!! Form::checkbox('vradyno', '3','checked',    array('disabled')) !!}Βραδυνό
+                            </div>
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
                             {{ Form::select('is_active',  array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control', 'id'=>'is_active','disabled']) }}
                             {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
@@ -175,6 +187,17 @@
             var info = $(e.relatedTarget).data('info');
             var is_active = $(e.relatedTarget).data('is_active');
             var type_id = $(e.relatedTarget).data('type_id');
+
+            var types = type_id.split("-");
+
+            if ((types[0]) == "null"){
+            $("input[name='prwino']").prop('checked', false);}
+              if ((types[1]) == "null"){
+            $("input[name='meshmeriano']").prop('checked', false);}
+              if ((types[2]) == "null"){
+            $("input[name='vradyno']").prop('checked', false);}
+
+
             var id = $(e.relatedTarget).data('id');
 
             $(e.currentTarget).find('#title').val(title);
@@ -189,6 +212,15 @@
             var info = $(e.relatedTarget).data('info');
             var is_active = $(e.relatedTarget).data('is_active');
             var type_id = $(e.relatedTarget).data('type_id');
+            var types = type_id.split("-");
+
+            if ((types[0]) == "null"){
+            $("input[name='prwino']").prop('checked', false);}
+              if ((types[1]) == "null"){
+            $("input[name='meshmeriano']").prop('checked', false);}
+              if ((types[2]) == "null"){
+            $("input[name='vradyno']").prop('checked', false);}
+
             var id = $(e.relatedTarget).data('id');
 
             $(e.currentTarget).find('#title').val(title);
