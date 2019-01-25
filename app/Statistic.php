@@ -25,6 +25,7 @@ class Statistic extends Model
     protected $fillable = [
         'student_id',
         'menu_id',
-        'membership_id'
+        'membership_id',
+        'created_at'
     ];
 }

@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.template')
+@extends('admin.layouts.template')
 @section('head')
     <style>
 
@@ -49,7 +49,7 @@
 @endsection
 
 @section('main')
-    <div class="container">
+    <div class="container profile">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -67,41 +67,41 @@
                                      alt="{{ $student->lastname }} {{ $student->firstname }} Profile Picture">
                             </div>
                             <div class="col-md-10">
-                                <h6>{{ trans('front/profile.stud-inf-header') }}</h6>
+                                <h5><strong>{{ trans('front/profile.stud-inf-header') }}</strong></h5>
                                 <ul class="nav-justified navbar">
                                     <li>
-                                        <small>{{ trans('front/profile.name') }}</small> {{ $student->firstname }}</li>
+                                        <small>{{ trans('front/profile.name') }}</small></br> {{ $student->firstname }}</li>
                                     <li>
-                                        <small>{{ trans('front/profile.surname') }}</small> {{ $student->lastname }}
+                                        <small>{{ trans('front/profile.surname') }}</small></br> {{ $student->lastname }}
                                     </li>
                                     <li>
-                                        <small>{{ trans('front/profile.fathername') }}</small> {{ $student->father_name }}
+                                        <small>{{ trans('front/profile.fathername') }}</small></br> {{ $student->father_name }}
                                     </li>
                                     <li>
-                                        <small>{{ trans('front/profile.semester') }}</small> {{ addOrdinalNumberSuffix($student->semester) }}
+                                        <small>{{ trans('front/profile.semester') }}</small></br> {{ addOrdinalNumberSuffix($student->semester) }}
                                     </li>
                                     <li>
-                                        <small>{{ trans('front/profile.depa') }}</small>
+                                        <small>{{ trans('front/profile.depa') }}</small></br>
                                         @if($student->department !=null)
                                             {{ $student->department->department_name }}
                                             at {{ $student->department->university }}
                                         @endif
                                     </li>
                                 </ul>
-                                <h6>{{ trans('front/profile.usr-inf-header') }}</h6>
+                                <h5><strong>{{ trans('front/profile.usr-inf-header') }}</strong></h5>
                                 @if($student->user !=null)
                                     <ul class="nav-justified navbar">
                                         <li>
-                                            <small>{{ trans('front/profile.email') }}</small> {{ $student->user->email }}
+                                            <small>{{ trans('front/profile.email') }}</small></br> {{ $student->user->email }}
                                         </li>
                                         <li>
-                                            <small>{{ trans('front/profile.id') }}</small> {{ $student->aem }}
+                                            <small>{{ trans('front/profile.id') }}</small></br> {{ $student->aem }}
                                         </li>
                                         <li>
-                                            <small>{{ trans('front/profile.role') }}</small> {{ $student->user->role }}
+                                            <small>{{ trans('front/profile.role') }}</small></br> {{ $student->user->role }}
                                         </li>
                                         <li>
-                                            <small>{{ trans('front/profile.registered') }}</small> {{ $student->user->created_at }}
+                                            <small>{{ trans('front/profile.registered') }}</small></br> {{ $student->user->created_at }}
                                         </li>
                                     </ul>
                                 @else
@@ -112,13 +112,13 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="text-center">{{ trans('front/profile.statistics-header') }}</h5>
-                                <h6> {{ trans('front/profile.totalv-header') }} {{ count($student->statistics) }}</h6>
+                                <h5 class="text-center"><strong>{{ trans('front/profile.statistics-header') }}</strong></h5>
+                                <p> {{ trans('front/profile.totalv-header') }} {{ count($student->statistics) }}</p>
                                 <div class="scrollable">
                                     <table>
                                         <tr style="font-weight: bolder">
                                             <th>{{ trans('front/profile.mealtype') }}</th>
-                                            <th>{{ trans('front/profile.date') }}e</th>
+                                            <th>{{ trans('front/profile.date') }}</th>
                                             <th>{{ trans('front/profile.membership') }}</th>
                                         </tr>
                                         @foreach($student->statistics as $statistic)
@@ -132,8 +132,8 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h5 class="text-center">{{ trans('front/profile.ratings-header') }}</h5>
-                                <h6> {{ trans('front/profile.totalratings') }} {{ count($student->ratings) }}</h6>
+                                <h5 class="text-center"><strong>{{ trans('front/profile.ratings-header') }}</strong></h5>
+                                <p> {{ trans('front/profile.totalratings') }} {{ count($student->ratings) }}</p>
                                 <table>
                                     <tr>
                                         <th>{{ trans('front/profile.meal') }}</th>
@@ -152,8 +152,8 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                                <h5 class="text-center">M{{ trans('front/profile.mb-his-header') }}</h5>
+                            <div class="col-md-12 ">
+                                <h5 class="text-center"><strong>{{ trans('front/profile.mb-his-header') }}</strong></h5>
                                 <table>
                                     <tr>
                                         <th>{{ trans('front/profile.mb-name') }}</th>
@@ -181,12 +181,7 @@
                                 </table>
                             </div>
                         </div>
-                        @if($user->student_id == $student->aem || hasStaffRole($user))
-                            <div class="row">
-                                <div class="col-md-2"><a href="{{ route('edit_profile',$student->aem) }}"> Edit
-                                        Profile</a></div>
-                            </div>
-                        @endif
+
                     </div>
                 </div>
             </div>

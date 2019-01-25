@@ -15,7 +15,7 @@ class Menu_meal extends Model
     protected $fillable = [
         'title',
         'info',
-        'type_id',
+        'menu_types',
         'is_active'
         // add all other fields
     ];

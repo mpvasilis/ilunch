@@ -23,6 +23,9 @@ Route::get('getLatestAnnouncement', 'ApiController@getLatestAnnouncement');//tod
 Route::post('submitFeedback', 'ApiController@submitFeedback');//todo response status code can get array as input ( mass input)
 Route::get('getMealStatistics', 'ApiController@getMealStatistics');//todo find all endpoints for statistic creation (group + middleware)
 
+Route::post('login', 'ApiController@login')->name('api.login');
+Route::post('logout', 'ApiController@logout')->name('api.logout');
+Route::get('api/csrf', 'ApiController@csrf')->name('api.csrf'); 
 
 //todo make a middleware to create the session for the secured api util then it will be transfered to web router.
 Route::group(['middleware' => 'session'], function () {

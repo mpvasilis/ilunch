@@ -34,21 +34,21 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="about-top-single">
-                                <a href="#"><img src=assets/img/about-icon.png alt="about-icon"></a>
+
                                 <h3 class="title"><a href="#">{{ trans('front/site.breakfast') }}</a></h3>
                                 <p>{{ trans('front/site.breakfast-time') }}</p>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="about-top-single">
-                                <a href="#"><img src=assets/img/about-icon2.png alt="about-icon"></a>
+
                                 <h3 class="title"><a href="#">{{ trans('front/site.lunch') }}</a></h3>
                                 <p>{{ trans('front/site.lunch-time') }}</p>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="about-top-single">
-                                <a href="#"><img src=assets/img/about-icon3.png alt="about-icon"></a>
+                              
                                 <h3 class="title"><a href="#">{{ trans('front/site.dinner') }}</a></h3>
                                 <p>{{ trans('front/site.dinner-time') }}</p>
                             </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="panel-footer text-center">
                             {{ trans('front/site.calendar-help') }}
-                                
+
                             </div>
                             {{--</div>--}}
                         </div>
@@ -137,8 +137,12 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="csi-reservaton-area">
-                                <figure>
-                                    <img src="assets/img/reservation.jpg" alt="Special Food">
+                              <div class="col-md-6 col-xs-12 imagediv">
+                                      <img src="assets/img/reservation.jpg" alt="Special Food">
+                              </div>
+                              <div class="col-md-6 col-xs-12 formdiv">
+
+
                                     <figcaption>
 
                                         <form method="POST" action="{{ route('feedback_store') }}">
@@ -169,7 +173,8 @@
                                             </div>
                                         </form>
                                     </figcaption>
-                                </figure>
+
+                                </div>
                             </div> <!--//.reservaton-area-->
                         </div>
                     </div>

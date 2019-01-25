@@ -143,11 +143,11 @@
                                                         </li>
                                                     @elseif($user->role != "STUDENT")
                                                         <li><a class="csi-btn csi-scroll"
-                                                               href="{{ route('admin') }}">{{ trans('front/site.admin') }}</a>
+                                                               href="{{ route('admin_statistics') }}">{{ trans('front/site.admin') }}</a>
                                                         </li>
                                                     @else
                                                         <li><a class="csi-btn csi-scroll"
-                                                               href="{{ route('dashboard') }}">{{ trans('front/site.dashboard') }}</a>
+                                                               href="{{route('profile',["student_id" => $user->student_id])}}">{{ trans('front/site.dashboard') }}</a>
                                                         </li>
                                                     @endif
                                                 </ul>
@@ -267,4 +267,3 @@
 @show
 </body>
 </html>
-

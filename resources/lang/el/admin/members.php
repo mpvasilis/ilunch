@@ -10,7 +10,7 @@ return [
     'memb-type' => 'Τύπος',
     'memb-create' => 'Hμερομηνία Δημιουργίας',
     'memb-by' => 'Δημιουργήθηκε Από',
-    'memb-condition' => 'κατάσταση',
+    'memb-condition' => 'Κατάσταση',
     'memb-actions' => 'Ενέργειες',
     'memb-disable' => 'Απενεργοποίηση',
     'memb-memb-list' => 'Λίστα με Συνδρομές Φοιτητών',
@@ -27,7 +27,7 @@ return [
     'memb-free-until' => 'Δωρεάν Σίτιση Μέχρι Ημερομηνία',
     'memb-create-new' => 'Δημιουργία Νέας Συνδρομής',
     'memb-memb-name' => 'Ονομασία Συνδρομής',
-    'memb-memb-assign-stud' => 'Εισαγωγή Συνδρομής σε Φοιτιτή'
-    
+    'memb-memb-assign-stud' => 'Εισαγωγή Συνδρομής σε Φοιτιτή',
+    'flipStatus' => 'Αλλαγή Κατάστασης'
+
 ];
-   

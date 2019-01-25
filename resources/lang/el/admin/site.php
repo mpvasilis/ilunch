@@ -14,13 +14,14 @@ return [
     'members-nav' => 'Συνδρομές',
     'members-list-nav' => 'Λίστα Συνδρομών',
     'members-assign-nav' => 'Αναθέσεις Συνδρομών',
-    'users-nav' => 'χρήστες',
+    'users-nav' => 'Χρήστες',
     'home-nav' => 'Αρχική',
     'logout-nav' => 'Αποσύνδεση',
     'main-title' => 'iLunch',
     'sec-title' => 'Manager',
     'sign-in-text' => 'Sign in to start your session',
-    
+    'profile' => 'Προφιλ',
+    'edit_profile' => 'Επεξεργασία Προφίλ'
+
 
 ];
-   
