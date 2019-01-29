@@ -49,17 +49,33 @@ class FeedbackController extends Controller
 
         $ratings = Rating::get();
         $feeds = collect([]);
+        $facilities= collect([]);
         foreach ($ratings as $rating) {
-            if ($rating->student() == NULL) {
-                $name = "Anonymous";
-            } else {
-                $name = $rating->student->firstname . " " . $rating->student->lastname;
+           
+            if($rating->menu_id==NULL){
+                if ($rating->student_id == NULL) {
+                    $name = "Anonymous";
+                } else {
+                    //$name = $rating->student->firstname . " " . $rating->student->lastname;
+                    $name ="alex";
+                }
+                $facility = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating]);
+                $facilities->push($facility);
             }
-            $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu]);
-            $feeds->push($feed);
+            else{
+                if ($rating->student_id == NULL) {
+                    $name = "Anonymous";
+                } else {
+                    //$name = $rating->student->firstname . " " . $rating->student->lastname;
+                    $name ="alex";
+                }
+                $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu]);
+                $feeds->push($feed);
+            }
+            
         }
 
 
-        return view('admin.feedback', compact('feeds'));
+        return view('admin.feedback', compact('feeds','facilities'));
     }
 }

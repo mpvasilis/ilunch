@@ -21,8 +21,10 @@
                         <thead>
                         <tr role="row">
                             <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.id') }}</th>
+                            <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.type') }}</th>
                             <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.title') }}</th>
                             <th class="sorting" tabindex="0" aria-controls="dt_default" rowspan="1" colspan="1" >{{ trans('admin/announcements.show-until') }}</th>
+                            
                             <th></th>
                         </tr>  
                         </thead>
@@ -30,6 +32,7 @@
                         @foreach ($announcements as $announcement)
                         <tr role="row" class="odd">
                             <td>{{ $announcement -> id }}</td>
+                            <td>{{ $announcement -> type }}</td>
                             <td>{{ $announcement -> title }}</td>
                             <td>{{ $announcement -> show_until}}</td>
                             <td class="text-center">

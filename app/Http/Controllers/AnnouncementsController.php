@@ -7,6 +7,7 @@ use App\Announcement;
 use Carbon\Carbon;
 use Auth;
 
+
 class AnnouncementsController extends Controller
 {
 
@@ -22,8 +23,8 @@ class AnnouncementsController extends Controller
     public function index()
     {
 
-        $announcements = Announcement::get();
-
+        $announcements = Announcement::all();
+       
         return view('admin.announcements', compact('announcements'));
     }
 
@@ -61,7 +62,7 @@ class AnnouncementsController extends Controller
 
         Announcement::where('id', $request['id'])->delete();
 
-        $announcements = DB::table('announcements')->get();
+        $announcements = Announcement::get();
 
         return view('admin.announcements', compact('announcements'));
     }

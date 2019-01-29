@@ -213,7 +213,7 @@
             var is_active = $(e.relatedTarget).data('is_active');
             var type_id = $(e.relatedTarget).data('type_id');
             var types = type_id.split("-");
-
+            console.log(types);
             if ((types[0]) == "null"){
             $("input[name='prwino']").prop('checked', false);}
               if ((types[1]) == "null"){

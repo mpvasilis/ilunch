@@ -13,6 +13,7 @@
                     <thead>
                     <tr role="row">
                         <th>{{ trans('admin/feedback.id') }}</th>
+                        <th>{{ trans('admin/feedback.menuid') }}</th>
                         <th>{{ trans('admin/feedback.title') }}</th>
                         <th>{{ trans('admin/feedback.rating') }}</th>
                         <th>{{ trans('admin/feedback.info') }}</th>
@@ -24,8 +25,9 @@
                     @foreach ($feeds as $feedback)
                         <tr role="row" class="odd">
                             <td>{{ $feedback['id'] }}</td>
-                            <td>{{ $feedback['name']}}
-                            <td>{{ $feedback['rating']}}
+                            <td>{{ $feedback['menu']}}</td>
+                            <td>{{ $feedback['name']}}</td>
+                            <td>{{ $feedback['rating']}}</td>
                             <td>{{ substr($feedback['comment'],0,150) }}</td>
                             <td>{{ $feedback['created_at'] }}</td>
                             <td class="text-center">
@@ -43,7 +45,47 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ trans('admin/feedback.generallist') }}</h3>
 
+            <div class="box-body">
+                <table class="table table-bordered table-hover dataTable" id="table">
+                    <thead>
+                    <tr role="row">
+                        <th>{{ trans('admin/feedback.id') }}</th>
+                        <th>{{ trans('admin/feedback.title') }}</th>
+                        <th>{{ trans('admin/feedback.rating') }}</th>
+                        <th>{{ trans('admin/feedback.info') }}</th>
+                        <th>{{ trans('admin/feedback.date') }}</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach ($facilities as $facility)
+                        <tr role="row" class="odd">
+                            <td>{{ $facility['id'] }}</td>
+                            <td>{{ $facility['name']}}</td>
+                            <td>{{ $facility['rating']}}</td>
+                            <td>{{ substr($facility['comment'],0,150) }}</td>
+                            <td>{{ $facility['created_at'] }}</td>
+                            <td class="text-center">
+                                <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show"
+                                   data-id="{{ $facility['id'] }}" data-name="{{ $facility['name'] }}"
+                                   data-rating="{{ $facility['rating'] }}" data-comment="{{ $facility['comment'] }}"
+                                   data-created_at="{{ $facility['created_at'] }}">Προβολή</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
         <div class="modal fade" id="modal-show" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -68,7 +110,7 @@
             </div>
         </div>
         @endsection
-    </div>
+    
 
 @section('scripts')
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
