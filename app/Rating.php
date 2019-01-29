@@ -11,14 +11,14 @@ class Rating extends Model
         return $this->hasOne('App\Student', 'id', 'student_id');
     }
 
-    public function menu()
+    public function schedule_item()
     {
-        return $this->hasOne('App\Menu', 'id', 'menu_id');
+        return $this->hasOne('App\Schedule_item', 'id', 'schedule_id');
     }
 
     protected $fillable = [
         'student_id',
-        'menu_id',
+        'schedule_id',
         'rating',
         'comment',
         'date'

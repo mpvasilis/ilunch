@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\VerifyLocaleSession::class,
             \App\Http\Middleware\ViewShares::class,
+            'maintainSchedule'
         ],
 
         'api' => [
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'maintainSchedule' => \App\Http\Middleware\MaintainSchedule::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'accessApi' => \App\Http\Middleware\AccessApi::class,
         'can_view_student' => \App\Http\Middleware\AccessStudentProfile::class,

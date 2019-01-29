@@ -13,14 +13,13 @@ class Menu extends Model
         return $this->hasOne('App\Menu_type', 'id', 'type_id');
     }
 
+    public function schedule_items(){
+        return $this->hasMany('App\Schedule_items','menu_id','id');
+    }
+
     public function mealAssigns()
     {
         return $this->hasMany('App\Menu_assign', 'menu_id', 'id');
-    }
-
-    public function ratings()
-    {
-        return $this->hasMany('App\Rating', 'menu_id', 'id');
     }
 
     public function scopeBreakfast($query)

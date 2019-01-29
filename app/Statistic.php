@@ -16,15 +16,15 @@ class Statistic extends Model
         return $this->hasOne('App\Student', 'id', 'student_id');
     }
 
-    public function menu()
+    public function schedule_item()
     {
-        return $this->hasOne('App\Menu', 'id', 'menu_id');
+        return $this->hasOne('App\Schedule_Item', 'id', 'schedule_id');
     }
 
 
     protected $fillable = [
         'student_id',
-        'menu_id',
+        'schedule_id',
         'membership_id',
         'created_at'
     ];
