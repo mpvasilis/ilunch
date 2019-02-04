@@ -23,10 +23,11 @@ class StatsController extends Controller
         $statistics = Statistic::get();
         $stats = collect([]);
         $types = collect([]);
+
         foreach ($statistics as $statistic) {
 
             $name = $statistic->student->firstname . " " . $statistic->student->lastname;
-            $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->menu->type->title]);
+            $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->schedule_item->schedule_item->type->title]);
             $stats->push($his);
         }
         for ($i = 7; $i >= 0; $i--) {
@@ -103,4 +104,3 @@ class StatsController extends Controller
         return view('admin.statistics', compact('stats', 'range', 'CountsPerDay', 'Type', 'title'));
     }
 }
-    

@@ -8,7 +8,7 @@ class Schedule_item extends Model
 {
     public function schedule_item()
     {
-        return $this->belongsTo('App\Menu', 'id', 'menu_id');
+        return $this->belongsTo('App\Menu', 'id', 'id');
     }
     protected $fillable = ['date','menu_id'];
     public $timestamps = false;
