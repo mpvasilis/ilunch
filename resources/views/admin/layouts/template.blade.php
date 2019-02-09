@@ -114,6 +114,8 @@
 
 
                 @if(hasStaffRole($user))
+                <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_schedule')}}"><i
+                                    class="fa fa-apple"></i> <span>{{ trans('admin/site.meals-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_meals')}}"><i
                                     class="fa fa-apple"></i> <span>{{ trans('admin/site.meals-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/announcements')) ? 'class=active':''}}><a

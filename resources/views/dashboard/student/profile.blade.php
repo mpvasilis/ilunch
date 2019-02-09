@@ -123,7 +123,7 @@
                                         </tr>
                                         @foreach($student->statistics as $statistic)
                                             <tr>
-                                                <th>{{$statistic->menu->type->title}}</th>
+                                                <th>{{$statistic->schedule_item->schedule_item->type->title}}</th>
                                                 <th>{{ humanTiming($statistic->created_at) }}</th>
                                                 <th>{{$statistic->membership->title}}</th>
                                             </tr>
@@ -142,7 +142,7 @@
                                     </tr>
                                     @foreach($student->ratings as $rating)
                                         <tr>
-                                            <th>{{printMealsFromMenuAssigns($rating->menu->mealAssigns)}}</th>
+                                            <th>{{printMealsFromMenuAssigns($rating->schedule_item->schedule_item->mealAssigns)}}</th>
                                             <th>{{ $rating->rating }}/5</th>
                                             <th>{{ humanTiming($rating->created_at) }}</th>
                                         </tr>

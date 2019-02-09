@@ -41,7 +41,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 //admin
 Route::get('admin', 'DashboardController@admin')->name('admin')->middleware('admin_panel');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-
+    Route::get('schedule', 'ScheduleController@index')->name('admin_schedule');
     Route::get('meals', 'MealsController@index')->name('admin_meals');
     Route::post('meals', 'MealsController@post')->name('admin_meals');
     Route::post('meals/update', 'MealsController@update')->name('admin_meals_update');

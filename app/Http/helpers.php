@@ -113,6 +113,25 @@ function transformUserRole($role)
             }
     }
 }
+function transformDay($day)
+{
+    if ($day == 0 || $day == 7){
+        $day='Δευτέρα';
+    }elseif($day == 1 || $day == 8){
+        $day='Τρίτη';
+    }elseif($day == 2 || $day == 9){
+        $day='Τετάρτη';
+    }elseif($day == 3 || $day == 10){
+        $day='Πέμπτη';
+    }elseif($day == 4 || $day == 11){
+        $day='Παρασκευή';
+    }elseif($day == 5 || $day == 12){
+        $day='Σάββατο';
+    }elseif($day == 6 || $day == 13){
+        $day='Κυριακή';
+    }
+    return $day;
+}
 
 function hasStaffRole($user){
     if ($user != null && in_array($user->role, ["ADMINISTRATOR", "STAFF"])) {
