@@ -2,7 +2,7 @@
 
 return [
     'title' => 'iLunch',
-    'sub-title' => 'Φοιτητική Λέσχη ΠΔΜ',
+    'sub-title' => 'ΕΠΙΤΡΟΠΗ ΣΗΤΙΣΗΣ ΠΔΜ',
     'description' => 'Ιστοσελίδα της φοιτητικής λέσχης ΠΔΜ',
     'aboutus-title' =>'Σχετικά με την λέσχη μας',
     'aboutus-text' => 'We provide you with daily self-made bread, sourdough pizza, roasted

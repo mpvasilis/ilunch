@@ -17,7 +17,7 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-   
+
     {
         $recurseWeeks = Setting::where('setting','schedule_recurse_weeks')->first()->value;
     $days = 7 * $recurseWeeks;
@@ -26,9 +26,9 @@ class ScheduleController extends Controller
         $days= collect([]);
        $zeroday= collect([]);
        $gooday= [];
- 
+
         foreach ($menus as $menu){
-            
+
             $day= $menu->day;
             $week = $menu->week;
             if($week==1){
@@ -39,31 +39,31 @@ class ScheduleController extends Controller
             $food=[];
             foreach($menu->mealAssigns as $mealassign){
               $meals=$mealassign->meal;
-             
+
                     array_push($food, $meals->title);
-                
+
             }
             $his = collect(['day' => $day, 'type' => $menu->type_id, 'meals' => $food ]);
             $days->push($his);
         };
         $days=$days->groupBy('day');
-        
+
         foreach ($days as $key=>$day){
-           
+
         for ($i=1;$i<=7*$recurseWeeks;$i++){
             if(in_array($i, $gooday)){
 
             }else
                {
                     for($j=1;$j<=3;$j++){
-                        $her = collect(['day' => $i, 'type' => $j, 'meals' => '0' ]); 
+                        $her = collect(['day' => $i, 'type' => $j, 'meals' => '0' ]);
                     }
-               
+
                     $zeroday->push($her);
                 };
             }
         }
-        
+
       $zeroday=$zeroday->groupBy('day');
        $days=$days->merge($zeroday);
        $days =collect($days)->sortBy('day')->toArray();

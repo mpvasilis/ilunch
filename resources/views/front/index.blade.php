@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="about-top-single">
-                              
+
                                 <h3 class="title"><a href="#">{{ trans('front/site.dinner') }}</a></h3>
                                 <p>{{ trans('front/site.dinner-time') }}</p>
                             </div>
@@ -160,7 +160,7 @@
                                             @else
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                     <input class="form-control" name="name" id="feedback_name"
-                                                           value="{{$user->student_id}}" type="text" disabled>
+                                                           value="{{$user->name}}" type="text" disabled>
                                                 </div>
                                             @endif
 

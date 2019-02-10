@@ -9,3 +9,23 @@ body{overflow-x: hidden}
 select {width: 100%;height: 34px;}
 .container.profile .col-md-6, .container.profile .col-md-12 {margin-bottom: 20px;}
 .edittext {margin-top: 20px;}
+
+.widget-user-2 .widget-user-username, .widget-user-2 .widget-user-desc{ margin-left: 0px!important}
+.scheduleitem {width:24%;float:left;padding:0px 10px}
+
+#csi-footer .csi-inner {
+    padding: 5rem 0!important;
+}
+.csi-footer .csi-footer-bottom {
+    margin-top: 0rem!important;
+}
+.csi-header .menu-onscroll .csi-navbar .csi-nav li .csi-btn {
+
+    margin-top: .6rem!important;
+    padding: 0rem 1rem!important;
+
+
+}
+@media (min-width:1921px){
+  .scheduleitem {width:14%;float:left;padding:0px 10px}
+}
