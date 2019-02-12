@@ -4,9 +4,8 @@
 @endsection
 
 @section('main')
-    <?php dd($days) ;?>
                 @foreach($days as $key=>$schedule)
-              <?php// dd($schedule[0]['meals']); ?>
+              <?php //dd($schedule);// dd($schedule[0]['meals']); ?>
                     <div class="box box-widget widget-user-2">
                     <div class='scheduleitem'>
                         <!-- Widget: user widget style 1 -->
@@ -23,22 +22,26 @@
 
 
 
-
+                              @foreach ($schedule as $day)
                                 <li>
                                     <a href="#">
-                                          <?php //dd($meals['meals']); ?>
+                                          <?php //dd($day['meals']); ?>
+                                          @foreach ($day['meals'] as $meal)
+                                            <?php echo $meal; ?>
+                                          @endforeach
 
-                                          {!! var_dump($schedule[0]['meals'][0]) !!}
+
                                     </a>
                                 </li>
-
+                              @endforeach
 
 
                             </ul>
                             </div>
                         </div>
                         <!-- /.widget-user -->
-                        </div>
+                      </div>
+                    </div>
                     @endforeach
 
 @endsection

@@ -20,15 +20,13 @@ class ScheduleController extends Controller
 
     {
         $recurseWeeks = Setting::where('setting','schedule_recurse_weeks')->first()->value;
-    $days = 7 * $recurseWeeks;
-        $days = collect([['1' => 'Δευτέρα'],['2' => 'Τρίτη']]);
+        $days = 7 * $recurseWeeks;
         $menus = Menu::all();
         $days= collect([]);
-       $zeroday= collect([]);
-       $gooday= [];
+        $zeroday= collect([]);
+        $gooday= [];
 
         foreach ($menus as $menu){
-
             $day= $menu->day;
             $week = $menu->week;
             if($week==1){
@@ -39,35 +37,32 @@ class ScheduleController extends Controller
             $food=[];
             foreach($menu->mealAssigns as $mealassign){
               $meals=$mealassign->meal;
-
                     array_push($food, $meals->title);
-
             }
             $his = collect(['day' => $day, 'type' => $menu->type_id, 'meals' => $food ]);
             $days->push($his);
         };
         $days=$days->groupBy('day');
-
         foreach ($days as $key=>$day){
-
-        for ($i=1;$i<=7*$recurseWeeks;$i++){
-            if(in_array($i, $gooday)){
-
-            }else
-               {
-                    for($j=1;$j<=3;$j++){
-                        $her = collect(['day' => $i, 'type' => $j, 'meals' => '0' ]);
-                    }
-
-                    $zeroday->push($her);
-                };
-            }
+          array_push($gooday, $key);
+        }
+        foreach ($days as $key=>$day){
+          for ($i=1;$i<=7*$recurseWeeks;$i++){
+              if(in_array($i, $gooday)){
+                unset($gooday[$i]);
+              }else{
+                  for($j=1;$j<=3;$j++){
+                      $her = collect(['day' => $i, 'type' => $j, 'meals' => [ ] ]);
+                        $zeroday->push($her);
+                  }
+              }
+          }
         }
 
-      $zeroday=$zeroday->groupBy('day');
+       $zeroday=$zeroday->groupBy('day');
        $days=$days->merge($zeroday);
        $days =collect($days)->sortBy('day')->toArray();
-        // dd($days);
+
         return view('admin.schedule.showlist', compact('days'));
     }
 
