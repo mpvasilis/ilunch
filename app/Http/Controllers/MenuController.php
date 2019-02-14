@@ -8,5 +8,9 @@ use App\Http\Requests\StoreMealsRequest;
 
 class MenuController extends Controller
 {
+    public function index(){
 
+    }
+
+    
 }

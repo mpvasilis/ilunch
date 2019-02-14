@@ -20,7 +20,10 @@ class Membership_assign extends Model
     {
         return $this->hasOne('App\User', 'id', 'created_by');
     }
-
+    public function type()
+    {
+        return $this->hasOne('App\Menu_type', 'id', 'type_id');
+    }
     protected $appends = ['remaining'];
 
     public function getRemainingAttribute()

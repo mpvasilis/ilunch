@@ -74,6 +74,22 @@ function printMeals($breakfast, $lunch, $dinner)
     return implode(',', $result);
 }
 
+function getMealType($id)
+{   
+    switch ($id) {
+    case '1':
+    {
+        return 'Πρωινό';
+    } case '2':
+    {
+        return 'Μεσημεριανό';
+    } case '3':
+    {
+        return 'Βραδυνό';
+    }
+}
+}
+
 function getIntBoolString($int)
 {
     if ($int == 1) {

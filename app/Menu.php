@@ -7,12 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     protected $table = "menus";
-
-    public function type()
-    {
-        return $this->hasOne('App\Menu_type', 'id', 'type_id');
-    }
-
+    public $timestamps= false;
+  
     public function schedule_items(){
         return $this->hasMany('App\Schedule_items','menu_id','id');
     }

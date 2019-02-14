@@ -42,6 +42,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 Route::get('admin', 'DashboardController@admin')->name('admin')->middleware('admin_panel');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('schedule', 'ScheduleController@index')->name('admin_schedule');
+    Route::post('schedule', 'ScheduleController@store')->name('admin_schedule_store');
     Route::get('meals', 'MealsController@index')->name('admin_meals');
     Route::post('meals', 'MealsController@post')->name('admin_meals');
     Route::post('meals/update', 'MealsController@update')->name('admin_meals_update');
@@ -62,6 +63,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
         Route::get('type/create', 'MembershipsController@createType')->name('admin_memberships_createType');
         Route::post('type/create', 'MembershipsController@createTypeStore')->name('admin_memberships_createType');
+        Route::get('settings', 'SettingsController@index')->name('admin_settings');
+        Route::post('settings', 'SettingsController@edit')->name('admin_settings_edit');
+
+
     });
 
     Route::group(['prefix' => 'users', 'middleware' => ['auth', 'access_administrator']], function () {
