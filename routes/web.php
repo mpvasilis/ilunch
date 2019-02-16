@@ -17,11 +17,12 @@ Auth::routes();
 //index
 Route::get('language/{lang}', 'HomeController@language')->where('lang', '[A-Za-z_-]+');
 Route::get('/', 'HomeController@index')->name('index');
+Route::post('/', 'FeedbackController@store')->name('feedback_st');
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/news', 'HomeController@news')->name('news');
-Route::post('/feedback', 'FeedbackController@store')->name('feedback_store');
+
 
 
 //students profile
@@ -43,6 +44,7 @@ Route::get('admin', 'DashboardController@admin')->name('admin')->middleware('adm
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('schedule', 'ScheduleController@index')->name('admin_schedule');
     Route::post('schedule', 'ScheduleController@store')->name('admin_schedule_store');
+    Route::post('schedule/delete', 'ScheduleController@delete')->name('admin_schedule_delete');
     Route::get('meals', 'MealsController@index')->name('admin_meals');
     Route::post('meals', 'MealsController@post')->name('admin_meals');
     Route::post('meals/update', 'MealsController@update')->name('admin_meals_update');

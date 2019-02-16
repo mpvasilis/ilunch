@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Rating;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
-
+use Auth;
+use App\Statistic;
 class FeedbackController extends Controller
 {
     /**
@@ -26,22 +27,34 @@ class FeedbackController extends Controller
         return view('feedback', compact('form'));
     }
 
-    public function store(Request $request, FormBuilder $formBuilder, feedback $feedback)
+    public function store(Request $request )
     {
-        $name = $request->get('name');
-        $comment = $request->get('comment');
-        $form = $formBuilder->create(\App\Forms\feedback_guest_form::class);
-
-        if (!$form->isValid()) {
-            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        $id = $request->comment;
+        if ($id=='0'){
+            $id = NULL;
         }
+        $comment = $request->comment;
+        $stars = $request->stars;
+        $schedule = $request->schedule;
+    
+         $newFeedback = new Rating();
+         $newFeedback->comment = $comment;
+         $newFeedback->student_id = $id;
+         $newFeedback->schedule_id = $schedule;
+         $newFeedback->rating = $stars;
+         $newFeedback->save();
 
-        $newFeedback = new Rating();
-        $newFeedback->comment = $comment;
-        $newFeedback->student_id = $name;
-        $newFeedback->save();
-
-        return view('front.index')->with('feedbackStatus', 'Success!');
+         $stats = collect([]);
+         $user = Auth::user();
+         // dd($user->student->aem);
+         if ($user->role == 'STUDENT'){
+             $statistics = Statistic::where('student_id',$user->student->id)->get();
+             foreach ($statistics as $stat){
+                 $stat->schedule_item;
+                 $stats[$stat->schedule_item->id] =[ 'date' => $stat->schedule_item->date, 'meal_id' => $stat->type_id];
+             }
+         }
+        return view('front.index',compact('stats'));
     }
 
     public function index()

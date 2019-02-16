@@ -4,6 +4,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet"/>
 @endsection
 @section('content')
+
     <!--Banner-->
     <section>
         <div class="csi-banner">
@@ -136,7 +137,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="csi-reservaton-area">
+                            <div class="csi-reservaton-area" style="text-align:left">
                               <div class="col-md-6 col-xs-12 imagediv">
                                       <img src="assets/img/reservation.jpg" alt="Special Food">
                               </div>
@@ -145,12 +146,13 @@
 
                                     <figcaption>
 
-                                        <form method="POST" action="{{ route('feedback_store') }}">
+                                        <form method="POST" action="{{ route('feedback_st') }}">
                                             @if(isset($feedbackStatus))
                                                 <span style="color:white"> {{ $feedbackStatus }}</span>
                                             @endif
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             @if(!Auth::check())
+                                            <p class="formmessage">As long as you are not connect you can only submit rating as an anonymous user</p>
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                     <input class="form-control" name="name" id="feedback_name"
                                                            placeholder="Login to create eponymous feedback"
@@ -158,12 +160,44 @@
                                                            disabled>
                                                 </div>
                                             @else
+                                            
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                    <label for="comment" style="text-align:left">Name</label>
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                     <input class="form-control" name="name" id="feedback_name"
                                                            value="{{$user->name}}" type="text" disabled>
                                                 </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                    <label for="comment" style="text-align:left">Anonymous</label>
+                                                    <div class="csi-form-group" style="padding-bottom: 10px">
+                                                        <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider"></span>
+                                                        </label>
+                                                    </div>    
+                                                    </div>
+                                                </div>
+                                           
+                                                
+                                                <label for="comment" style="text-align:left">Meals Available for Rating</label>
+                                                <div class="csi-form-group" style="padding-bottom: 10px">
+                                                <select name ="schedule">
+                                                @foreach ($stats as $key => $stat)                                            
+                                                    <option value="{{$key}}">{{getMealType($stat['meal_id']).' - '.$stat['date']}}</option>
+                                                @endforeach
+                                                </select>
+                                                <label for="comment" style="text-align:left">Stars</label>
+                                                <div class="" style="font-size:28px;">
+                                                    <div id="hearts" class="starrr"></div>
+                                                    
+                                                    <input class="form-control" name="stars" id="count"
+                                                           value="" type="hidden" >
+                                                </div>
+                                                </div>
                                             @endif
-
+                                            <label for="comment" style="text-align:left">Comment</label>
                                             <div class="csi-form-group" style="padding-bottom: 10px">
                                                 <input class="form-control" name="comment" id="feedback_comment"
                                                        placeholder="Brief Comment" type="text" required>
@@ -265,5 +299,121 @@
             });
 
         });
+
+    </script>
+    <script>
+        // Starrr plugin (https://github.com/dobtco/starrr)
+var __slice = [].slice;
+
+(function($, window) {
+  var Starrr;
+
+  Starrr = (function() {
+    Starrr.prototype.defaults = {
+      rating: void 0,
+      numStars: 5,
+      change: function(e, value) {}
+    };
+
+    function Starrr($el, options) {
+      var i, _, _ref,
+        _this = this;
+
+      this.options = $.extend({}, this.defaults, options);
+      this.$el = $el;
+      _ref = this.defaults;
+      for (i in _ref) {
+        _ = _ref[i];
+        if (this.$el.data(i) != null) {
+          this.options[i] = this.$el.data(i);
+        }
+      }
+      this.createStars();
+      this.syncRating();
+      this.$el.on('mouseover.starrr', 'span', function(e) {
+        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
+      });
+      this.$el.on('mouseout.starrr', function() {
+        return _this.syncRating();
+      });
+      this.$el.on('click.starrr', 'span', function(e) {
+        return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
+      });
+      this.$el.on('starrr:change', this.options.change);
+    }
+
+    Starrr.prototype.createStars = function() {
+      var _i, _ref, _results;
+
+      _results = [];
+      for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
+        _results.push(this.$el.append("<span class='glyphicon .glyphicon-heart-empty'></span>"));
+      }
+      return _results;
+    };
+
+    Starrr.prototype.setRating = function(rating) {
+      if (this.options.rating === rating) {
+        rating = void 0;
+      }
+      this.options.rating = rating;
+      this.syncRating();
+      return this.$el.trigger('starrr:change', rating);
+    };
+
+    Starrr.prototype.syncRating = function(rating) {
+      var i, _i, _j, _ref;
+
+      rating || (rating = this.options.rating);
+      if (rating) {
+        for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+          this.$el.find('span').eq(i).removeClass('glyphicon-heart-empty').addClass('glyphicon-heart');
+        }
+      }
+      if (rating && rating < 5) {
+        for (i = _j = rating; rating <= 4 ? _j <= 4 : _j >= 4; i = rating <= 4 ? ++_j : --_j) {
+          this.$el.find('span').eq(i).removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+        }
+      }
+      if (!rating) {
+        return this.$el.find('span').removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+      }
+    };
+
+    return Starrr;
+
+  })();
+  return $.fn.extend({
+    starrr: function() {
+      var args, option;
+
+      option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      return this.each(function() {
+        var data;
+
+        data = $(this).data('star-rating');
+        if (!data) {
+          $(this).data('star-rating', (data = new Starrr($(this), option)));
+        }
+        if (typeof option === 'string') {
+          return data[option].apply(data, args);
+        }
+      });
+    }
+  });
+})(window.jQuery, window);
+
+$(function() {
+  return $(".starrr").starrr();
+});
+
+$( document ).ready(function() {
+      
+  $('#hearts').on('starrr:change', function(e, value){
+    $('#count').attr('value',value);
+  });
+  
+  
+});
     </script>
 @endsection

@@ -123,7 +123,7 @@
                                         </tr>
                                         @foreach($student->statistics as $statistic)
                                             <tr>
-                                                <th>{{$statistic->schedule_item->schedule_item->type->title}}</th>
+                                                <th>{{getMealType($statistic->type_id)}}</th>
                                                 <th>{{ humanTiming($statistic->created_at) }}</th>
                                                 <th>{{$statistic->membership->title}}</th>
                                             </tr>

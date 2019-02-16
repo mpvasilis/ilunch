@@ -28,9 +28,9 @@ class ScheduleController extends Controller
         $zeroday= collect([]);
         $gooday= [];
         $dayfood=[];
-        for ($i=1;$i<=7*$recurseWeeks;$i++){
+        for ($i=0;$i<=7*$recurseWeeks;$i++){
             for($j=1;$j<=3;$j++){
-                $days[$i][$j] =['0'=>[ 'name'=> '','meal_id'=>''],'1' => [ 'name'=> '','meal_id'=>''], '2' => [ 'name'=> '','meal_id'=>'']];
+                $days[$i][$j] =['0'=>[ 'name'=> '','meal_id'=>'','menu_id' =>''],'1' => [ 'name'=> '','meal_id'=>'','menu_id' =>''], '2' => [ 'name'=> '','meal_id'=>'','menu_id' =>'']];
             }
                 
                 
@@ -54,7 +54,7 @@ class ScheduleController extends Controller
                 $food=[];
                 foreach ($mealassigns as $mealassign){
                     $meals=$mealassign->meal;
-                    array_push($food, [ 'name'=> $meals->title,'meal_id'=>$mealassign->meal_id]);
+                    array_push($food, [ 'name'=> $meals->title,'meal_id'=>$mealassign->meal_id, 'menu_id' => $menu->id]);
                     $type_id=$mealassign->type_id;
                 }
               //  print_r('day:'.$day.'-type'.$type_id);
@@ -174,8 +174,14 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function delete(Request $request)
+    {   
+     
+        Menu_assign::where('meal_id', $request['meal'])->Where('menu_id',$request['menu'])->Where('type_id',$request['type'])->delete();
+
+        
+
+        return $this->index();
+      
     }
 }

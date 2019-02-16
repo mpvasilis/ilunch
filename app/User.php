@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     public function student()
     {
-        return $this->hasOne('App\Student', 'id', 'student_id');
+        return $this->hasOne('App\Student', 'aem', 'student_id');
     }
 
     protected $fillable = [

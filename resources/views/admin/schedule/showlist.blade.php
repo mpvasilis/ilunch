@@ -4,7 +4,7 @@
 @endsection
 
 @section('main')
-<?php// dd($days);?>
+<?php //dd($days);?>
           @for ($i = 1; $i < count($days); $i++)
                
               <?php //dd($schedule);// dd($schedule[0]['meals']); ?>
@@ -24,11 +24,11 @@
                                 @for($j=1;$j <= 3;$j++)
                                   <div class="item">
                                     <h4 class="title">{{getMealType($j)}}
-                                        <span class="editbtn">
+                                        <!-- <span class="editbtn">
                                             <a  data-toggle="modal" data-target="#modal-edit">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                        </span>
+                                        </span> -->
                                         <span class="addbtn">
                                             <a  data-toggle="modal" data-day={{$i}} data-type_id={{$j}} data-target="#modal-add">
                                                 <i class="fa fa-plus"></i>
@@ -37,7 +37,13 @@
                                     </h4>
                                     
                                     @for($k=0;$k < count($days[$i][$j]);$k++)
-                                    <div class="meal"><?php echo $days[$i][$j][$k]['name'];?></div>
+                                    <?php// print_r($days[$i][$j]); ?>
+                                    <div class="meal" data-mealid="{{$days[$i][$j][$k]['meal_id']}}" data-day={{$i}} data-type_id={{$j}} >{{ $days[$i][$j][$k]['name'] }}
+                                    <a class="delete"  id="delete-btn" data-toggle="modal"  data-target="#modal-delete" style="display:none;"
+                                    
+                                    data-meal="{{$days[$i][$j][$k]['meal_id']}}" data-menu="{{$days[$i][$j][$k]['menu_id']}}" data-type_id="{{$j}}" >
+                                                <i class="fa fa-minus"></i>
+                                            </a></div>
                                     @endfor
                                   
                                   </div>
@@ -111,8 +117,10 @@
                         <div class="modal-body">
                             <div class="text-center">
                                 <h3>{{ trans('admin/meals.delete-meal-header') }} </h3>
-                                {!! Form::open(array('route' => 'admin_meals_delete')) !!}
-                                {{ Form::hidden('id', 'null', ['id' => 'ids']) }}
+                                {!! Form::open(array('route' => 'admin_schedule_delete')) !!}
+                                {{ Form::hidden('meal', 'null', ['id' => 'meal']) }}
+                                {{ Form::hidden('menu', 'null', ['id' => 'menu']) }}
+                                {{ Form::hidden('type', 'null', ['id' => 'type']) }}
                                 {!! Form::submit('Επιβεβαίωση', ['class' => 'btn btn-danger btn-lg center']) !!}
                                 {!! Form::close() !!}
                             </div>
@@ -125,6 +133,15 @@
 
 @section('scripts')
 <script type="text/javascript">
+$(document).ready(function(){
+    $('.meal').mouseenter(function(){
+        $(this).find('.delete').show();
+    }).mouseleave(function() {
+        $(this).find('.delete').hide();
+  });;
+});
+
+
         $('#modal-add').on('show.bs.modal', function (e) {
 
             var day = $(e.relatedTarget).data('day');
@@ -150,9 +167,13 @@
 
 
         $('#modal-delete').on('show.bs.modal', function (e) {
-            var id = $(e.relatedTarget).data('id');
-
-            $(e.currentTarget).find('#ids').val(id);
+            var menu = $(e.relatedTarget).data('menu');
+            var type = $(e.relatedTarget).data('type_id');
+            var meal = $(e.relatedTarget).data('meal');
+           
+            $(e.currentTarget).find('#menu').val(menu);
+            $(e.currentTarget).find('#type').val(type);
+            $(e.currentTarget).find('#meal').val(meal);
         });
     </script>
     @endsection

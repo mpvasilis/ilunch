@@ -5,7 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Rating extends Model
-{
+{   
+    const UPDATED_AT = null;
+    public $timestamps = [ "created_at" ]; 
     public function student()
     {
         return $this->hasOne('App\Student', 'id', 'student_id');
