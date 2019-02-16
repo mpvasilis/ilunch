@@ -190,9 +190,6 @@ return [
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         Subfission\Cas\CasServiceProvider::class,
-
-        
-
     ],
 
     /*

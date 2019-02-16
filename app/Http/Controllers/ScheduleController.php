@@ -31,14 +31,10 @@ class ScheduleController extends Controller
         for ($i=0;$i<=7*$recurseWeeks;$i++){
             for($j=1;$j<=3;$j++){
                 $days[$i][$j] =['0'=>[ 'name'=> '','meal_id'=>'','menu_id' =>''],'1' => [ 'name'=> '','meal_id'=>'','menu_id' =>''], '2' => [ 'name'=> '','meal_id'=>'','menu_id' =>'']];
-            }
-                
-                
-                
+            }      
         }
         
         foreach ($menus as $menu){
-            //dd($menu);
             $day= $menu->day;
             $week = $menu->week;
             if($week==1){
@@ -46,10 +42,7 @@ class ScheduleController extends Controller
             }else{
                 $day=$day+($week-1)*7 ;
             }
-          
             $food=[];
-          
-          // dd($menu->mealAssigns);
             foreach($menu->mealAssigns->groupBy('type_id') as $mealassigns){
                 $food=[];
                 foreach ($mealassigns as $mealassign){
@@ -57,29 +50,11 @@ class ScheduleController extends Controller
                     array_push($food, [ 'name'=> $meals->title,'meal_id'=>$mealassign->meal_id, 'menu_id' => $menu->id]);
                     $type_id=$mealassign->type_id;
                 }
-              //  print_r('day:'.$day.'-type'.$type_id);
                 $days[$day][$type_id]=$food;
-            }
-          
-        //    dd($days);
-            
-            
-             
-           
+            }  
         };
         
         $meals= Menu_meal::pluck('title', 'id');
-        // dd($meals);
-        // foreach ($days as $key=>$day){
-        //   array_push($gooday, $key);
-        // }
-        //print_r($gooday);
-        
-        
-         
-        
- 
-
         return view('admin.schedule.showlist', compact('days','meals'));
     }
 

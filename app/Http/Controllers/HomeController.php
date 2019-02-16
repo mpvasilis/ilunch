@@ -8,7 +8,8 @@ use Kris\LaravelFormBuilder\FormBuilder;
 use Illuminate\Http\Request;
 use Auth;
 use App\Statistic;
-
+use App\Schedule_item;
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -30,7 +31,31 @@ class HomeController extends Controller
             }
         }
 
-        return view('front.index',compact('stats'));
+        $food=[];
+        $today = Carbon::today();
+        $date1 = $today->addDays(-3)->toDateString();
+        $today = Carbon::today();
+        $date2 = $today->addDays(3)->toDateString();
+        
+        $scheduleitems = Schedule_item::whereBetween('date', [$date1, $date2])->orderby('date','ASC')->get();
+        
+    //    dd($scheduleitems);
+        foreach ($scheduleitems as $item){
+            foreach($item->mealAssigns->groupby('type_id') as $mealassigns){
+                $food=[];
+                foreach ($mealassigns as $mealassign){
+                    $meals=$mealassign->meal;
+                    array_push($food, [ 'name'=> $meals->title,'meal_id'=>$mealassign->meal_id, 'menu_id' => $item->menu_id]);
+                    $type_id=$mealassign->type_id;
+                }
+                $days[$item->date][$type_id]=$food;
+            }  
+        }
+
+        
+      
+     
+        return view('front.index',compact('stats','days'));
     }
 
     public function menu()

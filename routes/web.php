@@ -24,7 +24,6 @@ Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/news', 'HomeController@news')->name('news');
 
 
-
 //students profile
 Route::group(['prefix' => 'student', 'middleware' => 'can_view_student'], function () {
     Route::get('{studentId}/profile', 'StudentController@profile')->name('profile');
