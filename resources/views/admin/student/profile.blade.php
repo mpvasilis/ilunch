@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <img class="img-responsive img-left" width="250px" height="250px"
-                                     src="{{ asset('storage/studentProfiles/'.$student->photo)}}"
+                                     src="{{ url('storage/studentProfiles/'.$student->photo)}}"
                                      alt="{{ $student->lastname }} {{ $student->firstname }} Profile Picture">
                             </div>
                             <div class="col-md-10">

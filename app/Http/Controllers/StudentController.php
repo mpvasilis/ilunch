@@ -42,7 +42,7 @@ class StudentController extends Controller
                 abort(404, 'studentProfileNotFoundException');
             }
         }
-        return view('dashboard.student.profile', compact('student'));
+        return view('admin.student.profile', compact('student'));
     }
 
     public function profileEdit($studentAem)
@@ -52,7 +52,7 @@ class StudentController extends Controller
         if ($student == null) {
             return Redirect::route('profile', ['studentId' => $studentAem]);
         }
-        return view('dashboard.student.editProfile', ['student' => $student, 'departments' => $departments]);
+        return view('admin.student.editProfile', ['student' => $student, 'departments' => $departments]);
     }
 
     public function profileUpdate($studentAem, Request $request)
@@ -72,13 +72,13 @@ class StudentController extends Controller
                 $student->photo = md5($student->id) . '.' . $extension;
                 $request->photo->storeAs('public/studentProfiles', md5($student->id) . '.' . $extension);
                 $student->save();
-                return view('dashboard.student.profile', compact('student'));
+                return view('admin.student.profile', compact('student'));
             } else {
                 return abort('403', 'studentProfileUpdateIllegalFileExtension');
             }
         } else {
             $student->save();
-            return view('dashboard.student.profile', compact('student'));
+            return view('admin.student.profile', compact('student'));
         }
     }
 
