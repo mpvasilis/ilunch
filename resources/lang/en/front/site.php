@@ -2,7 +2,7 @@
 
 return [
     'title' => 'iLunch',
-    'sub-title' => 'UoWM Dining Hall',
+    'sub-title' => 'FEEDING COMMITTEE UoWM',
     'description' => 'Website of UoWM Dining Hall',
     'aboutus-title' =>'About the dining hall',
     'aboutus-text' => 'We provide you with daily self-made bread, sourdough pizza, roasted
@@ -50,4 +50,10 @@ return [
     <p>Fri - Sat 11:30 - 24:00 clock </p><p>Mon - Thu 11:30 - 22:00 clock </p>',
     'footer-title-4'=> 'Social Links',
     'oneup' => 'iLunch System by ONEUP GROUP'
+    'formanonym' => 'As long as you are not connected you can only submit rating for the restaurant as an anonymous user',
+    'formstars' => 'Stars',
+    'formcomment' => 'Brief Comment',
+    'formsubmit' => 'Submit Feedback'
+    'formmeals' => 'Meals Available for Rating',
+    'formname' => 'Name'
 ];

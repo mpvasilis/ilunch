@@ -68,6 +68,7 @@ class MembershipsController extends Controller
 
     public function createType()
     {
+          $membershipTypes = Membership_type::get();
         return view('admin.memberships.createType', compact('membershipTypes'));
     }
 
@@ -78,7 +79,7 @@ class MembershipsController extends Controller
         $membershipType->type = $request['type'];
         $membershipType->value = $request['value'];
         $membershipType->save();
-        return Redirect::route('admin_memberships_create');
+        return Redirect::route('admin_memberships_show');
     }
 
     public function createStore(Request $request)

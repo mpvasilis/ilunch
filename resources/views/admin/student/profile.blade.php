@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <img class="img-responsive img-left" width="250px" height="250px"
-                                     src="{{ asset('storage/studentProfiles/'.$student->photo)}}"
+                                     src="{{ url('storage/studentProfiles/'.$student->photo)}}"
                                      alt="{{ $student->lastname }} {{ $student->firstname }} Profile Picture">
                             </div>
                             <div class="col-md-10">
@@ -123,7 +123,7 @@
                                         </tr>
                                         @foreach($student->statistics as $statistic)
                                             <tr>
-                                                <th>{{$statistic->menu->type->title}}</th>
+                                                <th>{{getMealType($statistic->type_id)}}</th>
                                                 <th>{{ humanTiming($statistic->created_at) }}</th>
                                                 <th>{{$statistic->membership->title}}</th>
                                             </tr>
@@ -142,7 +142,7 @@
                                     </tr>
                                     @foreach($student->ratings as $rating)
                                         <tr>
-                                            <th>{{printMealsFromMenuAssigns($rating->menu->mealAssigns)}}</th>
+                                            <th>{{printMealsFromMenuAssigns($rating->schedule_item->schedule_item->mealAssigns)}}</th>
                                             <th>{{ $rating->rating }}/5</th>
                                             <th>{{ humanTiming($rating->created_at) }}</th>
                                         </tr>

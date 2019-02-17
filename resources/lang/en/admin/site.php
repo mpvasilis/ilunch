@@ -21,7 +21,9 @@ return [
     'sec-title' => 'Manager',
     'sign-in-text' => 'Sign in to start your session',
     'profile' => 'Profile',
-    'edit_profile' => 'Edit Profile'
+    'edit_profile' => 'Edit Profile',
+    'setting'=> 'Settings',
+    'schedule'=>'Schedule'
 
 
 ];

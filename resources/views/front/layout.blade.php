@@ -186,41 +186,7 @@
                                 </div>
                             </div>
                         </div><!--//.ROW-->
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-3">
-                                <div class="single">
-                                    <h3 class="title">{{ trans('front/site.footer-title-1') }}</h3>
-                                    <p>{{ trans('front/site.footer-1-text') }}</p>
-                                    <p><a href="mailto:">{{ trans('front/site.footer-1-email') }}</a>
-                                    </p>
-                                </div>
-                            </div> <!--//.col-->
-                            <div class="col-xs-12 col-sm-3">
-                                <div class="single">
-                                    <h3 class="title">{{ trans('front/site.footer-title-2') }}</h3>
-                                    <p>{{ trans('front/site.footer-2-text') }}</p>
-                                    <p>{{ trans('front/site.footer-2-phone') }}</p>
-                                </div>
-                            </div> <!--//.col-->
-                            <div class="col-xs-12 col-sm-3">
-                                <div class="single">
-                                    <h3 class="title">{{ trans('front/site.footer-title-3') }}</h3>
-                                    {{ trans('front/site.footer-3-times') }}
-                                </div>
-                            </div> <!--//.col-->
-                            <div class="col-xs-12 col-sm-3">
-                                <div class="single">
-                                    <h3 class="title">{{ trans('front/site.footer-title-4') }}</h3>
-                                    <ul class="list-inline footer-social">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div> <!--//.col-->
-                        </div> <!--//.main row-->
+                        
                     </div><!-- //.CONTAINER -->
                 </div>
                 <div class="csi-footer-bottom">

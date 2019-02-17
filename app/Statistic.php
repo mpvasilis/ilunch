@@ -21,7 +21,8 @@ class Statistic extends Model
         return $this->hasOne('App\Schedule_Item', 'id', 'schedule_id');
     }
 
-
+    const UPDATED_AT = null;
+    public $timestamps = [ "created_at" ]; 
     protected $fillable = [
         'student_id',
         'schedule_id',

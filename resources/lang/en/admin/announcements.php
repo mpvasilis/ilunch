@@ -13,6 +13,6 @@ return [
     'add-title' => 'Add New Announcement',
     'show-title' => 'Show Announcement',
     'edit-title' => 'Edit Announcement',
-    'delete-title' => 'Are you sure that you want to delete this announcement?' 
+    'delete-title' => 'Are you sure that you want to delete this announcement?',
+    'type' => 'Type' 
 ];
-   

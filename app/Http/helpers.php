@@ -74,6 +74,37 @@ function printMeals($breakfast, $lunch, $dinner)
     return implode(',', $result);
 }
 
+function getMealType($id)
+{
+    switch ($id) {
+    case '1':
+    {
+        return 'Πρωινό';
+    } case '2':
+    {
+        return 'Μεσημεριανό';
+    } case '3':
+    {
+        return 'Βραδυνό';
+    }
+}
+}
+
+function transformAnnouType($id){
+  switch ($id) {
+  case '0':
+  {
+      return 'Σημαντικό';
+  } case '1':
+  {
+      return 'Ενημέρωση';
+  } case '2':
+  {
+      return 'Δωρεάν Γεύματα';
+  }
+}
+}
+
 function getIntBoolString($int)
 {
     if ($int == 1) {
@@ -112,6 +143,25 @@ function transformUserRole($role)
                 return 'Unknown Role';
             }
     }
+}
+function transformDay($day)
+{
+    if ($day == 0 || $day == 7){
+        $day='Δευτέρα';
+    }elseif($day == 1 || $day == 8){
+        $day='Τρίτη';
+    }elseif($day == 2 || $day == 9){
+        $day='Τετάρτη';
+    }elseif($day == 3 || $day == 10){
+        $day='Πέμπτη';
+    }elseif($day == 4 || $day == 11){
+        $day='Παρασκευή';
+    }elseif($day == 5 || $day == 12){
+        $day='Σάββατο';
+    }elseif($day == 6 || $day == 13){
+        $day='Κυριακή';
+    }
+    return $day;
 }
 
 function hasStaffRole($user){

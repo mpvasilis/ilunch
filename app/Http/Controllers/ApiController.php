@@ -10,7 +10,11 @@ use App\Statistic;
 use App\Rating;
 use App\Membership_assign;
 use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
+use App\Menu_type;
+use App\Schedule_item;
 class ApiController extends Controller
+
 {
     public function getMealCalendar()
     {
@@ -62,20 +66,60 @@ class ApiController extends Controller
         return response()->json($result);
     }
     public function validateCustomer($id){
-
-      
-        $data=json_decode($request->data);
+        $usermembership = Membership_assign::where('student_id',$id)->orderBy('created_at','DESC')->first();
+        $today = Carbon::today()->format('Y-m-d');
+        $now = Carbon::now()->format('H:i:s');
+        foreach (Menu_type::all() as $type){
+            if ($now > $type->time_start && $now < $type->time_end)
+            {
+                $mealtype= $type->id;
+            }
+        }
         
-        $studentid=2;
-        $menuid=1;
-        $membid=4;
-        $art = new Statistic;
-		$art->student_id = $studentid;
-		$art->menu_id = $menuid;
-		$art->membership_id = $membid;
-		$art->save();
+        switch ($mealtype) {
+            case 1:
+                {
+                    $typename= $usermembership->membership->breakfast;
+                }
+            case 2:
+                {
+                    $typename= $usermembership->membership->lunch;
+                } 
+            case 3:
+                {
+                    $typename= $usermembership->membership->dinner;
+                }
+            } 
+        $scheduleid=Schedule_item::where('date', $today)->first()->id;       
+        $allreadyeatten = Statistic::whereStudent_id($usermembership->student_id)->whereType_id($mealtype)->whereSchedule_id($scheduleid)->get();
+        
+        if($allreadyeatten->isEmpty()){
+            $remaining=$usermembership->remaining;
+            if ($remaining > 0 && $remaining != 'EXPIRED' && $typename==1){
+                //return response()->json($usermembership);
+                
+                $art = new Statistic;
+                $art->student_id = $usermembership->student_id;
+                $art->schedule_id = $scheduleid;
+                $art->membership_id = $usermembership->membership_id;
+                $art->type_id = $mealtype;
+                $art->save();
 
-        return response()->json($id);
+                return response()->json($id);
+            }else if($typename==0){
+                return response()->json('Η συνδρομή σας δεν περιελαμβάνει αυτό τον τύπο γεύματος!');
+            }
+            else{
+                return response()->json('Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.');
+            }
+        }else{
+            return response()->json('Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!');
+        }
+        
+        
+        
+        
+      
     }
     public function getMealsByDate(){
         

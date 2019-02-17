@@ -10,6 +10,12 @@ class Schedule_item extends Model
     {
         return $this->belongsTo('App\Menu', 'id', 'id');
     }
+
+    public function mealAssigns()
+    {
+        return $this->hasMany('App\Menu_assign', 'menu_id', 'menu_id');
+    }
+
     protected $fillable = ['date','menu_id'];
     public $timestamps = false;
 }

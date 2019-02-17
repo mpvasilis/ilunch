@@ -21,7 +21,9 @@ return [
     'sec-title' => 'Manager',
     'sign-in-text' => 'Sign in to start your session',
     'profile' => 'Προφιλ',
-    'edit_profile' => 'Επεξεργασία Προφίλ'
+    'edit_profile' => 'Επεξεργασία Προφίλ',
+    'setting'=> 'Ρυθμίσεις',
+    'schedule'=>'Πρόγραμμα'
 
 
 ];
