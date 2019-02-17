@@ -25,7 +25,7 @@ class StatsController extends Controller
         $types = collect([]);
 
         foreach ($statistics as $statistic) {
-           
+
             $name = $statistic->student->firstname . " " . $statistic->student->lastname;
         //   dd($statistic->schedule_item->schedule_item);
             $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->type_id]);
@@ -73,7 +73,7 @@ class StatsController extends Controller
         foreach ($statistics as $statistic) {
 
             $name = $statistic->student->firstname . " " . $statistic->student->lastname;
-            $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->menu->type->title]);
+            $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->type_id]);
             $stats->push($his);
         }
 

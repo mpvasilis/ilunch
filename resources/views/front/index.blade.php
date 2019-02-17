@@ -1,8 +1,5 @@
 @extends('front.layout')
-@section('header')
-    <!-- CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet"/>
-@endsection
+
 @section('content')
 
     <!--Banner-->
@@ -109,10 +106,10 @@
                             <div class="panel-body">
                             <div class="sectiontable">
                                 <div class='pricing pricing-palden'>
-                               
+
                                 @foreach ($days as $day=>$types)
                                 <?php $d = new DateTime($day);
-                                $ldate = date('Y-m-d'); 
+                                $ldate = date('Y-m-d');
                                 $class="";
                                 if ($ldate == $d->format('Y-m-d')){
                                     $class="today";
@@ -125,14 +122,14 @@
                                             <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
                                             <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
                                             </svg>
-                                            <div class='date'><span class='pricing-currency'>{{$day}}</span> <?php 
-                                                
+                                            <div class='date'><span class='pricing-currency'>{{$day}}</span> <?php
+
                                                 $dayname = $d->format('l');
                                                 echo $dayname;
                                             ?>
-                                            
+
                                             </div>
-                                           
+
                                         </div>
                                         <ul class='pricing-feature-list'>
                                             <?php ksort($types);?>
@@ -149,11 +146,11 @@
                                             </li>
                                             @endforeach
                                         </ul>
-                                      
+
                                     </div>
-                                @endforeach    
-                                   
-                                
+                                @endforeach
+
+
 
                             </div>
                             <div class="panel-footer text-center">
@@ -199,7 +196,7 @@
                                             @endif
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             @if(!Auth::check())
-                                            <p class="formmessage">As long as you are not connect you can only submit rating as an anonymous user</p>
+                                            <p class="formmessage">{{ trans('front/site.formanonym') }}</p>
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                     <input class="form-control" name="name" id="feedback_name"
                                                            placeholder="Login to create eponymous feedback"
@@ -207,50 +204,65 @@
                                                            disabled>
                                                 </div>
                                             @else
-                                            
+
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                    <label for="comment" style="text-align:left">Name</label>
+                                                    <label for="comment" style="text-align:left">{{ trans('front/site.formname') }}</label>
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                     <input class="form-control" name="name" id="feedback_name"
-                                                           value="{{$user->name}}" type="text" disabled>
+                                                           value="{{$user->name}}" placeholder="{{$user->name}}" type="text" disabled>
+                                                           <input class="form-control" name="userid" id="userid"
+                                                                  value="{{$user->id}}"  type="hidden" >
                                                 </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                     <label for="comment" style="text-align:left">Anonymous</label>
                                                     <div class="csi-form-group" style="padding-bottom: 10px">
                                                         <label class="switch">
-                                                        <input type="checkbox">
+                                                        <input type="checkbox" name="anon" class="anomyimp" value="True">
                                                         <span class="slider"></span>
                                                         </label>
-                                                    </div>    
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <label for="comment" style="text-align:left">Facility Only</label>
+                                                    <div class="csi-form-group" style="padding-bottom: 10px">
+                                                        <label class="switch">
+                                                        <input type="checkbox" name="facilityonly" class="anomyimp" value="True">
+                                                        <span class="slider"></span>
+                                                        </label>
+                                                    </div>
                                                     </div>
                                                 </div>
-                                           
-                                                
-                                                <label for="comment" style="text-align:left">Meals Available for Rating</label>
+
+
+                                                <label for="comment" style="text-align:left">{{ trans('front/site.formmeals') }}</label>
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                 <select name ="schedule">
-                                                @foreach ($stats as $key => $stat)                                            
+                                                @foreach ($stats as $key => $stat)
                                                     <option value="{{$key}}">{{getMealType($stat['meal_id']).' - '.$stat['date']}}</option>
                                                 @endforeach
                                                 </select>
-                                                <label for="comment" style="text-align:left">Stars</label>
-                                                <div class="" style="font-size:28px;">
-                                                    <div id="hearts" class="starrr"></div>
-                                                    
-                                                    <input class="form-control" name="stars" id="count"
-                                                           value="" type="hidden" >
-                                                </div>
+
                                                 </div>
                                             @endif
-                                            <label for="comment" style="text-align:left">Comment</label>
                                             <div class="csi-form-group" style="padding-bottom: 10px">
+                                            <label for="comment" style="text-align:left">{{ trans('front/site.formstars') }}</label>
+                                            <div class="" style="font-size:28px;">
+                                                <div id="hearts" class="starrr"></div>
+
+                                                <input class="form-control" name="stars" id="count"
+                                                       value="" type="hidden" >
+                                            </div>
+                                          </div>
+
+                                            <div class="csi-form-group" style="padding-bottom: 10px">
+                                                <label for="comment" style="text-align:left">{{ trans('front/site.formcomment') }}</label>
                                                 <input class="form-control" name="comment" id="feedback_comment"
                                                        placeholder="Brief Comment" type="text" required>
                                             </div>
                                             <div class="csi-form-group">
-                                                <input class="csi-btn csi-submit" value="Submit Feedback" type="submit">
+                                                <input class="csi-btn csi-submit" value="{{ trans('front/site.formsubmit') }}" type="submit">
                                             </div>
                                         </form>
                                     </figcaption>
@@ -292,62 +304,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
     <script class="cssdesk" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"
             type="text/javascript"></script>
-    <script class="cssdesk" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"
-            type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var date = new Date();
-            var y = date.getFullYear();
 
-            $('#calendar').fullCalendar({
-
-
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: ''
-                },
-
-                events: [
-                    {
-                        title: 'Πρωινό',
-                        start: '2018-03-28T10:00:00',
-                        end: '2018-03-28T12:00:00',
-                        backgroundColor: 'red',
-                        food: 'I have a string'
-                    },
-                    {
-                        title: 'Μακαρόνια με Κιμά',
-                        start: '2018-03-28T13:00:00',
-                        end: '2018-03-28T15:30:00',
-                        food: 'I have a string'
-                    },
-                    {
-                        title: 'Σνίτσελ με Πουρέ',
-                        start: '2018-03-28T18:00:00',
-                        end: '2018-03-28T20:00:00',
-                        food: 'I have a string'
-                    }
-                ],
-                eventClick: function (event) {
-                    if (event.title) {
-                        // var startmin = event.start.getMinutes() < 10 ? '0' + event.start.getMinutes() : event.start.getMinutes();
-                        // var endmin = event.end.getMinutes() < 10 ? '0' + event.end.getMinutes() : event.end.getMinutes();
-                        // var time = event.start.getHours() + ":" + startmin + " - " + event.end.getHours() + ":" + endmin;
-                        $('#title').text(event.title);
-                        $('#duration').text('time');
-
-                        $('#details').text(event.food);
-                        $('#menumodal').modal('show');
-
-
-                    }
-                }
-            });
-
-        });
-
-    </script>
     <script>
         // Starrr plugin (https://github.com/dobtco/starrr)
 var __slice = [].slice;
@@ -455,12 +412,12 @@ $(function() {
 });
 
 $( document ).ready(function() {
-      
+
   $('#hearts').on('starrr:change', function(e, value){
     $('#count').attr('value',value);
   });
-  
-  
+
+
 });
     </script>
 @endsection

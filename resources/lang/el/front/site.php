@@ -49,5 +49,11 @@ return [
     'footer-3-times' => '  <p>Mon - Thu 11:30 - 22:00 clock </p>
     <p>Fri - Sat 11:30 - 24:00 clock </p><p>Mon - Thu 11:30 - 22:00 clock </p>',
     'footer-title-4'=> 'Social Links',
-    'oneup' => 'iLunch System by ONEUP GROUP'
+    'oneup' => 'iLunch System by ONEUP GROUP',
+    'formanonym' => 'Σαν μην συνδεδεμένος χρήστης δίνεται μόνο η δυνατότητα αξιολόγησης του χώρου.',
+    'formstars' => 'Αστέρια',
+    'formcomment' => 'Σύντομο Σχόλιο',
+    'formsubmit' => 'Αποστολή Κριτικής',
+    'formmeals' => 'Διαθέσιμα προς κριτική γεύματα',
+    'formname' => 'Όνομα',
 ];

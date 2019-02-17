@@ -32,16 +32,16 @@
                         <tr role="row" class="odd">
                             <td>{{ $meal -> id }}</td>
                             <td>{{ $meal -> title }}</td>
-                            <td>{{ substr($meal -> info,0,150) }}</td>
+                            <td>{{ substr($meal -> info,0,100) }}...</td>
                             <td class="text-center">
                                 <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show1"
                                    data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
-                                   data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}">{{ trans('admin/meals.show') }}</a>
+                                   data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
                                 <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-edit"
                                    data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
-                                   data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}">{{ trans('admin/meals.edit') }}</a>
+                                   data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                 <a class="btn btn-danger " id="delete-btn" data-toggle="modal"
-                                   data-target="#modal-delete" data-id="{{ $meal -> id }}">{{ trans('admin/meals.delete') }}</a>
+                                   data-target="#modal-delete" data-id="{{ $meal -> id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     @endforeach

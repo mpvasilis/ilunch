@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Auth;
 use App\Statistic;
+use App\User;
 class FeedbackController extends Controller
 {
     /**
@@ -29,32 +30,49 @@ class FeedbackController extends Controller
 
     public function store(Request $request )
     {
-        $id = $request->comment;
-        if ($id=='0'){
-            $id = NULL;
+
+        $scheduleid = $request->schedule;
+        if ($scheduleid=='0'){
+            $scheduleid = NULL;
         }
+        $id = $request->userid;
+        $user = User::where('id',$id)->get();
+
+        $id = $user[0]->student->id;
+      
+        $anon = $request->anon;
+        $facilityonly = $request->facilityonly;
+        if ($facilityonly =='True'){
+          $scheduleid = NULL;
+        }
+        if ($anon == 'True'){
+          $id=NULL;
+        }
+
+
         $comment = $request->comment;
         $stars = $request->stars;
-        $schedule = $request->schedule;
-    
+
+
          $newFeedback = new Rating();
          $newFeedback->comment = $comment;
          $newFeedback->student_id = $id;
-         $newFeedback->schedule_id = $schedule;
+         $newFeedback->schedule_id = $scheduleid;
          $newFeedback->rating = $stars;
          $newFeedback->save();
 
          $stats = collect([]);
          $user = Auth::user();
          // dd($user->student->aem);
-         if ($user->role == 'STUDENT'){
+         if (Auth::user() && $user->role == 'STUDENT'){
              $statistics = Statistic::where('student_id',$user->student->id)->get();
              foreach ($statistics as $stat){
                  $stat->schedule_item;
                  $stats[$stat->schedule_item->id] =[ 'date' => $stat->schedule_item->date, 'meal_id' => $stat->type_id];
              }
          }
-        return view('front.index',compact('stats'));
+
+        return redirect()->back();
     }
 
     public function index()
@@ -65,7 +83,7 @@ class FeedbackController extends Controller
         $facilities= collect([]);
         foreach ($ratings as $rating) {
 
-            if($rating->menu_id==NULL){
+            if($rating->schedule_id==NULL){
                 if ($rating->student_id == NULL) {
                     $name = "Anonymous";
                 } else {
@@ -87,6 +105,7 @@ class FeedbackController extends Controller
             }
 
         }
+        // dd($feeds);
 
 
         return view('admin.feedback', compact('feeds','facilities'));

@@ -9,7 +9,7 @@
             <h3 class="box-title">{{ trans('admin/feedback.list') }}</h3>
 
             <div class="box-body">
-                <table class="table table-bordered table-hover dataTable" id="table">
+                <table class="table table-bordered table-hover dataTable" id="table1">
                     <thead>
                     <tr role="row">
                         <th>{{ trans('admin/feedback.id') }}</th>
@@ -51,7 +51,7 @@
             <h3 class="box-title">{{ trans('admin/feedback.generallist') }}</h3>
 
             <div class="box-body">
-                <table class="table table-bordered table-hover dataTable" id="table">
+                <table class="table table-bordered table-hover dataTable" id="table2">
                     <thead>
                     <tr role="row">
                         <th>{{ trans('admin/feedback.id') }}</th>
@@ -110,7 +110,7 @@
             </div>
         </div>
         @endsection
-    
+
 
 @section('scripts')
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -118,7 +118,7 @@
     <script>
 
         $(function () {
-            $('#table').DataTable({
+            $('#table1, #table2').DataTable({
                 "searching": false
             })
         });

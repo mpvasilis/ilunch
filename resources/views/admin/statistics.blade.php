@@ -28,9 +28,9 @@
                     {!! Form::close() !!}
                     <h2 class="text-center">{{$title}}</h2>
                 </div>
-            </div> 
+            </div>
         </div>
-    </div> 
+    </div>
 </div>
 <div class="box">
     <div class="row">
@@ -45,31 +45,31 @@
                                             <th>{{ trans('admin/statistics.name') }}</th>
                                             <th>{{ trans('admin/statistics.date') }}</th>
                                             <th>{{ trans('admin/statistics.type') }}</th>
-                                            
+
                                         </tr>
-                                            
+
                                         </thead>
-                                        
+
                                         <tbody>
-                                        
+
                                         @foreach ($stats as $history)
                                         <tr role="row" class="odd">
                                             <td>{{ $history['id'] }}</td>
                                             <td>{{ $history['name']}}</td>
                                             <td>{{ $history['date']}}</td>
-                                            <td>{{ $history['meal_type']}}</td>
-                                        
+                                            <td>{{ getMealType($history['meal_type'])}}</td>
+
                                         </tr>
                                         @endforeach
                                         </tbody>
                                         <tfoot>
-                                    
+
                                         </tfoot>
-                    </table>          
+                    </table>
                 </div>
-            </div> 
+            </div>
         </div>
-    </div> 
+    </div>
 </div>
 
 <div class="row" style="margin-top:2%;">
@@ -83,7 +83,7 @@
                 </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
     <div class="col-md-12">
         <div class="box">
@@ -95,9 +95,9 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
 
-</div>  
+</div>
 @endsection
 @section('scripts')
 <script src="{{url("assets/moment/min/moment.min.js")}}"></script>
@@ -118,7 +118,7 @@
       labels  : [
             @foreach ($range as $day)
                 "{{$day}}",
-            @endforeach  
+            @endforeach
       ],
       datasets: [
         {
@@ -129,12 +129,12 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [ 
+          data                : [
             @foreach ($CountsPerDay as $count)
                 "{{$count}}",
             @endforeach  ]
         },
-        
+
       ]
     }
 
@@ -186,12 +186,12 @@
     var lineChartOptions         = areaChartOptions
     lineChartOptions.datasetFill = false
     lineChart.Line(areaChartData, lineChartOptions)
-    
+
     var areaChartData1 = {
         labels  : [
             @foreach ($range as $day)
                 "{{$day}}",
-            @endforeach  
+            @endforeach
       ],
       datasets: [
         {
@@ -202,12 +202,12 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [ 
+          data                : [
             @foreach ($Type as $t)
                 "{{$t['breakfast']}}",
             @endforeach  ]
         },
-        
+
         {
           label               : 'Μεσημεριανό',
           fillColor           : 'rgba(210, 214, 222, 1)',
@@ -216,7 +216,7 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [ 
+          data                : [
             @foreach ($Type as $t)
                 "{{$t['lunch']}}",
             @endforeach  ]
@@ -229,7 +229,7 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [ 
+          data                : [
             @foreach ($Type as $t)
                 "{{$t['dinner']}}",
             @endforeach  ]
@@ -275,11 +275,11 @@
 
     barChartOptions.datasetFill = false
     barChart.Bar(barChartData, barChartOptions)
-  
-    
+
+
   })
-  
- 
+
+
 </script>
 
 <script type="text/javascript">
@@ -294,7 +294,7 @@ $(function() {
         $('#stop').html(end.format('MMMM D, YYYY'));
         document.getElementById('start').value=start.format('MMMM D, YYYY');
         document.getElementById('stop').value=end.format('MMMM D, YYYY');
-        
+
 
         console.log(start.format('MMMM D, YYYY'));
     }
@@ -315,7 +315,7 @@ $(function() {
     }, cb);
 
     cb(start, end);
-    
+
 });
 </script>
 @endsection

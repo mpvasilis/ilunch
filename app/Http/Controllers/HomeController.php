@@ -18,12 +18,12 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $stats = collect([]);
         $user = Auth::user();
-        
+
         if (Auth::user() && $user->role == 'STUDENT'){
-           
+
             $statistics = Statistic::where('student_id',$user->student->id)->get();
             foreach ($statistics as $stat){
                 $stat->schedule_item;
@@ -36,9 +36,9 @@ class HomeController extends Controller
         $date1 = $today->addDays(-3)->toDateString();
         $today = Carbon::today();
         $date2 = $today->addDays(3)->toDateString();
-        
+
         $scheduleitems = Schedule_item::whereBetween('date', [$date1, $date2])->orderby('date','ASC')->get();
-        
+
     //    dd($scheduleitems);
         foreach ($scheduleitems as $item){
             foreach($item->mealAssigns->groupby('type_id') as $mealassigns){
@@ -49,12 +49,12 @@ class HomeController extends Controller
                     $type_id=$mealassign->type_id;
                 }
                 $days[$item->date][$type_id]=$food;
-            }  
+            }
         }
 
-        
-      
-     
+
+      // dd($stats);
+
         return view('front.index',compact('stats','days'));
     }
 

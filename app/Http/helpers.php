@@ -75,7 +75,7 @@ function printMeals($breakfast, $lunch, $dinner)
 }
 
 function getMealType($id)
-{   
+{
     switch ($id) {
     case '1':
     {
@@ -87,6 +87,21 @@ function getMealType($id)
     {
         return 'Βραδυνό';
     }
+}
+}
+
+function transformAnnouType($id){
+  switch ($id) {
+  case '0':
+  {
+      return 'Σημαντικό';
+  } case '1':
+  {
+      return 'Ενημέρωση';
+  } case '2':
+  {
+      return 'Δωρεάν Γεύματα';
+  }
 }
 }
 
