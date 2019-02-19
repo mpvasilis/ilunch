@@ -108,7 +108,9 @@
                                 <div class='pricing pricing-palden'>
 
                                 @foreach ($days as $day=>$types)
-                                <?php $d = new DateTime($day);
+                                <?php
+                               
+                                $d = \Carbon\Carbon::parse($day);
                                 $ldate = date('Y-m-d');
                                 $class="";
                                 if ($ldate == $d->format('Y-m-d')){
@@ -123,8 +125,15 @@
                                             <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
                                             </svg>
                                             <div class='date'><span class='pricing-currency'>{{$day}}</span> <?php
-
-                                                $dayname = $d->format('l');
+                                                $lang = Lang::locale();
+                                                if ($lang == 'el'){
+                                                    $dayname = $d->format('l');
+                                                    // dd($dayname);
+                                                    $dayname = translatedays($dayname);
+                                                }else{
+                                                    $dayname = $d->format('l');
+                                                }
+                                                
                                                 echo $dayname;
                                             ?>
 
@@ -153,10 +162,7 @@
 
 
                             </div>
-                            <div class="panel-footer text-center">
-                            {{ trans('front/site.calendar-help') }}
-
-                            </div>
+                           
                             {{--</div>--}}
                         </div>
                     </div><!-- //.CONTAINER -->
@@ -183,7 +189,7 @@
                         <div class="col-xs-12">
                             <div class="csi-reservaton-area" style="text-align:left">
                               <div class="col-md-6 col-xs-12 imagediv">
-                                      <img src="assets/img/reservation.jpg" alt="Special Food">
+                                      <img src="assets/img/reservation.jpg" alt="Special Food" class="feedbackimg">
                               </div>
                               <div class="col-md-6 col-xs-12 formdiv">
 
@@ -215,7 +221,7 @@
                                                                   value="{{$user->id}}"  type="hidden" >
                                                 </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 col-xs-6">
                                                     <label for="comment" style="text-align:left">Anonymous</label>
                                                     <div class="csi-form-group" style="padding-bottom: 10px">
                                                         <label class="switch">
@@ -224,7 +230,7 @@
                                                         </label>
                                                     </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 col-xs-6">
                                                     <label for="comment" style="text-align:left">Facility Only</label>
                                                     <div class="csi-form-group" style="padding-bottom: 10px">
                                                         <label class="switch">
@@ -237,6 +243,7 @@
 
 
                                                 <label for="comment" style="text-align:left">{{ trans('front/site.formmeals') }}</label>
+                                                <p> Να σημειωθεί ότι μπορεί να γίνει αξιολογηση γεύματος μόνο των ημερών στις οποίες έχετε πάει για γεύμα στην λέσχη</p>
                                                 <div class="csi-form-group" style="padding-bottom: 10px">
                                                 <select name ="schedule">
                                                 @foreach ($stats as $key => $stat)
@@ -281,24 +288,7 @@
 @endsection
 
 @section('scripts')
-    <div id="menumodal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    <h4 id="title" class="modal-title"></h4>
-                </div>
-                <div class="modal-body">
-                    <p id="duration"></p>
-                    <p id="details">One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>

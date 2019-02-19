@@ -45,7 +45,7 @@ class ApiController extends Controller
        $data = $request->all();
        foreach($data["data"] as $row)
        {
-        $success = Rating::create(['menu_id' => $row["menu_id"],
+        $success = Rating::create([
                                    'rating'  => $row["rating"],
                                    'date'    => $row["date"]          
        ]);

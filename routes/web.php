@@ -84,7 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('statistics', 'StatsController@index')->name('admin_statistics');
     Route::post('statistics', 'StatsController@search')->name('admin_statistics');
-    Route::get('feedback', 'feedbackController@index')->name('admin_feedback');
+    Route::get('feedback', 'FeedbackController@index')->name('admin_feedback');
 
     Route::get('students/show', 'StudentController@adminIndex')->name('admin_students');
     Route::get('students/create', 'StudentController@create')->name('admin_students_create');

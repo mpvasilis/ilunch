@@ -163,7 +163,38 @@ function transformDay($day)
     }
     return $day;
 }
-
+function translatedays($day){
+    switch ($day) {
+        case 'Monday':
+            {
+                return 'ΔΕΥΤΕΡΑ';
+            }
+        case 'Tuesday':
+            {
+                return 'ΤΡΙΤΗ';
+            }
+        case 'Wednesday':
+            {
+                return 'ΤΕΤΑΡΤΗ';
+            }
+        case 'Thursday':
+            {
+                return 'ΠΕΜΠΤΗ';
+            }
+        case 'Friday':
+        {
+            return 'ΠΑΡΑΣΚΕΥΗ';
+        }
+        case 'Saturday':
+        {
+            return 'ΣΑΒΒΑΤΟ';
+        }
+        case 'Sunday':
+        {
+            return 'ΚΥΡΙΑΚΗ';
+        }    
+}
+}
 function hasStaffRole($user){
     if ($user != null && in_array($user->role, ["ADMINISTRATOR", "STAFF"])) {
         return true;
