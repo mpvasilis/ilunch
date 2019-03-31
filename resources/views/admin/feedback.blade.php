@@ -34,7 +34,8 @@
                                 <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show"
                                    data-id="{{ $feedback['id'] }}" data-name="{{ $feedback['name'] }}"
                                    data-rating="{{ $feedback['rating'] }}" data-comment="{{ $feedback['comment'] }}"
-                                   data-created_at="{{ $feedback['created_at'] }}">Προβολή</a>
+                                   data-created_at="{{ $feedback['created_at'] }}"
+                                   data-images="{{ $feedback['images'] }}">Προβολή</a>
                             </td>
                         </tr>
                     @endforeach
@@ -74,7 +75,8 @@
                                 <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show"
                                    data-id="{{ $facility['id'] }}" data-name="{{ $facility['name'] }}"
                                    data-rating="{{ $facility['rating'] }}" data-comment="{{ $facility['comment'] }}"
-                                   data-created_at="{{ $facility['created_at'] }}">Προβολή</a>
+                                   data-created_at="{{ $facility['created_at'] }}"
+                                   data-images="{{ $facility['images'] }}">Προβολή</a>
                             </td>
                         </tr>
                     @endforeach
@@ -94,7 +96,7 @@
                             <span aria-hidden="true">×</span></button>
                         <h4 class="modal-title" id="modal-title">{{ trans('admin/feedback.feedback-info') }}</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="form">
                         {!! Form::label('id', 'Feedback ID') !!}
                         {!! Form::text('id', null, ['class' => 'form-control', 'id'=>'id','disabled']) !!}
                         {!! Form::label('name', 'Όνομα') !!}
@@ -103,7 +105,8 @@
                         {!! Form::text('rating', null, ['class' => 'form-control', 'id'=>'rating','disabled']) !!}
                         {!! Form::label('comment', 'Σχόλιο') !!}
                         {!! Form::textarea('comment', null, ['class' => 'form-control', 'id'=>'comment','disabled']) !!}
-
+                        {!! Form::label('comment', 'Φωτογραφίες') !!}
+                        <div class="images"></div>
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -125,10 +128,20 @@
 
         $('#modal-show').on('show.bs.modal', function (e) {
 
+            $('.images').empty();
             var name = $(e.relatedTarget).data('name');
             var rating = $(e.relatedTarget).data('rating');
             var comment = $(e.relatedTarget).data('comment');
             var created_at = $(e.relatedTarget).data('created_at');
+            var images = $(e.relatedTarget).data('images');
+            
+            for (let i = 0; i < images.length; ++i) {
+                var img = $('<img class="feedbackimage" style="width:100%">'); //Equivalent: $(document.createElement('img'))
+            img.attr('src', "{{ URL::to('/') }}/images/"+images[i]);
+            div = $(e.relatedTarget).find('#form');
+            img.appendTo('.images');
+            }
+           
 
             var id = $(e.relatedTarget).data('id');
 

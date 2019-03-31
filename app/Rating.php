@@ -23,6 +23,7 @@ class Rating extends Model
         'schedule_id',
         'rating',
         'comment',
+        'filename',
         'date'
     ];
 }

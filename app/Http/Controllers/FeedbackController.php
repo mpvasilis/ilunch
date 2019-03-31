@@ -9,7 +9,10 @@ use Auth;
 use App\Statistic;
 use App\User;
 class FeedbackController extends Controller
-{
+{   
+
+    
+
     /**
      * FeedbackController constructor.
      */
@@ -29,7 +32,12 @@ class FeedbackController extends Controller
     }
 
     public function store(Request $request )
-    {
+    {   
+     
+        $this->validate($request, [
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
 
         $scheduleid = $request->schedule;
         if ($scheduleid=='0'){
@@ -37,9 +45,16 @@ class FeedbackController extends Controller
         }
         $id = $request->userid;
         $user = User::where('id',$id)->get();
-
-        $id = $user[0]->student->id;
+       
+        if ($user->isEmpty()){
+            $id = 0;
+            $scheduleid = 0;
+        }else{
+            $id = $user[0]->student->id;
+        }
       
+    
+
         $anon = $request->anon;
         $facilityonly = $request->facilityonly;
         if ($facilityonly =='True'){
@@ -48,7 +63,21 @@ class FeedbackController extends Controller
         if ($anon == 'True'){
           $id=NULL;
         }
+        
+        if($request->hasfile('filename'))
+         {
 
+            foreach($request->file('filename') as $image)
+            {
+                $name = md5(microtime()).'_'.$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);  
+                $hash = md5($name);
+                $data[] = $name;  
+            }
+         }
+
+         
+        
 
         $comment = $request->comment;
         $stars = $request->stars;
@@ -59,6 +88,7 @@ class FeedbackController extends Controller
          $newFeedback->student_id = $id;
          $newFeedback->schedule_id = $scheduleid;
          $newFeedback->rating = $stars;
+         $newFeedback->filename = json_encode($data);
          $newFeedback->save();
 
          $stats = collect([]);
@@ -82,15 +112,14 @@ class FeedbackController extends Controller
         $feeds = collect([]);
         $facilities= collect([]);
         foreach ($ratings as $rating) {
-
+       
             if($rating->schedule_id==NULL){
                 if ($rating->student_id == NULL) {
                     $name = "Anonymous";
                 } else {
                     $name = $rating->student->firstname . " " . $rating->student->lastname;
-                    // $name ="alex";
                 }
-                $facility = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating]);
+                $facility = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating,'images' => $rating->filename]);
                 $facilities->push($facility);
             }
             else{
@@ -98,14 +127,14 @@ class FeedbackController extends Controller
                     $name = "Anonymous";
                 } else {
                     $name = $rating->student->firstname . " " . $rating->student->lastname;
-                    // $name ="alex";
                 }
-                $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu]);
+
+                $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu, 'images' => $rating->filename]);
                 $feeds->push($feed);
             }
 
         }
-        // dd($feeds);
+        // dd($facilities);
 
 
         return view('admin.feedback', compact('feeds','facilities'));

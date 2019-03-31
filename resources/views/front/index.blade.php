@@ -196,10 +196,11 @@
 
                                     <figcaption>
 
-                                        <form method="POST" action="{{ route('feedback_st') }}">
+                                        <form method="POST" action="{{ route('feedback_st') }}" enctype="multipart/form-data" >
                                             @if(isset($feedbackStatus))
                                                 <span style="color:white"> {{ $feedbackStatus }}</span>
                                             @endif
+                                            {{csrf_field()}}
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             @if(!Auth::check())
                                             <p class="formmessage">{{ trans('front/site.formanonym') }}</p>
@@ -268,7 +269,37 @@
                                                 <input class="form-control" name="comment" id="feedback_comment"
                                                        placeholder="Brief Comment" type="text" required>
                                             </div>
-                                            <div class="csi-form-group">
+
+                                            <div class="input-group control-group increment csi-form-group" style="padding-bottom: 10px">
+                                                <input type="file" name="filename[]" class="form-control">
+                                                <div class="input-group-btn"> 
+                                                    <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                                                </div>
+                                            </div>
+                                            <div class="clone hide">
+                                                <div class="control-group input-group" style="margin-top:10px">
+                                                    <input type="file" name="filename[]" class="form-control">
+                                                    <div class="input-group-btn"> 
+                                                    <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @if (count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                                <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                                </ul>
+                                            </div>
+                                            @endif
+                                            @if(session('success'))
+   <div class="alert alert-success">
+      {{ session('success') }}
+   </div> 
+ @endif
+                                                            <div class="csi-form-group">
                                                 <input class="csi-btn csi-submit" value="{{ trans('front/site.formsubmit') }}" type="submit">
                                             </div>
                                         </form>
@@ -288,7 +319,7 @@
 @endsection
 
 @section('scripts')
- 
+                                                
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
@@ -409,5 +440,22 @@ $( document ).ready(function() {
 
 
 });
+
+
+
+    $(document).ready(function() {
+
+      $(".btn-success").click(function(){ 
+          var html = $(".clone").html();
+          $(".increment").after(html);
+      });
+
+      $("body").on("click",".btn-danger",function(){ 
+          $(this).parents(".control-group").remove();
+      });
+
+    });
+
+
     </script>
 @endsection
