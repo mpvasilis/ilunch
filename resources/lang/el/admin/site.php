@@ -23,7 +23,9 @@ return [
     'profile' => 'Προφιλ',
     'edit_profile' => 'Επεξεργασία Προφίλ',
     'setting'=> 'Ρυθμίσεις',
-    'schedule'=>'Πρόγραμμα'
+    'schedule'=>'Πρόγραμμα',
+    'facillitiessnav' => 'Εγκαταστάσεις',
+    'stationsnav' => 'Σταθμοί'
 
 
 ];

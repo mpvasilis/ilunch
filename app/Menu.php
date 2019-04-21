@@ -18,6 +18,11 @@ class Menu extends Model
         return $this->hasMany('App\Menu_assign', 'menu_id', 'id');
     }
 
+    public function facillity()
+    {
+        return $this->hasMany('App\Facillity', 'id', 'facility_id');
+    }
+
     public function scopeBreakfast($query)
     {
         return $query->where('menu_assigns.id', '=', 1);

@@ -1,16 +1,16 @@
 @extends('admin.layouts.template')
 @section('title')
-    {{ trans('admin/meals.page-title') }}
+    {{ trans('admin/stations.page-title') }}
 @endsection
 {{--todo tranform static arrays to dynamicly created collections from database or config data--}}
 @section('main')
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title"> {{ trans('admin/meals.list') }}</h3>
+            <h3 class="box-title"> {{ trans('admin/stations.list') }}</h3>
             <div class="box-tools">
                 <button type="button" class="btn btn-success btn-small" data-toggle="modal" data-target="#modal-add">
-                {{ trans('admin/meals.add') }}
+                {{ trans('admin/stations.add') }}
                 </button>
             </div>
             <div class="box-body">
@@ -19,30 +19,28 @@
                 <table class="table table-bordered table-hover dataTable" id="table">
                     <thead>
                     <tr role="row">
-                        <th>{{ trans('admin/meals.id') }}</th>
-                        <th>{{ trans('admin/meals.title') }}</th>
-                        <th>{{ trans('admin/meals.info') }}</th>
+                        <th>{{ trans('admin/stations.id') }}</th>
+                        <th>{{ trans('admin/stations.title') }}</th>
+                        <th>{{ trans('admin/stations.info') }}</th>
                         <th></th>
                     </tr>
 
                     </thead>
 
                     <tbody>
-                   
-                    @foreach ($meals as $meal)
+                    @foreach ($stations as $station)
                         <tr role="row" class="odd">
-                            <td>{{ $meal -> id }}</td>
-                            <td>{{ $meal -> title }}</td>
-                            <td>{{ substr($meal -> info,0,100) }}...</td>
+                            <td>{{ $station -> id }}</td>
+                            <td>{{ $station -> name }}</td>
                             <td class="text-center">
                                 <a class="btn btn-primary " id="show-btn" data-toggle="modal" data-target="#modal-show1"
-                                   data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
-                                   data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                   data-id="{{ $station -> id }}" data-title="{{ $station -> title }}"
+                                   data-is_active="{{ $station -> is_active }}" data-info="{{ $station -> info  }}"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
                                 <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-edit"
-                                   data-id="{{ $meal -> id }}" data-title="{{ $meal -> title }}"
-                                   data-is_active="{{ $meal -> is_active }}" data-info="{{ $meal -> info }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                   data-id="{{ $station -> id }}" data-title="{{ $station -> title }}"
+                                   data-is_active="{{ $station -> is_active }}" data-info="{{ $station -> info }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                 <a class="btn btn-danger " id="delete-btn" data-toggle="modal"
-                                   data-target="#modal-delete" data-id="{{ $meal -> id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                   data-target="#modal-delete" data-id="{{ $station -> id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -59,10 +57,10 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">{{ trans('admin/meals.add-meal-header') }}</h4>
+                            <h4 class="modal-title">{{ trans('admin/stations.add-station-header') }}</h4>
                         </div>
                         <div class="modal-body">
-                            {!! Form::open(array('action' => array('MealsController@post'))) !!}
+                            {!! Form::open(array('action' => array('StationsController@post'))) !!}
                             {!! Form::label('title', 'Όνομα') !!}
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
@@ -82,10 +80,10 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">{{ trans('admin/meals.edit-meal-header') }}</h4>
+                            <h4 class="modal-title">{{ trans('admin/stations.edit-station-header') }}</h4>
                         </div>
                         <div class="modal-body">
-                            {!! Form::open(array('route' => 'admin_meals_update')) !!}
+                            {!! Form::open(array('route' => 'admin_stations_update')) !!}
                             {!! Form::label('title', 'Όνομα') !!}
                             {!! Form::text('title', null, ['class' => 'form-control', 'id'=>'title']) !!}
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
@@ -110,8 +108,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="text-center">
-                                <h3>{{ trans('admin/meals.delete-meal-header') }} </h3>
-                                {!! Form::open(array('route' => 'admin_meals_delete')) !!}
+                                <h3>{{ trans('admin/stations.delete-station-header') }} </h3>
+                                {!! Form::open(array('route' => 'admin_stations_delete')) !!}
                                 {{ Form::hidden('id', 'null', ['id' => 'ids']) }}
                                 {!! Form::submit('Επιβεβαίωση', ['class' => 'btn btn-danger btn-lg center']) !!}
                                 {!! Form::close() !!}
@@ -127,7 +125,7 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title" id="modal-title">{{ trans('admin/meals.show-meal-header') }}</h4>
+                            <h4 class="modal-title" id="modal-title">{{ trans('admin/stations.show-station-header') }}</h4>
                         </div>
                         <div class="modal-body">
                             {!! Form::label('title', 'Όνομα') !!}

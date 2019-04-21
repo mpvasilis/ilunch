@@ -49,6 +49,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('meals/update', 'MealsController@update')->name('admin_meals_update');
     Route::post('meals/delete', 'MealsController@delete')->name('admin_meals_delete');
 
+    Route::get('stations', 'StationsController@index')->name('admin_stations');
+    Route::post('stations', 'StationsController@post')->name('admin_stations');
+    Route::post('stations/update', 'StationsController@update')->name('admin_stations_update');
+    Route::post('stations/delete', 'StationsController@delete')->name('admin_stations_delete');
+
+    Route::get('facillities', 'FacillitiesController@index')->name('admin_facillities');
+    Route::post('facillities', 'FacillitiesController@post')->name('admin_facillities');
+    Route::post('facillities/update', 'FacillitiesController@update')->name('admin_facillities_update');
+    Route::post('facillities/delete', 'FacillitiesController@delete')->name('admin_facillities_delete');
+
     Route::group(['prefix' => 'memberships', 'middleware' => 'auth'], function () {
         Route::get('show', 'MembershipsController@index')->name('admin_memberships_show');
         Route::get('create', 'MembershipsController@create')->name('admin_memberships_create');

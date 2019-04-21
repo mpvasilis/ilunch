@@ -24,38 +24,43 @@ class ScheduleController extends Controller
         $recurseWeeks = Setting::where('setting','schedule_recurse_weeks')->first()->value;
         $days = 7 * $recurseWeeks;
         $menus = Menu::all();
-        $days= [];
+        $facmenus = $menus->groupBy('facility_id') ;
+        $dayss= [];
         $zeroday= collect([]);
         $gooday= [];
         $dayfood=[];
-        for ($i=0;$i<=7*$recurseWeeks;$i++){
-            for($j=1;$j<=3;$j++){
-                $days[$i][$j] =['0'=>[ 'name'=> '','meal_id'=>'','menu_id' =>''],'1' => [ 'name'=> '','meal_id'=>'','menu_id' =>''], '2' => [ 'name'=> '','meal_id'=>'','menu_id' =>'']];
-            }      
-        }
-        
-        foreach ($menus as $menu){
-            $day= $menu->day;
-            $week = $menu->week;
-            if($week==1){
-                $day=$day;
-            }else{
-                $day=$day+($week-1)*7 ;
+        foreach ($facmenus as $key=>$menus){
+            for ($i=0;$i<=7*$recurseWeeks;$i++){
+                for($j=1;$j<=3;$j++){
+                    $dayss[$key][$i][$j] =['0'=>[ 'name'=> '','meal_id'=>'','menu_id' =>''],'1' => [ 'name'=> '','meal_id'=>'','menu_id' =>''], '2' => [ 'name'=> '','meal_id'=>'','menu_id' =>'']];
+                }      
             }
-            $food=[];
-            foreach($menu->mealAssigns->groupBy('type_id') as $mealassigns){
-                $food=[];
-                foreach ($mealassigns as $mealassign){
-                    $meals=$mealassign->meal;
-                    array_push($food, [ 'name'=> $meals->title,'meal_id'=>$mealassign->meal_id, 'menu_id' => $menu->id]);
-                    $type_id=$mealassign->type_id;
+        }
+        foreach ($facmenus as $key=>$menus){
+            foreach ($menus as $menu){
+                $day= $menu->day;
+                $week = $menu->week;
+                if($week==1){
+                    $day=$day;
+                }else{
+                    $day=$day+($week-1)*7 ;
                 }
-                $days[$day][$type_id]=$food;
-            }  
-        };
+                $food=[];
+                foreach($menu->mealAssigns->groupBy('type_id') as $mealassigns){
+                    $food=[];
+                    foreach ($mealassigns as $mealassign){
+                        $meals=$mealassign->meal;
+                        array_push($food, [ 'name'=> $meals->title,'meal_id'=>$mealassign->meal_id, 'menu_id' => $menu->id]);
+                        $type_id=$mealassign->type_id;
+                    }
+                    $dayss[$key][$day][$type_id]=$food;
+                }  
+            };
+            $meals= Menu_meal::pluck('title', 'id');
+        }
+
         
-        $meals= Menu_meal::pluck('title', 'id');
-        return view('admin.schedule.showlist', compact('days','meals'));
+        return view('admin.schedule.showlist', compact('dayss','meals'));
     }
 
     /**
@@ -77,7 +82,7 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {   
 
-        // dd($request->day%7);
+        
         if($request->day<=7){
             $day = $request->day;
             $week = 1;
@@ -85,15 +90,16 @@ class ScheduleController extends Controller
             $day = $request->day % 7;
             $week = (($request->day - $day)/7)+1;
         }
-        $menu = Menu::where('day',$day)->where('week', $week)->get();
+        $menu = Menu::where('day',$day)->where('week', $week)->where('facility_id', $request->facillity)->get();
         
         if(count($menu) == 0){
             $men = new Menu;
 
             $men->day = $day;
             $men->week = $week;
+            $men->facility_id = $request->facillity;
             $men->save();
-            $menu = Menu::where('day',$day)->where('week', $week)->get();
+            $menu = Menu::where('day',$day)->where('week', $week)->where('facility_id', $request->facillity)->get();
         }
         $meals = $request->meals;
         foreach($meals as $meala){

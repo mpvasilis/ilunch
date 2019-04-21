@@ -154,6 +154,10 @@
                   @endif
 
                 @if(hasAdminRole($user))
+                <li {{ (Request::is('admin/facillities/*')) ? 'class=active':''}}><a href="{{route('admin_facillities')}}"><i
+                                    class="fa fa-users"></i> <span>{{ trans('admin/site.facillitiessnav') }}</span></a></li>
+                <li {{ (Request::is('admin/stations/*')) ? 'class=active':''}}><a href="{{route('admin_stations')}}"><i
+                                    class="fa fa-users"></i> <span>{{ trans('admin/site.stationsnav') }}</span></a></li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users_show')}}"><i
                                     class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_settings')}}"><i

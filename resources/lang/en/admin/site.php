@@ -23,7 +23,9 @@ return [
     'profile' => 'Profile',
     'edit_profile' => 'Edit Profile',
     'setting'=> 'Settings',
-    'schedule'=>'Schedule'
+    'schedule'=>'Schedule',
+    'facillitiessnav' => 'Facillities',
+    'stationsnav' => 'Stations'
 
 
 ];
