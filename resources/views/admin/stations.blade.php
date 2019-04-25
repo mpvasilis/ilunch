@@ -39,6 +39,9 @@
                                 <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-edit"
                                    data-id="{{ $station -> id }}" data-title="{{ $station -> title }}"
                                    data-is_active="{{ $station -> is_active }}" data-info="{{ $station -> info }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                   <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-assign"
+                                   data-id="{{ $station -> id }}" data-title="{{ $station -> title }}"
+                                   ><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                 <a class="btn btn-danger " id="delete-btn" data-toggle="modal"
                                    data-target="#modal-delete" data-id="{{ $station -> id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
@@ -49,7 +52,7 @@
 
                     </tfoot>
                 </table>
-
+               
             </div>
             <div class="modal fade" id="modal-add" style="display: none;">
                 <div class="modal-dialog">
@@ -67,6 +70,25 @@
                             {{ Form::select('is_active', array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control']) }}
                             {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
                             {!! Form::textarea('info', null, ['class' => 'form-control']) !!}
+                            {!! Form::submit('Submit', ['class' => 'btn btn-primary ']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-assign" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="title"></h4>
+                        </div>
+                        <div class="modal-body">
+                        {!! Form::open(array('action' => array('StationsController@post'))) !!}
+                            {!! Form::label('facassign', 'Τοποθεσία για ανάθεση βάσης αξιολόγησης') !!}
+                            {{ Form::select('facassign',$facillities) }}
+                            {{ Form::hidden('id', 'null', ['id' => 'ids']) }}
                             {!! Form::submit('Submit', ['class' => 'btn btn-primary ']) !!}
                             {!! Form::close() !!}
                         </div>
@@ -170,8 +192,16 @@
             $(e.currentTarget).find('#title').val(title);
             $(e.currentTarget).find('#info').val(info);
             $(e.currentTarget).find('#is_active').val(is_active);
-            $(e.currentTarget).find('#ids').val(id);
+            $(e.currentTarget).find('#ids').html(id);
         });
+        $('#modal-assign').on('show.bs.modal', function (e) {
+
+var title = $(e.relatedTarget).data('title');
+var id = $(e.relatedTarget).data('id');
+
+$(e.currentTarget).find('#title').val(title);
+$(e.currentTarget).find('#ids').val(id);
+});
 
         $('#modal-edit').on('show.bs.modal', function (e) {
 

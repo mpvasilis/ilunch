@@ -10,6 +10,8 @@ return [
     'date' => 'Date',
     'type' => 'Type',
     'summeals'=>'Total Meals',
-    'meals-type' => 'meals/Type'
+    'meals-type' => 'meals/Type',
+    'fac-form-label' => 'Facillity',
+
 ];
    

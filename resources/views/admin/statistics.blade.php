@@ -13,10 +13,16 @@
                 <h3 class="box-title">{{ trans('admin/statistics.choice') }}</h3>
                 <div class="box-body">
                     {!! Form::open(array('route' => 'admin_statistics')) !!}
+                    {!! csrf_field() !!}
+ 
                     {{ Form::hidden('start', 'null', ['id' => 'start']) }}
                     {{ Form::hidden('stop', 'null', ['id' => 'stop']) }}
                     {{ Form::hidden('custom', 'null', ['id' => 'custom']) }}
+                    <label for='facillities'>{{ trans('admin/statistics.fac-form-label') }}</label>
+                    {!! Form::select('facillities', $facillities ) !!}
+
                         <div class="input-group input-group-sm">
+                    <label for='facillities'>{{ trans('admin/statistics.date') }}</label>
                             <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
                                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
                                 <span></span> <b class="caret"></b>
@@ -36,7 +42,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box-header with-border">
-                <h3 class="box-title">{{ trans('admin/statistics.history') }} | {{$title}}</h3>
+                <h3 class="box-title">{{ trans('admin/statistics.history') }} | {{$title}} </h3>
                 <div class="box-body">
                     <table class="table table-bordered table-hover dataTable" id="table">
                                         <thead>
