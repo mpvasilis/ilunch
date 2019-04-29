@@ -115,6 +115,9 @@
                                                         </li>
                                                     @endif
                                                     <li><a class="csi-scroll"
+                                                           href="{{ route('mealsvote') }}">{{ trans('front/site.contact') }}</a>
+                                                    </li>
+                                                    <li><a class="csi-scroll"
                                                            href="{{ route('contact') }}">{{ trans('front/site.contact') }}</a>
                                                     </li>
 
@@ -186,7 +189,7 @@
                                 </div>
                             </div>
                         </div><!--//.ROW-->
-                        
+
                     </div><!-- //.CONTAINER -->
                 </div>
                 <div class="csi-footer-bottom">

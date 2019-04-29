@@ -3,7 +3,7 @@ if(!isset($user)){
     $user = null;
 }
 ?>
-@extends('dashboard.layouts.template')
+@extends('front.layout')
 @section('title')
     About
 @endsection

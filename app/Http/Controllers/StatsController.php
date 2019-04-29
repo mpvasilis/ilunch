@@ -25,11 +25,11 @@ class StatsController extends Controller
       
         $facid = $request->input('id', '0');
         if ($facid == '0'){
-            $statistics = Statistic::get(); 
+            $statistics = Statistic::get();
         }else{
             $statistics = Statistic::where('facillity_id',$facid)->get();
         }
-        
+
         $stats = collect([]);
         $types = collect([]);
         //  dd($statistics);
@@ -62,7 +62,7 @@ class StatsController extends Controller
                     }
                 }
                 $Type[] = collect(['breakfast' => $breakfast, 'lunch' => $lunch, 'dinner' => $dinner]);
-                
+
             }
         $facillities=[];
         $title = "Τελευταία Εβδομάδα - Συνολικά Στατιστικά Πανεπιστημίου";
@@ -81,14 +81,14 @@ class StatsController extends Controller
         $facid = $request->input('facillities', '0');
 
         $start = Carbon::parse($request['start']);
-        
+
         $stop = Carbon::parse($request['stop']);
         $facillit= Facillity::all();
         $title = $start->format('d/m/Y D') . " - " . $stop->format('d/m/Y D') ." - ". $facillit[$facid-1]->title;
         $length = $stop->diffInDays($start);
-        
+
         if ($facid == '0'){
-            $statistics = Statistic::whereBetween('created_at', [$start, $stop])->get(); 
+            $statistics = Statistic::whereBetween('created_at', [$start, $stop])->get();
         }else{
             $statistics = Statistic::where('facillity_id',$facid)->whereBetween('created_at', [$start, $stop])->get();
         }
@@ -127,12 +127,12 @@ class StatsController extends Controller
             $Type[] = collect(['breakfast' => $breakfast, 'lunch' => $lunch, 'dinner' => $dinner]);
 
         }
-        
+
         $facillities[0] = 'Συνολικά Στατιστικά Πανεπιστημίου';
         foreach($facillit as $fac) {
             $facillities[$fac->id] = $fac->title;
         }
-        
+
         return view('admin.statistics', compact('stats', 'range', 'CountsPerDay', 'Type', 'title','facillities'));
     }
 }

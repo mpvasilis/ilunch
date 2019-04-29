@@ -19,6 +19,8 @@ Route::get('language/{lang}', 'HomeController@language')->where('lang', '[A-Za-z
 Route::get('/', 'HomeController@index')->name('index');
 Route::post('/', 'FeedbackController@store')->name('feedback_st');
 Route::get('/contact', 'ContactController@create')->name('contact');
+Route::get('/mealsvote', 'MealVotesController@indexfront')->name('mealsvote');
+Route::post('/mealsvote', 'MealVotesController@storevote')->name('mealvotes_form');
 Route::post('/contact', 'ContactController@store')->name('contact_store');
 Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/news', 'HomeController@news')->name('news');
@@ -91,6 +93,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('announcements', 'AnnouncementsController@post')->name('admin_announcements');
     Route::post('announcements/update', 'AnnouncementsController@update')->name('admin_announcements_update');
     Route::post('announcements/delete', 'AnnouncementsController@delete')->name('admin_announcements_delete');
+
+    Route::get('mealvotes', 'MealVotesController@index')->name('admin_meal_votes');
 
     Route::get('statistics', 'StatsController@index')->name('admin_statistics');
     Route::post('statistics', 'StatsController@search')->name('admin_statistics');

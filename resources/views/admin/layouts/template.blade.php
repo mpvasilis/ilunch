@@ -54,9 +54,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('index')}}"><i class="fa fa-home"></i> {{ trans('admin/site.site-top') }}</a>
                     </li>
-                    <!-- <li><a href="{{route('dashboard')}}"><i
-                                    class="fa fa-tachometer"></i> {{ trans('admin/site.dashboard-top') }}</a></li> -->
-                    <!-- User Account: style can be found in dropdown.less -->
+
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-arrow-circle-down"></i>
@@ -162,6 +160,8 @@
                                     class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_settings')}}"><i
                                     class="fa fa-edit"></i> <span>{{ trans('admin/site.setting') }}</span></a></li>
+                                    <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_meal_votes')}}"><i
+                                                    class="fa fa-edit"></i> <span>Βαθμολογίες Γευμάτων</span></a></li>
                 @endif
                 @if(isStudent($user))
                 @if($user != NULL && $user->student_id != NULL)
@@ -173,7 +173,7 @@
                 <li {{ (Request::is('student/'.$user->student_id.'/profile/edit')) ? 'class=active':''}}><a
                             href="{{route('edit_profile',["studentId" => $user->student_id])}}"><i
                                 class="fa fa-edit"></i> <span>{{ trans('admin/site.edit_profile') }}</span></a></li>
-                                
+
                 @endif
 
             </ul>

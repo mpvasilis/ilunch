@@ -23,9 +23,11 @@ class HomeController extends Controller
         $user = Auth::user();
         // dd($user->student->id);
         if (Auth::user() && $user->role == 'STUDENT'){
-            
+
             $statistics = Statistic::where('student_id',$user->student->id)->get();
+            // dd($statistics);
             foreach ($statistics as $stat){
+              // dd($stat->schedule_item);
                 $stat->schedule_item;
                 $stats[$stat->schedule_item->id] =[ 'date' => $stat->schedule_item->date, 'meal_id' => $stat->type_id];
             }
@@ -39,7 +41,7 @@ class HomeController extends Controller
 
         $scheduleitems = Schedule_item::whereBetween('date', [$date1, $date2])->orderby('date','ASC')->get();
 
-      
+
         foreach ($scheduleitems as $item){
             foreach($item->mealAssigns->groupby('type_id') as $mealassigns){
                 // dd($mealassigns);
