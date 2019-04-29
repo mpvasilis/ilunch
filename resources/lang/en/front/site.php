@@ -56,6 +56,7 @@ return [
     'formsubmit' => 'Submit Feedback',
     'formmeals' => 'Meals Available for Rating',
     'formname' => 'Name',
+    'mealsvotetop10' => 'Top Meals',
     'votes_title' => 'Top 10 Foods of this week',
     'votes_sectitle' => 'Vote for the bestfood of this Week'
 ];

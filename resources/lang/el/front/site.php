@@ -2,18 +2,15 @@
 
 return [
     'title' => 'iLunch',
-    'sub-title' => 'ΕΠΙΤΡΟΠΗ ΣΗΤΙΣΗΣ ΠΔΜ',
+    'sub-title' => 'ΕΠΙΤΡΟΠΗ ΣΙΤΙΣΗΣ ΠΔΜ',
     'description' => 'Ιστοσελίδα της φοιτητικής λέσχης ΠΔΜ',
-    'aboutus-title' =>'Σχετικά με την λέσχη μας',
-    'aboutus-text' => 'We provide you with daily self-made bread, sourdough pizza, roasted
-    fish-meat-vegetables and many more. Lorem ipsum dolor sit amet, consectetur
-    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam.',
+    'aboutus-title' => 'Σχετικά με τον ιστότοπο',
+    'aboutus-text' => 'Καλως ορήσατε στον ιστότοπο της Επιτροπής Σίτισης του Πανεπήστημίου Δυτικής Μακεδονίας.',
     'daymenu-title-big' => 'Μενού Λέσχης',
     'daymenu-title-small' => 'Μενου Ημέρας',
     'calendar-help' => '*Click on event to display more info and review options.',
-    'feedback-title' => 'Leave Feedback',
-    'feedback-subtitle' => 'We respect yout opinion',
+    'feedback-title' => 'Κριτική Γευμάτων & Λέσχης Σίτισης',
+    'feedback-subtitle' => 'Αφήστε ενα σχόλιο σχετικά με την εμπειρία σας στις λέσχες σίτισης του ΠΔΜ.',
     'home' => 'Αρχικη',
     'contact' => 'Επικοινωνια',
     'news' => 'Ανακοινωσεις',
@@ -49,13 +46,14 @@ return [
     'footer-3-times' => '  <p>Mon - Thu 11:30 - 22:00 clock </p>
     <p>Fri - Sat 11:30 - 24:00 clock </p><p>Mon - Thu 11:30 - 22:00 clock </p>',
     'footer-title-4'=> 'Social Links',
-    'oneup' => 'iLunch System by ONEUP GROUP',
+    'oneup' => 'iLunch System',
     'formanonym' => 'Σαν μην συνδεδεμένος χρήστης δίνεται μόνο η δυνατότητα αξιολόγησης του χώρου.',
     'formstars' => 'Αστέρια',
     'formcomment' => 'Σύντομο Σχόλιο',
     'formsubmit' => 'Αποστολή Κριτικής',
     'formmeals' => 'Διαθέσιμα προς κριτική γεύματα',
     'formname' => 'Όνομα',
+    'mealsvotetop10' => 'Top Γευματα',
     'votes_title' => 'Τα 10 καλυτερα φαγητα της εβδομαδας',
     'votes_sectitle' => 'Ψηφιστε για το φαγητο της εβδομαδας'
 ];

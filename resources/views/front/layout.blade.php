@@ -4,13 +4,9 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <!-- SITE TITLE -->
     <title>{{ trans('front/site.title') }} | {{ trans('front/site.description') }}</title>
     <meta name="description" content="{{ trans('front/site.description') }}"/>
-
-
     <link rel="icon" type="image/png" sizes="192x192" href="{!! asset('assets/icons/icon.png') !!}">
-
     <link rel="stylesheet" href="{!! asset('assets/libs/bootstrap/css/bootstrap.min.css') !!}" media="all"/>
     <link rel="stylesheet" href="{!! asset('assets/libs/fontawesome/css/font-awesome.min.css') !!}" media="all"/>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cCookie"/>
@@ -115,7 +111,7 @@
                                                         </li>
                                                     @endif
                                                     <li><a class="csi-scroll"
-                                                           href="{{ route('mealsvote') }}">{{ trans('front/site.contact') }}</a>
+                                                           href="{{ route('mealsvote') }}">{{ trans('front/site.mealsvotetop10') }}</a>
                                                     </li>
                                                     <li><a class="csi-scroll"
                                                            href="{{ route('contact') }}">{{ trans('front/site.contact') }}</a>
@@ -196,9 +192,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
-                                <p>{{ trans('front/site.title') }}<span style="font-size: 50%;">v{{config('app.version')}}</span> is proudly
-                                    powered by <a href="https://www.oneup.host/">Students</a> |
-                                    Supervised by <a href="http://arch.icte.uowm.gr/mdasyg/index.php">Dr. Minas
+                                <p>Project supervised by <a href="http://arch.icte.uowm.gr/mdasyg/index.php">Dr. Minas
                                         Dasygenis</a></p>
                             </div>
                         </div><!--//.ROW-->

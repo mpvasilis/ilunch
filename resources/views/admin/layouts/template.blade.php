@@ -67,7 +67,7 @@
                                     {{ $user->name }}
                                     <small>({{$user->email}})</small>
                                     {{ $user->role }}
-                                    <small>Registered {{humanTiming($user->created_at)}} ago</small>
+                                    <small>Registered {{humanTiming($user->created_at)}}</small>
                                 </p>
                             {{--</li>--}}
                             {{--<!-- uncomment for menu under user info -->--}}
