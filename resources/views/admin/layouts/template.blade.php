@@ -208,10 +208,9 @@
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            iLunch<span style="font-size: 50%;">v{{config('app.version')}}
-                ({{ Config::get('app.env') }})</span>
+            iLunch
         </div>
-        <strong>Copyright &copy; 2017-2018 <a href="https://oneup.host">ONEUP GROUP</a>.</strong> All rights
+        <strong>Copyright &copy; 2017-2019 <a href="https://oneup.host">ONEUP GROUP</a>.</strong> All rights
         reserved.
     </footer>
 
