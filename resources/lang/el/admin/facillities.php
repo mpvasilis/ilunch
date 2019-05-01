@@ -14,6 +14,6 @@ return [
     'edit-meal-header' => 'Επεξεργασία Τοποθεσίας',
     'delete-meal-header' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις την Τοποθεσία;',
     'show-meal-header' => 'Πληροφορίες Τοποθεσίας',
-
+    'edit-facillity-header' => 'Επεξεργασία'
 ];
    

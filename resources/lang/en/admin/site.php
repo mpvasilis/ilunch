@@ -2,7 +2,7 @@
 
 return [
     'page-title' => '',
-    'site-top' => 'Site',
+    'site-top' => 'Back to ilunch',
     'dashboard-top' => 'Dashboard',
     'main-nav' => 'MAIN NAVIGATION',
     'about-nav' => 'About',

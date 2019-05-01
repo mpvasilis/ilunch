@@ -14,6 +14,7 @@ return [
     'edit-meal-header' => 'Edit Facillity',
     'delete-meal-header' => 'Are you sure that you want to delete this Facillity?',
     'show-meal-header' => 'Facillity Information',
+    'edit-facillity-header' => 'Edit'
 
 ];
    

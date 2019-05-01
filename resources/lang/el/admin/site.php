@@ -2,7 +2,7 @@
 
 return [
     'page-title' => '',
-    'site-top' => 'Site',
+    'site-top' => 'Πίσω στο ilunch',
     'dashboard-top' => 'Dashboard',
     'main-nav' => 'MAIN NAVIGATION',
     'about-nav' => 'Σχετικά',
@@ -19,7 +19,7 @@ return [
     'logout-nav' => 'Αποσύνδεση',
     'main-title' => 'iLunch',
     'sec-title' => 'Manager',
-    'sign-in-text' => 'Sign in to start your session',
+    'sign-in-text' => 'Σύνδεθείτε στο ilunch',
     'profile' => 'Προφιλ',
     'edit_profile' => 'Επεξεργασία Προφίλ',
     'setting'=> 'Ρυθμίσεις',
