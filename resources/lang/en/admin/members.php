@@ -12,6 +12,7 @@ return [
     'memb-by' => 'Δημιουργήθηκε Από',
     'memb-condition' => 'Condition',
     'memb-actions' => 'Actions',
+    'actions' => 'Actions',
     'memb-disable' => 'Disable',
     'memb-memb-list' => 'List of Student Memberships',
     'memb-memb-assign' => 'Membership Assign',

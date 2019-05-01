@@ -12,6 +12,7 @@ return [
     'memb-by' => 'Δημιουργήθηκε Από',
     'memb-condition' => 'Κατάσταση',
     'memb-actions' => 'Ενέργειες',
+    'actions' => 'Ενέργειες',
     'memb-disable' => 'Απενεργοποίηση',
     'memb-memb-list' => 'Λίστα με Συνδρομές Φοιτητών',
     'memb-memb-assign' => 'Ανάθεση Συνδρομής',

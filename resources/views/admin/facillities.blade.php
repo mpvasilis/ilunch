@@ -132,7 +132,7 @@
                             {!! Form::text('title', null, ['class' => 'form-control', 'id'=>'title','disabled']) !!}
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
                             {{ Form::select('is_active',  array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control', 'id'=>'is_active','disabled']) }}
-                            {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
+                            {!! Form::label('info', 'Πληροφορίες') !!}
                             {!! Form::textarea('info', null, ['class' => 'form-control', 'id'=>'info','disabled']) !!}
                             {{ Form::hidden('id', 'null', ['id' => 'ids']) }}
                             {!! Form::close() !!}
