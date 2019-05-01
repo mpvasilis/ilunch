@@ -161,7 +161,8 @@
                 </li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users_show')}}"><i
                                     class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
-                    <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_settings')}}"><i
+                    <li {{ (Request::is('admin/memberships/settings/*')) ? 'class=active':''}}><a
+                                href="{{route('admin_settings')}}"><i
                                     class="fa fa-edit"></i> <span>{{ trans('admin/site.setting') }}</span></a></li>
                                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_meal_votes')}}"><i
                                                     class="fa fa-edit"></i> <span>Βαθμολογίες Γευμάτων</span></a></li>

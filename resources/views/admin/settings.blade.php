@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('title')
-{{ trans('admin/announcements.page-title') }}
+    Ρυθμίσεις
 @endsection
 
 @section('head')
