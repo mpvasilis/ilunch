@@ -115,7 +115,8 @@
                 <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_schedule')}}"><i
                                     class="fa fa-list"></i> <span>{{ trans('admin/site.schedule') }}</span></a></li>
                     <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_meals')}}"><i
-                                    class="fa fa-apple"></i> <span>{{ trans('admin/site.meals-nav') }}</span></a></li>
+                                    class="fa-calendar-minus-o"></i>
+                            <span>{{ trans('admin/site.meals-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/announcements')) ? 'class=active':''}}><a
                                 href="{{route('admin_announcements')}}"><i class="fa fa-bullhorn"></i>
                             <span>{{ trans('admin/site.announcements-nav') }}</span></a>
@@ -153,9 +154,11 @@
 
                 @if(hasAdminRole($user))
                 <li {{ (Request::is('admin/facillities/*')) ? 'class=active':''}}><a href="{{route('admin_facillities')}}"><i
-                                    class="fa fa-users"></i> <span>{{ trans('admin/site.facillitiessnav') }}</span></a></li>
+                                class="fa fa-cutlery"></i> <span>{{ trans('admin/site.facillitiessnav') }}</span></a>
+                </li>
                 <li {{ (Request::is('admin/stations/*')) ? 'class=active':''}}><a href="{{route('admin_stations')}}"><i
-                                    class="fa fa-users"></i> <span>{{ trans('admin/site.stationsnav') }}</span></a></li>
+                                class="fa fa-map-marker"></i> <span>{{ trans('admin/site.stationsnav') }}</span></a>
+                </li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users_show')}}"><i
                                     class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_settings')}}"><i

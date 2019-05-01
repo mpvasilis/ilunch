@@ -15,6 +15,8 @@ return [
     'reset-title' => 'Reset Password',
     'reset-button' => ' Send Password Reset Link',
     'profile' => 'Student Profile',
-    'cas' => 'Academic Login'
+    'cas' => 'Academic Login',
+    'title' => 'Login',
+
 ];
    
