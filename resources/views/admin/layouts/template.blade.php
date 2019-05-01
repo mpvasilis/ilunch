@@ -115,7 +115,7 @@
                 <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_schedule')}}"><i
                                     class="fa fa-list"></i> <span>{{ trans('admin/site.schedule') }}</span></a></li>
                     <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_meals')}}"><i
-                                    class="fa-calendar-minus-o"></i>
+                                    class="fa fa-calendar-minus-o"></i>
                             <span>{{ trans('admin/site.meals-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/announcements')) ? 'class=active':''}}><a
                                 href="{{route('admin_announcements')}}"><i class="fa fa-bullhorn"></i>
