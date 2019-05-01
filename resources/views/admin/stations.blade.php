@@ -68,7 +68,7 @@
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
                             {{ Form::select('is_active', array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control']) }}
-                            {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
+                            {!! Form::label('info', 'Πληροφορίες') !!}
                             {!! Form::textarea('info', null, ['class' => 'form-control']) !!}
                             {!! Form::submit('Submit', ['class' => 'btn btn-primary ']) !!}
                             {!! Form::close() !!}
@@ -110,7 +110,7 @@
                             {!! Form::text('title', null, ['class' => 'form-control', 'id'=>'title']) !!}
                             {!! Form::label('is_active', 'Είναι διαθέσιμο') !!}
                             {{ Form::select('is_active', array('1'=> 'Yes','0' => 'No'), null, ['class' => 'form-control', 'id'=>'is_active']) }}
-                            {!! Form::label('info', 'Πληροφορίες Γεύματος') !!}
+                            {!! Form::label('info', 'Πληροφορίες') !!}
                             {!! Form::textarea('info', null, ['class' => 'form-control', 'id'=>'info']) !!}
                             {{ Form::hidden('id', 'null', ['id' => 'ids']) }}
                             {!! Form::submit('Submit', ['class' => 'btn btn-primary ']) !!}
