@@ -93,9 +93,12 @@
 </div>
 @endif
                                     <div class="csi-form-group">
-                        <input class="csi-btn csi-submit" value="{{ trans('front/site.formsubmit') }}" type="submit">
-                    </div>
+                                        <center><input class="csi-btn csi-submit"
+                                                       value="{{ trans('front/site.formsubmit') }}" type="submit">
+                                        </center>
+                                    </div>
                 </form>
+                <br><br>
             </div>
         </div>
     </section>
