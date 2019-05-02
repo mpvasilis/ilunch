@@ -117,7 +117,7 @@ class FeedbackController extends Controller
         foreach ($ratings as $rating) {
        
             if($rating->schedule_id==NULL){
-                if ($rating->student_id == NULL) {
+                if (!is_int($rating->student_id) || $rating->student_id < 1) {
                     $name = "Anonymous";
                 } else {
                     $name = $rating->student->firstname . " " . $rating->student->lastname;
