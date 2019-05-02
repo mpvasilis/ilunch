@@ -4,8 +4,8 @@
 @endsection
 
 @section('main')
-<?php //dd(count($days[1]));?>
-@foreach ($dayss as $key => $days)
+
+    @foreach ($dayss as $key => $days)
 
 @php
 $facillity = \App\Facillity::where(['id' => $key])->first();
