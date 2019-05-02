@@ -75,7 +75,7 @@ class FeedbackController extends Controller
                 $name = md5(microtime()).'_'.$image->getClientOriginalName();
                 $image->move(public_path().'/images/', $name);  
                 $hash = md5($name);
-                array_push($$data, $name);
+                array_push($data, $name);
             }
          }
 
