@@ -46,7 +46,6 @@ $facillity = \App\Facillity::where(['id' => $key])->first();
                                     </h4>
                                     
                                     @for($k=0;$k < count($days[$i][$j]);$k++)
-                                    <?php// print_r($days[$i][$j]); ?>
                                     <div class="meal" data-mealid="{{$days[$i][$j][$k]['meal_id']}}" data-day={{$i}} data-type_id={{$j}} >{{ $days[$i][$j][$k]['name'] }}
                                     <a class="delete"  id="delete-btn" data-toggle="modal"  data-target="#modal-delete" style="display:none;"
                                     
