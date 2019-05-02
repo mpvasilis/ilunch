@@ -142,7 +142,14 @@
                                     </tr>
                                     @foreach($student->ratings as $rating)
                                         <tr>
-                                            <th>{{printMealsFromMenuAssigns($rating->schedule_item->schedule_item->mealAssigns)}}</th>
+                                            <th>    @php
+                                                    try {
+                                                      echo printMealsFromMenuAssigns($rating->schedule_item->schedule_item->mealAssigns );
+                                                    } catch (\Exception $e) {
+                                                        echo "-";
+                                                    }
+                                                @endphp
+                                            </th>
                                             <th>{{ $rating->rating }}/5</th>
                                             <th>{{ humanTiming($rating->created_at) }}</th>
                                         </tr>
