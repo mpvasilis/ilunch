@@ -60,8 +60,8 @@ class FeedbackController extends Controller
           $id=NULL;
         }
 
-        $data[] = array();
-        
+        $data = [];
+
         if($request->hasfile('filename'))
          {
 
@@ -75,7 +75,7 @@ class FeedbackController extends Controller
                 $name = md5(microtime()).'_'.$image->getClientOriginalName();
                 $image->move(public_path().'/images/', $name);  
                 $hash = md5($name);
-                $data[] = $name;  
+                array_push($$data, $name);
             }
          }
 
