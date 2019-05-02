@@ -33,7 +33,7 @@ class MealsController extends Controller
         $meal->info = $request['info'];
         $meal->is_active = $request['is_active'];
         $meal->save();
-        $meals = DB::table('Menu_meals')->get();
+        $meals = DB::table('menu_meals')->get();
         return view('admin.meals', compact('meals'));
     }
 
@@ -41,7 +41,7 @@ class MealsController extends Controller
     {
         Menu_meal::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
 
-        $meals = DB::table('Menu_meals')->get();
+        $meals = DB::table('menu_meals')->get();
 
         return view('admin.meals', compact('meals'));
     }
@@ -51,7 +51,7 @@ class MealsController extends Controller
 
         Menu_meal::where('id', $request['id'])->delete();
 
-        $meals = DB::table('Menu_meals')->get();
+        $meals = DB::table('menu_meals')->get();
 
         return view('admin.meals', compact('meals'));
     }
