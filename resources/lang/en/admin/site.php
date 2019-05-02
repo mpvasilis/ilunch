@@ -27,7 +27,8 @@ return [
     'facillitiessnav' => 'Facillities',
     'stationsnav' => 'Stations',
     'schedule_recurse_weeks' => 'Recurse schedule every weeks:',
-    'schedule_recurse_start' => 'Schedule start day:'
+    'schedule_recurse_start' => 'Schedule start day:',
+    'android-app' => 'Android App'
 
 
 

@@ -104,6 +104,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('students/create', 'StudentController@create')->name('admin_students_create');
     Route::post('students/create', 'StudentController@createStore')->name('admin_students_create');
 
+    Route::get('android', function () {
+        return view('admin.android');
+    });
+
 });
 
 //securedApi

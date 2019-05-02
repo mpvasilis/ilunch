@@ -55,6 +55,11 @@
                     <li><a href="{{route('index')}}"><i class="fa fa-home"></i> {{ trans('admin/site.site-top') }}</a>
                     </li>
 
+                    <li><a href="{{route('android_app')}}"><i
+                                    class="fa fa-android "></i> {{ trans('admin/site.android-app') }}</a>
+                    </li>
+
+
                     <li class="dropdown" style="margin:-5px;">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img
                                     width="32" height="32" alt="{{ session('locale') }}"
