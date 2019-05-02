@@ -10,6 +10,6 @@ return [
     'student-create-date' => 'Ημερομηνία Δημιουργίας',
     'student-semester' => 'Εξάμηνο',
     'student-actions' => 'Ενέργειες',
-    'student-view-prof' => 'View Profile'
+    'student-view-prof' => 'Πληροφορίες'
 ];
    
