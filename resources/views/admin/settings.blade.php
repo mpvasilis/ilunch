@@ -1,21 +1,31 @@
 @extends('admin.layouts.template')
 @section('title')
-    Ρυθμίσεις
+    {{trans('admin/site.setting')}}
 @endsection
 
 @section('head')
 <link rel="stylesheet" href="{{url("assets/datatables.net-bs/css/dataTables.bootstrap.min.css")}}">
 @endsection
 @section('main')
-<div class="box">
-{!! Form::open(array('action' => array('SettingsController@edit'))) !!}                                  
-  @foreach ($settings as $setting)
-        {!! Form::label('info',  trans('admin/site.'.$setting->setting)) !!}
-    {!! Form::text($setting->setting, $setting->value , ['class' => 'form-control']) !!}
-  @endforeach
-  {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-  {!! Form::close() !!}
-</div>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">    {{trans('admin/site.setting')}}</h3>
+
+            <div class="box-tools pull-right">
+            </div>
+        </div>
+        <div class="box-body">
+            {!! Form::open(array('action' => array('SettingsController@edit'))) !!}
+            @foreach ($settings as $setting)
+                {!! Form::label('info',  trans('admin/site.'.$setting->setting)) !!}
+                {!! Form::text($setting->setting, $setting->value , ['class' => 'form-control']) !!}
+            @endforeach
+            <br>
+            {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
+
 @endsection
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

@@ -4,18 +4,33 @@
 @endsection
 
 @section('main')
-    <div class="box">
-        <h3 class="heading_b uk-margin-bottom">Download {{ trans('admin/site.android-app') }}</h3>
 
-        <div class="md-card">
-            <div class="md-card-content">
-                <div class="uk-grid" data-uk-grid-margin>
-                    <div class="uk-width-1-1">
-                        <p>Download android app</p>
-                        <img src="/img/qrcode.png">
-                    </div>
-                </div>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Download {{ trans('admin/site.android-app') }}</h3>
+
+            <div class="box-tools pull-right">
             </div>
         </div>
+        <div class="box-body">
+            <center><img src="/img/qrcode.png"></center>
+            <center><p>Scan QR code with your phone.</p>
+                <center>
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">API Keys</h3>
+
+            <div class="box-tools pull-right">
+            </div>
+        </div>
+        <div class="box-body">
+
+        </div>
+        <!-- /.box-body -->
     </div>
 @endsection
