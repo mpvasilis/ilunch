@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('android', function () {
         return view('admin.android');
-    });
+    })->name('android_app');
 
 });
 
