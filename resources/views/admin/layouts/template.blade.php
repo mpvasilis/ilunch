@@ -55,6 +55,25 @@
                     <li><a href="{{route('index')}}"><i class="fa fa-home"></i> {{ trans('admin/site.site-top') }}</a>
                     </li>
 
+                    <li class="dropdown" style="margin:-5px;">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img
+                                    width="32" height="32" alt="{{ session('locale') }}"
+                                    src="{!! asset('img/' . session('locale') . '-flag.png') !!}"/>
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach ( config('app.languages') as $lang)
+                                @if($lang !== config('app.locale'))
+                                    <li>
+                                        <a href="{!! url('language') !!}/{{ $lang }}"><img
+                                                    width="32" height="32"
+                                                    alt="{{ $lang }}"
+                                                    src="{!! asset('img/' . $lang . '-flag.png') !!}"></a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
+
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-arrow-circle-down"></i>
