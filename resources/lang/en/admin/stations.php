@@ -10,10 +10,10 @@ return [
     'show' => 'Show',
     'edit' => 'Edit',
     'delete' => 'Delete',
-    'add-meal-header' => 'Add New Feedback Station',
-    'edit-meal-header' => 'Edit Feedback Station',
-    'delete-meal-header' => 'Are you sure that you want to delete this Feedback Station?',
-    'show-meal-header' => 'Feedback Station Information',
+    'add-station-header' => 'Add New Feedback Station',
+    'edit-station-header' => 'Edit Feedback Station',
+    'delete-station-header' => 'Are you sure that you want to delete this Feedback Station?',
+    'show-station-header' => 'Feedback Station Information',
 
 ];
    

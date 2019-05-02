@@ -10,10 +10,10 @@ return [
     'show' => 'Προβολή',
     'edit' => 'Επεξεργασία',
     'delete' => 'Διαγραφή',
-    'add-meal-header' => 'Προσθήκη νέας Βάσης',
-    'edit-meal-header' => 'Επεξεργασία Βάσης',
-    'delete-meal-header' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις την Βάση ',
-    'show-meal-header' => 'Πληροφορίες Βάσης',
+    'add-station-header' => 'Προσθήκη νέας Βάσης',
+    'edit-station-header' => 'Επεξεργασία Βάσης',
+    'delete-station-header' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις την Βάση ',
+    'show-station-header' => 'Πληροφορίες Βάσης',
 
 ];
    
