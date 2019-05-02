@@ -32,7 +32,9 @@ return [
     'mb-createdby' => 'Created By',
     'meal' => 'Meal',
     'edit-prof-header' => 'Edit Student Profile',
-    
+    'semester' => 'Semester:'
+
+
 
 ];
    
