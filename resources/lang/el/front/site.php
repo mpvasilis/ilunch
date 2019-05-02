@@ -55,5 +55,9 @@ return [
     'formname' => 'Όνομα',
     'mealsvotetop10' => 'Top Γευματα',
     'votes_title' => 'Τα 10 καλυτερα φαγητα της εβδομαδας',
-    'votes_sectitle' => 'Ψηφιστε για το φαγητο της εβδομαδας'
+    'votes_sectitle' => 'Ψηφιστε για το φαγητο της εβδομαδας',
+    'feedback-success' => 'Επιτυχής καταχώρηση feedback.',
+    'feedback-success-msg' => 'Το σχόλιο σας καταχωρήθηκε επιτυχώς. Ευχαριστούμε!'
+
+
 ];

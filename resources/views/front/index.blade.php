@@ -304,6 +304,11 @@ $facid = $fac["id"];
                                                 </div>
                                             </div>
                                             @if (count($errors) > 0)
+                                                    <script>Swal.fire(
+                                                            'Whoops!',
+                                                            'Σφάλμα κατα την καταχώρηση του σχόλιου σας.',
+                                                            'success'
+                                                        )</script>
                                             <div class="alert alert-danger">
                                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                                 <ul>
@@ -312,11 +317,12 @@ $facid = $fac["id"];
                                                 @endforeach
                                                 </ul>
                                             </div>
-                                            @endif
-                                            @if(session('success'))
-   <div class="alert alert-success">
-      {{ session('success') }}
-   </div> 
+                                                @elseif (session('success'))
+                                                    <script>Swal.fire(
+                                                            '{{ trans('front/site.feedback-success') }}',
+                                                            '{{ trans('front/site.feedback-success-msg') }}',
+                                                            'success'
+                                                        )</script>
  @endif
                                                             <div class="csi-form-group">
                                                 <input class="csi-btn csi-submit" value="{{ trans('front/site.formsubmit') }}" type="submit">

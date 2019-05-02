@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{!! asset('assets/css/custom.css') !!}" media="all"/>
     <link id="csi-master-style" rel="stylesheet" href="{!! asset('assets/css/style-default.min.css') !!}" media="all"/>
     <script src="{!! asset('assets/js/vendor/modernizr-2.8.3.min.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
     @section('header')
     @show
 </head>

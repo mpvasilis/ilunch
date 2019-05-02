@@ -105,7 +105,7 @@ class FeedbackController extends Controller
              }
          }
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Feedback sent!');;
     }
 
     public function index()

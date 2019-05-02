@@ -58,5 +58,7 @@ return [
     'formname' => 'Name',
     'mealsvotetop10' => 'Top Meals',
     'votes_title' => 'Top 10 Foods of this week',
-    'votes_sectitle' => 'Vote for the bestfood of this Week'
+    'votes_sectitle' => 'Vote for the bestfood of this Week',
+    'feedback-success' => 'Feedback sent successfully.',
+    'feedback-success-msg' => 'We got your feedback. Thank you!'
 ];
