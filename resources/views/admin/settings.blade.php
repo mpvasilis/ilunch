@@ -10,7 +10,7 @@
 <div class="box">
 {!! Form::open(array('action' => array('SettingsController@edit'))) !!}                                  
   @foreach ($settings as $setting)
-    {!! Form::label('info', $setting->setting) !!}
+        {!! Form::label('info',  trans('admin/site.'.$setting->setting)) !!}
     {!! Form::text($setting->setting, $setting->value , ['class' => 'form-control']) !!}
   @endforeach
   {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}

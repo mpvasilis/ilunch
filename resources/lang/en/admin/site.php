@@ -25,7 +25,10 @@ return [
     'setting'=> 'Settings',
     'schedule'=>'Schedule',
     'facillitiessnav' => 'Facillities',
-    'stationsnav' => 'Stations'
+    'stationsnav' => 'Stations',
+    'schedule_recurse_weeks' => 'Recurse schedule every weeks:',
+    'schedule_recurse_start' => 'Schedule start day:'
+
 
 
 ];

@@ -25,7 +25,8 @@ return [
     'setting'=> 'Ρυθμίσεις',
     'schedule'=>'Πρόγραμμα',
     'facillitiessnav' => 'Εγκαταστάσεις',
-    'stationsnav' => 'Σταθμοί'
-
+    'stationsnav' => 'Σταθμοί',
+    'schedule_recurse_weeks' => 'Ανακυκλωση προγράμματος φαγητού καθε πόσες εβδομάδες;',
+    'schedule_recurse_start' => 'Ποια ημερομηνία θα ξεκινάει το πρόγραμμα φαγητού;'
 
 ];

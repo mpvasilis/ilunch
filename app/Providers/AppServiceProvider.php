@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
     {
         date_default_timezone_set('Europe/Athens');
         Carbon::setLocale(env('LOCALE', 'gr'));
+        if (env('APP_ENV') === 'production') {
+            \URL::forceScheme('https');
+        }
     }
 
     /**

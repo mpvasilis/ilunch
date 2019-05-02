@@ -131,7 +131,7 @@
                     <li {{ (Request::is('admin/students/*')) ? 'class=active':''}}><a
                                 href="{{route('admin_students')}}"><i
                                     class="fa fa-book"></i> <span>{{ trans('admin/site.students-nav') }}</span></a></li>
-                    <li class="treeview {{ (Request::is('admin/memberships/*')) ? 'active menu-open':''}}">
+                    <li class="treeview {{ (Request::is('admin/memberships/*') && !Request::is('admin/memberships/settings')) ? 'active menu-open':''}}">
                         <a href="#">
                             <i class="fa fa-dashboard"></i> <span>{{ trans('admin/site.members-nav') }}</span>
                             <span class="pull-right-container">
@@ -140,12 +140,12 @@
                         </a>
                         <ul class="treeview-menu">
                             @if(hasStaffRole($user))
-                                <li {{ (Request::is('admin/memberships/show')) ? 'class=active':''}}><a
+                                <li {{ (Request::is('admin/memberships/show/*')) ? 'class=active':''}}><a
                                             href="{{route('admin_memberships_show')}}"><i
                                                 class="fa fa-th-list"></i>{{ trans('admin/site.members-list-nav') }}</a>
                                 </li>
                             @endif
-                            <li {{ (Request::is('admin/memberships/assign/show')) ? 'class=active':''}}><a
+                            <li {{ (Request::is('admin/memberships/assign/show/*')) ? 'class=active':''}}><a
                                         href="{{route('admin_memberships_showAssign')}}"><i class="fa fa-plus-square-o"></i>
                                     {{ trans('admin/site.members-assign-nav') }}</a></li>
                         </ul>
@@ -161,7 +161,7 @@
                 </li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users_show')}}"><i
                                     class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
-                    <li {{ (Request::is('admin/memberships/settings/*')) ? 'class=active':''}}><a
+                    <li {{ (Request::is('admin/memberships/settings')) ? 'class=active':''}}><a
                                 href="{{route('admin_settings')}}"><i
                                     class="fa fa-edit"></i> <span>{{ trans('admin/site.setting') }}</span></a></li>
                                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_meal_votes')}}"><i
