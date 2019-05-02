@@ -12,7 +12,7 @@
                 <div class="uk-grid" data-uk-grid-margin>
                     <div class="uk-width-1-1">
                         <p>Download android app</p>
-                        <img src="/img/grcode.png">
+                        <img src="/img/qrcode.png">
                     </div>
                 </div>
             </div>
