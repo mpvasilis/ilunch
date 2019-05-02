@@ -112,7 +112,8 @@
 
 
                 @if(hasStaffRole($user))
-                <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_schedule')}}"><i
+                    <li {{ (Request::is('admin/schedule')) ? 'class=active':''}}><a
+                                href="{{route('admin_schedule')}}"><i
                                     class="fa fa-list"></i> <span>{{ trans('admin/site.schedule') }}</span></a></li>
                     <li {{ (Request::is('admin/meals')) ? 'class=active':''}}><a href="{{route('admin_meals')}}"><i
                                     class="fa fa-calendar-minus-o"></i>
@@ -159,13 +160,13 @@
                 <li {{ (Request::is('admin/stations/*')) ? 'class=active':''}}><a href="{{route('admin_stations')}}"><i
                                 class="fa fa-map-marker"></i> <span>{{ trans('admin/site.stationsnav') }}</span></a>
                 </li>
+                    <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_meal_votes')}}"><i
+                                    class="fa fa-star "></i> <span>Βαθμολογίες Γευμάτων</span></a></li>
                     <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_users_show')}}"><i
                                     class="fa fa-users"></i> <span>{{ trans('admin/site.users-nav') }}</span></a></li>
                     <li {{ (Request::is('admin/memberships/settings')) ? 'class=active':''}}><a
                                 href="{{route('admin_settings')}}"><i
                                     class="fa fa-edit"></i> <span>{{ trans('admin/site.setting') }}</span></a></li>
-                                    <li {{ (Request::is('admin/users/*')) ? 'class=active':''}}><a href="{{route('admin_meal_votes')}}"><i
-                                                    class="fa fa-edit"></i> <span>Βαθμολογίες Γευμάτων</span></a></li>
                 @endif
                 @if(isStudent($user))
                 @if($user != NULL && $user->student_id != NULL)
