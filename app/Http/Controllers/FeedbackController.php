@@ -34,10 +34,6 @@ class FeedbackController extends Controller
     public function store(Request $request )
     {   
      
-        $this->validate($request, [
-            'filename' => 'required',
-            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
-        ]);
 
         $scheduleid = $request->schedule;
         if ($scheduleid=='0'){
@@ -50,7 +46,7 @@ class FeedbackController extends Controller
             $id = 0;
             $scheduleid = 0;
         }else{
-            $id = $user[0]->student->id;
+            $id = $user[0]->id;
         }
       
     
@@ -63,12 +59,19 @@ class FeedbackController extends Controller
         if ($anon == 'True'){
           $id=NULL;
         }
+
+        $data[] = array();
         
         if($request->hasfile('filename'))
          {
 
             foreach($request->file('filename') as $image)
             {
+                $this->validate($request, [
+                    'filename' => 'required',
+                    'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
+                ]);
+
                 $name = md5(microtime()).'_'.$image->getClientOriginalName();
                 $image->move(public_path().'/images/', $name);  
                 $hash = md5($name);
