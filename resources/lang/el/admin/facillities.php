@@ -10,10 +10,10 @@ return [
     'show' => 'Προβολή',
     'edit' => 'Επεξεργασία',
     'delete' => 'Διαγραφή',
-    'add-meal-header' => 'Προσθήκη νέας Τοποθεσίασ',
-    'edit-meal-header' => 'Επεξεργασία Τοποθεσίας',
-    'delete-meal-header' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις την Τοποθεσία;',
-    'show-meal-header' => 'Πληροφορίες Τοποθεσίας',
+    'add-facillity-header' => 'Προσθήκη νέας Τοποθεσίασ',
+    'edit-facillity-header' => 'Επεξεργασία Τοποθεσίας',
+    'delete-facillity-header' => 'Είσαι σίγουρος ότι θέλεις να διαγράψεις την Τοποθεσία;',
+    'show-facillity-header' => 'Πληροφορίες Τοποθεσίας',
     'edit-facillity-header' => 'Επεξεργασία'
 ];
    
