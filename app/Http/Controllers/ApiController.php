@@ -45,7 +45,7 @@ class ApiController extends Controller
         $data = $request->all();
         //var_dump( $data);
         return response(var_dump($data))->json("Success, we did'it!");
-        foreach (json_decode($data["data"]) as $row)
+        foreach (json_decode($data["data"], true) as $row)
        {
         $success = Rating::create([
                                    'rating'  => $row["rating"],
