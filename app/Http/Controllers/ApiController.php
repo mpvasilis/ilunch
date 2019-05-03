@@ -66,6 +66,7 @@ class ApiController extends Controller
         return response()->json($result);
     }
     public function validateCustomer($id){
+        $id = Crypt::decryptString($id);
         $usermembership = Membership_assign::where('student_id',$id)->orderBy('created_at','DESC')->first();
         $today = Carbon::today()->format('Y-m-d');
         $now = Carbon::now()->format('H:i:s');
