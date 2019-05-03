@@ -44,7 +44,6 @@ class ApiController extends Controller
     public function submitFeedback(Request $request){
         $data = $request->all();
         //var_dump( $data);
-        return response(var_dump($data))->json("Success, we did'it!");
         foreach (json_decode($data["data"], true) as $row)
        {
         $success = Rating::create([
