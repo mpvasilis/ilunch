@@ -286,7 +286,8 @@ $facid = $fac["id"];
                                             <div class="csi-form-group" style="padding-bottom: 10px">
                                                 <label for="comment" style="text-align:left">{{ trans('front/site.formcomment') }}</label>
                                                 <input class="form-control" name="comment" id="feedback_comment"
-                                                       placeholder="Brief Comment" type="text" required>
+                                                       placeholder="{{ trans('front/site.formcomment') }}" type="text"
+                                                       required>
                                             </div>
 
                                             <div class="input-group control-group increment csi-form-group" style="padding-bottom: 10px">
