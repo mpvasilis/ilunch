@@ -24,13 +24,19 @@ class HomeController extends Controller
         // dd($user->student->id);
         if (Auth::user() && $user->role == 'STUDENT'){
 
-            $statistics = Statistic::where('student_id',$user->student->id)->get();
-            // dd($statistics);
-            foreach ($statistics as $stat){
-              // dd($stat->schedule_item);
-                $stat->schedule_item;
-                $stats[$stat->schedule_item->id] =[ 'date' => $stat->schedule_item->date, 'meal_id' => $stat->type_id];
+            try {
+
+                $statistics = Statistic::where('student_id',$user->student->id)->get();
+                // dd($statistics);
+                foreach ($statistics as $stat){
+                    // dd($stat->schedule_item);
+                    $stat->schedule_item;
+                    $stats[$stat->schedule_item->id] =[ 'date' => $stat->schedule_item->date, 'meal_id' => $stat->type_id];
+                }
+            } catch (Exception $e) {
+
             }
+
         }
 
         $food=[];
