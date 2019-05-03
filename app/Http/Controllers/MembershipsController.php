@@ -153,7 +153,7 @@ class MembershipsController extends Controller
             abort(403, 'exceptionNoAccess');
         }
         if ($assign != null) {
-            return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encrypt($assignId)]);
+            return view('admin.memberships.printAssign', ['assign' => $assign, 'id' => Crypt::encryptString($assignId)]);
         } else {
             return abort(404, 'printAssignMembershipNotFound');
         }
