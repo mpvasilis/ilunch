@@ -35,3 +35,8 @@
 [01-Apr-2017 20:16:59 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Lava' not found in /home/ilunch/public_html/app/Http/Controllers/StatsController.php on line 14
 [01-Apr-2017 20:17:00 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Lava' not found in /home/ilunch/public_html/app/Http/Controllers/StatsController.php on line 14
 [01-Apr-2017 20:17:01 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Lava' not found in /home/ilunch/public_html/app/Http/Controllers/StatsController.php on line 14
+[04-May-2019 00:43:19 Europe/Athens] PHP Fatal error:  Call to undefined method Illuminate\Http\Response::json() in /home/vasilis/public_html/ilunch/app/Http/Controllers/ApiController.php on line 47
+[04-May-2019 00:48:21 Europe/Athens] PHP Fatal error:  Call to undefined method Illuminate\Http\Response::json() in /home/vasilis/public_html/ilunch/app/Http/Controllers/ApiController.php on line 47
+[04-May-2019 00:52:21 Europe/Athens] PHP Fatal error:  Call to undefined method Illuminate\Http\Response::json() in /home/vasilis/public_html/ilunch/app/Http/Controllers/ApiController.php on line 47
+[04-May-2019 00:52:25 Europe/Athens] PHP Fatal error:  Call to undefined method Illuminate\Http\Response::json() in /home/vasilis/public_html/ilunch/app/Http/Controllers/ApiController.php on line 47
+[04-May-2019 00:52:35 Europe/Athens] PHP Fatal error:  Call to undefined method Illuminate\Http\Response::json() in /home/vasilis/public_html/ilunch/app/Http/Controllers/ApiController.php on line 47

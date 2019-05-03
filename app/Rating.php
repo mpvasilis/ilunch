@@ -24,6 +24,7 @@ class Rating extends Model
         'rating',
         'comment',
         'filename',
-        'date'
+        'date',
+        'created_at'
     ];
 }
