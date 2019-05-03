@@ -106,15 +106,16 @@ class ApiController extends Controller
                 $art->type_id = $mealtype;
                 $art->save();
 
-                return response()->json($id);
+                return response($id);
             }else if($typename==0){
-                return response()->json('Η συνδρομή σας δεν περιελαμβάνει αυτό τον τύπο γεύματος!');
+                return response(htmlentities('Η συνδρομή σας δεν περιελαμβάνει αυτό τον τύπο γεύματος!', ENT_QUOTES, "UTF-8"));
+
             }
             else{
-                return response()->json('Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.');
+                return response('Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.');
             }
         }else{
-            return response()->json('Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!');
+            return response(htmlentities('Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!', ENT_QUOTES, "UTF-8"));
         }
         
         
