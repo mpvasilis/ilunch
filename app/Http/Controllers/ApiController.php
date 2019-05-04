@@ -55,7 +55,7 @@ class ApiController extends Controller
             return response()->json("There was an error, pls try again");
         } 
        }
-        return response()->json("Success, we did'it!");
+        return response()->json("Feedback data successfully uploaded to ilunch server!");
     }
     public function getLatestAnnouncement(){
 
