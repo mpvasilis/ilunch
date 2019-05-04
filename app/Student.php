@@ -52,7 +52,7 @@ class Student extends Model
         'father_name',
         'department_id',
         'semester',
-        // add all other fields
+        'photo',
     ];
 
 }

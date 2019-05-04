@@ -8,9 +8,9 @@
         <div class="box-header with-border">
             <h3 class="box-title">Λίστα Χρηστών</h3>
             <div class="box-tools">
-                {{--<a href="{{route('admin_students_create')}}">--}}
-                {{--<button type="button" class="btn btn-success btn-small">Προσθήκη Φοιτητή</button>--}}
-                {{--</a>--}}
+                <a href="{{route('admin_students_create')}}">
+                    <button type="button" class="btn btn-success btn-small">{{ trans('admin/site.user-add') }}</button>
+                </a>
 
             </div>
             <div class="box-body">

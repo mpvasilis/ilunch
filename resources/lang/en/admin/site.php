@@ -29,7 +29,9 @@ return [
     'schedule_recurse_weeks' => 'Recurse schedule every weeks:',
     'schedule_recurse_start' => 'Schedule start day:',
     'android-app' => 'Android App',
-    'api_key' => 'API key for android app'
+    'api_key' => 'API key for android app',
+    'user-add' => 'Add user'
+
 
 
 

@@ -29,7 +29,8 @@ return [
     'schedule_recurse_weeks' => 'Ανακυκλωση προγράμματος φαγητού καθε πόσες εβδομάδες;',
     'schedule_recurse_start' => 'Ποια ημερομηνία θα ξεκινάει το πρόγραμμα φαγητού;',
     'android-app' => 'Εφαρμογή Android',
-    'api_key' => 'Κλειδί API εφαρμογής Android'
+    'api_key' => 'Κλειδί API εφαρμογής Android',
+    'user-add' => 'Προσθήκη Χρήστη'
 
 
 ];

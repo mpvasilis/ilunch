@@ -20,8 +20,10 @@
                 {!! Form::text('fatherName', null, ['class' => 'form-control']) !!}
                 {!! Form::label('semester', 'Εξάμηνο') !!}
                 {!! Form::number('semester', null, ['class' => 'form-control']) !!}
-
+                {!! Form::label('photo', 'Φωτογραφία') !!}
+                {!! Form::file('photo', null, ['class' => 'form-control']) !!}
                 {!! Form::label('department', 'Πανεπιστιμιακό Τμήμα') !!}
+                <br>
                 <select name="department">
                     @foreach($departments as $department)
                         <option value='{{$department->id}}'>{{$department->department_name}} at {{ $department->university }}</option>
