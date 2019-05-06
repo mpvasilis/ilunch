@@ -28,6 +28,8 @@ class MealVotesController extends Controller
 
       $votes = Meal_vote::whereBetween('created_at', [$weekStartDate,$weekEndDate])->get();
       $votes_bymeal = $votes->groupby('meal_id');
+
+        $mo = array();
       foreach ($votes_bymeal as $key=>$votes){
         $points=0;
 
