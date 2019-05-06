@@ -32,7 +32,6 @@
           <td>{{$food[2]}}</td>
           <td>{{$food[0]}}/5</td>
         </tr>
-
         @endforeach
       </table>
       <div>
