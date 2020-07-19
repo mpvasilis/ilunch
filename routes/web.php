@@ -64,6 +64,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::group(['prefix' => 'memberships', 'middleware' => 'auth'], function () {
         Route::get('show', 'MembershipsController@index')->name('admin_memberships_show');
         Route::get('create', 'MembershipsController@create')->name('admin_memberships_create');
+        Route::post('delete', 'MembershipsController@delete')->name('admin_memberships_delete');
+        Route::post('update', 'MembershipsController@update')->name('admin_memberships_update');
+
         Route::post('create', 'MembershipsController@createStore')->name('admin_memberships_create');
         Route::get('{membershipId}/flipStatus', 'MembershipsController@flipStatus')->name('admin_membership_flipStatus');
 

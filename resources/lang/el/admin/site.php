@@ -30,7 +30,8 @@ return [
     'schedule_recurse_start' => 'Ποια ημερομηνία θα ξεκινάει το πρόγραμμα φαγητού;',
     'android-app' => 'Εφαρμογή Android',
     'api_key' => 'Κλειδί API εφαρμογής Android',
-    'user-add' => 'Προσθήκη Χρήστη'
+    'user-add' => 'Προσθήκη Χρήστη',
+    
 
 
 ];

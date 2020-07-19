@@ -10,6 +10,7 @@ use App\Student;
 use Mockery\Exception;
 use Redirect;
 use Auth;
+use DB;
 use Illuminate\Support\Facades\Crypt;
 use Knp\Snappy\Pdf;
 
@@ -158,4 +159,24 @@ class MembershipsController extends Controller
         }
 
     }
+
+    public function update(Request $request)
+    {
+        Membership::where('id', $request['id'])->update(['title' => $request['title'], 'breakfast' => $request['breakfast'],'lunch' => $request['lunch'],'dinner' => $request['dinner']]);
+
+        $Memberships = DB::table('memberships')->get();
+
+        return Redirect::route('admin_memberships_show');
+    }
+
+    public function delete(Request $request)
+    {
+
+        Membership::where('id', $request['id'])->delete();
+
+        $Memberships = DB::table('memberships')->get();
+
+        return Redirect::route('admin_memberships_show');
+    }
+
 }
