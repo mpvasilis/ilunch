@@ -17,7 +17,6 @@ if(!isset($user)){
                         <h2 class="intro-text text-center"><strong>ERROR 403 - UNAUTHORISED</strong></h2>
                         <hr>
                         <h5>Don't sneak this way, trouble ahead!!
-                            <small>(or Sarantis didn't even get that right)</small>
                         </h5>
                         <small> reference: [{{ $exception->getMessage() }}]</small>
                     </div>

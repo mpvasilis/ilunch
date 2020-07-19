@@ -47,7 +47,6 @@ class HomeController extends Controller
 
         $scheduleitems = Schedule_item::whereBetween('date', [$date1, $date2])->orderby('date','ASC')->get();
 
-
         foreach ($scheduleitems as $item){
             foreach($item->mealAssigns->groupby('type_id') as $mealassigns){
                 // dd($mealassigns);

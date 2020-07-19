@@ -22,6 +22,8 @@ Route::get('validateAnonymousCustomer', 'ApiController@validateAnonymousCustomer
 Route::get('getLatestAnnouncement', 'ApiController@getLatestAnnouncement');//todo response with lastAnnounce
 Route::post('submitFeedback', 'ApiController@submitFeedback');//todo response status code can get array as input ( mass input)
 Route::get('getMealStatistics', 'ApiController@getMealStatistics');//todo find all endpoints for statistic creation (group + middleware)
+Route::get('ckeckFreeSitisi', 'ApiController@ckeckFreeSitisi');
+
 
 Route::post('login', 'ApiController@login')->name('api.login');
 Route::post('logout', 'ApiController@logout')->name('api.logout');

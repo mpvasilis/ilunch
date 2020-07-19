@@ -165,6 +165,12 @@
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="{{url("assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>
+<script src="{{url("assets/moment/min/moment.min.js")}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
 <script>
      $(function () {
     $('#table').DataTable({
@@ -211,8 +217,12 @@
     });
 </script>
 <script>
-    $("#datepicker").datepicker({
-        autoclose: true })
+  //  $("#datepicker").datepicker({
+   //     autoclose: true })
+$('#datepicker').datetimepicker({
+   format:'YY-MM-DD HH:mm:ss', // Y-m-d H:i:s
+});
+
 </script>
 
 @endsection

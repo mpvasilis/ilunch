@@ -138,10 +138,9 @@ class MembershipsController extends Controller
 
     public function printAssign($assignId)
     {
-        $myProjectDirectory = 'C:\Users\Christos Sarantis\Desktop';
-        $snappy = new Pdf($myProjectDirectory . '/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
+        $snappy = new Pdf('./vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
         header('Content-Type: application/pdf');
-        header('Content-Disposition: attachment; filename="file.pdf"');
+        header('Content-Disposition: attachment; filename="print.pdf"');
         echo $snappy->getOutput(url("admin/memberships/assign/$assignId/view"));
     }
 

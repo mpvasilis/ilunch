@@ -9,11 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+  
     public function student()
     {
         return $this->hasOne('App\Student', 'aem', 'student_id');
@@ -23,11 +19,6 @@ class User extends Authenticatable
         'name', 'email', 'password', 'student_id', 'role'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];

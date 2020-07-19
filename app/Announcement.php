@@ -3,14 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Announcement extends Model
 {
 
 
     public function scopeActive($query)
     {
-        $date = date('Y-m-d');
+        $date = date('Y-m-d Η:i:s');
         return $query->where('show_until', '>', $date);
     }
 

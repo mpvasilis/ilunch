@@ -92,7 +92,8 @@ class FeedbackController extends Controller
          $newFeedback->schedule_id = $scheduleid;
          $newFeedback->rating = $stars;
          $newFeedback->filename = json_encode($data);
-         $newFeedback->save();
+       
+        $newFeedback->save();
 
          $stats = collect([]);
          $user = Auth::user();
@@ -108,6 +109,7 @@ class FeedbackController extends Controller
         return redirect()->back()->with('success', 'Feedback sent!');;
     }
 
+
     public function index()
     {
 
@@ -117,10 +119,17 @@ class FeedbackController extends Controller
         foreach ($ratings as $rating) {
        
             if($rating->schedule_id==NULL){
-                if (!is_int($rating->student_id) || $rating->student_id < 1) {
+                if (!is_int($rating->student_id) || $rating->student_id < 1 || $rating->student_id==NULL) {
                     $name = "Anonymous";
                 } else {
-                    $name = $rating->student->firstname . " " . $rating->student->lastname;
+                    try {
+                        $name = $rating->student->firstname . " " . $rating->student->lastname;
+                    }
+                    catch (ErrorException $e) {
+                        $name = "Anonymous";
+                    }
+                    
+                   
                 }
                 $facility = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating,'images' => $rating->filename]);
                 $facilities->push($facility);
@@ -129,7 +138,12 @@ class FeedbackController extends Controller
                 if ($rating->student_id == NULL) {
                     $name = "Anonymous";
                 } else {
-                    $name = $rating->student->firstname . " " . $rating->student->lastname;
+                    try {
+                        $name = $rating->student->firstname . " " . $rating->student->lastname;
+                    }
+                    catch (ErrorException $e) {
+                        $name = "Anonymous";
+                    }
                 }
 
                 $feed = collect(['id' => $rating->id, 'name' => $name, 'comment' => $rating->comment, 'created_at' => $rating->created_at, 'rating' => $rating->rating, 'menu' => $rating->menu, 'images' => $rating->filename]);

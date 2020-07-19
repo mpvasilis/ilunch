@@ -79,12 +79,11 @@ class StatsController extends Controller
 
         $facillities=[];
         $facid = $request->input('facillities', '0');
-
         $start = Carbon::parse($request['start']);
 
         $stop = Carbon::parse($request['stop']);
         $facillit= Facillity::all();
-        $title = $start->format('d/m/Y D') . " - " . $stop->format('d/m/Y D') ." - ". $facillit[$facid-1]->title;
+        $title = $start->format('d/m/Y D') . " - " . $stop->format('d/m/Y D') ." - ". $facillit[$facid]->title;
         $length = $stop->diffInDays($start);
 
         if ($facid == '0'){
@@ -102,7 +101,7 @@ class StatsController extends Controller
             $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->type_id]);
             $stats->push($his);
         }
-
+    
         for ($i = 0; $i <= $length; $i++) {
             $breakfast = $lunch = $dinner = 0;
             $range[] = Carbon::parse($request['start'])->addDay($i)->format('d/m/Y D');
@@ -127,7 +126,7 @@ class StatsController extends Controller
             $Type[] = collect(['breakfast' => $breakfast, 'lunch' => $lunch, 'dinner' => $dinner]);
 
         }
-
+    
         $facillities[0] = 'Συνολικά Στατιστικά Πανεπιστημίου';
         foreach($facillit as $fac) {
             $facillities[$fac->id] = $fac->title;

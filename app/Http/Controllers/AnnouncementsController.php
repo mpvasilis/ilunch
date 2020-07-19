@@ -38,7 +38,7 @@ class AnnouncementsController extends Controller
         $announcement->created_by = Auth::user()->id;
 
 
-        $announcement->show_until = Carbon::parse($request['show_until'])->format('Y-m-d');
+        $announcement->show_until = Carbon::parse($request['show_until'])->format('Y-m-d H:i:s');
         $announcement->save();
         $announcements = Announcement::get();
 

@@ -17,7 +17,7 @@ if(!isset($user)){
                     <div class="panel-body text-center">
                         <h2 class="intro-text text-center"><strong>ERROR 404 - CONTENT NOT FOUND</strong></h2>
                         <hr>
-                        <h5>Either you stick your nose where it doesn't belong or Sarantis lost it again.</h5>
+                        <h5>Υou stick your nose where it doesn't belong.</h5>
                         <small> reference: [{{ $exception->getMessage() }}]</small>
                     </div>
                 </div>

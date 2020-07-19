@@ -39,6 +39,8 @@
                             <td>{{ getIntBoolString($membership->is_active)}}</td>
                             <td>
                                 <a href="{{route('admin_membership_flipStatus',['membershipId'=>$membership->id])}}">{{ trans('admin/members.flipStatus') }}</a>
+                                <a class="btn btn-warning " id="edit-btn" data-toggle="modal" data-target="#modal-edit" data-id="1" data-title="Student Restaurant 1" data-is_active="1" data-info="Student Restaurant 1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <a class="btn btn-danger " id="delete-btn" data-toggle="modal" data-target="#modal-delete" data-id="1"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     @endforeach
