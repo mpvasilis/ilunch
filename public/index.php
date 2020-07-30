@@ -18,7 +18,7 @@
 | loading any of our classes later on. It feels great to relax.
 |
 */
-
+date_default_timezone_set('Europe/Athens');
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*

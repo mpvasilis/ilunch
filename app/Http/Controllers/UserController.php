@@ -41,7 +41,11 @@ class UserController extends Controller
         $user->role = $request['role'];
         $user->name = $request['name'];
         $user->student_id = $request['student_id'];
-        $user->save();
+        $status = $user->save();
+                    
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
         return redirect(route('admin_users_show'));
     }
 }

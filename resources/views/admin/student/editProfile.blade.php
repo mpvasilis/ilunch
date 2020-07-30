@@ -35,6 +35,10 @@
                             {!! Form::select('semester', array('1' => '1st', '2' => '2nd', '3' => '3rd', '4' => '4nd', '5' => '5nd', '6' => '6nd', '7' => '7nd', '8' => '8nd', '9' => '9nd', '10' => '10th or greater'), $student->semester); !!}
                             <br/>
                         </div>
+                        <div class="col-md-6">
+                            {!! Form::label('paso', 'Paso') !!}
+                            {!! Form::text('paso', $student->paso, ['class' => 'form-control']) !!}
+                          </div>
                         <div class="col-md-3">
                         <?php
                         $departmentList = array(); ?>

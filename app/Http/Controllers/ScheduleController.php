@@ -98,7 +98,13 @@ class ScheduleController extends Controller
             $men->day = $day;
             $men->week = $week;
             $men->facility_id = $request->facillity;
-            $men->save();
+            
+            $status = $men->save();
+                    
+            if(!$status){
+                report("Σφάλμα κατα την εγγραφή.");
+            }
+      
             $menu = Menu::where('day',$day)->where('week', $week)->where('facility_id', $request->facillity)->get();
         }
         $meals = $request->meals;
@@ -108,8 +114,14 @@ class ScheduleController extends Controller
             $meal->meal_id = $meala;
             $meal->menu_id = $menu[0]->id;
             $meal->type_id = $request->type_id;
-    
-            $meal->save();
+
+
+            $status = $meal->save();
+                    
+            if(!$status){
+                report("Σφάλμα κατα την εγγραφή.");
+            }
+      
             
         }
         return $this->index();

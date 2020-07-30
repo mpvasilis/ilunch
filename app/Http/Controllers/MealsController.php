@@ -32,7 +32,13 @@ class MealsController extends Controller
         $meal->title = $request['title'];
         $meal->info = $request['info'];
         $meal->is_active = $request['is_active'];
-        $meal->save();
+       
+          
+        $status =  $meal->save();
+                    
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
         $meals = DB::table('menu_meals')->get();
         return view('admin.meals', compact('meals'));
     }

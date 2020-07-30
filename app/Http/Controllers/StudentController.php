@@ -36,7 +36,13 @@ class StudentController extends Controller
             if ($studentAem == Auth::user()->student_id) {
                 $student = new Student();
                 $student->aem = $studentAem;
-                $student->save();
+               
+
+                $status = $student->save();
+                    
+                if(!$status){
+                    report("Σφάλμα κατα την εγγραφή.");
+                }
                 return $this->profile($studentAem);
             } else {
                 abort(404, 'studentProfileNotFoundException');
@@ -71,13 +77,21 @@ class StudentController extends Controller
             if (in_array($extension, array('jpg', 'jpeg', 'png'))) {
                 $student->photo = md5($student->id) . '.' . $extension;
                 $request->photo->storeAs('public/studentProfiles', md5($student->id) . '.' . $extension);
-                $student->save();
+                $status = $student->save();
+                    
+                if(!$status){
+                    report("Σφάλμα κατα την εγγραφή.");
+                }
                 return view('admin.student.profile', compact('student'));
             } else {
                 return abort('403', 'studentProfileUpdateIllegalFileExtension');
             }
         } else {
-            $student->save();
+            $status = $student->save();
+                    
+            if(!$status){
+                report("Σφάλμα κατα την εγγραφή.");
+            }
             return view('admin.student.profile', compact('student'));
         }
     }
@@ -97,7 +111,11 @@ class StudentController extends Controller
         $student->semester = $request["semester"];
         $student->department_id = $request["department"];
         $student->aem = $request["aem"];
-        $student->save();
+        $status = $student->save();
+                    
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
 
         return Redirect::route('admin_students');
 

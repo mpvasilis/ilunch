@@ -20,8 +20,8 @@ class ContactController extends Controller
                 'email' => $request->get('email'),
                 'user_message' => $request->get('message')
             ), function ($message) {
-                $message->from('test@ilunch.vasilis.pw');
-                $message->to('me@vasilis.pw', 'Admin')->subject('Website Feedback');
+                $message->from('ilunch@uowm.gr');
+                $message->to('mdasyg@ieee.org', 'Admin')->subject('Website Feedback');
             });
 
         return \Redirect::route('front.contact')->with('message', 'Thanks for contacting us!');

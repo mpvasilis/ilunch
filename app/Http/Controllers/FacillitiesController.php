@@ -32,7 +32,12 @@ class FacillitiesController  extends Controller
         $facillity->title = $request['title'];
         $facillity->info = $request['info'];
         $facillity->is_active = $request['is_active'];
-        $facillity->save();
+        
+        $status = $facillity->save();
+                    
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
         $facillities = DB::table('facillities')->get();
         return view('admin.facillities', compact('facillities'));
     }

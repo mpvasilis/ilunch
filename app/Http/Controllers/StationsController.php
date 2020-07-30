@@ -40,7 +40,13 @@ class StationsController extends Controller
         $facillity->name = $request['title'];
         $facillity->info = $request['info'];
         $facillity->is_active = $request['is_active'];
-        $facillity->save();
+        
+        $status = $facillity->save();
+                    
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
+  
         $facillities = DB::table('stations')->get();
         return view('admin.stations', compact('stations'));
     }

@@ -85,7 +85,13 @@ $now = Carbon::now();
       $newFeedback->meal_id = $mealid;
       $newFeedback->stars = $stars;
       $newFeedback->date = $now ;
-      $newFeedback->save();
+      
+          
+      $status =  $newFeedback->save();
+                    
+      if(!$status){
+          report("Σφάλμα κατα την εγγραφή.");
+      }
 
       $meals = Menu_meal::get();
 
