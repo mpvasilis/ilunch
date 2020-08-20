@@ -79,7 +79,11 @@ class MembershipsController extends Controller
         $membershipType = new Membership_type();
         $membershipType->type = $request['type'];
         $membershipType->value = $request['value'];
-        $membershipType->save();
+        $status = $membershipType->save();
+                        
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
         return Redirect::route('admin_memberships_show');
     }
 
@@ -93,7 +97,11 @@ class MembershipsController extends Controller
         $membership->dinner = ($request['dinner'] == 1 ? 1 : 0);
         $membership->type_id = $request['membershipType'];
         $membership->created_by = Auth::user()->id;
-        $membership->save();
+        $status = $membership->save();
+                        
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
         return Redirect::route('admin_memberships_show');
     }
 
@@ -109,7 +117,11 @@ class MembershipsController extends Controller
         $assignment->student_id = $request["student"];
         $assignment->membership_id = $request["membership"];
         $assignment->created_by = Auth::user()->id;
-        $assignment->save();
+        $status = $assignment->save();
+                        
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
         return Redirect::route('admin_memberships_showAssign');
     }
 
@@ -119,7 +131,11 @@ class MembershipsController extends Controller
         $membership = Membership::find($membershipId);
         if ($membership != null) {
             $membership->is_active = $membership->is_active == 1 ? 0 : 1;
-            $membership->save();
+            $status = $membership->save();
+                        
+            if(!$status){
+                report("Σφάλμα κατα την εγγραφή.");
+            }
             return Redirect::route('admin_memberships_show');
         } else {
             return abort(404, 'deactivationMembershipNotFound');
@@ -162,7 +178,11 @@ class MembershipsController extends Controller
 
     public function update(Request $request)
     {
-        Membership::where('id', $request['id'])->update(['title' => $request['title'], 'breakfast' => $request['breakfast'],'lunch' => $request['lunch'],'dinner' => $request['dinner']]);
+        try{
+            Membership::where('id', $request['id'])->update(['title' => $request['title'], 'breakfast' => $request['breakfast'],'lunch' => $request['lunch'],'dinner' => $request['dinner']]);
+        } catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
 
         $Memberships = DB::table('memberships')->get();
 
@@ -172,7 +192,11 @@ class MembershipsController extends Controller
     public function delete(Request $request)
     {
 
-        Membership::where('id', $request['id'])->delete();
+        try{
+            Membership::where('id', $request['id'])->delete();
+        } catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
 
         $Memberships = DB::table('memberships')->get();
 

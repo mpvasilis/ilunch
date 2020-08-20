@@ -32,9 +32,8 @@ class StatsController extends Controller
 
         $stats = collect([]);
         $types = collect([]);
-        //  dd($statistics);
+          //dd($statistics);
         foreach ($statistics as $statistic) {
-
             $name = $statistic->student->firstname . " " . $statistic->student->lastname;
         //   dd($statistic->schedule_item->schedule_item);
             $his = collect(['id' => $statistic->id, 'name' => $name, 'date' => $statistic->created_at, 'meal_type' => $statistic->type_id, 'facillity_id' => $statistic->facillity_id]);

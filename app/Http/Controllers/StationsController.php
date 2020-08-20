@@ -53,20 +53,29 @@ class StationsController extends Controller
 
     public function update(Request $request)
     {
-        Menu_meal::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
+        try{
+            Station::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
+        } catch (\Exception $e) {
+             return abort(500, $e->getMessage());
+         }
 
-        $facillities = DB::table('Menu_meals')->get();
+        $facillities = DB::table('stations')->get();
 
-        return view('admin.meals', compact('meals'));
+        return view('admin.stations', compact('stations'));
     }
 
     public function delete(Request $request)
     {
 
-        Menu_meal::where('id', $request['id'])->delete();
+        try{
+            Station::where('id', $request['id'])->delete();
+        } catch (\Exception $e) {
+             return abort(500, $e->getMessage());
+         }
 
-        $facillities = DB::table('Menu_meals')->get();
 
-        return view('admin.meals', compact('meals'));
+        $facillities = DB::table('stations')->get();
+
+        return view('admin.stations', compact('stations'));
     }
 }

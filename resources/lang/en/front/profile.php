@@ -2,8 +2,8 @@
 
 return [
     'page-title' => 'Profile',
-    'page-title-full' => 'Student Profile',
-    'stud-inf-header' => 'Student Information:',
+    'page-title-full' => 'Profile',
+    'stud-inf-header' => 'Information:',
     'name' => 'First Name',
     'surname' => 'Last Name',
     'fathername' => 'Fathers Name:',
@@ -11,10 +11,10 @@ return [
     'depa' => 'Department:',
     'usr-inf-header' => 'User Information:',
     'email' => 'E-Mail:',
-    'id' => 'Student Id:',
+    'id' => 'Id:',
     'role' => 'Role:',
     'registered' => 'Registered:',
-    'np-usr-msg' => 'No user associated with this student!',
+    'np-usr-msg' => 'No data found for this user.',
     'statistics-header' => 'Statistics:',
     'totalv-header' => 'Total Visits:',
     'mealtype' => 'Meal Type',
@@ -31,7 +31,7 @@ return [
     'mb-remaing' => 'Remaining',
     'mb-createdby' => 'Created By',
     'meal' => 'Meal',
-    'edit-prof-header' => 'Edit Student Profile',
+    'edit-prof-header' => 'Edit Profile',
     'semester' => 'Semester:'
 
 

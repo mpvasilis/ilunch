@@ -25,7 +25,6 @@ class CasAuthController extends Controller
             $tmp=explode(':',$info['schacPersonalPosition']);
             $depid=$tmp[9];
             $occupation=$tmp[7];
-	    //dd($info);
     
             $uid=$info['uid'];
             $aem=preg_replace('/[^0-9]/', '', $uid);
@@ -37,49 +36,63 @@ class CasAuthController extends Controller
             } else {
                 try {
 
-                    $tmp=explode(':',$info['schGrAcInscription']);
+                    $tmp=explode(':',$info['schGrAcEmployment']);
                     $yearin=$tmp[8];
+                    try {
                     $tmp=explode(':',$info['schGrAcEnrollment']);
                     $semester=$tmp[7];
+                } catch (\Exception $e) {
+                   // return abort(500, $e->getMessage());
+                }
             
-            
-
-                    $user = new User();
-                    $user->student_id = $aem;
-                    $user->name = $info["cn"][1];
-                    $user->email = $info["mail"];
-                    $user->password = 'toBeReset';
-                    $user->role = $info["eduPersonAffiliation"];
-                    //dd($user);
-                    $status = $user->save();
-                    if(!$status){
-                        report("Σφάλμα κατα την εγγραφή.");
-                    }
 
                     if($info["eduPersonAffiliation"]!="faculty"){
-                    $profile = new Student();
-                    $profile->aem = $aem;
-                    $profile->firstname = $info["givenName"][0];
-                    $profile->lastname = $info["sn"][0];
-                    $profile->semester = $semester;
-                    $status = $profile->save();
-                    
-                    if(!$status){
-                        report("Σφάλμα κατα την εγγραφή.");
-                    }
+
+                        $user = new User();
+                        $user->student_id = $aem;
+                        $user->name = $info["cn"][1];
+                        $user->email = $info["mail"];
+                        $user->password = 'STUDENT_PASS_TO_RESET';
+                        $user->role = "STUDENT";
+                        //dd($user);
+                        $status = $user->save();
+                        if(!$status){
+                            report("Σφάλμα κατα την εγγραφή.");
+                        }    
+                        $profile = new Student();
+                        $profile->aem = $aem;
+                        $profile->firstname = $info["givenName"][0];
+                        $profile->lastname = $info["sn"][0];
+                        $profile->semester = $semester;
+                        $status = $profile->save();
+                        
+                        if(!$status){
+                            report("Σφάλμα κατα την εγγραφή.");
+                        }
 
                 }
                 else{
-                    $profile = new Student();
-                    $profile->aem = "0";
-                    $profile->firstname = $info["givenName"][0];
-                    $profile->lastname = $info["sn"][0];
-                    $profile->semester = "0";
-                    $status = $profile->save();
-                    
-                    if(!$status){
-                        report("Σφάλμα κατα την εγγραφή.");
-                    }
+                        $user = new User();
+                        $user->student_id = "99".rand(10,9000);
+                        $user->name = $info["cn"][1];
+                        $user->email = $info["mail"];
+                        $user->password = 'FACULITY_PASS_TO_RESET';
+                        $user->role = "STUDENT";
+                        //dd($user);
+                        $status = $user->save();
+                        if(!$status){
+                            report("Σφάλμα κατα την εγγραφή.");
+                        }
+                        $profile = new Student();
+                        $profile->aem =  "99".rand(10,9000);
+                        $profile->firstname = $info["givenName"][0];
+                        $profile->lastname = $info["sn"][0];
+                        $profile->semester = "0";
+                        $status = $profile->save();
+                        
+                        if(!$status){
+                            report("Σφάλμα κατα την εγγραφή.");
+                        }
                 }
                     Auth::login($user, true);
                     return Redirect::route('index');

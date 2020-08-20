@@ -144,17 +144,10 @@ class ApiController extends Controller
         }
         public function ckeckFreeSitisi($id)
         {
-            $student = Student::where('aem', $id)->first();
-            $usermembership = Membership_assign::where('id', $student->id)->orderBy('created_at', 'DESC');
+            $student = Student::where('paso', $id)->first();
+            $free_sitisi= $student->free_sitisi;
             $today = Carbon::today()->format('Y-m-d');
             $now = Carbon::now()->format('H:i:s');
-           
-            foreach ( $usermembership as $mbrs)
-            {   
-                if( strpos($mbrs->title, 'ΔΩΡΕΑΝ ΣΙΤΙΣΗ') !== false ){
-                    break;
-                }
-            }
             foreach (Menu_type::all() as $type)
             {
                 if ($now > $type->time_start && $now < $type->time_end)
@@ -162,51 +155,26 @@ class ApiController extends Controller
                     $mealtype = $type->id;
                 }
             }
-            if( strpos($usermembership->title, 'ΔΩΡΕΑΝ ΣΙΤΙΣΗ') !== false ){
-
-            
-            switch ($mealtype)
-            {
-                case 1:
-                    {
-                            $typename = $usermembership
-                                ->membership->breakfast;
-                    }
-                case 2:
-                    {
-                        $typename = $usermembership
-                            ->membership->lunch;
-                    }
-                case 3:
-                    {
-                        $typename = $usermembership
-                            ->membership->dinner;
-                    }
-                }
+            $typename = 1;
                 $scheduleid = Schedule_item::where('date', $today)->first()->id;
-                $allreadyeatten = Statistic::whereStudent_id($usermembership->student_id)
+                $allreadyeatten = Statistic::whereStudent_id($student->id)
                     ->whereType_id($mealtype)->whereSchedule_id($scheduleid)->get();
     
                 if ($allreadyeatten->isEmpty())
                 {
-                    $remaining = $usermembership->remaining;
-                    if ($remaining > 0 && $remaining != 'EXPIRED' && $typename == 1)
+                    if ($free_sitisi == 1)
                     {
                         //return response()->json($usermembership);
                         $art = new Statistic;
-                        $art->student_id = $usermembership->student_id;
+                        $art->student_id = $student->id;
                         $art->schedule_id = $scheduleid;
-                        $art->membership_id = $usermembership->membership_id;
+                        $art->membership_id = 0;
                         $art->type_id = $mealtype;
                         $art->save();
     
                         return response(0);
                     }
-                    else if ($typename == 0)
-                    {
-                        return response(1); //'Η συνδρομή σας δεν περιελαμβάνει αυτό τον τύπο γεύματος!
-                        
-                    }
+                  
                     else
                     {
                         return response(2); //'Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.
@@ -218,7 +186,7 @@ class ApiController extends Controller
                     return response(3); //'Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!'
                     
                 }
-            }
+            
     
             }
         public function getMealsByDate()
@@ -226,10 +194,6 @@ class ApiController extends Controller
 
             return response()->json($result);
         }
-        // public function getMealCalendar(){
-        //     return response()->json($result);
-        // }
-        
 
         
     }

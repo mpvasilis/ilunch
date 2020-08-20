@@ -20,6 +20,8 @@
                 {!! Form::text('fatherName', null, ['class' => 'form-control']) !!}
                 {!! Form::label('semester', 'Εξάμηνο') !!}
                 {!! Form::number('semester', null, ['class' => 'form-control']) !!}
+                {!! Form::label('paso', 'Πάσο') !!}
+                {!! Form::text('paso', null, ['class' => 'form-control']) !!}
                 {!! Form::label('photo', 'Φωτογραφία') !!}
                 {!! Form::file('photo', null, ['class' => 'form-control']) !!}
                 {!! Form::label('department', 'Πανεπιστιμιακό Τμήμα') !!}

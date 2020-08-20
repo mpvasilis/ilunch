@@ -45,7 +45,11 @@ class MealsController extends Controller
 
     public function update(Request $request)
     {
-        Menu_meal::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
+        try{
+            Menu_meal::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
+        } catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
 
         $meals = DB::table('menu_meals')->get();
 
@@ -54,8 +58,11 @@ class MealsController extends Controller
 
     public function delete(Request $request)
     {
-
-        Menu_meal::where('id', $request['id'])->delete();
+        try{
+            Menu_meal::where('id', $request['id'])->delete();
+        } catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
 
         $meals = DB::table('menu_meals')->get();
 

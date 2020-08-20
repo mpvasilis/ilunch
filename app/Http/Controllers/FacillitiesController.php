@@ -44,7 +44,11 @@ class FacillitiesController  extends Controller
 
     public function update(Request $request)
     {
-        Facillity::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
+        try{
+            Facillity::where('id', $request['id'])->update(['title' => $request['title'], 'info' => $request['info'], 'is_active' => $request['is_active']]);
+        } catch (\Exception $e) {
+             return abort(500, $e->getMessage());
+         }
 
         $facillities = DB::table('facillities')->get();
 
@@ -54,7 +58,12 @@ class FacillitiesController  extends Controller
     public function delete(Request $request)
     {
 
-        Facillity::where('id', $request['id'])->delete();
+        try{
+            Facillity::where('id', $request['id'])->delete();
+        } catch (\Exception $e) {
+             return abort(500, $e->getMessage());
+         }
+    
 
         $facillities = DB::table('facillities')->get();
 

@@ -53,6 +53,8 @@ class Student extends Model
         'department_id',
         'semester',
         'photo',
+        'paso',
+
     ];
 
 }

@@ -9,8 +9,9 @@ class Announcement extends Model
 
     public function scopeActive($query)
     {
-        $date = date('Y-m-d Η:i:s');
-        return $query->whereDate('show_until', '>', $date);
+        $date = date('Y-m-d H:i:s');
+        //var_dump($date);
+        return $query->where('show_until', '>', $date);
     }
 
     public function author()

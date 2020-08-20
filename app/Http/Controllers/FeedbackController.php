@@ -93,7 +93,17 @@ class FeedbackController extends Controller
          $newFeedback->rating = $stars;
          $newFeedback->filename = json_encode($data);
        
-        $newFeedback->save();
+         
+        try{
+           $status = $newFeedback->save();
+        } catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
+        if(!$status){
+            report("Σφάλμα κατα την εγγραφή.");
+        }
+
+      
 
          $stats = collect([]);
          $user = Auth::user();

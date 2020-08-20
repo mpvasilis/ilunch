@@ -2,8 +2,8 @@
 
 return [
     'page-title' => 'Προφιλ',
-    'page-title-full' => 'Προφιλ Φοιτητή',
-    'stud-inf-header' => 'Πληροφορίες Φοιτητή:',
+    'page-title-full' => 'Προφιλ',
+    'stud-inf-header' => 'Πληροφορίες:',
     'name' => 'Όνομα',
     'surname' => 'Επίθετο',
     'fathername' => 'Όνομα Πατέρα:',
@@ -11,10 +11,10 @@ return [
     'depa' => 'Τμήμα:',
     'usr-inf-header' => 'Πληροφορίες Χρήστη:',
     'email' => 'E-Mail:',
-    'id' => 'ID Φοιτητή:',
+    'id' => 'ID:',
     'role' => 'Ρόλος:',
     'registered' => 'Εγγραφή:',
-    'no-usr-msg' => 'Δεν υπάρχει αντιστόιχιση ανάμεσα σε φοιτητή και χρήστη!',
+    'no-usr-msg' => 'Δεν υπάρχουν δεδομένα!',
     'statistics-header' => 'Στατιστικά:',
     'totalv-header' => 'Συνολικές Επισκέψεις:',
     'mealtype' => 'Τύπος Γεύματος',
@@ -31,7 +31,7 @@ return [
     'mb-remaing' => 'Απομένει',
     'mb-createdby' => 'ΔΗμιουργήθηκε Από',
     'meal' => 'Γεύμα',
-    'edit-prof-header' => 'Επεξεργασία Προφιλ Φοιτητή',
+    'edit-prof-header' => 'Επεξεργασία Προφίλ',
     'semester' => 'Εξάμηνο:'
 
 ];

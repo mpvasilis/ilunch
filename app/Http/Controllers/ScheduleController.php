@@ -170,7 +170,13 @@ class ScheduleController extends Controller
     public function delete(Request $request)
     {   
      
-        Menu_assign::where('meal_id', $request['meal'])->Where('menu_id',$request['menu'])->Where('type_id',$request['type'])->delete();
+
+        try{
+            Menu_assign::where('meal_id', $request['meal'])->Where('menu_id',$request['menu'])->Where('type_id',$request['type'])->delete();
+        } catch (\Exception $e) {
+             return abort(500, $e->getMessage());
+         }
+
 
         
 

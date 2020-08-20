@@ -9,6 +9,7 @@
 
 @php
 $facillity = \App\Facillity::where(['id' => $key])->first();
+$count_rows=1;
 
 
 @endphp
@@ -16,8 +17,10 @@ $facillity = \App\Facillity::where(['id' => $key])->first();
 <div class="rowsched row tabcontent" id = "{{$facillity['title']}}">
           @for ($i = 1; $i < count($days); $i++)
                
-              <?php //dd($schedule);// dd($schedule[0]['meals']); ?>
-                   
+          <?php  $count_rows++; //dd($schedule);// dd($schedule[0]['meals']); ?>
+              @if( $count_rows==8 || $count_rows==16)
+          <div class=" row ">
+            @endif                   
                     <div class='scheduleitem' id='{{$facillity["title"]}}-{{$i-1}}'>
                         <!-- Widget: user widget style 1 -->
                         <div class="box box-widget widget-user-2">
@@ -67,9 +70,12 @@ $facillity = \App\Facillity::where(['id' => $key])->first();
                         </div>
                         <!-- /.widget-user -->
                       </div>
-                  
+                      @if( $count_rows==8 || $count_rows==16)
+          </div>
+            @endif
                     @endfor
                     </div>
+        
                 @endforeach
                     <div class="modal fade" id="modal-add" style="display: none;">
                 <div class="modal-dialog">
@@ -139,6 +145,7 @@ $facillity = \App\Facillity::where(['id' => $key])->first();
                     </div>
                 </div>
             </div>
+
 
 @endsection
 
