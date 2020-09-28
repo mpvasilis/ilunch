@@ -160,6 +160,9 @@ $(document).ready(function(){
 });
 
 
+$(".content").css("height", "1000px"); 
+
+
         $('#modal-add').on('show.bs.modal', function (e) {
 
             var day = $(e.relatedTarget).data('day');

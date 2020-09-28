@@ -77,9 +77,11 @@
                                     <li>
                                         <small>{{ trans('front/profile.fathername') }}</small></br> {{ $student->father_name }}
                                     </li>
+                                    @if($student->semester > 0)
                                     <li>
                                         <small>{{ trans('front/profile.semester') }}</small></br> {{ addOrdinalNumberSuffix($student->semester) }}
                                     </li>
+                                    @endif
                                     <li>
                                         <small>{{ trans('front/profile.depa') }}</small></br>
                                         @if($student->department !=null)
@@ -97,9 +99,13 @@
                                         <li>
                                             <small>{{ trans('front/profile.id') }}</small></br> {{ $student->aem }}
                                         </li>
+                                        @if($student->semester > 0)
                                         <li>
                                             <small>{{ trans('front/profile.role') }}</small></br> {{ $student->user->role }}
                                         </li>
+                                        @else
+                                        <small>{{ trans('front/profile.role') }}</small></br> FACULTY
+                                        @endif
                                         <li>
                                             <small>{{ trans('front/profile.registered') }}</small></br> {{ $student->user->created_at }}
                                         </li>
@@ -125,7 +131,7 @@
                                             <tr>
                                                 <th>{{getMealType($statistic->type_id)}}</th>
                                                 <th>{{ humanTiming($statistic->created_at) }}</th>
-                                                <th>{{$statistic->membership->title}}</th>
+                                                <th>{{ $statistic->membership->title ?? 'Δωρεάν Σίτιση' }}</th>
                                             </tr>
                                         @endforeach
                                     </table>

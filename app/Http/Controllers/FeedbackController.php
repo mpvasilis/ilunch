@@ -92,7 +92,7 @@ class FeedbackController extends Controller
          $newFeedback->schedule_id = $scheduleid;
          $newFeedback->rating = $stars;
          $newFeedback->filename = json_encode($data);
-       
+
          
         try{
            $status = $newFeedback->save();
@@ -123,7 +123,7 @@ class FeedbackController extends Controller
     public function index()
     {
 
-        $ratings = Rating::get();
+        $ratings = Rating::orderBy('created_at', 'desc')->get();
         $feeds = collect([]);
         $facilities= collect([]);
         foreach ($ratings as $rating) {

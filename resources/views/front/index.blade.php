@@ -308,7 +308,7 @@ $facid = $fac["id"];
                                                     <script>Swal.fire(
                                                             'Whoops!',
                                                             'Σφάλμα κατα την καταχώρηση του σχόλιου σας.',
-                                                            'success'
+                                                            'error'
                                                         )</script>
                                             <div class="alert alert-danger">
                                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>

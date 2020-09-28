@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('language/{lang}', 'HomeController@language')->where('lang', '[A-Za-z_-]+');
 Route::get('/', 'HomeController@index')->name('index');
 Route::post('/', 'FeedbackController@store')->name('feedback_st');
+Route::post('public', 'FeedbackController@store')->name('feedback_st');
+
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::get('/mealsvote', 'MealVotesController@indexfront')->name('mealsvote');
 Route::post('/mealsvote', 'MealVotesController@storevote')->name('mealvotes_form');

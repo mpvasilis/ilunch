@@ -45,12 +45,17 @@ class ApiController extends Controller
     public function submitFeedback(Request $request)
     {
         $data = $request->all();
+        //var_dump($data);
         $cnt = 0;
+
+        $pattern = '#^(0*)|([^\da-z])#i';
+        $replacement = '';
 
         foreach (json_decode($data["data"], true) as $row)
         {
-            $success = Rating::create(['rating' => $row["rating"], 'created_at' => $row["date"], 'station_id' => 1]);
-            if (is_null($success))
+             
+            $success = Rating::create(['rating' => $row["rating"], 'created_at' => preg_replace($pattern, $replacement, $row["date"]), 'station_id' => 1]);
+            if (is_null($success) || $success===false)
             {
                 return response()->json("There was an error, pls try again");
             }
@@ -122,22 +127,22 @@ class ApiController extends Controller
                     $art->type_id = $mealtype;
                     $art->save();
 
-                    return response(0);
+                    return response("0,". $usermembership->student->firstname." ".$usermembership->student->lastname.",".$usermembership->membership->title);
                 }
                 else if ($typename == 0)
                 {
-                    return response(1); //'Η συνδρομή σας δεν περιελαμβάνει αυτό τον τύπο γεύματος!
+                    return response("1,". $usermembership->student->firstname." ".$usermembership->student->lastname.",".$usermembership->membership->title); //'Η συνδρομή σας δεν περιελαμβάνει αυτό τον τύπο γεύματος!
                     
                 }
                 else
                 {
-                    return response(2); //'Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.
+                    return response("2,". $usermembership->student->firstname." ".$usermembership->student->lastname.",".$usermembership->membership->title); //'Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.
                     
                 }
             }
             else
             {
-                return response(3); //'Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!'
+                return response("3,". $usermembership->student->firstname." ".$usermembership->student->lastname.",".$usermembership->membership->title); //'Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!'
                 
             }
 
@@ -172,18 +177,18 @@ class ApiController extends Controller
                         $art->type_id = $mealtype;
                         $art->save();
     
-                        return response(0);
+                        return response("0,". $student->firstname." ".$student->lastname.","."Δωρεάν Σίτιση");
                     }
                   
                     else
                     {
-                        return response(2); //'Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.
+                        return response("2,". $student->firstname." ".$student->lastname.","."Δωρεάν Σίτιση"); //'Λυπούμαστε, η συνδρομή σας έχει λήξει, επικοινωνήστε με τον υπεύθυνο της λέσχης για ανανέωση της συνδρομής σας.
                         
                     }
                 }
                 else
                 {
-                    return response(3); //'Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!'
+                    return response("3,". $student->firstname." ".$student->lastname.","."Δωρεάν Σίτιση"); //'Λυπούμαστε αλλά όπως φαίνεται έχετε φάει!'
                     
                 }
             
