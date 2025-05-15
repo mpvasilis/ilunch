@@ -6,6 +6,7 @@ An integrated system for managing the needs of the University Student Canteen.
 - [Overview](#overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -28,6 +29,23 @@ An integrated system for managing the needs of the University Student Canteen.
 | **Frontend** | HTML · Blade templates · Vue.js |
 | **Backend**  | PHP (Laravel) |
 | **Tooling / Scripting** | Shell&nbsp;scripts · PowerShell · Ruby |
+
+## Screenshots
+Here are some previews of the iLunch platform:
+
+### Start Page
+![Start Page](https://i.imgur.com/5Aj8Bk7.png)
+
+### Admin Panel
+![Admin Panel 1](https://i.imgur.com/vvAfvKc.png)
+![Admin Panel 2](https://i.imgur.com/4GfARMj.png)
+
+### Android App
+![Android App](https://i.imgur.com/a4EYt1F.png)
+
+### Feedback Station
+![Feedback Station](https://i.imgur.com/1kRn0ln.png)
+
 
 ## Installation
 
