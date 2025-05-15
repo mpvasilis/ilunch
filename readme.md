@@ -1,55 +1,127 @@
-<h2 class="intro-text text-center"><strong>Κατασκευή Ολοκληρωμένου Συστήματος ilunch για τη
-                                Φοιτητική Λέσχη</strong></h2>
-                        <hr>
-                        <p>Δημιουργία website για την καλύτερη διαχείριση και παρακολούθηση της φοιτητικής λέσχης. <br>
-                            Βασική λειτουργία: Γενική Καταγραφή των ατόμων που έρχονται στη φοιτητική Λέσχη σίτισης του
-                            Πανεπιστημίου σε κάποιο γεύμα. Διατήρηση ιστορικού . Δημιουργία γραφημάτων (μήνα,
-                            ημέρα,εβδομάδα,γεύμα,πρωινό,απογευματινό,βραδυνό). Εμφάνιση συγκρίσεων περιόδων
-                            (μήνα/εβδομάδα/έτος/παραμετροποιήσιμο). <br>Δυνατότητα για λεπτομερή κατάγραφή των ατόμων με
-                            σάρωση ταυτότητας από Android 4.4 και άνω και εμφάνιση αν δικαιούται δωρεάν σίτιση ή όχι.
-                            <br>Δυνατότητα για δημιουργία καρτών σίτισης ειδικών λειτουργιών (π.χ κάρτα για ΧΧ γεύματα
-                            με ημερομηνία λήξης ΧΧΧΧΧΧ ή κάρτα για περίοδο από ΥΥΥΥΥ έως ΧΧΧΧΧ για 1 πρωινό/1
-                            μεσημεριανό/1 βραδυνό). Οι κάρτες θα μπορούν να εκτυπωθούν από το website (PDF) και θα
-                            φέρουν φωτογραφία κατόχου, πληροφοριακά στοιχεία κάρτας. Θα πρέπει να έχουν διαστάσεις είτε
-                            επαγγελματικής κάρτας ή σαν τις φοιτητικές ταυτότητες. Καταγραφή σε βάση δεδομένων για την
-                            καλύτερη επόπτευση της λειτουργίας από τη διοίκηση.<br> Δυνατότητα για προσθήκη μενού (με
-                            περιοδικότητα, π.χ. κάθε 2η εβδομάδα Δευτέρα....και επίσης διατροφικές πληροφορίες για τα
-                            φαγητά) και αυτόματη εμφάνιση στην πρώτη σελίδα για τη συγκεκριμένη ημέρα. <br>Δυνατότητα
-                            τοποθετήσεων ανώνυμων ή επώνυμων κριτικών για συγκεκριμένα φαγητά. Επίσης δυνατότητα για
-                            προσωρινές ανακοινώσεις στο site, π.χ. "Για τα επόμενα 30 λεπτά δωρεάν η σίτιση στη Λέσχη".
-                            (a) δημιουργία εφαρμογής android, (b) δημιουργία πρωτότυπης κατασκευής με arduino που θα
-                            τοποθετηθεί στη λέσχη και θα έχει 3 ή παραπάνω κουμπιά (χαρούμενο πρόσωπο, στεναχωρημένο
-                            πρόσωπο, ενδιάμεση-κατάσταση) στο ύψος περίπου 1 μέτρου. <br>Όποιος θέλει κατά την έξοδο θα
-                            πατάει το κουμπί που πιστεύει αφορά την ποιότητα του συγκεκριμένου γεύματος, και αυτά θα
-                            αποστέλλονται στο site διαχείρισης είτε θα υπάρχει δυνατότητα ένας διαχειριστής με κινητό
-                            bluetooth να πλησιάσει τη συσκευή και να τα μεταφορτώσει όλα (δηλάδή offline αποθήκευση σε
-                            SD κάρτα στο arduino και μεταφορά σε εφαρμογή android ή οποία θα μπορεί να τα στείλει στο
-                            website. <br>Η κατασκευή θα έχει και μια οθόνη στην οποία θα εμφανίζονται είτε μηνύματα
-                            (π.χ. Η γνώμη σας μετράει , Ευχαριστούμε για τη γνώμη σας...), στατιστικά (π.χ. Σήμερα
-                            καταγράφηκαν 40 γνώμες φοιτητών), ή μηνύματα που θα έχει γράψει ο διαχειριστής είτε στο
-                            website είτε μέσω της εφαρμογής του κινητού τηλεφώνου (αν δεν υπάρχει internet και τ arduino
-                            είναι offline) και όταν πλησιάζει με το κινητό του θα πατάει "Ενημέρωση ανακοινώσεων και θα
-                            στέλνονται τα νέα μηνύματα" μέσω bluetooth. Τα υλικά θα αγοραστούν από το διδάσκοντα, αλλά
-                            θα πρέπει να έχει γίνει έρευνα χαμηλού κόστους. <br>Για την επικοινωνία
-                            android-website-arduino θα απαιτηθεί η λειτουργία ενός webservice API. H κατασκευή θα πρέπει
-                            να είναι σταθερή και επαγγελματική χωρίς να φαίνονται καλώδια breadboard κτλ. Επίσης το
-                            website και η android εφαρμογή θα πρέπει να είναι φιλικές προς τους χρήστες (ιδιαίτερα τους
-                            άσχετους με θέματα πληροφορικής) και σχεδιαστικά ελκυστικές. <br>Το website θα έχει τους
-                            ρόλους: διαχειριστής (όλα ότι κάνουν οι άλλοι, προσθήκη διαγαφή χρηστών και κατηγοριών),
-                            φοιτητική μέριμνα (επεξεργασία λίστας δωρεάν φοίτησης,ανακοινώσεων, προβολή feedback),
-                            προσωπικό λέσχης (έκδοση καρτών, επεξεργασία λίστας δωρεάν φοίτησης, ανακοινώσεων, μενου,
-                            android σάρωση, προβολή feedback), φοιτητής (σύνδεση με SSO, προβολή στοιχείων που τον αφορά
-                            αν έχει κάρτα π.χ. ή πόσες φορές πήγε στη λέσχη), ανώνυμος (προβολή μενού και ανακοινώσεων).
-                        </p>
-                        
-                        Το πρώτο feature που
-θα πρέπει να υλοποιήσετε είναι κάθε εβδομάδα να υπάρχει η δυνατότητα να ψηφίζει ο κόσμος με βαθμολογία 1 έως 5 τα φαγητά που έχει φάει, και στο
-τέλος της εβδομάδας (και μετά του μήνα, και μετά του έτους) να εμφανίζεται μια λίστα με τα TOP 10 καλύτερα φαγητά και τα TOP 10 χειρότερα φαγητά της
-υπό εξέταση περιόδου.
+# iLunch
 
-το δεύτερο feature είναι να μπορούν να ανεβάζουν φωτογραφίες μαζί με τα σχόλια οι φοιτητές, όσες θέλουν. Αρχικά θα εμφανίζεται "Προσθήκη Φωτογραφίας"
-και μετά θα έχει δυνατότητα, "Προσθήκη επιπρόσθετης φωτογραφίας". Ο διαχειριστής θα βλέπει και τις φωτογραφίες. Οι φωτογραφίες ασφαλώς σύμφωνα
-με τις οδηγίες ανάπτυξης ιστοχώρου θα είναι hashed.
+An integrated system for managing the needs of the University Student Canteen.
 
-το επόμενο feature είναι να υποστηρίζει το site πολλαπλές λέσχες και πολλαπλά feedback stations. Τα αποτελέσματα θα είναι τόσο ανά λέσχη όσο και συνολικά
-για όλο το Πανεπιστήμιο
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [References](#references)
+
+## Overview
+**iLunch** is a web‑based platform that streamlines every major workflow in a university canteen—from daily meal planning to real‑time reporting—so that students get faster service and staff spend less time on manual administration.
+
+## Features
+- **User‑friendly portal** for both students and staff  
+- **Meal selection & scheduling** with nutritional info  
+- **Self‑service account management** (profile, balance, dietary preferences)  
+- **Administrative dashboard** for menu planning, inventory, and staff roles  
+- **Reporting & analytics** (daily transactions, dietary trends, inventory usage)
+
+## Technologies Used
+| Layer | Stack |
+|-------|-------|
+| **Frontend** | HTML · Blade templates · Vue.js |
+| **Backend**  | PHP (Laravel) |
+| **Tooling / Scripting** | Shell&nbsp;scripts · PowerShell · Ruby |
+
+## Installation
+
+### Prerequisites
+- **PHP 8.1+**
+- **Composer**
+- **Node.js 18+** (for front‑end assets)
+- A web server such as **Apache** or **Nginx**
+- A database such as **MySQL 8** or **MariaDB 10.6**
+
+### Steps
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/mpvasilis/ilunch.git
+   cd ilunch
+   ```
+
+2. **Install backend dependencies**
+
+   ```bash
+   composer install
+   ```
+
+3. **Install frontend dependencies**
+
+   ```bash
+   npm install && npm run dev
+   ```
+
+4. **Configure environment variables**
+
+   ```bash
+   cp .env.example .env
+   # open .env and update DB_*, MAIL_*, and other keys
+   ```
+
+5. **Generate an application key**
+
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Run database migrations**
+
+   ```bash
+   php artisan migrate --seed
+   ```
+
+7. **Start the development server**
+
+   ```bash
+   php artisan serve
+   ```
+
+   The site is now available at: <http://localhost:8000>
+
+## Usage
+- Browse or manage meals via the student/staff interface.  
+- Log in as an **administrator** to access inventory, menu planning, and user management.  
+- Export data or drill down into **Reports ➜ Analytics** for insights.
+
+## Contributing
+We :heart: contributions!  
+
+1. **Fork** the repo.  
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/my-awesome-feature
+   ```
+
+3. Commit & push:
+
+   ```bash
+   git add .
+   git commit -m "feat: add my awesome feature"
+   git push origin feature/my-awesome-feature
+   ```
+
+4. Open a **Pull Request** against `main`.
+
+Before submitting, please run:
+
+```bash
+./vendor/bin/phpunit   # backend tests
+npm run test           # front‑end tests
+```
+
+## License
+Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
+## References
+1. Laravel Framework Documentation – <https://laravel.com/docs>  
+2. Vue.js Guide – <https://vuejs.org/guide/>  
+3. MIT License – <https://opensource.org/licenses/MIT>
