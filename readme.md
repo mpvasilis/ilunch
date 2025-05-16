@@ -17,11 +17,16 @@ An integrated system for managing the needs of the University Student Canteen.
 **iLunch** is a web‑based platform that streamlines every major workflow in a university canteen—from daily meal planning to real‑time reporting—so that students get faster service and staff spend less time on manual administration.
 
 ## Features
-- **User‑friendly portal** for both students and staff  
-- **Meal selection & scheduling** with nutritional info  
-- **Self‑service account management** (profile, balance, dietary preferences)  
-- **Administrative dashboard** for menu planning, inventory, and staff roles  
-- **Reporting & analytics** (daily transactions, dietary trends, inventory usage)
+- Web platform with responsive design, user role management, and bilingual support (Greek/English)
+- Seamless integration with UOWM university authentication system via SSO
+- Student meal tracking with ID card scanning functionality
+- Digital meal cards with QR code generation for special meal plans
+- Interactive menu management with nutritional information and periodic rotation
+- Anonymous and user-authenticated feedback collection system
+- Real-time announcements and notifications system
+- Physical feedback station with Arduino interface and Bluetooth connectivity
+- Comprehensive analytics dashboard with graphical reports and statistics
+- Top-rated dishes tracking feature with weekly/monthly rankings
 
 ## Technologies Used
 | Layer | Stack |
