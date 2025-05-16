@@ -33,7 +33,6 @@ An integrated system for managing the needs of the University Student Canteen.
 |-------|-------|
 | **Frontend** | HTML · Blade templates · Vue.js |
 | **Backend**  | PHP (Laravel) |
-| **Tooling / Scripting** | Shell&nbsp;scripts · PowerShell · Ruby |
 
 ## Screenshots
 Here are some previews of the iLunch platform:
