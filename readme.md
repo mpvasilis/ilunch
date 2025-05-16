@@ -54,7 +54,7 @@ Here are some previews of the iLunch platform:
 ## Installation
 
 ### Prerequisites
-- **PHP 8.1+**
+- **PHP 7.1+**
 - **Composer**
 - **Node.js 18+** (for front‑end assets)
 - A web server such as **Apache** or **Nginx**
